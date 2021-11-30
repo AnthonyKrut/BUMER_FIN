@@ -1,0 +1,224 @@
+<section class="product-card">
+    <div class="container">
+        <div id="stock-article" class="stock-article">
+            <div class="stock-article__top">
+                <div class="arrow arrow_prev"></div>
+                <div class="arrow arrow_next"></div>
+                <div class="col-pics">
+                    <img v-for="pic in item_to_show.pics" :src="pic" @click="selectPic(pic)" alt="product image">
+                </div>
+
+                <div class="main-pic">
+                    <img :src="pic_to_show" alt="big product image">
+                </div>
+
+                <div class="col-info">
+                    <div class="adaptive-wrapper01">
+                        <div class="col-info__title title">
+                            <div class="title__article">{{article.article_num}}</div>
+                            <div v-show="isOnSale" class="title__sale">SALE</div>
+                        </div>
+                        <table class="col-info__table table">
+                            <tbody>
+                                <tr>
+                                    <td>Материал верха:</td>
+                                    <td>{{article.top_material}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Материал стельки:</td>
+                                    <td>{{article.insole_material}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Материал подошвы:</td>
+                                    <td>{{article.sole_material}}</td>
+                                </tr>
+                                <tr style="color: transparent">
+                                    <td></td>
+                                    <td>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Сезон:</td>
+                                    <td>{{article.season}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Вид обуви:</td>
+                                    <td>{{article.category}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-info__colors colors">
+                            <div class="colors__title">Цвет:</div>
+                            <div class="colors__list">
+                                <div v-for="item in article.items" :class="{active: item_to_show === item}"
+                                    :style="{backgroundColor: item.color_code}" @click="selectColor(item)"
+                                    class="colors__color"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="adaptive-wrapper02">
+                        <div :class="{invisible: !isOnSale}" class="col-info__price-old">
+                            <span>{{item_to_show.price_stndrt}}</span>грн
+                        </div>
+                        <div class="col-info__price-active"><span>{{activePrice}}</span>грн</div>
+                        <div class="col-info__btn">
+                            <svg>
+                                <use xlink:href="./img/sprite.svg#cart"></use>
+                            </svg>
+                            <span>КУПИТЬ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stock-article__bottom">
+                <ul class="sizes-available">
+                    <li :class="{notInStock: !isAvailableSize(40), active: item_to_cart.size === 40}"
+                        @click="selectSize(40)">40</li>
+                    <li :class="{notInStock: !isAvailableSize(41), active: item_to_cart.size === 41}"
+                        @click="selectSize(41)">41</li>
+                    <li :class="{notInStock: !isAvailableSize(42), active: item_to_cart.size === 42}"
+                        @click="selectSize(42)">42</li>
+                    <li :class="{notInStock: !isAvailableSize(43), active: item_to_cart.size === 43}"
+                        @click="selectSize(43)">43</li>
+                    <li :class="{notInStock: !isAvailableSize(44), active: item_to_cart.size === 44}"
+                        @click="selectSize(44)">44</li>
+                    <li :class="{notInStock: !isAvailableSize(45), active: item_to_cart.size === 45}"
+                        @click="selectSize(45)">45</li>
+                    <li :class="{notInStock: !isAvailableSize(46), active: item_to_cart.size === 46}"
+                        @click="selectSize(46)">46</li>
+                </ul>
+                <div class="sizes-table-btn">
+                    <svg>
+                        <use xlink:href="./img/sprite.svg#boot"></use>
+                    </svg>
+                    <span>Таблица размеров ></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="goods-offer">
+            <!-- WRITE IDENTICAL TO START PAGE -->
+            <div class="popular-products">
+                <div class="popular-products__line line">
+                    <div class="line__product product">
+                        <div class="product__label">SALE</div>
+                        <div class="product__pic">
+                            <img src="./img/stock-items/item01-01.png" alt="product picture">
+                        </div>
+                        <div class="product__specs">
+                            <div class="product__article">QN380</div>
+                            <div class="product__price">2250 <span>грн</span></div>
+                        </div>
+                    </div>
+                    <div class="line__product product">
+                        <div class="product__label">TOP</div>
+                        <div class="product__pic">
+                            <img src="./img/stock-items/item02-01.png" alt="product picture">
+                        </div>
+                        <div class="product__specs">
+                            <div class="product__article">QN380</div>
+                            <div class="product__price">2250 <span>грн</span></div>
+                        </div>
+                    </div>
+                    <div class="line__product product">
+                        <div class="product__label"></div>
+                        <div class="product__pic">
+                            <img src="./img/stock-items/item03-01.png" alt="product picture">
+                        </div>
+                        <div class="product__specs">
+                            <div class="product__article">QN380</div>
+                            <div class="product__price">2250 <span>грн</span></div>
+                        </div>
+                    </div>
+                    <div class="line__product product">
+                        <div class="product__label">NEW</div>
+                        <div class="product__pic">
+                            <img src="./img/stock-items/item01-01.png" alt="product picture">
+                        </div>
+                        <div class="product__specs">
+                            <div class="product__article">QN380</div>
+                            <div class="product__price">2250 <span>грн</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sizes-modal">
+        <div class="sizes-modal__wrapper">
+            <div class="sizes-modal__btn"></div>
+            <table class="sizes-modal__table">
+                <caption>таблица размеров</caption>
+                <thead>
+                    <tr>
+                        <th>EUR</th>
+                        <th>UK</th>
+                        <th>длина стопы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>.</td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>5</td>
+                        <td>25,3</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>6</td>
+                        <td>25,8</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>7</td>
+                        <td>26,4</td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>8</td>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>9</td>
+                        <td>27,6</td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>10</td>
+                        <td>28,3</td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>11</td>
+                        <td>28,9</td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>12</td>
+                        <td>29,6</td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td>13</td>
+                        <td>30,3</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="sizes-modal__text">
+                Чтобы правильно измерить длину вашей стопы, поставьте ногу на лист бумаги, отметьте две точки, носок и
+                пятка. Нарисуйте две линии перпендикулярно к ним - расстояние между этими линиями - это длина стопы.
+            </div>
+        </div>
+    </div>
+    <div class="added-modal">
+        <!-- WRITE IDENTICAL TO sizes-modal -->
+
+    </div>
+
+</section>

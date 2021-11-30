@@ -1,0 +1,151 @@
+{
+    "article_num = article old": "QN 380",
+    "top_material = materialProduct old": "Натуральная кожа",
+    "insole_material = materialInSole old": "Овчина",
+    "sole_material = materialSole old": "Полиуретан",
+    "season": "Зима",
+    "category = name old": "Ботинки",
+    "id": "old unused",
+    "categoryId": "old unused",
+    "description": "old unused",
+    "mount": "old unused",
+    "heel": "old unused",
+    "items": [
+        {
+            "color_name = size(s).size.colour old": "Зеленый",
+            "color_code": "#5c6b5c",
+            "price_stndrt = price old": 2599,
+            "price_sale": 1999,
+            "isNew = isNew old": true,
+            "rating = rating old": 0,
+            "pics = images.image.imageUri old": [
+                "./img/stock-items/item01-01.png",
+                "./img/stock-items/item01-02.png",
+                "./img/stock-items/item01-03.png",
+                {
+                    "images.image old": {
+                        "id": "old unused",
+                        "fileName": "old unused",
+                        "imagePosition": "old unused"
+                    }
+                }
+            ],
+            "sizes": [
+                {
+                    "size_num = size(s).size.value old": 40,
+                    "size_qty = size(s).size.quantity old": 5
+                },
+                {
+                    "size_num": 41,
+                    "size_qty": 10
+                },
+                {
+                    "size_num": 42,
+                    "size_qty": 6
+                },
+                {
+                    "size_num": 43,
+                    "size_qty": 8
+                },
+                {
+                    "size_num": 44,
+                    "size_qty": 5
+                },
+                {
+                    "size_num": 45,
+                    "size_qty": 1
+                },
+                {
+                    "size_num": 46,
+                    "size_qty": 0
+                }
+            ]
+        },
+        {
+            "color_name": "Синий",
+            "color_code": "#3e5474",
+            "price_stndrt": 2599,
+            "price_sale": 1999,
+            "isNew": false,
+            "rating": 1,
+            "pics": [
+                "./img/stock-items/item02-01.png",
+                "./img/stock-items/item02-02.png",
+                "./img/stock-items/item02-03.png"
+            ],
+            "sizes": [
+                {
+                    "size_num": 40,
+                    "size_qty": 1
+                },
+                {
+                    "size_num": 41,
+                    "size_qty": 4
+                },
+                {
+                    "size_num": 42,
+                    "size_qty": 6
+                },
+                {
+                    "size_num": 43,
+                    "size_qty": 0
+                },
+                {
+                    "size_num": 44,
+                    "size_qty": 10
+                },
+                {
+                    "size_num": 45,
+                    "size_qty": 7
+                },
+                {
+                    "size_num": 46,
+                    "size_qty": 2
+                }
+            ]
+        },
+        {
+            "color_name": "Черный",
+            "color_code": "#000000",
+            "price_stndrt": 2599,
+            "price_sale": 0,
+            "isNew": false,
+            "rating": 0,
+            "pics": [
+                "./img/stock-items/item03-01.png",
+                "./img/stock-items/item03-02.png",
+                "./img/stock-items/item03-03.png"
+            ],
+            "sizes": [
+                {
+                    "size_num": 40,
+                    "size_qty": 0
+                },
+                {
+                    "size_num": 41,
+                    "size_qty": 10
+                },
+                {
+                    "size_num": 42,
+                    "size_qty": 6
+                },
+                {
+                    "size_num": 43,
+                    "size_qty": 3
+                },
+                {
+                    "size_num": 44,
+                    "size_qty": 1
+                },
+                {
+                    "size_num": 45,
+                    "size_qty": 9
+                },
+                {
+                    "size_num": 46,
+                    "size_qty": 4
+                }
+            ]
+        }
+    ]
+}
