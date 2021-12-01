@@ -12,4 +12,4 @@ Choose proper node version: `nvm use`.
 
 Install node_modules: `yarn`
 
-Run the app: `yarn dev`. The app will be here  http://localhost:3000/
+Run the app: `yarn dev`. The app will be here  http://localhost:8080/

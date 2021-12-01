@@ -1,25 +1,6 @@
 <template>
   <section class="start-page">
-    <div class="wrapper-slider">
-      <div class="slider">
-        <div class="slider__item item item_first">
-          <div class="item__content">
-            <SvgImage name="logo" />
-            <div class="item__moto">
-              УДОБСТВО. ЛЕГКОСТЬ. ПРАКТИЧНОСТЬ.
-            </div>
-          </div>
-        </div>
-        <div class="slider__item item item_second">
-          <div class="item__content">
-            <SvgImage name="logo" />
-            <div class="item__moto">
-              УДОБСТВО. ЛЕГКОСТЬ. ПРАКТИЧНОСТЬ.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <HeroSlider />
 
     <div class="container">
       <div class="baner-winter">
@@ -277,12 +258,12 @@
 </template>
 
 <script>
-import SvgImage from '../components/common/SvgImage.vue'
+import HeroSlider from '../components/home-page/HeroSlider.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    SvgImage,
+    HeroSlider,
   },
 }
 </script>
@@ -295,110 +276,7 @@ export default {
 .start-page {
   position: relative;
   z-index: 1;
-  .wrapper-slider {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    width: 100vw;
-    max-height: 100vh;
-    margin-bottom: adaptive_fz(60px, 20px);
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      width: 0;
-    }
-  }
-  .slider {
-    @include slider_fix;
-    position: relative;
-    justify-content: space-evenly;
-    .slick-arrow {
-      position: absolute;
-      top: calc(50% - 0.5 * Min(52.5px, Max(30px, 0.75 * 5vw)));
-      z-index: 5;
-      display: block;
-      width: 5vw;
-      min-width: 40px;
-      max-width: 70px;
-      height: calc(0.75 * 5vw);
-      min-height: 30px;
-      max-height: 52.5px;
-      border: none;
-      background-color: rgba(255, 255, 255, 0.3);            font-size: 0;
-      font-size: 0;
-      cursor: pointer;
-      &::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-      &.slick-prev {
-        left: 3vw;
-        &::before {
-          background: url('../assets/img/svg/arr-left.svg') center/ 66% no-repeat;
-        }
-      }
-      &.slick-next {
-        right: 3vw;
-        &::before {
-          background: url('../assets/img/svg/arr-right.svg') center/ 66% no-repeat;
-        }
-      }
-    }
-    .slick-track {
-      display: flex;
-    }
-    .item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 25em;
-      width: 100vw;
-      font-family: 'PT Sans Caption', sans-serif;
-      font-size: adaptive_fz(30px, 10px);
-      font-weight: 700;
-      color: $contrast_color;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      &.item_first {
-        background-image: url('../assets/img/img-slider01.jpg');
-      }
-      &.item_second {
-        background-image: url('../assets/img/img-slider02.jpg');
-      }
-      &__content {
-        .item__logo {
-          margin-bottom: 3.25em;
-          display: block;
-          width: 19.25em;
-        }
-        //.item__moto {}
-      }
-    }
-    .slick-dots {
-      position: absolute;
-      bottom: 7px;
-      left: calc(50% - 0.5 * 29px);
-      display: flex;
-      font-size: 0;
-      li {
-        &:not(:last-child) {
-          margin-right: 15px;
-        }
-        button {
-          width: 7px;
-          height: 7px;
-          border: none;
-          border-radius: 50%;
-          background-color: $contrast_color;
-        }
-        &.slick-active button {
-          background-color: $grey_color_dark;
-        }
-      }
-    }
-  }
+
   .container {
     position: relative;
     z-index: 20;
