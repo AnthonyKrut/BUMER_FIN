@@ -1,0 +1,5 @@
+@function adaptive_fz($init_fz, $min_fz) {
+    $delta: calc(($init_fz - $min_fz) / 1px);
+    $adaptive_fz: calc(#{$min_fz} + #{$delta} * ((100vw - 320px) / (1440 - 320)));
+    @return $adaptive_fz;
+}
