@@ -20,37 +20,37 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 1
+                                size_qty: 1,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 4
+                                size_qty: 4,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 8
+                                size_qty: 8,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 10
+                                size_qty: 10,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 0
-                            }
+                                size_qty: 0,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item01-01.png',
                             './img/stock-items/item01-02.png',
                             './img/stock-items/item01-03.png',
-                        ]
+                        ],
                     },
                     {
                         color_name: 'Синий',
@@ -62,37 +62,37 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 1
+                                size_qty: 1,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 4
+                                size_qty: 4,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 0
+                                size_qty: 0,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 9
+                                size_qty: 9,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 10
-                            }
+                                size_qty: 10,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item02-01.png',
                             './img/stock-items/item02-02.png',
                             './img/stock-items/item02-03.png',
-                        ]
+                        ],
                     },
                     {
                         color_name: 'Черный',
@@ -104,39 +104,39 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 0
+                                size_qty: 0,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 4
+                                size_qty: 4,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 1
+                                size_qty: 1,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 9
+                                size_qty: 9,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 10
-                            }
+                                size_qty: 10,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item03-01.png',
                             './img/stock-items/item03-02.png',
                             './img/stock-items/item03-03.png',
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
             {
                 article_num: 'QN 450',
@@ -156,37 +156,37 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 1
+                                size_qty: 1,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 0
+                                size_qty: 0,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 4
+                                size_qty: 4,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 9
+                                size_qty: 9,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 0
-                            }
+                                size_qty: 0,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item01-01.png',
                             './img/stock-items/item01-02.png',
                             './img/stock-items/item01-03.png',
-                        ]
+                        ],
                     },
                     {
                         color_name: 'Синий',
@@ -198,37 +198,37 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 0
+                                size_qty: 0,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 4
+                                size_qty: 4,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 0
+                                size_qty: 0,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 9
+                                size_qty: 9,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 10
-                            }
+                                size_qty: 10,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item02-01.png',
                             './img/stock-items/item02-02.png',
                             './img/stock-items/item02-03.png',
-                        ]
+                        ],
                     },
                     {
                         color_name: 'Черный',
@@ -240,39 +240,39 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 0
+                                size_qty: 0,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 4
+                                size_qty: 4,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 1
+                                size_qty: 1,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 9
+                                size_qty: 9,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 10
-                            }
+                                size_qty: 10,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item03-01.png',
                             './img/stock-items/item03-02.png',
                             './img/stock-items/item03-03.png',
-                        ]
+                        ],
                     },
-                ]
+                ],
             },
             {
                 article_num: 'QN 900',
@@ -292,37 +292,37 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 1
+                                size_qty: 1,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 4
+                                size_qty: 4,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 1
+                                size_qty: 1,
                             }, {
                                 size_num: 44,
-                                size_qty: 0
+                                size_qty: 0,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 9
+                                size_qty: 9,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 0
-                            }
+                                size_qty: 0,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item01-01.png',
                             './img/stock-items/item01-02.png',
                             './img/stock-items/item01-03.png',
-                        ]
+                        ],
                     },
                     {
                         color_name: 'Синий',
@@ -334,37 +334,37 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 1
+                                size_qty: 1,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 0
+                                size_qty: 0,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 0
+                                size_qty: 0,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 7
-                            }
+                                size_qty: 7,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item02-01.png',
                             './img/stock-items/item02-02.png',
                             './img/stock-items/item02-03.png',
-                        ]
+                        ],
                     },
                     {
                         color_name: 'Черный',
@@ -376,47 +376,47 @@ let catalog_dynamic = new Vue({
                         sizes: [
                             {
                                 size_num: 40,
-                                size_qty: 0
+                                size_qty: 0,
                             },
                             {
                                 size_num: 41,
-                                size_qty: 2
+                                size_qty: 2,
                             },
                             {
                                 size_num: 42,
-                                size_qty: 4
+                                size_qty: 4,
                             },
                             {
                                 size_num: 43,
-                                size_qty: 7
+                                size_qty: 7,
                             }, {
                                 size_num: 44,
-                                size_qty: 6
+                                size_qty: 6,
                             },
                             {
                                 size_num: 45,
-                                size_qty: 9
+                                size_qty: 9,
                             },
                             {
                                 size_num: 46,
-                                size_qty: 10
-                            }
+                                size_qty: 10,
+                            },
                         ],
                         pics: [
                             './img/stock-items/item03-01.png',
                             './img/stock-items/item03-02.png',
                             './img/stock-items/item03-03.png',
-                        ]
+                        ],
                     },
-                ]
-            }
+                ],
+            },
         ],
         catalogToShowItems: [],
         filters: {
             sort_options: [
                 'Возрастанию цены',
                 'Убыванию цены',
-                'Новинки'
+                'Новинки',
             ],
             sizes: [
                 34,
@@ -431,7 +431,7 @@ let catalog_dynamic = new Vue({
                 43,
                 44,
                 45,
-                46
+                46,
             ],
             colors: [
                 {
@@ -457,25 +457,25 @@ let catalog_dynamic = new Vue({
                 {
                     color_name: 'Черный',
                     color_code: '#000000',
-                }
+                },
             ],
             categories: [
                 'Кроссовки',
                 'Ботинки',
-                'Туфли'
-            ]
+                'Туфли',
+            ],
         },
         filters_selected: {
             sort_option: null,
             sizes: [],
             colors: [],
-            category: 'Категория не выбрана'
-        }
+            category: 'Категория не выбрана',
+        },
     },
     computed: {
         isCatalogToShowItems() {
             return this.catalogToShowItems.length;
-        }
+        },
     },
     methods: {
         selectSortOption(sort_option) {
@@ -512,7 +512,7 @@ let catalog_dynamic = new Vue({
         },
         isSelectedSize(arg) {
             return this.filters_selected.sizes.some(
-                size => { return size === arg }
+                size => { return size === arg },
             );
         },
         applySelectedSize() {
@@ -546,7 +546,7 @@ let catalog_dynamic = new Vue({
         },
         isSelectedColor(arg) {
             return this.filters_selected.colors.some(
-                color => { return color === arg }
+                color => { return color === arg },
             );
         },
         applySelectedColor() {
@@ -577,9 +577,9 @@ let catalog_dynamic = new Vue({
                         this.catalogToShowItems.push(Object.assign(
                             {
                                 article_num: article.article_num,
-                                category: article.category
+                                category: article.category,
                             },
-                            item
+                            item,
                         ))
                     });
                 }
@@ -593,7 +593,7 @@ let catalog_dynamic = new Vue({
                 return item.price_sale
             } else { return item.price_stndrt }
         },
-    }
+    },
 });
 
 // filters show-hide animation

@@ -1,8 +1,8 @@
-@import "_fonts.scss";
-@import "_variables.scss";
-@import "_mixin.scss";
-@import "_functions.scss";
-@import "_normalize.scss";
+@import "fonts";
+@import "variables";
+@import "mixin";
+@import "functions";
+@import "normalize";
 
 // font-family: 'Poppins', sans-serif;
 // font-family: 'PT Sans Caption', sans-serif;
@@ -35,9 +35,9 @@ body {
     }
 }
 
-@import "_header.scss";
-@import "_start-page.scss";
-@import "_item-card.scss";
-@import "_catalog.scss";
+@import "header";
+@import "start-page";
+@import "item-card";
+@import "catalog";
 
-@import "_footer.scss";
+@import "footer";

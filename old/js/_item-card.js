@@ -3,7 +3,7 @@ let stock_article = new Vue({
     data: {
         article: {},
         item_to_show: {
-            sizes: []
+            sizes: [],
         },
         pic_to_show: null,
         item_to_cart: {
@@ -12,8 +12,8 @@ let stock_article = new Vue({
             color_name: null,
             price: null,
             size: null,
-            pic: null
-        }
+            pic: null,
+        },
     },
     computed: {
         isOnSale() {
@@ -23,7 +23,7 @@ let stock_article = new Vue({
             if (this.item_to_show.price_sale) {
                 return this.item_to_show.price_sale
             } else { return this.item_to_show.price_stndrt }
-        }
+        },
     },
     methods: {
         selectPic(pic) {
@@ -36,7 +36,7 @@ let stock_article = new Vue({
         },
         isAvailableSize(arg) {
             return this.item_to_show.sizes.some(
-                size => { return size === arg }
+                size => { return size === arg },
             )
         },
         selectSize(arg) {
@@ -48,8 +48,8 @@ let stock_article = new Vue({
                 this.item_to_cart.size = arg;
                 this.item_to_cart.pic = this.item_to_show.pics[0];
             }
-        }
-    }
+        },
+    },
 });
 
 // ЭМУЛЯЦИЯ ВЫБОРА ТОВАРА ПРИ КЛИКЕ В ДР РАЗДЕЛЕ
@@ -73,7 +73,7 @@ let article = {
                 './img/stock-items/item01-02.png',
                 './img/stock-items/item01-03.png',
                 // './img/stock-items/item01-04.png'
-            ]
+            ],
         },
         {
             color_name: 'Синий',
@@ -86,7 +86,7 @@ let article = {
                 './img/stock-items/item02-02.png',
                 './img/stock-items/item02-03.png',
                 // './img/stock-items/item02-04.png'
-            ]
+            ],
         },
         {
             color_name: 'Черный',
@@ -99,9 +99,9 @@ let article = {
                 './img/stock-items/item03-02.png',
                 './img/stock-items/item03-03.png',
                 // './img/stock-items/item03-04.png'
-            ]
+            ],
         },
-    ]
+    ],
 }
 
 let item_index = 1;
@@ -117,7 +117,7 @@ stock_article.item_to_cart.article_num = stock_article.article.article_num;
 stock_article.item_to_cart.category = stock_article.article.category;
 
 stock_article.item_to_cart.color_name = stock_article.item_to_show.color_name;
-stock_article.item_to_cart.size = stock_article.item_to_show.sizes[0];;
+stock_article.item_to_cart.size = stock_article.item_to_show.sizes[0];
 
 stock_article.item_to_cart.price = stock_article.activePrice;
 

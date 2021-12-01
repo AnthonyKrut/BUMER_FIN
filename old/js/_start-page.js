@@ -11,10 +11,10 @@ $(document).ready(() => {
                 breakpoint: 576,
                 settings: {
                     arrows: false,
-                    dots: true
-                }
-            }
-        ]
+                    dots: true,
+                },
+            },
+        ],
     });
 
 });
