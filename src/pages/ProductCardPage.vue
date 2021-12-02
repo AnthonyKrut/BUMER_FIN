@@ -482,7 +482,7 @@ export default {
           // border: 1px solid red;
           .title__article {
             margin-right: 2em;
-            line-height: calc(2.5 * adaptive_fz(12px, 8px));
+            line-height: 1.2;
             text-transform: uppercase;
           }
           .title__sale {
@@ -667,7 +667,7 @@ export default {
             width: 33%;
             display: flex;
             flex-direction: column;
-            justify-content: end;
+            justify-content: flex-end;
             .col-info__btn {
               align-self: flex-start;
             }

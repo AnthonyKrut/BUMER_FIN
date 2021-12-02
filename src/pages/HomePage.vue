@@ -1,45 +1,9 @@
 <template>
   <section class="start-page">
-    <div class="wrapper-slider">
-      <div class="slider">
-        <div class="slider__item item item_first">
-          <div class="item__content">
-            <SvgImage name="logo" />
-            <div class="item__moto">
-              УДОБСТВО. ЛЕГКОСТЬ. ПРАКТИЧНОСТЬ.
-            </div>
-          </div>
-        </div>
-        <div class="slider__item item item_second">
-          <div class="item__content">
-            <SvgImage name="logo" />
-            <div class="item__moto">
-              УДОБСТВО. ЛЕГКОСТЬ. ПРАКТИЧНОСТЬ.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <HeroSlider />
 
     <div class="container">
-      <div class="baner-winter">
-        <div class="baner-winter__pic pic">
-          <img alt="boy in sneakers" src="../assets/img/img-baner01-1.jpg">
-        </div>
-        <div class="baner-winter__about about">
-          <h3 class="about__title">
-            ЗИМНЯЯ КОЛЛЕКЦИЯ 2021
-          </h3>
-          <div class="about__article">
-            qn 380
-          </div>
-          <div class="about__price">
-            2999.99 <span>ГРН</span>
-          </div>
-          <img alt="sneaker" src="../assets/img/img-baner01-2.png">
-          <a href="#!"><img alt="arrow pointer" src="../assets/img/svg/arr-right-black.svg"></a>
-        </div>
-      </div>
+      <Banner1 />
 
       <div class="parallax-container">
         <div class="popular-products">
@@ -277,12 +241,14 @@
 </template>
 
 <script>
-import SvgImage from '../components/common/SvgImage.vue'
+import HeroSlider from '../components/home-page/HeroSlider.vue'
+import Banner1 from '@/components/home-page/Banner1'
 
 export default {
   name: 'HomePage',
   components: {
-    SvgImage,
+    Banner1,
+    HeroSlider,
   },
 }
 </script>
@@ -295,209 +261,15 @@ export default {
 .start-page {
   position: relative;
   z-index: 1;
-  .wrapper-slider {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    width: 100vw;
-    max-height: 100vh;
-    margin-bottom: adaptive_fz(60px, 20px);
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      width: 0;
-    }
-  }
-  .slider {
-    @include slider_fix;
-    position: relative;
-    justify-content: space-evenly;
-    .slick-arrow {
-      position: absolute;
-      top: calc(50% - 0.5 * Min(52.5px, Max(30px, 0.75 * 5vw)));
-      z-index: 5;
-      display: block;
-      width: 5vw;
-      min-width: 40px;
-      max-width: 70px;
-      height: calc(0.75 * 5vw);
-      min-height: 30px;
-      max-height: 52.5px;
-      border: none;
-      background-color: rgba(255, 255, 255, 0.3);            font-size: 0;
-      font-size: 0;
-      cursor: pointer;
-      &::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-      &.slick-prev {
-        left: 3vw;
-        &::before {
-          background: url('../assets/img/svg/arr-left.svg') center/ 66% no-repeat;
-        }
-      }
-      &.slick-next {
-        right: 3vw;
-        &::before {
-          background: url('../assets/img/svg/arr-right.svg') center/ 66% no-repeat;
-        }
-      }
-    }
-    .slick-track {
-      display: flex;
-    }
-    .item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 25em;
-      width: 100vw;
-      font-family: 'PT Sans Caption', sans-serif;
-      font-size: adaptive_fz(30px, 10px);
-      font-weight: 700;
-      color: $contrast_color;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      &.item_first {
-        background-image: url('../assets/img/img-slider01.jpg');
-      }
-      &.item_second {
-        background-image: url('../assets/img/img-slider02.jpg');
-      }
-      &__content {
-        .item__logo {
-          margin-bottom: 3.25em;
-          display: block;
-          width: 19.25em;
-        }
-        //.item__moto {}
-      }
-    }
-    .slick-dots {
-      position: absolute;
-      bottom: 7px;
-      left: calc(50% - 0.5 * 29px);
-      display: flex;
-      font-size: 0;
-      li {
-        &:not(:last-child) {
-          margin-right: 15px;
-        }
-        button {
-          width: 7px;
-          height: 7px;
-          border: none;
-          border-radius: 50%;
-          background-color: $contrast_color;
-        }
-        &.slick-active button {
-          background-color: $grey_color_dark;
-        }
-      }
-    }
-  }
+
   .container {
-    position: relative;
-    z-index: 20;
     background: $contrast_color; // !dont touch!
-    .parallax-wrapper {
-      position: sticky;
-      top: 0;
-      max-height: 100vh; // !dont touch!
-      overflow-y: scroll;
-      &::-webkit-scrollbar {
-        width: 0;
-      }
-    }
-    .parallax-container {
-      position: relative;
-      background: $contrast_color;
-    }
-    >.parallax-container {
-      z-index: 3;
-      >.parallax-container {
-        z-index: 4;
-        >.parallax-container {
-          z-index: 5;
-          >.parallax-container {
-            z-index: 6;
-          }
-        }
-      }
-    }
   }
-  .baner-winter {
-    display: flex;
-    font-size: adaptive_fz(20px, 12px);
-    font-weight: 700;
-    .pic {
-      width: 35%;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    .about {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 65%;
-      padding: 3.5vw 5vw; // 50px 70px
-      background-color: #f5f5f5;;
-      &__title {
-        font-size: adaptive_fz(20px, 12px);
-      }
-      &__article {
-        margin-bottom: 2em;
-        font-size: adaptive_fz(122px, 25px);
-        text-transform: uppercase;
-        text-align: center;
-      }
-      &__price {
-        font-size: adaptive_fz(35px, 17px);
-        span  {
-          font-size: adaptive_fz(18px, 10px);
-        }
-      }
-      >img {
-        position: absolute;
-        top: 31%;
-        left: calc(50% - 0.45 * 45%);
-        width: 45%;
-      }
-      a {
-        position: absolute;
-        right: 5vw;
-        bottom: 3.5vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 5vw;
-        min-width: 40px;
-        height: calc(0.75 * 5vw);
-        min-height: 30px;
-        img {
-          width: 66%;
-          height: 66%;
-        }
-      }
-    }
-    @media screen and (min-width: 1440px) {
-      .about {
-        &__article {
-          font-size: 122px;
-        }
-      }
-    }
-  }
+
   .popular-products {
     @include popular-products;
   }
+
   .baner-interseason {
     display: flex;
     justify-content: center;

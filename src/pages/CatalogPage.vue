@@ -649,7 +649,7 @@ export default {
             }
 
             &.active .size-checkbox::before {
-              background: url('../img/svg/tick-black.svg') center/80% 80% no-repeat;
+              background: url('../assets/img/svg/tick-black.svg') center/80% 80% no-repeat;
             }
           }
         }
@@ -686,7 +686,7 @@ export default {
               }
 
               &::after {
-                background: url('../img/svg/tick.svg') center/75% no-repeat;
+                background: url('../assets/img/svg/tick.svg') center/75% no-repeat;
               }
             }
           }

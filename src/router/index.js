@@ -1,4 +1,5 @@
-import { createWebHistory, createRouter } from 'vue-router'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
 import HomePage from '../pages/HomePage.vue'
 import CatalogPage from '../pages/CatalogPage.vue'
@@ -22,10 +23,12 @@ const routes = [
   },
 ]
 
-const router = createRouter({
-  history: createWebHistory(),
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  mode: 'history',
   routes,
-});
+})
 
 router.beforeEach((to, from, next) => {
   window.scrollTo(0, 0)
