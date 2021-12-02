@@ -3,24 +3,7 @@
     <HeroSlider />
 
     <div class="container">
-      <div class="baner-winter">
-        <div class="baner-winter__pic pic">
-          <img alt="boy in sneakers" src="../assets/img/img-baner01-1.jpg">
-        </div>
-        <div class="baner-winter__about about">
-          <h3 class="about__title">
-            ЗИМНЯЯ КОЛЛЕКЦИЯ 2021
-          </h3>
-          <div class="about__article">
-            qn 380
-          </div>
-          <div class="about__price">
-            2999.99 <span>ГРН</span>
-          </div>
-          <img alt="sneaker" src="../assets/img/img-baner01-2.png">
-          <a href="#!"><img alt="arrow pointer" src="../assets/img/svg/arr-right-black.svg"></a>
-        </div>
-      </div>
+      <Banner1 />
 
       <div class="parallax-container">
         <div class="popular-products">
@@ -259,10 +242,12 @@
 
 <script>
 import HeroSlider from '../components/home-page/HeroSlider.vue'
+import Banner1 from '@/components/home-page/Banner1'
 
 export default {
   name: 'HomePage',
   components: {
+    Banner1,
     HeroSlider,
   },
 }
@@ -278,104 +263,13 @@ export default {
   z-index: 1;
 
   .container {
-    position: relative;
-    z-index: 20;
     background: $contrast_color; // !dont touch!
-    .parallax-wrapper {
-      position: sticky;
-      top: 0;
-      max-height: 100vh; // !dont touch!
-      overflow-y: scroll;
-      &::-webkit-scrollbar {
-        width: 0;
-      }
-    }
-    .parallax-container {
-      position: relative;
-      background: $contrast_color;
-    }
-    >.parallax-container {
-      z-index: 3;
-      >.parallax-container {
-        z-index: 4;
-        >.parallax-container {
-          z-index: 5;
-          >.parallax-container {
-            z-index: 6;
-          }
-        }
-      }
-    }
   }
-  .baner-winter {
-    display: flex;
-    font-size: adaptive_fz(20px, 12px);
-    font-weight: 700;
-    .pic {
-      width: 35%;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    .about {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 65%;
-      padding: 3.5vw 5vw; // 50px 70px
-      background-color: #f5f5f5;;
-      &__title {
-        font-size: adaptive_fz(20px, 12px);
-      }
-      &__article {
-        margin-bottom: 2em;
-        font-size: adaptive_fz(122px, 25px);
-        text-transform: uppercase;
-        text-align: center;
-      }
-      &__price {
-        font-size: adaptive_fz(35px, 17px);
-        span  {
-          font-size: adaptive_fz(18px, 10px);
-        }
-      }
-      >img {
-        position: absolute;
-        top: 31%;
-        left: calc(50% - 0.45 * 45%);
-        width: 45%;
-      }
-      a {
-        position: absolute;
-        right: 5vw;
-        bottom: 3.5vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 5vw;
-        min-width: 40px;
-        height: calc(0.75 * 5vw);
-        min-height: 30px;
-        img {
-          width: 66%;
-          height: 66%;
-        }
-      }
-    }
-    @media screen and (min-width: 1440px) {
-      .about {
-        &__article {
-          font-size: 122px;
-        }
-      }
-    }
-  }
+
   .popular-products {
     @include popular-products;
   }
+
   .baner-interseason {
     display: flex;
     justify-content: center;

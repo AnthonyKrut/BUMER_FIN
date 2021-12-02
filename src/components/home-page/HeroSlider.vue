@@ -1,10 +1,10 @@
 <template>
-  <Swiper :options="swiperOption" class="swiper">
+  <Swiper class="swiper" :options="swiperOption">
     <SwiperSlide
       v-for="(slide, index) in slides"
       :key="index"
-      :style="`background-image: url(${slide.image})`"
       class="swiper__item"
+      :style="`background-image: url(${slide.image})`"
     >
       <div class="swiper__item-content">
         <SvgImage class="swiper__item-logo" name="logo" />
@@ -13,9 +13,9 @@
         </div>
       </div>
     </SwiperSlide>
-    <div class="swiper__pagination" slot="pagination"></div>
-    <div slot="button-prev" class="swiper__button swiper__button--prev"></div>
-    <div slot="button-next" class="swiper__button swiper__button--next"></div>
+    <div slot="pagination" class="swiper__pagination" />
+    <div slot="button-prev" class="swiper__button swiper__button--prev" />
+    <div slot="button-next" class="swiper__button swiper__button--next" />
   </Swiper>
 </template>
 
@@ -44,7 +44,7 @@ export default {
         },
         pagination: {
           el: '.swiper__pagination',
-          clickable: true
+          clickable: true,
         },
         navigation: {
           nextEl: '.swiper__button--next',
