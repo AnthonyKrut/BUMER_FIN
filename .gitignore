@@ -3,6 +3,8 @@ node_modules
 dist
 dist-ssr
 *.local
+_gulp-old/
+workspace.code-workspace
 
 # local env files
 .env
