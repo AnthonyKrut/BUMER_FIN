@@ -7,142 +7,127 @@
 
       <div class="parallax-container">
         <div class="popular-products">
-          <h3 class="popular-products__title">
-            ПОПУЛЯРНЫЕ ТОВАРЫ
-          </h3>
+          <h3 class="popular-products__title">ПОПУЛЯРНЫЕ ТОВАРЫ</h3>
           <div class="popular-products__line line line_fisrt">
-            <router-link class="line__product product" :to="{name: 'Product'}">
-              <div class="product__label">
-                SALE
-              </div>
+            <router-link
+              class="line__product product"
+              :to="{ name: 'Product' }"
+            >
+              <div class="product__label">SALE</div>
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item01-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item01-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
-            <router-link class="line__product product" :to="{name: 'Product'}">
-              <div class="product__label">
-                TOP
-              </div>
+            <router-link
+              class="line__product product"
+              :to="{ name: 'Product' }"
+            >
+              <div class="product__label">TOP</div>
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item02-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item02-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
-            <router-link class="line__product product" :to="{name: 'Product'}">
+            <router-link
+              class="line__product product"
+              :to="{ name: 'Product' }"
+            >
               <div class="product__label" />
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item03-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item03-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
-            <router-link class="line__product product" :to="{name: 'Product'}">
-              <div class="product__label">
-                NEW
-              </div>
+            <router-link
+              class="line__product product"
+              :to="{ name: 'Product' }"
+            >
+              <div class="product__label">NEW</div>
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item01-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item01-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
           </div>
 
-          <div class="baner-interseason">
-            <div class="baner-interseason__title title">
-              <span class="title__text">межсезонная<br>коллекция</span>
-              <span class="title__discount">&ndash;30%</span>
-            </div>
-          </div>
+          <Banner2 />
 
           <div class="popular-products__line line line_second">
             <div class="line__product product">
-              <div class="product__label">
-                SALE
-              </div>
+              <div class="product__label">SALE</div>
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item01-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item01-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
             <div class="line__product product">
-              <div class="product__label">
-                TOP
-              </div>
+              <div class="product__label">TOP</div>
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item02-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item02-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
             <div class="line__product product">
               <div class="product__label" />
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item03-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item03-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
             <div class="line__product product">
-              <div class="product__label">
-                NEW
-              </div>
+              <div class="product__label">NEW</div>
               <div class="product__pic">
-                <img alt="product picture" src="../../public/img/stock-items/item01-01.png">
+                <img
+                  alt="product picture"
+                  src="../../public/img/stock-items/item01-01.png"
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
           </div>
@@ -151,11 +136,12 @@
         <div class="parallax-container">
           <div class="story-one">
             <div class="story-one__pic">
-              <img alt="boot image" src="../assets/img/img-main01.png">
+              <img alt="boot image" src="../assets/img/img-main01.png" />
             </div>
             <div class="story-one__text">
               <p>
-                Мы объединяем классические модели с модными вырезами и высококачественными материалами.
+                Мы объединяем классические модели с модными вырезами и
+                высококачественными материалами.
               </p>
               <p>Мировые тренды в оригинальном и удобном варианте.</p>
               <p>Бесплатный возврат и обмен до 30 дней.</p>
@@ -168,8 +154,14 @@
               <div class="story-two">
                 <div class="story-two__col-big col-big">
                   <div class="col-big__pic">
-                    <img alt="bicycle riders" src="../assets/img/img-main02.jpg">
-                    <img alt="leg in sneaker" src="../assets/img/img-main03.jpg">
+                    <img
+                      alt="bicycle riders"
+                      src="../assets/img/img-main02.jpg"
+                    />
+                    <img
+                      alt="leg in sneaker"
+                      src="../assets/img/img-main03.jpg"
+                    />
                   </div>
                   <div class="col-big__numbers">
                     <div>
@@ -189,14 +181,21 @@
                 <div class="story-two__col-small col-small">
                   <div class="col-small__text">
                     <div>
-                      <span>BUMER</span> объединяет классические формы с оригинальными деталями,
-                      вдохновленными
-                      подиумной модой, а также предлагаем смелые решения от популярных инфлюенсеров.
+                      <span>BUMER</span> объединяет классические формы с
+                      оригинальными деталями, вдохновленными подиумной модой, а
+                      также предлагаем смелые решения от популярных
+                      инфлюенсеров.
                     </div>
                   </div>
                   <div class="col-small__pic">
-                    <img alt="leg in sneaker" src="../assets/img/img-main03.jpg">
-                    <img alt="bicycle riders" src="../assets/img/img-main02.jpg">
+                    <img
+                      alt="leg in sneaker"
+                      src="../assets/img/img-main03.jpg"
+                    />
+                    <img
+                      alt="bicycle riders"
+                      src="../assets/img/img-main02.jpg"
+                    />
                   </div>
                 </div>
               </div>
@@ -209,7 +208,7 @@
                   <span>магазинов по Украине</span>
                 </div>
                 <div class="map__pic">
-                  <img alt="map of bumer stores" src="../assets/img/map.svg">
+                  <img alt="map of bumer stores" src="../assets/img/map.svg" />
                 </div>
               </div>
 
@@ -217,19 +216,19 @@
                 <div class="quote__text">
                   <p>В мире моды для нас нет границ и ограничений!</p>
                   <p>
-                    BUMER следует самым актуальным модным трендам — в наших коллекциях классические
-                    узоры
-                    сочетаются с
-                    оригинальными, ультрасовременными решениями.
+                    BUMER следует самым актуальным модным трендам — в наших
+                    коллекциях классические узоры сочетаются с оригинальными,
+                    ультрасовременными решениями.
                   </p>
                 </div>
                 <div class="quote__author author">
                   <div class="author__logo">
-                    <img alt="bumer logo" src="../assets/img/svg/logo-black.svg">
+                    <img
+                      alt="bumer logo"
+                      src="../assets/img/svg/logo-black.svg"
+                    />
                   </div>
-                  <div class="author__date">
-                    EST. 1999
-                  </div>
+                  <div class="author__date">EST. 1999</div>
                 </div>
               </div>
             </div>
@@ -241,16 +240,18 @@
 </template>
 
 <script>
-import HeroSlider from '../components/home-page/HeroSlider.vue'
-import Banner1 from '@/components/home-page/Banner1'
+import HeroSlider from '../components/home-page/HeroSlider.vue';
+import Banner1 from '@/components/home-page/Banner1';
+import Banner2 from '@/components/home-page/Banner2';
 
 export default {
   name: 'HomePage',
   components: {
+    Banner2,
     Banner1,
     HeroSlider,
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -270,40 +271,10 @@ export default {
     @include popular-products;
   }
 
-  .baner-interseason {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4.85em; // 580px;
-    font-size: adaptive_fz(120px, 24px);
-    font-weight: 700;
-    color: $contrast_color;
-    background: url('../assets/img/img-baner02.jpg') center/cover no-repeat;
-    .title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 65%;
-      min-width: 250px;
-      &__text {
-        font-size: adaptive_fz(40px, 17px);
-        text-transform: uppercase;
-      }
-      // &__discount {}
-    }
-    @media screen and (min-width: 1440px) {
-      font-size: 120px;
-      .title{
-        &__text {
-          font-size: 40px;
-        }
-      }
-    }
-  }
   .story-one {
     display: flex;
     margin-bottom: 4em;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: adaptive_fz(46px, 15px);
     font-weight: 700;
     &__pic {
@@ -376,11 +347,11 @@ export default {
         justify-content: space-evenly;
         height: 30em;
         padding-left: 6.5vw;
-        >div {
+        > div {
           &:last-child {
             display: none;
           }
-          >div:first-child {
+          > div:first-child {
             font-size: adaptive_fz(70px, 20px);
             font-weight: 600;
             color: $main_color;
@@ -421,8 +392,8 @@ export default {
     @media screen and (min-width: 1440px) {
       .col-big {
         &__numbers {
-          >div {
-            >div:first-child {
+          > div {
+            > div:first-child {
               font-size: 70px;
             }
           }
@@ -447,7 +418,7 @@ export default {
           height: unset;
           padding: 0;
           text-align: center;
-          >div {
+          > div {
             margin-top: 2.5em;
             &:last-child {
               display: block;
@@ -514,7 +485,7 @@ export default {
       }
       &__pic {
         height: 13em;
-        background: url('../assets/img/map.svg') 70% 40%/275% no-repeat;
+        background: url("../assets/img/map.svg") 70% 40%/275% no-repeat;
         img {
           display: none;
         }
@@ -537,8 +508,8 @@ export default {
         width: 2.5em;
         height: 2.5em;
         margin: 0 auto 1.25em;
-        content: '';
-        background: url('../assets/img/svg/quotes.svg') center/contain no-repeat;
+        content: "";
+        background: url("../assets/img/svg/quotes.svg") center/contain no-repeat;
       }
     }
     &__author {
@@ -565,5 +536,4 @@ export default {
     }
   }
 }
-
 </style>
