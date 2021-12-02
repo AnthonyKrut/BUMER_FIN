@@ -564,6 +564,7 @@ export default {
       font-size: adaptive_fz(14px, 9px);
       font-weight: 700;
       color: $main_color;
+
       .author__logo {
         width: 12.5vw;
         min-width: 150px;
