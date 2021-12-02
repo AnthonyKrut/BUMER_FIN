@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HomePage from '../pages/HomePage.vue'
-import CatalogPage from '../pages/CatalogPage.vue'
-import ProductPage from '../pages/ProductCardPage.vue'
+import HomePage from '../pages/HomePage'
+import CatalogPage from '../pages/CatalogPage'
+import ProductPage from '../pages/ProductCardPage'
+import CheckoutPage from '../pages/СheckoutPage'
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: '/product',
     name: 'Product',
     component: ProductPage,
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: CheckoutPage,
   },
 ]
 

@@ -9,21 +9,21 @@
             <img
               v-for="pic in item_to_show.pics"
               :key="pic"
-              alt="product image"
               :src="pic"
+              alt="product image"
               @click="selectPic(pic)"
             >
           </div>
 
           <div class="main-pic">
-            <img alt="big product image" :src="pic_to_show">
+            <img :src="pic_to_show" alt="big product image">
           </div>
 
           <div class="col-info">
             <div class="adaptive-wrapper01">
               <div class="col-info__title title">
                 <div class="title__article">
-                  {{ article.article_num }}
+                  {{ product.article_num }}
                 </div>
                 <div v-show="isOnSale" class="title__sale">
                   SALE
@@ -31,30 +31,30 @@
               </div>
               <table class="col-info__table table">
                 <tbody>
-                  <tr>
-                    <td>Материал верха:</td>
-                    <td>{{ article.top_material }}</td>
-                  </tr>
-                  <tr>
-                    <td>Материал стельки:</td>
-                    <td>{{ article.insole_material }}</td>
-                  </tr>
-                  <tr>
-                    <td>Материал подошвы:</td>
-                    <td>{{ article.sole_material }}</td>
-                  </tr>
-                  <tr style="color: transparent">
-                    <td />
-                    <td>.</td>
-                  </tr>
-                  <tr>
-                    <td>Сезон:</td>
-                    <td>{{ article.season }}</td>
-                  </tr>
-                  <tr>
-                    <td>Вид обуви:</td>
-                    <td>{{ article.category }}</td>
-                  </tr>
+                <tr>
+                  <td>Материал верха:</td>
+                  <td>{{ product.top_material }}</td>
+                </tr>
+                <tr>
+                  <td>Материал стельки:</td>
+                  <td>{{ product.insole_material }}</td>
+                </tr>
+                <tr>
+                  <td>Материал подошвы:</td>
+                  <td>{{ product.sole_material }}</td>
+                </tr>
+                <tr style="color: transparent">
+                  <td />
+                  <td>.</td>
+                </tr>
+                <tr>
+                  <td>Сезон:</td>
+                  <td>{{ product.season }}</td>
+                </tr>
+                <tr>
+                  <td>Вид обуви:</td>
+                  <td>{{ product.category }}</td>
+                </tr>
                 </tbody>
               </table>
               <div class="col-info__colors colors">
@@ -63,11 +63,11 @@
                 </div>
                 <div class="colors__list">
                   <div
-                    v-for="item in article.items"
+                    v-for="item in product.items"
                     :key="item.color_code"
-                    class="colors__color"
                     :class="{active: item_to_show === item}"
                     :style="{backgroundColor: item.color_code}"
+                    class="colors__color"
                     @click="selectColor(item)"
                   />
                 </div>
@@ -75,16 +75,16 @@
             </div>
 
             <div class="adaptive-wrapper02">
-              <div class="col-info__price-old" :class="{invisible: !isOnSale}">
+              <div :class="{invisible: !isOnSale}" class="col-info__price-old">
                 <span>{{ item_to_show.price_stndrt }}</span>грн
               </div>
               <div class="col-info__price-active">
                 <span>{{ activePrice }}</span>грн
               </div>
-              <div class="col-info__btn">
+              <Btn @click.native="addProductToCart">
                 <SvgImage name="cart" />
-                <span>КУПИТЬ</span>
-              </div>
+                <span>Купить</span>
+              </Btn>
             </div>
           </div>
         </div>
@@ -217,63 +217,63 @@
         <table class="sizes-modal__table">
           <caption>таблица размеров</caption>
           <thead>
-            <tr>
-              <th>EUR</th>
-              <th>UK</th>
-              <th>длина стопы</th>
-            </tr>
+          <tr>
+            <th>EUR</th>
+            <th>UK</th>
+            <th>длина стопы</th>
+          </tr>
           </thead>
           <tbody>
-            <tr>
-              <td />
-              <td />
-              <td>.</td>
-            </tr>
-            <tr>
-              <td>39</td>
-              <td>5</td>
-              <td>25,3</td>
-            </tr>
-            <tr>
-              <td>40</td>
-              <td>6</td>
-              <td>25,8</td>
-            </tr>
-            <tr>
-              <td>41</td>
-              <td>7</td>
-              <td>26,4</td>
-            </tr>
-            <tr>
-              <td>42</td>
-              <td>8</td>
-              <td>27</td>
-            </tr>
-            <tr>
-              <td>43</td>
-              <td>9</td>
-              <td>27,6</td>
-            </tr>
-            <tr>
-              <td>44</td>
-              <td>10</td>
-              <td>28,3</td>
-            </tr>
-            <tr>
-              <td>45</td>
-              <td>11</td>
-              <td>28,9</td>
-            </tr>
-            <tr>
-              <td>46</td>
-              <td>12</td>
-              <td>29,6</td>
-            </tr>
-            <tr>
-              <td>47</td>
-              <td>13</td>
-              <td>30,3</td>
-            </tr>
+          <tr>
+            <td />
+            <td />
+            <td>.</td>
+          </tr>
+          <tr>
+            <td>39</td>
+            <td>5</td>
+            <td>25,3</td>
+          </tr>
+          <tr>
+            <td>40</td>
+            <td>6</td>
+            <td>25,8</td>
+          </tr>
+          <tr>
+            <td>41</td>
+            <td>7</td>
+            <td>26,4</td>
+          </tr>
+          <tr>
+            <td>42</td>
+            <td>8</td>
+            <td>27</td>
+          </tr>
+          <tr>
+            <td>43</td>
+            <td>9</td>
+            <td>27,6</td>
+          </tr>
+          <tr>
+            <td>44</td>
+            <td>10</td>
+            <td>28,3</td>
+          </tr>
+          <tr>
+            <td>45</td>
+            <td>11</td>
+            <td>28,9</td>
+          </tr>
+          <tr>
+            <td>46</td>
+            <td>12</td>
+            <td>29,6</td>
+          </tr>
+          <tr>
+            <td>47</td>
+            <td>13</td>
+            <td>30,3</td>
+          </tr>
           </tbody>
         </table>
         <div class="sizes-modal__text">
@@ -290,15 +290,18 @@
 
 <script>
 import SvgImage from '../components/common/SvgImage.vue'
+import Btn from '@/components/common/Btn'
+import {mapMutations} from 'vuex'
 
 export default {
   name: 'ProductCardPage',
   components: {
+    Btn,
     SvgImage,
   },
   data() {
     return {
-      article: {
+      product: {
         article_num: 'QN 380',
         top_material: 'Натуральная кожа',
         insole_material: 'Овчина',
@@ -374,6 +377,16 @@ export default {
     },
   },
   methods: {
+    ...mapMutations('common', [
+      'openCartPopover'
+    ]),
+    ...mapMutations('cart', [
+      'addToCart'
+    ]),
+    addProductToCart() {
+      this.addToCart(this.product)
+      this.openCartPopover()
+    },
     selectPic(pic) {
       this.pic_to_show = pic
     },
@@ -391,8 +404,8 @@ export default {
     },
     selectSize(arg) {
       if (this.isAvailableSize(arg)) {
-        this.item_to_cart.article_num = this.article.article_num
-        this.item_to_cart.category = this.article.category
+        this.item_to_cart.article_num = this.product.article_num
+        this.item_to_cart.category = this.product.category
         this.item_to_cart.color_name = this.item_to_show.color_name
         this.item_to_cart.price = this.activePrice
         this.item_to_cart.size = arg
@@ -409,13 +422,15 @@ export default {
 @import "../assets/scss/mixins";
 
 .product-card {
-  .container{
+  .container {
     background: $contrast_color;
   }
+
   .stock-article {
     &__top {
       position: relative;
       display: flex;
+
       .arrow {
         position: absolute;
         top: calc(50% - 0.5 * Min(52.5px, Max(30px, 0.75 * 5vw)));
@@ -429,13 +444,15 @@ export default {
         // border: 1px solid red;
         &_prev {
           background: url('../assets/img/svg/arr-left-black.svg') 100% center/ 66% no-repeat;
-          left: calc( -1 * Max(40px, 5vw));
+          left: calc(-1 * Max(40px, 5vw));
         }
+
         &_next {
           background: url('../assets/img/svg/arr-right-black.svg') 0% center/ 66% no-repeat;
-          right: calc( -1 * Max(40px, 5vw));
+          right: calc(-1 * Max(40px, 5vw));
         }
       }
+
       .col-pics {
         width: 25%;
         display: flex;
@@ -447,11 +464,13 @@ export default {
           width: 50%;
           object-fit: contain;
           cursor: pointer;
+
           &:hover {
             box-shadow: 0 0 0 2px $grey_color;
           }
         }
       }
+
       .main-pic {
         // width: 42%;
         width: calc(0.42 * 90vw);
@@ -470,6 +489,7 @@ export default {
           // border: 1px solid green;
         }
       }
+
       .col-info {
         width: 33%;
         //border: 1px solid red;
@@ -485,6 +505,7 @@ export default {
             line-height: 1.2;
             text-transform: uppercase;
           }
+
           .title__sale {
             padding: 0 1em;
             font-size: adaptive_fz(12px, 8px);
@@ -493,6 +514,7 @@ export default {
             background-color: #c61d24;
           }
         }
+
         &__table {
           width: 100%;
           margin-bottom: 2.3em;
@@ -505,20 +527,24 @@ export default {
               color: $grey_color_dark;
               text-transform: uppercase;
             }
+
             td:last-child {
               font-weight: 700;
             }
           }
         }
+
         &__colors {
           margin-bottom: 5.5em;
           font-size: adaptive_fz(12px, 9px);
           font-weight: 400;
+
           .colors__title {
             margin-bottom: 1em;
             color: $grey_color_dark;
             // border: 1px solid red;
           }
+
           .colors__list {
             display: flex;
             // border: 1px solid red;
@@ -529,9 +555,11 @@ export default {
               border: 2px solid $contrast_color;
               box-shadow: 0 0 0 2px $grey_color;
               cursor: pointer;
+
               &:not(:last-child) {
                 margin-right: 10px;
               }
+
               &.active::before,
               &.active::after {
                 position: absolute;
@@ -543,12 +571,14 @@ export default {
                 height: 11px;
                 background: $main_color;
               }
+
               &.active::after {
                 background: url('../assets/img/svg/tick.svg') center/ 80% no-repeat;
               }
             }
           }
         }
+
         &__price-old {
           font-size: adaptive_fz(14px, 9px);
           color: $grey_color_light;
@@ -556,6 +586,7 @@ export default {
           &.invisible {
             visibility: hidden;
           }
+
           span {
             margin-right: 0.1em;
             font-size: adaptive_fz(25px, 14px);
@@ -563,6 +594,7 @@ export default {
             text-decoration: line-through;
           }
         }
+
         &__price-active {
           margin-bottom: 0.3em;
           font-size: adaptive_fz(30px, 16px);
@@ -574,6 +606,7 @@ export default {
             line-height: 1.5em;
           }
         }
+
         &__btn {
           display: inline-flex;
           padding: 0 2em;
@@ -582,6 +615,7 @@ export default {
           font-weight: 700;
           line-height: 3.33em;
           cursor: pointer;
+
           svg {
             width: 1.5em;
             height: 3.33em;
@@ -589,17 +623,21 @@ export default {
             stroke: $main_color
             // border: 1px solid green;
           }
+
           &:hover {
             color: $contrast_color;
             background: $main_color;
+
             svg {
               stroke: $contrast_color;
             }
           }
+
           // span {}
         }
       }
-      @media  screen and (max-width: 370px) {
+
+      @media screen and (max-width: 370px) {
         .col-info {
           &__colors {
             .colors__list {
@@ -609,8 +647,10 @@ export default {
               }
             }
           }
+
           &__btn {
             line-height: 2.66em;
+
             svg {
               height: 2.66em;
             }
@@ -620,11 +660,13 @@ export default {
       @media screen and (max-width: 767px) {
         flex-direction: column-reverse;
         .arrow {
-          top:100%;
+          top: 100%;
+
           &_prev {
             left: 0;
             background-position: 0% center;
           }
+
           &_next {
             right: 0;
             background-position: 100% center;
@@ -633,6 +675,7 @@ export default {
         .col-pics {
           width: 100%;
           flex-direction: row;
+
           img {
             width: 33%;
             height: calc(1.36 * 0.33 * (100vw - 5px));
@@ -646,6 +689,7 @@ export default {
           width: 100%;
           display: flex;
           justify-content: space-between;
+
           .adaptive-wrapper01 {
             width: 66%;
             //.col-info__table {// margin-bottom: 0;// 2.3em;}
@@ -653,21 +697,25 @@ export default {
               display: flex;
               align-items: center;
               margin-bottom: 0;
+
               .colors__title {
                 padding-left: 0.15em;
                 width: 50%;
               }
+
               .colors__list {
                 width: 50%;
                 padding-left: 1.15em;
               }
             }
           }
+
           .adaptive-wrapper02 {
             width: 33%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+
             .col-info__btn {
               align-self: flex-start;
             }
@@ -675,6 +723,7 @@ export default {
         }
       }
     }
+
     &__bottom {
       text-align: center;
       // border: 1px solid green;
@@ -696,15 +745,18 @@ export default {
           &:not(:last-child) {
             margin-right: 0.75em;
           }
+
           &.active {
             border: 1px solid $grey_color_light;
           }
+
           &.notInStock {
             text-decoration: line-through;
             color: $grey_color_light;
           }
         }
       }
+
       .sizes-table-btn {
         display: inline-flex;
         margin-bottom: 8em;
@@ -720,20 +772,25 @@ export default {
           margin-right: 0.5em;
           stroke: $main_color;
         }
+
         &:hover svg {
           stroke: $attention_color;
         }
+
         // span {}
       }
     }
+
     @media screen and (max-width: 575px) {
       width: 90%;
       margin: 0 auto;
     }
   }
+
   .goods-offer {
     @include popular-products;
   }
+
   .sizes-modal {
     position: fixed;
     top: -125vh;
@@ -747,10 +804,12 @@ export default {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     transition: all 1s 0.125s ease;
+
     &.active {
       top: 0;
       transform: rotate3d(1, 1, 0, 0deg);
     }
+
     &__wrapper {
       position: relative;
       width: 45vw;
@@ -763,6 +822,7 @@ export default {
         width: 75vw;
       }
     }
+
     &__btn {
       position: absolute;
       top: calc(0.05 * 40vw);
@@ -772,33 +832,40 @@ export default {
       background: url('../assets/img/svg/cross.svg') center/ contain no-repeat;
       cursor: pointer;
     }
+
     &__table {
       width: 100%;
       margin-bottom: 2em;
       border-spacing: 0;
+
       caption {
         margin-bottom: 1.2em;
         font-size: adaptive_fz(25px, 12px);
         font-weight: 700;
         text-transform: uppercase;
       }
+
       tbody tr:first-child {
         visibility: hidden;
       }
+
       tr {
         line-height: 2em;
         text-transform: uppercase;
         text-align: center;
+
         th,
         td {
           border-bottom: 1px solid $grey_color;
         }
+
         th:last-child,
         td:last-child {
           width: 50%;
         }
       }
     }
+
     &__text {
       font-size: adaptive_fz(11px, 8px);
       line-height: 1.3em;
@@ -806,6 +873,7 @@ export default {
       text-align: center;
     }
   }
+
   //.added-modal{}
 }
 </style>
