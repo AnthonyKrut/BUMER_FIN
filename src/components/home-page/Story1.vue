@@ -2,10 +2,10 @@
   <div class="story-one">
     <div class="story-one__pic">
       <img
-        class="story-one__pic-img"
         alt="boot image"
+        class="story-one__pic-img"
         src="../../assets/img/img-main01.png"
-      />
+      >
     </div>
     <div class="story-one__text">
       <p>
