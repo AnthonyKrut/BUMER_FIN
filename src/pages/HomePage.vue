@@ -7,52 +7,38 @@
 
       <div class="parallax-container">
         <div class="popular-products">
-          <h3 class="popular-products__title">
-            ПОПУЛЯРНЫЕ ТОВАРЫ
-          </h3>
+          <h3 class="popular-products__title">ПОПУЛЯРНЫЕ ТОВАРЫ</h3>
           <div class="popular-products__line line line_fisrt">
             <router-link
               class="line__product product"
               :to="{ name: 'Product' }"
             >
-              <div class="product__label">
-                SALE
-              </div>
+              <div class="product__label">SALE</div>
               <div class="product__pic">
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item01-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
             <router-link
               class="line__product product"
               :to="{ name: 'Product' }"
             >
-              <div class="product__label">
-                TOP
-              </div>
+              <div class="product__label">TOP</div>
               <div class="product__pic">
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item02-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
             <router-link
@@ -64,37 +50,27 @@
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item03-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
             <router-link
               class="line__product product"
               :to="{ name: 'Product' }"
             >
-              <div class="product__label">
-                NEW
-              </div>
+              <div class="product__label">NEW</div>
               <div class="product__pic">
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item01-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </router-link>
           </div>
@@ -103,41 +79,29 @@
 
           <div class="popular-products__line line line_second">
             <div class="line__product product">
-              <div class="product__label">
-                SALE
-              </div>
+              <div class="product__label">SALE</div>
               <div class="product__pic">
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item01-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
             <div class="line__product product">
-              <div class="product__label">
-                TOP
-              </div>
+              <div class="product__label">TOP</div>
               <div class="product__pic">
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item02-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
             <div class="line__product product">
@@ -146,54 +110,31 @@
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item03-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
             <div class="line__product product">
-              <div class="product__label">
-                NEW
-              </div>
+              <div class="product__label">NEW</div>
               <div class="product__pic">
                 <img
                   alt="product picture"
                   src="../../public/img/stock-items/item01-01.png"
-                >
+                />
               </div>
               <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
+                <div class="product__article">QN380</div>
+                <div class="product__price">2250 <span>грн</span></div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="parallax-container">
-          <div class="story-one">
-            <div class="story-one__pic">
-              <img alt="boot image" src="../assets/img/img-main01.png">
-            </div>
-            <div class="story-one__text">
-              <p>
-                Мы объединяем классические модели с модными вырезами и
-                высококачественными материалами.
-              </p>
-              <p>Мировые тренды в оригинальном и удобном варианте.</p>
-              <p>Бесплатный возврат и обмен до 30 дней.</p>
-              <p>Новые модели каждый день. Специальное предложение.</p>
-            </div>
-          </div>
+          <Story1 />
 
           <div class="parallax-container">
             <div class="parallax-wrapper">
@@ -203,11 +144,11 @@
                     <img
                       alt="bicycle riders"
                       src="../assets/img/img-main02.jpg"
-                    >
+                    />
                     <img
                       alt="leg in sneaker"
                       src="../assets/img/img-main03.jpg"
-                    >
+                    />
                   </div>
                   <div class="col-big__numbers">
                     <div>
@@ -237,11 +178,11 @@
                     <img
                       alt="leg in sneaker"
                       src="../assets/img/img-main03.jpg"
-                    >
+                    />
                     <img
                       alt="bicycle riders"
                       src="../assets/img/img-main02.jpg"
-                    >
+                    />
                   </div>
                 </div>
               </div>
@@ -254,7 +195,7 @@
                   <span>магазинов по Украине</span>
                 </div>
                 <div class="map__pic">
-                  <img alt="map of bumer stores" src="../assets/img/map.svg">
+                  <img alt="map of bumer stores" src="../assets/img/map.svg" />
                 </div>
               </div>
 
@@ -272,11 +213,9 @@
                     <img
                       alt="bumer logo"
                       src="../assets/img/svg/logo-black.svg"
-                    >
+                    />
                   </div>
-                  <div class="author__date">
-                    EST. 1999
-                  </div>
+                  <div class="author__date">EST. 1999</div>
                 </div>
               </div>
             </div>
@@ -291,10 +230,12 @@
 import HeroSlider from '../components/home-page/HeroSlider.vue';
 import Banner1 from '@/components/home-page/Banner1';
 import Banner2 from '@/components/home-page/Banner2';
+import Story1 from '@/components/home-page/Story1';
 
 export default {
   name: 'HomePage',
   components: {
+    Story1,
     Banner2,
     Banner1,
     HeroSlider,
@@ -319,58 +260,6 @@ export default {
     @include popular-products;
   }
 
-  .story-one {
-    display: flex;
-    margin-bottom: 4em;
-    font-family: "Roboto", sans-serif;
-    font-size: adaptive_fz(46px, 15px);
-    font-weight: 700;
-    &__pic {
-      display: flex;
-      align-items: center;
-      width: 40%;
-      img {
-        position: relative;
-        left: 10%;
-        top: 10%;
-        z-index: 5;
-        width: 100%;
-        display: block;
-      }
-    }
-    &__text {
-      width: 60%;
-      padding-right: 0.5em;
-      line-height: 1em;
-      color: $grey_color_light;
-      p:nth-child(2) {
-        color: $main_color;
-      }
-    }
-    @media screen and (min-width: 1440px) {
-      font-size: 46px;
-    }
-    @media screen and (max-width: 575px) {
-      flex-direction: column-reverse;
-      align-items: center;
-      margin-bottom: 2em;
-      &__pic {
-        width: 60%;
-        img {
-          left: 0%;
-          top: 0%;
-        }
-      }
-      &__text {
-        width: 75%;
-        text-transform: uppercase;
-        p {
-          margin-bottom: 1.5em;
-          line-height: normal;
-        }
-      }
-    }
-  }
   .story-two {
     display: flex;
     justify-content: space-between;
