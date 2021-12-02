@@ -1,47 +1,55 @@
 <template>
-  <div>
-    <VueAgile>
-      <div class="slide">
-        <h3>slide 1</h3>
-      </div>
-
-      <div class="slide">
-        <h3>slide n</h3>
-      </div>
-    </VueAgile>
-    <div class="slider">
-      <div
-        v-for="slide in slides"
-        :key="slide.text"
-        class="slider__item"
-        :style="`background-image: url(${slide.image})`"
-      >
-        <div class="item__content">
-          <SvgImage name="logo" />
-          <div class="item__moto">
-            {{ slide.text }}
-          </div>
+  <Swiper :options="swiperOption" class="swiper">
+    <SwiperSlide
+      v-for="(slide, index) in slides"
+      :key="index"
+      :style="`background-image: url(${slide.image})`"
+      class="swiper__item"
+    >
+      <div class="swiper__item-content">
+        <SvgImage class="swiper__item-logo" name="logo" />
+        <div class="swiper__item-text">
+          {{ slide.text }}
         </div>
       </div>
-    </div>
-  </div>
+    </SwiperSlide>
+    <div class="swiper__pagination" slot="pagination"></div>
+    <div slot="button-prev" class="swiper__button swiper__button--prev"></div>
+    <div slot="button-next" class="swiper__button swiper__button--next"></div>
+  </Swiper>
 </template>
 
 <script>
 import SvgImage from '../common/SvgImage.vue'
-// import { VueAgile } from 'vue-agile'
+import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
 
 export default {
   name: 'HeroSlider',
   components: {
     SvgImage,
+    Swiper,
+    SwiperSlide,
   },
   data() {
     return {
       swiperOption: {
-        // align: "center",
-        // circular: true,
-        // panelsPerView: 1
+        slidesPerView: 1,
+        spaceBetween: 30,
+        effect: 'fade',
+        loop: true,
+        autoplay: {
+          delay: 4500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper__pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper__button--next',
+          prevEl: '.swiper__button--prev',
+        },
       },
       slides: [
         {
@@ -63,14 +71,14 @@ export default {
 @import "../../assets/scss/functions";
 @import "../../assets/scss/mixins";
 
-.slider {
+.swiper {
   @include slider_fix;
   position: relative;
   justify-content: space-evenly;
   margin-bottom: adaptive_fz(60px, 20px);
 }
 
-.slick-arrow {
+.swiper__button {
   position: absolute;
   top: calc(50% - 0.5 * Min(52.5px, Max(30px, 0.75 * 5vw)));
   z-index: 5;
@@ -93,7 +101,7 @@ export default {
     height: 100%;
   }
 
-  &.slick-prev {
+  &.swiper__button--prev {
     left: 3vw;
 
     &::before {
@@ -101,7 +109,7 @@ export default {
     }
   }
 
-  &.slick-next {
+  &.swiper__button--next {
     right: 3vw;
 
     &::before {
@@ -110,11 +118,7 @@ export default {
   }
 }
 
-.slick-track {
-  display: flex;
-}
-
-.slider__item {
+.swiper__item {
   height: calc(100vh - 161px);
   display: flex;
   justify-content: center;
@@ -128,35 +132,28 @@ export default {
   background-size: cover;
 }
 
-.slider__item-logo {
+.swiper__item-logo {
   margin-bottom: 3.25em;
   display: block;
   width: 19.25em;
 }
 
-.slick-dots {
+.swiper__pagination {
   position: absolute;
   bottom: 7px;
   left: calc(50% - 0.5 * 29px);
   display: flex;
   font-size: 0;
+  z-index: 2;
 
-  li {
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
-
-    button {
-      width: 7px;
-      height: 7px;
-      border: none;
-      border-radius: 50%;
-      background-color: $contrast_color;
-    }
-
-    &.slick-active button {
-      background-color: $grey_color_dark;
-    }
+  ::v-deep .swiper-pagination-bullet {
+    margin-right: 8px;
+    margin-left: 8px;
+    width: 7px;
+    height: 7px;
+    border: none;
+    border-radius: 50%;
+    background-color: $contrast_color;
   }
 }
 
