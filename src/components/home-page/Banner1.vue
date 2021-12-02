@@ -1,17 +1,21 @@
 <template>
   <div class="banner-1">
     <div class="banner-1__pic">
-      <img class="banner-1__img" alt="boy in sneakers" src="../../assets/img/img-baner01-1.jpg">
+      <img alt="boy in sneakers" class="banner-1__img" src="../../assets/img/img-baner01-1.jpg">
     </div>
     <div class="banner-1__about">
-      <h3 class="banner-1__about-title">ЗИМНЯЯ КОЛЛЕКЦИЯ 2021</h3>
-      <div class="banner-1__about-article">qn 380</div>
+      <h3 class="banner-1__about-title">
+        ЗИМНЯЯ КОЛЛЕКЦИЯ 2021
+      </h3>
+      <div class="banner-1__about-article">
+        qn 380
+      </div>
       <div class="banner-1__about-price">
         2999.99 <span class="banner-1__about-price-currency">ГРН</span>
       </div>
-      <img class="banner-1__about-img" alt="sneaker" src="../../assets/img/img-baner01-2.png">
-      <router-link to="/" class="banner-1__about-link">
-        <img class="banner-1__about-link-img" alt="arrow pointer" src="../../assets/img/svg/arr-right-black.svg">
+      <img alt="sneaker" class="banner-1__about-img" src="../../assets/img/img-baner01-2.png">
+      <router-link class="banner-1__about-link" to="/">
+        <img alt="arrow pointer" class="banner-1__about-link-img" src="../../assets/img/svg/arr-right-black.svg">
       </router-link>
     </div>
   </div>
