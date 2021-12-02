@@ -1,7 +1,7 @@
 <template>
   <div class="banner-2">
     <div class="banner-2__title">
-      <span class="banner-2__title-text">межсезонная<br />коллекция</span>
+      <span class="banner-2__title-text">межсезонная<br>коллекция</span>
       <span class="banner-2__title-discount">&ndash;30%</span>
     </div>
   </div>
