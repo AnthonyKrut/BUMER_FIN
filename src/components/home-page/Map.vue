@@ -9,7 +9,7 @@
         alt="map of bumer stores"
         class="map__pic-img"
         src="../../assets/img/map.svg"
-      />
+      >
     </div>
   </div>
 </template>
