@@ -6,28 +6,38 @@
           alt="bicycle riders"
           class="col-big__pic-img"
           src="../../assets/img/img-main02.jpg"
-        />
+        >
         <img
           alt="leg in sneaker"
           class="col-big__pic-img"
           src="../../assets/img/img-main03.jpg"
-        />
+        >
       </div>
       <div class="col-big__numbers">
         <div class="col-big__number">
-          <div class="col-big__number-digit">22+</div>
-          <div class="col-big__number-text">года в индустрии моды</div>
+          <div class="col-big__number-digit">
+            22+
+          </div>
+          <div class="col-big__number-text">
+            года в индустрии моды
+          </div>
         </div>
         <div class="col-big__number">
           <div class="col-big__number-digit">
             3 999+
             <span class="col-big__number-currency">грн</span>
           </div>
-          <div class="col-big__number-text">Бесплатная доставка</div>
+          <div class="col-big__number-text">
+            Бесплатная доставка
+          </div>
         </div>
         <div class="col-big__number">
-          <div class="col-big__number-digit">10+</div>
-          <div class="col-big__number-text">магазинов по Украине</div>
+          <div class="col-big__number-digit">
+            10+
+          </div>
+          <div class="col-big__number-text">
+            магазинов по Украине
+          </div>
         </div>
       </div>
     </div>
@@ -44,12 +54,12 @@
           alt="leg in sneaker"
           class="col-small__pic-img"
           src="../../assets/img/img-main03.jpg"
-        />
+        >
         <img
           alt="bicycle riders"
           class="col-small__pic-img"
           src="../../assets/img/img-main02.jpg"
-        />
+        >
       </div>
     </div>
   </div>
