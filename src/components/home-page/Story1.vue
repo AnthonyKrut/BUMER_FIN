@@ -5,18 +5,22 @@
         alt="boot image"
         class="story-one__pic-img"
         src="../../assets/img/img-main01.png"
-      >
+      />
     </div>
     <div class="story-one__text">
-      <p>
+      <p class="story-one__text-plain">
         Мы объединяем классические модели с модными вырезами и
         высококачественными материалами.
       </p>
       <p class="story-one__text-strong">
         Мировые тренды в оригинальном и удобном варианте.
       </p>
-      <p>Бесплатный возврат и обмен до 30 дней.</p>
-      <p>Новые модели каждый день. Специальное предложение.</p>
+      <p class="story-one__text-plain">
+        Бесплатный возврат и обмен до 30 дней.
+      </p>
+      <p class="story-one__text-plain">
+        Новые модели каждый день. Специальное предложение.
+      </p>
     </div>
   </div>
 </template>
@@ -78,13 +82,19 @@ export default {
     width: 75%;
     text-transform: uppercase;
     line-height: normal;
-    p {
-      margin-bottom: 1.5em;
-    }
   }
 }
 
 .story-one__text-strong {
   color: $main_color;
+  @media screen and (max-width: 575px) {
+    margin-bottom: 1.5em;
+  }
+}
+
+.story-one__text-plain {
+  @media screen and (max-width: 575px) {
+    margin-bottom: 1.5em;
+  }
 }
 </style>
