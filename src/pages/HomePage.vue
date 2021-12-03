@@ -184,54 +184,7 @@
 
           <div class="parallax-container">
             <div class="parallax-wrapper">
-              <div class="story-two">
-                <div class="story-two__col-big col-big">
-                  <div class="col-big__pic">
-                    <img
-                      alt="bicycle riders"
-                      src="../assets/img/img-main02.jpg"
-                    >
-                    <img
-                      alt="leg in sneaker"
-                      src="../assets/img/img-main03.jpg"
-                    >
-                  </div>
-                  <div class="col-big__numbers">
-                    <div>
-                      <div>22+</div>
-                      <div>года в индустрии моды</div>
-                    </div>
-                    <div>
-                      <div>3 999+ <span>грн</span></div>
-                      <div>Бесплатная доставка</div>
-                    </div>
-                    <div>
-                      <div>10+</div>
-                      <div>магазинов по Украине</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="story-two__col-small col-small">
-                  <div class="col-small__text">
-                    <div>
-                      <span>BUMER</span> объединяет классические формы с
-                      оригинальными деталями, вдохновленными подиумной модой, а
-                      также предлагаем смелые решения от популярных
-                      инфлюенсеров.
-                    </div>
-                  </div>
-                  <div class="col-small__pic">
-                    <img
-                      alt="leg in sneaker"
-                      src="../assets/img/img-main03.jpg"
-                    >
-                    <img
-                      alt="bicycle riders"
-                      src="../assets/img/img-main02.jpg"
-                    >
-                  </div>
-                </div>
-              </div>
+              <Story2 />
             </div>
 
             <div class="parallax-container">
@@ -278,11 +231,13 @@
 import HeroSlider from '../components/home-page/HeroSlider.vue';
 import Banner1 from '@/components/home-page/Banner1';
 import Banner2 from '@/components/home-page/Banner2';
+import Story2 from '@/components/home-page/Story2';
 import Story1 from '@/components/home-page/Story1';
 
 export default {
   name: 'HomePage',
   components: {
+    Story2,
     Story1,
     Banner2,
     Banner1,
@@ -308,127 +263,6 @@ export default {
     @include popular-products;
   }
 
-  .story-two {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 6.5em;
-    font-size: adaptive_fz(14px, 12px);
-    font-weight: 400;
-    color: $grey_color_dark;
-    .col-big {
-      width: 58%;
-      &__pic {
-        img {
-          width: 100%;
-          display: block;
-          &:last-of-type {
-            display: none;
-          }
-        }
-      }
-      &__numbers {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 30em;
-        padding-left: 6.5vw;
-        > div {
-          &:last-child {
-            display: none;
-          }
-          > div:first-child {
-            font-size: adaptive_fz(70px, 20px);
-            font-weight: 600;
-            color: $main_color;
-            text-transform: uppercase;
-            span {
-              font-size: 0.5em;
-            }
-          }
-        }
-      }
-    }
-    .col-small {
-      display: flex;
-      flex-direction: column;
-      width: 32%;
-      &__text {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        line-height: 1.7em;
-        div {
-          span {
-            font-weight: 700;
-            color: $main_color;
-          }
-        }
-      }
-      &__pic {
-        img {
-          width: 100%;
-          display: block;
-          &:last-of-type {
-            display: none;
-          }
-        }
-      }
-    }
-    @media screen and (min-width: 1440px) {
-      .col-big {
-        &__numbers {
-          > div {
-            > div:first-child {
-              font-size: 70px;
-            }
-          }
-        }
-      }
-    }
-    @media screen and (max-width: 575px) {
-      flex-direction: column-reverse;
-      align-items: center;
-      margin-bottom: 3em;
-      .col-big {
-        width: 60%;
-        &__pic {
-          img:first-of-type {
-            display: none;
-          }
-          img:last-of-type {
-            display: block;
-          }
-        }
-        &__numbers {
-          height: unset;
-          padding: 0;
-          text-align: center;
-          > div {
-            margin-top: 2.5em;
-            &:last-child {
-              display: block;
-            }
-          }
-        }
-      }
-      .col-small {
-        width: 90%;
-        flex-direction: column-reverse;
-        &__pic {
-          img:first-of-type {
-            display: none;
-          }
-          img:last-of-type {
-            display: block;
-          }
-        }
-        &__text {
-          width: 80%;
-          margin: 2.5em auto;
-        }
-      }
-    }
-  }
   .map {
     position: relative;
     margin-bottom: 1em;
@@ -501,6 +335,7 @@ export default {
       font-size: adaptive_fz(14px, 9px);
       font-weight: 700;
       color: $main_color;
+
       .author__logo {
         width: 12.5vw;
         min-width: 150px;

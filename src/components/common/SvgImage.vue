@@ -1,5 +1,5 @@
 <template>
-  <component :is="`icon-${name}`" fill="currentColor" />
+  <component :is="`icon-${name}`" fill="currentColor" stroke="currentColor" />
 </template>
 
 <script>

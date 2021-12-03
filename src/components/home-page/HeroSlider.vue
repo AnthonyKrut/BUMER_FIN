@@ -76,6 +76,10 @@ export default {
   position: relative;
   justify-content: space-evenly;
   margin-bottom: adaptive_fz(60px, 20px);
+
+  @media (min-width: 700px) {
+    //
+  }
 }
 
 .swiper__button {
