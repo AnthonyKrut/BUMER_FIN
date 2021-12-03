@@ -9,7 +9,7 @@
         alt="map of bumer stores"
         class="map__pic-img"
         src="../../assets/img/map.svg"
-      >
+      />
     </div>
   </div>
 </template>
@@ -23,7 +23,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
 @import "../../assets/scss/functions";
-@import "../../assets/scss/mixins";
 
 .map {
   position: relative;
