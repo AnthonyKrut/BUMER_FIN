@@ -3,13 +3,13 @@
     <div class="col-big">
       <div class="col-big__pic">
         <img
-          class="col-big__pic-img"
           alt="bicycle riders"
+          class="col-big__pic-img"
           src="../../assets/img/img-main02.jpg"
         />
         <img
-          class="col-big__pic-img"
           alt="leg in sneaker"
+          class="col-big__pic-img"
           src="../../assets/img/img-main03.jpg"
         />
       </div>
@@ -41,13 +41,13 @@
       </div>
       <div class="col-small__pic">
         <img
-          class="col-small__pic-img"
           alt="leg in sneaker"
+          class="col-small__pic-img"
           src="../../assets/img/img-main03.jpg"
         />
         <img
-          class="col-small__pic-img"
           alt="bicycle riders"
+          class="col-small__pic-img"
           src="../../assets/img/img-main02.jpg"
         />
       </div>
