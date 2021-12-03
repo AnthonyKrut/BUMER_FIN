@@ -5,7 +5,7 @@
         alt="boot image"
         class="story-one__pic-img"
         src="../../assets/img/img-main01.png"
-      />
+      >
     </div>
     <div class="story-one__text">
       <p class="story-one__text-plain">
