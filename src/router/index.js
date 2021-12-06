@@ -5,11 +5,13 @@ import HomePage from '../pages/HomePage'
 import CatalogPage from '../pages/CatalogPage'
 import ProductPage from '../pages/ProductCardPage'
 import CheckoutPage from '../pages/СheckoutPage'
+import ShipmentInfoPage from '../pages/ShipmentInfoPage'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
+
     component: HomePage,
   },
   {
@@ -26,6 +28,11 @@ const routes = [
     path: '/checkout',
     name: 'Checkout',
     component: CheckoutPage,
+  },
+  {
+    path: '/shipment-info',
+    name: 'ShipmentInfoPage',
+    component: ShipmentInfoPage,
   },
 ]
 

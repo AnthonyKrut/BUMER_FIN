@@ -7,13 +7,28 @@
           <span>БЕСПЛАТНАЯ ДОСТАВКА ОТ 3999 ГРН</span>
         </div>
         <nav class="header__nav nav">
-          <router-link class="nav__item" to="/">
+          <router-link
+            class="nav__item"
+            active-class="nav__item--active"
+            to="/"
+            exact
+          >
             ОПЛАТА
           </router-link>
-          <router-link class="nav__item" to="/">
+          <router-link
+            class="nav__item"
+            active-class="nav__item--active"
+            :to="{name: 'ShipmentInfoPage'}"
+
+          >
             ДОСТАВКА
           </router-link>
-          <router-link class="nav__item" to="/">
+          <router-link
+            class="nav__item"
+            active-class="nav__item--active"
+            to="/"
+            exact
+          >
             НАШИ МАГАЗИНЫ
           </router-link>
         </nav>
@@ -154,6 +169,9 @@ export default {
         &:hover {
           color: $attention_color;
         }
+        &.nav__item--active {
+          color: $attention_color;
+        }
       }
     }
   }
@@ -281,6 +299,9 @@ export default {
           margin-bottom: 2em;
         }
         &:hover {
+          color: $attention_color;
+        }
+        &.nav__item--active {
           color: $attention_color;
         }
       }
