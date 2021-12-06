@@ -1,7 +1,7 @@
 
 export default {
   state: () => ({
-    isCartPopoverVisible: false
+    isCartPopoverVisible: false,
   }),
   mutations: {
     openCartPopover(state) {

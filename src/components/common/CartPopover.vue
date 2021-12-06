@@ -23,9 +23,9 @@
       </div>
       <Btn
         v-if="cart.length"
+        class="cart-popover__footer-button"
         full-width
         to="Checkout"
-        class="cart-popover__footer-button"
         @click.native="closeCartPopover"
       >
         Перейти в корзину
@@ -462,15 +462,15 @@ export default {
   },
   computed: {
     ...mapState('common', [
-      'isCartPopoverVisible'
+      'isCartPopoverVisible',
     ]),
     ...mapState('cart', [
-      'cart'
-    ])
+      'cart',
+    ]),
   },
   methods: {
     ...mapMutations('common', [
-      'closeCartPopover'
+      'closeCartPopover',
     ]),
   },
 }

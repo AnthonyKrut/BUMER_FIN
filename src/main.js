@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './assets/scss/main.scss'
+import axios from 'axios'
 import router from './router'
 import store from './store'
 import vueDebounce from 'vue-debounce'
@@ -12,6 +13,8 @@ Vue.use(VueSweetalert2)
 Vue.use(VueCookies)
 
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
+Vue.prototype.$http.defaults.baseURL = process.env.VUE_APP_BASE_API_URI
 
 new Vue({
   router,

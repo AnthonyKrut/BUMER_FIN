@@ -11,6 +11,7 @@ import IconTelegram from '../icons/IconTelegram.vue'
 import IconInstagram from '../icons/IconInstagram.vue'
 import IconFacebook from '../icons/IconFacebook.vue'
 import IconBoot from '../icons/IconBoot.vue'
+import IconCheck1 from '../icons/IconCheck1'
 
 export default {
   name: 'IconBase',
@@ -23,6 +24,7 @@ export default {
     IconInstagram,
     IconFacebook,
     IconBoot,
+    IconCheck1,
   },
   props: {
     name: {
