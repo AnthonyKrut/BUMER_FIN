@@ -464,7 +464,7 @@ export default {
   },
   methods: {
     ...mapActions('products', [
-      'fetchAllProducts'
+      'fetchAllProducts',
     ]),
     isOnSale(item) {
       return item.price_sale

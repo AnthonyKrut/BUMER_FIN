@@ -4,10 +4,10 @@
       <div class="catalog-filters__filter-wrapper">
         <Multiselect
           v-model="selectedFilters.sortBy"
-          :options="filters.sortBy"
-          :show-labels="false"
           class="catalog-filters__filter"
+          :options="filters.sortBy"
           placeholder="Сортировать по"
+          :show-labels="false"
         >
           <template slot="singleLabel">
             Сортировать по
@@ -18,12 +18,12 @@
       <div class="catalog-filters__filter-wrapper">
         <Multiselect
           v-model="selectedFilters.sizes"
-          :options="filters.sizes"
-          :searchable="false"
-          :show-labels="false"
           class="catalog-filters__filter"
           multiple
+          :options="filters.sizes"
           placeholder="Размеры"
+          :searchable="false"
+          :show-labels="false"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
             <span v-if="values.length || isOpen" class="multiselect__single">
@@ -36,7 +36,7 @@
                 <SvgImage v-if="isActiveSize(option)" name="check1" />
               </div>
               <div class="catalog-filters__custom-option-label">
-                {{option}}
+                {{ option }}
               </div>
             </div>
           </template>
@@ -46,18 +46,18 @@
       <div class="catalog-filters__filter-wrapper">
         <Multiselect
           v-model="selectedFilters.colors"
-          :options="filters.colors"
-          :searchable="false"
-          :show-labels="false"
           class="catalog-filters__filter"
           label="color_name"
           multiple
+          :options="filters.colors"
           placeholder="Цвета"
+          :searchable="false"
+          :show-labels="false"
           track-by="color_code"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
             <span v-if="values.length || isOpen" class="multiselect__single">
-               Цвета
+              Цвета
             </span>
           </template>
           <template slot="option" slot-scope="{option}">
@@ -65,7 +65,7 @@
               class="catalog-filters__custom-option"
               :class="{'catalog-filters__custom-option--active': isActiveColor(option)}"
             >
-              <div :style="`background:${option.color_code};`" class="catalog-filters__custom-option-color">
+              <div class="catalog-filters__custom-option-color" :style="`background:${option.color_code};`">
                 <div v-if="isActiveColor(option)" class="catalog-filters__custom-option-check">
                   <SvgImage name="check1" />
                 </div>
@@ -81,10 +81,10 @@
       <div class="catalog-filters__filter-wrapper">
         <Multiselect
           v-model="selectedFilters.category"
-          :options="filters.category"
-          :show-labels="false"
           class="catalog-filters__filter"
+          :options="filters.category"
           placeholder="Вид обуви"
+          :show-labels="false"
         >
           <template slot="singleLabel">
             Вид обуви
@@ -228,7 +228,7 @@ export default {
     },
     isActiveSize(val) {
       return this.selectedFilters.sizes.some(item => item === val)
-    }
+    },
   },
 }
 </script>
