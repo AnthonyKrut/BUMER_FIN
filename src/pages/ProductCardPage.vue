@@ -9,14 +9,14 @@
             <img
               v-for="pic in item_to_show.pics"
               :key="pic"
-              :src="pic"
               alt="product image"
+              :src="pic"
               @click="selectPic(pic)"
             >
           </div>
 
           <div class="main-pic">
-            <img :src="pic_to_show" alt="big product image">
+            <img alt="big product image" :src="pic_to_show">
           </div>
 
           <div class="col-info">
@@ -31,30 +31,30 @@
               </div>
               <table class="col-info__table table">
                 <tbody>
-                <tr>
-                  <td>Материал верха:</td>
-                  <td>{{ product.top_material }}</td>
-                </tr>
-                <tr>
-                  <td>Материал стельки:</td>
-                  <td>{{ product.insole_material }}</td>
-                </tr>
-                <tr>
-                  <td>Материал подошвы:</td>
-                  <td>{{ product.sole_material }}</td>
-                </tr>
-                <tr style="color: transparent">
-                  <td />
-                  <td>.</td>
-                </tr>
-                <tr>
-                  <td>Сезон:</td>
-                  <td>{{ product.season }}</td>
-                </tr>
-                <tr>
-                  <td>Вид обуви:</td>
-                  <td>{{ product.category }}</td>
-                </tr>
+                  <tr>
+                    <td>Материал верха:</td>
+                    <td>{{ product.top_material }}</td>
+                  </tr>
+                  <tr>
+                    <td>Материал стельки:</td>
+                    <td>{{ product.insole_material }}</td>
+                  </tr>
+                  <tr>
+                    <td>Материал подошвы:</td>
+                    <td>{{ product.sole_material }}</td>
+                  </tr>
+                  <tr style="color: transparent">
+                    <td />
+                    <td>.</td>
+                  </tr>
+                  <tr>
+                    <td>Сезон:</td>
+                    <td>{{ product.season }}</td>
+                  </tr>
+                  <tr>
+                    <td>Вид обуви:</td>
+                    <td>{{ product.category }}</td>
+                  </tr>
                 </tbody>
               </table>
               <div class="col-info__colors colors">
@@ -65,9 +65,9 @@
                   <div
                     v-for="item in product.items"
                     :key="item.color_code"
+                    class="colors__color"
                     :class="{active: item_to_show === item}"
                     :style="{backgroundColor: item.color_code}"
-                    class="colors__color"
                     @click="selectColor(item)"
                   />
                 </div>
@@ -75,7 +75,7 @@
             </div>
 
             <div class="adaptive-wrapper02">
-              <div :class="{invisible: !isOnSale}" class="col-info__price-old">
+              <div class="col-info__price-old" :class="{invisible: !isOnSale}">
                 <span>{{ item_to_show.price_stndrt }}</span>грн
               </div>
               <div class="col-info__price-active">
@@ -217,63 +217,63 @@
         <table class="sizes-modal__table">
           <caption>таблица размеров</caption>
           <thead>
-          <tr>
-            <th>EUR</th>
-            <th>UK</th>
-            <th>длина стопы</th>
-          </tr>
+            <tr>
+              <th>EUR</th>
+              <th>UK</th>
+              <th>длина стопы</th>
+            </tr>
           </thead>
           <tbody>
-          <tr>
-            <td />
-            <td />
-            <td>.</td>
-          </tr>
-          <tr>
-            <td>39</td>
-            <td>5</td>
-            <td>25,3</td>
-          </tr>
-          <tr>
-            <td>40</td>
-            <td>6</td>
-            <td>25,8</td>
-          </tr>
-          <tr>
-            <td>41</td>
-            <td>7</td>
-            <td>26,4</td>
-          </tr>
-          <tr>
-            <td>42</td>
-            <td>8</td>
-            <td>27</td>
-          </tr>
-          <tr>
-            <td>43</td>
-            <td>9</td>
-            <td>27,6</td>
-          </tr>
-          <tr>
-            <td>44</td>
-            <td>10</td>
-            <td>28,3</td>
-          </tr>
-          <tr>
-            <td>45</td>
-            <td>11</td>
-            <td>28,9</td>
-          </tr>
-          <tr>
-            <td>46</td>
-            <td>12</td>
-            <td>29,6</td>
-          </tr>
-          <tr>
-            <td>47</td>
-            <td>13</td>
-            <td>30,3</td>
-          </tr>
+            <tr>
+              <td />
+              <td />
+              <td>.</td>
+            </tr>
+            <tr>
+              <td>39</td>
+              <td>5</td>
+              <td>25,3</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>6</td>
+              <td>25,8</td>
+            </tr>
+            <tr>
+              <td>41</td>
+              <td>7</td>
+              <td>26,4</td>
+            </tr>
+            <tr>
+              <td>42</td>
+              <td>8</td>
+              <td>27</td>
+            </tr>
+            <tr>
+              <td>43</td>
+              <td>9</td>
+              <td>27,6</td>
+            </tr>
+            <tr>
+              <td>44</td>
+              <td>10</td>
+              <td>28,3</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>11</td>
+              <td>28,9</td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>12</td>
+              <td>29,6</td>
+            </tr>
+            <tr>
+              <td>47</td>
+              <td>13</td>
+              <td>30,3</td>
+            </tr>
           </tbody>
         </table>
         <div class="sizes-modal__text">
@@ -378,10 +378,10 @@ export default {
   },
   methods: {
     ...mapMutations('common', [
-      'openCartPopover'
+      'openCartPopover',
     ]),
     ...mapMutations('cart', [
-      'addToCart'
+      'addToCart',
     ]),
     addProductToCart() {
       this.addToCart(this.product)

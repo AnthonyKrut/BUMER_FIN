@@ -1,12 +1,12 @@
 
 export default {
   state: () => ({
-    cart: []
+    cart: [],
   }),
   mutations: {
     addToCart(state, payload) {
       state.cart.push(payload)
-    }
+    },
   },
   getters: {},
   actions: {},

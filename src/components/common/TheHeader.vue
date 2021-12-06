@@ -21,7 +21,6 @@
     </div>
     <div class="header__bottom">
       <div class="container">
-
         <div class="header__burger burger">
           <div class="burger__close-btn" />
           <div class="burger__logo">
@@ -69,34 +68,12 @@
           <SvgImage name="logo" />
         </router-link>
 
-        <div class="header__shop shop">
-          <router-link class="shop__category" :to="{name: 'Catalog'}">
-            КРОССОВКИ
-          </router-link>
-          <router-link class="shop__category" :to="{name: 'Catalog'}">
-            БОТИНКИ
-          </router-link>
-          <router-link class="shop__category" :to="{name: 'Catalog'}">
-            ТУФЛИ
-          </router-link>
-          <router-link class="shop__category" :to="{name: 'Catalog'}">
-            SALE
-          </router-link>
-        </div>
+        <MainNav />
+
         <div class="header__btns">
-          <form
-            action="https://www.google.com/search"
-            class="header__search"
-            method="get"
-            target="blank"
-          >
-            <input name="q" placeholder="Поиск" type="search">
-            <div class="search-btn">
-              <SvgImage name="search" />
-            </div>
-          </form>
+          <HeaderSearchForm />
           <div class="header__cart" @click="toggleCartPopover">
-            <SvgImage name="cart" /> <span v-if="cart.length">({{cart.length}})</span>
+            <SvgImage name="cart" /> <span v-if="cart.length">({{ cart.length }})</span>
           </div>
           <CartPopover />
         </div>
@@ -109,22 +86,26 @@
 import SvgImage from './SvgImage.vue'
 import CartPopover from '@/components/common/CartPopover'
 import {mapMutations, mapState} from 'vuex'
+import MainNav from '@/components/common/MainNav'
+import HeaderSearchForm from '@/components/common/HeaderSearchForm'
 
 export default {
   name: 'TheHeader',
   components: {
+    HeaderSearchForm,
+    MainNav,
     CartPopover,
     SvgImage,
   },
   computed: {
     ...mapState('cart', [
-      'cart'
-    ])
+      'cart',
+    ]),
   },
   methods: {
     ...mapMutations('common', [
-      'toggleCartPopover'
-    ])
+      'toggleCartPopover',
+    ]),
   },
 }
 </script>
@@ -211,30 +192,10 @@ export default {
           left: 0;
         }
       }
-      .header__shop {
-        display: none;
-      }
       .header__btns {
         min-width: unset;
         position: relative;
-        .header__search {
-          border-bottom: 1px solid transparent;
-          input[type="search"] {
-            position: absolute;
-            z-index: -1;
-            bottom: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            transition: z-index 0.5s, bottom 0.5s ;
-            &.active {
-              z-index: 1;
-              bottom: -25px;
-            }
-          }
-        }
+
       }
     }
   }
@@ -353,54 +314,13 @@ export default {
       min-width: 120px;
     }
   }
-  .header__shop {
-    display: flex;
-    justify-content: space-between;
-    width: 35%;
-    .shop__category {
-      color: $main_color;
-      text-decoration: none;
-      &:last-child {
-        color: $attention_color;
-      }
-      &:hover {
-        color: $attention_color;
-      }
-    }
-  }
+
   .header__btns {
     display: flex;
     justify-content: space-between;
     width: 20%;
     min-width: 215px;
     position: relative;
-    .header__search {
-      display: flex;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      input[type="search"] {
-        height: 25px;
-        padding: 7px 10px;
-        border: none;
-        outline: none;
-        background-color: $contrast_color;
-        font-size: 11px;
-        font-weight: 500;
-        color: $grey_color_light;
-      }
-      .search-btn {
-        width: 25px;
-        height: 25px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        img {
-          // width: 85%;
-          // height: 85%;
-          width: 21px;
-          height: 21px;
-        }
-      }
-    }
   }
 }
 
