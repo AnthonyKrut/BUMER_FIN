@@ -50,7 +50,9 @@ export default {
 
 <style lang="scss" scoped>
 
-//.shipment {}
+.shipment {
+  min-height: 70vh;
+}
 
 .container {
   display: flex;

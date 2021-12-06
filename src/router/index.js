@@ -6,6 +6,9 @@ import CatalogPage from '../pages/CatalogPage'
 import ProductPage from '../pages/ProductCardPage'
 import CheckoutPage from '../pages/СheckoutPage'
 import ShipmentInfoPage from '../pages/ShipmentInfoPage'
+import CooperationInfoPage from '../pages/CooperationInfoPage'
+import PaymentInfoPage from '../pages/PaymentInfoPage'
+import GuaranteeInfoPage from '../pages/GuaranteeInfoPage'
 
 const routes = [
   {
@@ -34,6 +37,21 @@ const routes = [
     name: 'ShipmentInfoPage',
     component: ShipmentInfoPage,
   },
+  {
+    path: '/cooperation-info',
+    name: 'CooperationInfoPage',
+    component: CooperationInfoPage,
+  },
+  {
+    path: '/payment-info',
+    name: 'PaymentInfoPage',
+    component: PaymentInfoPage,
+  }, 
+  {
+    path: '/guarantee-info',
+    name: 'GuaranteeInfoPage',
+    component: GuaranteeInfoPage,
+  }, 
 ]
 
 Vue.use(VueRouter)

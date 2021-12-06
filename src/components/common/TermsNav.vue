@@ -9,19 +9,22 @@
     </router-link>
     <router-link
       class="nav__item"
-      :to="{ name: '' }"
+      active-class="nav__item--active"
+      :to="{ name: 'PaymentInfoPage' }"
     > 
       Оплата
     </router-link>
     <router-link
       class="nav__item"
-      :to="{ name: '' }"
+      active-class="nav__item--active"
+      :to="{ name: 'GuaranteeInfoPage' }"
     >
-     Гарантия 
+      Гарантия 
     </router-link>
     <router-link
       class="nav__item"
-      :to="{ name: '' }"
+      active-class="nav__item--active"
+      :to="{ name: 'CooperationInfoPage' }"
     >
       Сотрудничество
     </router-link>
