@@ -77,7 +77,7 @@ export default {
   width: 60%;
   padding-right: 0.5em;
   line-height: 1em;
-  color: $grey_color_light;
+  color: $text_color_light;
   @media screen and (max-width: 575px) {
     width: 75%;
     text-transform: uppercase;

@@ -466,7 +466,7 @@ export default {
           cursor: pointer;
 
           &:hover {
-            box-shadow: 0 0 0 2px $grey_color;
+            box-shadow: 0 0 0 2px $text_color;
           }
         }
       }
@@ -524,7 +524,7 @@ export default {
           // border: 1px solid blue;
           tr {
             td:first-child {
-              color: $grey_color_dark;
+              color: $text_color_dark;
               text-transform: uppercase;
             }
 
@@ -541,7 +541,7 @@ export default {
 
           .colors__title {
             margin-bottom: 1em;
-            color: $grey_color_dark;
+            color: $text_color_dark;
             // border: 1px solid red;
           }
 
@@ -553,7 +553,7 @@ export default {
               width: 26px;
               height: 26px;
               border: 2px solid $contrast_color;
-              box-shadow: 0 0 0 2px $grey_color;
+              box-shadow: 0 0 0 2px $text_color;
               cursor: pointer;
 
               &:not(:last-child) {
@@ -581,7 +581,7 @@ export default {
 
         &__price-old {
           font-size: adaptive_fz(14px, 9px);
-          color: $grey_color_light;
+          color: $text_color_light;
           // border: 1px solid red;
           &.invisible {
             visibility: hidden;
@@ -747,12 +747,12 @@ export default {
           }
 
           &.active {
-            border: 1px solid $grey_color_light;
+            border: 1px solid $text_color_light;
           }
 
           &.notInStock {
             text-decoration: line-through;
-            color: $grey_color_light;
+            color: $text_color_light;
           }
         }
       }
@@ -856,7 +856,7 @@ export default {
 
         th,
         td {
-          border-bottom: 1px solid $grey_color;
+          border-bottom: 1px solid $text_color;
         }
 
         th:last-child,
@@ -869,7 +869,7 @@ export default {
     &__text {
       font-size: adaptive_fz(11px, 8px);
       line-height: 1.3em;
-      color: $grey_color_dark;
+      color: $text_color_dark;
       text-align: center;
     }
   }

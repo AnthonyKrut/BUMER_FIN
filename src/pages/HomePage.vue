@@ -285,7 +285,7 @@ export default {
         &:last-child {
           font-size: adaptive_fz(14px, 8px);
           font-weight: 400;
-          color: $grey_color;
+          color: $text_color;
         }
       }
     }
@@ -321,7 +321,7 @@ export default {
     &__text {
       margin-bottom: 3.5em;
       line-height: 1.5em;
-      color: $grey_color_dark;
+      color: $text_color_dark;
       p:first-child::before {
         display: block;
         width: 2.5em;

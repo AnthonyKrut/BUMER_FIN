@@ -81,7 +81,7 @@ export default {
   margin-bottom: 6.5em;
   font-size: adaptive_fz(14px, 12px);
   font-weight: 400;
-  color: $grey_color_dark;
+  color: $text_color_dark;
   @media screen and (max-width: 575px) {
     flex-direction: column-reverse;
     align-items: center;
