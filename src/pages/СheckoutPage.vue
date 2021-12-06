@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'HeckoutPage',
+  name: 'CheckoutPage',
 }
 </script>
 
