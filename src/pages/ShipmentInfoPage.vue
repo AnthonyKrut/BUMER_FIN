@@ -38,7 +38,7 @@
 import TermsNav from '../components/common/TermsNav.vue'
 
 export default {
-  name: 'ShipmentPage',
+  name: 'ShipmentInfoPage',
   components: {
     TermsNav,
   },

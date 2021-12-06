@@ -20,7 +20,7 @@
         </router-link>
       </div>
       <nav class="footer__nav nav">
-        <router-link class="nav__item" to="/">
+        <router-link class="nav__item" :to="{name: 'ShipmentInfoPage'}">
           ОПЛАТА И ДОСТАВКА
         </router-link>
         <router-link class="nav__item" to="/">

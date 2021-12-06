@@ -1,6 +1,10 @@
 <template>
   <nav class="terms-nav">
-    <router-link class="terms-nav__item" :to="{ name: '' }">
+    <router-link
+      class="terms-nav__item"
+      active-class="terms-nav__item--active"
+      :to="{name: 'ShipmentInfoPage'}"
+    >
       Доставка
     </router-link>
     <router-link class="terms-nav__item" :to="{ name: '' }">
