@@ -188,7 +188,7 @@
             </div>
 
             <div class="parallax-container">
-              <Map />
+              <MapStores />
 
               <div class="quote">
                 <div class="quote__text">
@@ -225,12 +225,12 @@ import Banner1 from '@/components/home-page/Banner1';
 import Banner2 from '@/components/home-page/Banner2';
 import Story2 from '@/components/home-page/Story2';
 import Story1 from '@/components/home-page/Story1';
-import Map from '@/components/home-page/Map';
+import MapStores from '@/components/home-page/MapStores';
 
 export default {
   name: 'HomePage',
   components: {
-    Map,
+    MapStores,
     Story2,
     Story1,
     Banner2,

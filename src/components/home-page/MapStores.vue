@@ -1,13 +1,13 @@
 <template>
-  <div class="map">
-    <div class="map__numbers">
-      <span class="map__digit">10+</span>
-      <span class="map__text">магазинов по Украине</span>
+  <div class="map-stores">
+    <div class="map-stores__numbers">
+      <span class="map-stores__digit">10+</span>
+      <span class="map-stores__text">магазинов по Украине</span>
     </div>
-    <div class="map__pic">
+    <div class="map-stores__pic">
       <img
         alt="map of bumer stores"
-        class="map__pic-img"
+        class="map-stores__pic-img"
         src="../../assets/img/map.svg"
       >
     </div>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'Map',
+  name: 'MapStores',
 }
 </script>
 
@@ -24,7 +24,7 @@ export default {
 @import "../../assets/scss/variables";
 @import "../../assets/scss/functions";
 
-.map {
+.map-stores {
   position: relative;
   margin-bottom: 1em;
   font-size: adaptive_fz(70px, 20px);
@@ -34,7 +34,7 @@ export default {
   }
 }
 
-.map__numbers {
+.map-stores__numbers {
   position: absolute;
   top: calc(0% - 0.33 * (2 * 3vw + 1.15 * adaptive_fz(70px, 20px)));
   left: 3vw;
@@ -49,11 +49,11 @@ export default {
   }
 }
 
-.map__digit {
+.map-stores__digit {
   margin-right: 4vw;
 }
 
-.map__text {
+.map-stores__text {
   font-size: adaptive_fz(14px, 8px);
   font-weight: 400;
   color: $grey_color;
@@ -62,14 +62,14 @@ export default {
   }
 }
 
-.map__pic {
+.map-stores__pic {
   @media screen and (max-width: 575px) {
     height: 13em;
     background: url("../../assets/img/map.svg") 70% 40%/275% no-repeat;
   }
 }
 
-.map__pic-img {
+.map-stores__pic-img {
   display: block;
   width: 100%;
   @media screen and (max-width: 575px) {
