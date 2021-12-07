@@ -1,31 +1,38 @@
 <template>
   <div class="quote">
     <div class="quote__text">
-      <p class="quote__text-paragraph">
+      <div class="quote__quotes">
+        <SvgImage class="quote__svg-quotes" name="quotes" />
+      </div>
+      <div class="quote__text-paragraph">
         В мире моды для нас нет границ и ограничений!
-      </p>
-      <p class="quote__text-paragraph">
+      </div>
+      <div class="quote__text-paragraph">
         BUMER следует самым актуальным модным трендам — в наших коллекциях
         классические узоры сочетаются с оригинальными, ультрасовременными
         решениями.
-      </p>
+      </div>
     </div>
     <div class="quote__author">
       <div class="quote__logo">
-        <img
-          class="quote__logo-img"
-          alt="bumer logo"
-          src="../../assets/img/svg/logo-black.svg"
-        />
+        <SvgImage name="logo" />
       </div>
-      <div class="quote__date">EST. 1999</div>
+      <div class="quote__date">
+        EST. 1999
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
+import SvgImage from '../common/SvgImage.vue'
+
 export default {
-  name: 'Quote',
+  name: 'HomePageQuote',
+  components: {
+    SvgImage,
+  },
 }
 </script>
 
@@ -52,16 +59,20 @@ export default {
   color: $grey_color_dark;
 }
 
-.quote__text-paragraph {
-  &:first-child::before {
-    display: block;
-    width: 3.5em;
-    height: 3.5em;
-    margin: 0 auto 1.75em;
-    content: "";
-    background: url("../../assets/img/svg/quotes.svg") center/contain no-repeat;
-  }
+.quote__quotes {
+  width: 3.5em;
+  height: 3.5em;
+  margin: 0 auto 1.75em;
+  color: #C0C0C0;
 }
+
+.quote__svg-quotes {
+  width: 100%;
+  height: 100%;
+  stroke: none;  
+}
+
+// .quote__text-paragraph {}
 
 .quote__author {
   font-size: adaptive_fz(14px, 9px);
@@ -73,12 +84,6 @@ export default {
   width: 12.5vw;
   min-width: 150px;
   margin: 0 auto 1em;
-}
-
-.quote__logo-img {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 .quote__date {

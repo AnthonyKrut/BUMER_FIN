@@ -133,7 +133,7 @@
           <img alt="map of bumer stores" src="../assets/img/map.svg" />
         </div>
       </div>
-      <Quote />
+      <HomePageQuote />
     </div>
   </section>
 </template>
@@ -144,12 +144,12 @@ import Banner1 from '@/components/home-page/Banner1';
 import Banner2 from '@/components/home-page/Banner2';
 import Story2 from '@/components/home-page/Story2';
 import Story1 from '@/components/home-page/Story1';
-import Quote from '@/components/home-page/Quote';
+import HomePageQuote from '@/components/home-page/HomePageQuote';
 
 export default {
   name: 'HomePage',
   components: {
-    Quote,
+    HomePageQuote,
     Story2,
     Story1,
     Banner2,
