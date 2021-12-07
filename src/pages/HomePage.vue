@@ -188,15 +188,7 @@
             </div>
 
             <div class="parallax-container">
-              <div class="map">
-                <div class="map__numbers">
-                  <span>10+</span>
-                  <span>магазинов по Украине</span>
-                </div>
-                <div class="map__pic">
-                  <img alt="map of bumer stores" src="../assets/img/map.svg">
-                </div>
-              </div>
+              <MapStores />
 
               <div class="quote">
                 <div class="quote__text">
@@ -233,10 +225,12 @@ import Banner1 from '@/components/home-page/Banner1';
 import Banner2 from '@/components/home-page/Banner2';
 import Story2 from '@/components/home-page/Story2';
 import Story1 from '@/components/home-page/Story1';
+import MapStores from '@/components/home-page/MapStores';
 
 export default {
   name: 'HomePage',
   components: {
+    MapStores,
     Story2,
     Story1,
     Banner2,
@@ -261,55 +255,6 @@ export default {
 
   .popular-products {
     @include popular-products;
-  }
-
-  .map {
-    position: relative;
-    margin-bottom: 1em;
-    font-size: adaptive_fz(70px, 20px);
-    font-weight: 600;
-    &__numbers {
-      position: absolute;
-      top: calc(0% - 0.33 * (2 * 3vw + 1.15 * adaptive_fz(70px, 20px)));
-      left: 3vw;
-      display: flex;
-      align-items: center;
-      width: 40%;
-      padding: 3vw 4vw;
-      color: $contrast_color;
-      background-color: $main_color;
-      span {
-        &:first-child {
-          margin-right: 4vw;
-        }
-        &:last-child {
-          font-size: adaptive_fz(14px, 8px);
-          font-weight: 400;
-          color: $text_color;
-        }
-      }
-    }
-    &__pic {
-      img {
-        display: block;
-        width: 100%;
-      }
-    }
-    @media screen and (min-width: 1440px) {
-      font-size: 70px;
-    }
-    @media screen and (max-width: 575px) {
-      &__numbers {
-        display: none;
-      }
-      &__pic {
-        height: 13em;
-        background: url("../assets/img/map.svg") 70% 40%/275% no-repeat;
-        img {
-          display: none;
-        }
-      }
-    }
   }
   .quote {
     width: 50%;
