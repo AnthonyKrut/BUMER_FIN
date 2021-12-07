@@ -1,6 +1,6 @@
 <template>
-  <router-link :to="{name: 'Product'}" class="cart-popover-product-item">
-    <div :style="`background-image:url(${product.items[0].pics[0]});`" class="cart-popover-product-item__left" />
+  <router-link class="cart-popover-product-item" :to="{name: 'Product'}">
+    <div class="cart-popover-product-item__left" :style="`background-image:url(${product.items[0].pics[0]});`" />
     <div class="cart-popover-product-item__right">
       <div>
         <div class="cart-popover-product-item__name">

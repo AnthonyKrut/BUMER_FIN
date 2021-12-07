@@ -1,10 +1,10 @@
 <template>
   <component
     :is="componentName"
-    :to="{name: to}"
-    :href="href"
     class="button"
     :class="{'button--full-width': fullWidth}"
+    :href="href"
+    :to="{name: to}"
   >
     <slot />
   </component>
@@ -20,12 +20,12 @@ export default {
     },
     to: {
       type: String,
-      default: null
+      default: null,
     },
     href: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     componentName() {
