@@ -1,41 +1,45 @@
 <template>
-  <section class="cooperation">
-    <h2 class="infopage-title">
-      Сотрудничество
-    </h2>
+  <section class="cooperation redactor-content">
     <div class="container">
-      <TermsNav />
-      <article class="infopage-article">
-        <h3 class="infopage-subtitle">
-          Есть свой офлайн или онлайн магазин?
-        </h3>
-        <h3 class="infopage-subtitle">
-          Мы всегда готовы сотрудничать с вами!
-        </h3>
-        <p class="infopage-text">
-          Чтобы получить оптовый прайс на все наши коллекции - свяжитесь с менеджером позвонив по номеру указному в контактах.
-        </p>    
-        <p class="infopage-text">
-          Мы являемся производителями, поэтому у нас самые низкие цены, качественный товар, и самые ходовые модели!
-        </p>
-        <h3 class="infopage-subtitle">
-          Контакты
-        </h3>
-        <p class="infopage-text infopage-text-telnumbers infopage-text-nomargin">
-          <SvgImage class="infopage-text__icon" name="phone" />
-          <span class="infopage-text__telnumber">+38 (096) 123-4567</span>   
-          <span class="infopage-text__telnumber">+38 (096) 123-4567</span>
-        </p>
-        <p class="infopage-text infopage-text-telnumbers">
-          <SvgImage class="infopage-text__icon" name="phone" />
-          <span class="infopage-text__telnumber">+38 (099) 123-4567</span>
-          <span class="infopage-text__telnumber">+38 (099) 123-4567</span>
-        </p>
-        <p class="infopage-text">
-          <SvgImage class="infopage-text__icon" name="letter" />
-          <span class="infopage-text__mail">bumer.shoes@gmail.com</span>
-        </p>    
-      </article>
+      <h2>
+        Сотрудничество
+      </h2>
+      <div class="infopage-wrapper">
+        <TermsNav />
+        <article>
+          <h4>
+            Есть свой офлайн или онлайн магазин?
+          </h4>
+          <h4>
+            Мы всегда готовы сотрудничать с вами!
+          </h4>
+          <p>
+            Чтобы получить оптовый прайс на все наши коллекции - свяжитесь с менеджером позвонив по номеру указному в контактах.
+          </p>    
+          <p>
+            Мы являемся производителями, поэтому у нас самые низкие цены, качественный товар, и самые ходовые модели!
+          </p>
+          <h4>
+            Контакты
+          </h4>
+          <address>
+            <ul>
+              <li>
+                <SvgImage name="phone" />
+                <a href="tel:+380633733988">063 373 39 88</a>
+              </li>
+              <li>
+                <SvgImage name="phone" />
+                <a href="tel:+380932200377">093 220 03 77</a>
+              </li>
+              <li>
+                <SvgImage name="letter" />
+                <a href="mailto:bumer.shoes@gmail.com">bumer.shoes@gmail.com</a>
+              </li>
+            </ul>
+          </address>   
+        </article>
+      </div>
     </div>
   </section>
 </template>
@@ -58,10 +62,6 @@ export default {
 
 .cooperation {
   min-height: 70vh;
-}
-
-.container {
-  display: flex;
 }
 
 </style>

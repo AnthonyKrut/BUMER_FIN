@@ -55,9 +55,9 @@ export default {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
+    &.nav__item--active {
+    background-color: #f5f5f5;
+  }
 }
 
-.nav__item--active {
-  background-color: #f5f5f5;
-}
 </style>

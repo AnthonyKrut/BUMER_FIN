@@ -6,7 +6,6 @@ dist-ssr
 _gulp-old/
 workspace.code-workspace
 package-lock.json
-yarn.lock
 
 # local env files
 .env
