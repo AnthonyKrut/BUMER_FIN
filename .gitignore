@@ -5,6 +5,7 @@ dist-ssr
 *.local
 _gulp-old/
 workspace.code-workspace
+package-lock.json
 
 # local env files
 .env

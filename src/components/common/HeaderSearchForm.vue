@@ -42,7 +42,7 @@ export default {
   background-color: $contrast_color;
   font-size: 11px;
   font-weight: 500;
-  color: $grey_color_light;
+  color: $text_color_light;
 
   @media screen and (max-width: 767px) {
     position: absolute;

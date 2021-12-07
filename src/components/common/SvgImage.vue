@@ -13,6 +13,9 @@ import IconFacebook from '../icons/IconFacebook.vue'
 import IconBoot from '../icons/IconBoot.vue'
 import IconQuotes from '../icons/IconQuotes.vue'
 import IconCheck1 from '../icons/IconCheck1'
+import IconLetter from '../icons/IconLetter.vue'
+import IconPhone from '../icons/IconPhone.vue'
+
 
 export default {
   name: 'IconBase',
@@ -27,6 +30,8 @@ export default {
     IconBoot,
     IconQuotes,
     IconCheck1,
+    IconLetter,
+    IconPhone,
   },
   props: {
     name: {

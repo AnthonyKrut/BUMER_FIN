@@ -167,6 +167,5 @@ export default {
   .popular-products {
     @include popular-products;
   }
-  
 }
 </style>

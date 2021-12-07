@@ -1,19 +1,31 @@
 <template>
-  <nav class="terms-nav">
+  <nav class="nav">
     <router-link
-      class="terms-nav__item"
-      active-class="terms-nav__item--active"
-      :to="{name: 'ShipmentInfoPage'}"
+      class="nav__item"
+      active-class="nav__item--active"
+      :to="{ name: 'ShipmentInfoPage' }"
     >
       Доставка
     </router-link>
-    <router-link class="terms-nav__item" :to="{ name: '' }">
+    <router-link
+      class="nav__item"
+      active-class="nav__item--active"
+      :to="{ name: 'PaymentInfoPage' }"
+    > 
       Оплата
     </router-link>
-    <router-link class="terms-nav__item" :to="{ name: '' }">
-      Гарантия
+    <router-link
+      class="nav__item"
+      active-class="nav__item--active"
+      :to="{ name: 'GuaranteeInfoPage' }"
+    >
+      Гарантия 
     </router-link>
-    <router-link class="terms-nav__item" :to="{ name: '' }">
+    <router-link
+      class="nav__item"
+      active-class="nav__item--active"
+      :to="{ name: 'CooperationInfoPage' }"
+    >
       Сотрудничество
     </router-link>
   </nav>
@@ -27,4 +39,25 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 20%;
+  margin-right: 5%;
+  font-size: adaptive_fz(14px, 9px);
+  font-weight: 700;
+}
+
+.nav__item {
+  line-height: 3em;
+  color: $main_color;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+    &.nav__item--active {
+    background-color: #f5f5f5;
+  }
+}
+
 </style>
