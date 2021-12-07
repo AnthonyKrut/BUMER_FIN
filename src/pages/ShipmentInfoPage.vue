@@ -1,10 +1,10 @@
 <template>
-  <section class="shipment redactor-content">
+  <section class="shipment">
     <div class="container">
-      <h2>
+      <h2 class="infopage-title">
         Доставкa
       </h2>
-      <div class="infopage-wrapper">
+      <div class="redactor-content">
         <TermsNav />
         <article>
           <h3>

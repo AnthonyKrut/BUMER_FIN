@@ -1,10 +1,10 @@
 <template>
-  <section class="payment redactor-content">
+  <section class="payment">
     <div class="container">
-      <h2>
+      <h2 class="infopage-title">
         Оплата
       </h2>
-      <div class="infopage-wrapper">
+      <div class="redactor-content">
         <TermsNav />
         <article>
           <h3>

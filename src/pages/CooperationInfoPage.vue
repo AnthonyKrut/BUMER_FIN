@@ -1,10 +1,10 @@
 <template>
-  <section class="cooperation redactor-content">
+  <section class="cooperation">
     <div class="container">
-      <h2>
+      <h2 class="infopage-title">
         Сотрудничество
       </h2>
-      <div class="infopage-wrapper">
+      <div class="redactor-content">
         <TermsNav />
         <article>
           <h4>

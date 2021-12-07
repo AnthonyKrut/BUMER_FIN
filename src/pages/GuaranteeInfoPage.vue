@@ -1,10 +1,10 @@
 <template>
-  <section class="guarantee redactor-content">
+  <section class="guarantee">
     <div class="container">
-      <h2>
+      <h2 class="infopage-title">
         ГАРАНТИЯ
       </h2>
-      <div class="infopage-wrapper">
+      <div class="redactor-content">
         <TermsNav />
         <article>
           <h4>
