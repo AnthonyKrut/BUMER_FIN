@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__logo">
-        <SvgImage name="logo" />
+        <SvgImage class="footer__logo-img" name="logo" />
         <div class="footer__copy">
           <span>BUMER 2021</span>
           <span>&copy; All rights reserved</span>
@@ -20,13 +20,16 @@
         </router-link>
       </div>
       <nav class="footer__nav nav">
-        <router-link class="nav__item" :to="{name: 'ShipmentInfoPage'}">
-          ОПЛАТА И ДОСТАВКА
+        <router-link class="nav__item" :to="{name: 'PaymentInfoPage'}">
+          ОПЛАТА
         </router-link>
-        <router-link class="nav__item" to="/">
+        <router-link class="nav__item" :to="{name: 'ShipmentInfoPage'}">
+          ДОСТАВКА
+        </router-link>
+        <router-link class="nav__item" :to="{name: 'Error404Page'}">
           НОВОСТИ
         </router-link>
-        <router-link class="nav__item" to="/">
+        <router-link class="nav__item" :to="{name: 'CooperationInfoPage'}">
           СОТРУДНИЧЕСТВО
         </router-link>
       </nav>
@@ -144,6 +147,7 @@ export default {
           height: 20px;
           margin-bottom: 10px;
           fill: $contrast_color;
+          stroke: none;
         }
         &:hover {
           color: $attention_color;
@@ -167,14 +171,14 @@ export default {
       justify-content: center;
       width: 100%;
       background: rgba(196, 196, 196, 0.2);
-      img {
+      .footer__logo-img {
         display: none;
       }
       span {
         line-height: 2.5em;
         text-align: center;
         &:first-of-type {
-          display: block;
+          display: inline;
         }
       }
     }

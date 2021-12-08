@@ -9,6 +9,7 @@ import ShipmentInfoPage from '../pages/ShipmentInfoPage'
 import CooperationInfoPage from '../pages/CooperationInfoPage'
 import PaymentInfoPage from '../pages/PaymentInfoPage'
 import GuaranteeInfoPage from '../pages/GuaranteeInfoPage'
+import Error404Page from '../pages/Error404Page'
 
 const routes = [
   {
@@ -51,6 +52,11 @@ const routes = [
     path: '/guarantee-info',
     name: 'GuaranteeInfoPage',
     component: GuaranteeInfoPage,
+  },
+  {
+    path: '/error-404',
+    name: 'Error404Page',
+    component: Error404Page,
   }, 
 ]
 
