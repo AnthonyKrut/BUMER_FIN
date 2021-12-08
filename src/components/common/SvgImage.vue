@@ -15,6 +15,7 @@ import IconQuotes from '../icons/IconQuotes.vue'
 import IconCheck1 from '../icons/IconCheck1'
 import IconLetter from '../icons/IconLetter.vue'
 import IconPhone from '../icons/IconPhone.vue'
+import IconCall from '../icons/IconCall.vue'
 
 
 export default {
@@ -32,6 +33,7 @@ export default {
     IconCheck1,
     IconLetter,
     IconPhone,
+    IconCall,
   },
   props: {
     name: {

@@ -6,32 +6,16 @@
           <SvgImage name="delivery" />
           <span>БЕСПЛАТНАЯ ДОСТАВКА ОТ 3999 ГРН</span>
         </div>
-        <nav class="header__nav nav">
-          <router-link
-            class="nav__item"
-            active-class="nav__item--active"
-            to="/"
-            exact
-          >
-            ОПЛАТА
-          </router-link>
-          <router-link
-            class="nav__item"
-            active-class="nav__item--active"
-            :to="{name: 'ShipmentInfoPage'}"
-
-          >
-            ДОСТАВКА
-          </router-link>
-          <router-link
-            class="nav__item"
-            active-class="nav__item--active"
-            to="/"
-            exact
-          >
-            НАШИ МАГАЗИНЫ
-          </router-link>
-        </nav>
+        <div class="header__call-lang">
+          <div class="header__call">
+            <SvgImage class="header__call-img" name="call" />
+            <span class="header__call-text">Заказать звонок</span>
+          </div>
+          <CallPopover />
+          <div class="header__lang">
+            <!-- LANG FLAG -->
+          </div>
+        </div>
       </div>
     </div>
     <div class="header__bottom">
@@ -103,6 +87,7 @@ import CartPopover from '@/components/common/CartPopover'
 import {mapMutations, mapState} from 'vuex'
 import MainNav from '@/components/common/MainNav'
 import HeaderSearchForm from '@/components/common/HeaderSearchForm'
+import CallPopover from '@/components/common/CallPopover'
 
 export default {
   name: 'TheHeader',
@@ -111,6 +96,7 @@ export default {
     MainNav,
     CartPopover,
     SvgImage,
+    CallPopover,
   },
   computed: {
     ...mapState('cart', [
@@ -153,27 +139,27 @@ export default {
         height: 1.5em;
         width: 1.5em;
         margin-right: 0.75em;
+        stroke: none;
       }
       // span {}
     }
-    .nav {
-      display: flex;
-      align-items: center;
-      font-weight: 400;
-      &__item {
-        color: $contrast_color;
-        text-decoration: none;
-        &:not(:last-child) {
-          margin-right: 2.5vw;
-        }
-        &:hover {
-          color: $attention_color;
-        }
-        &.nav__item--active {
-          color: $attention_color;
-        }
-      }
+
+    .header__call-lang {}
+
+    .header__call {
+      cursor: pointer;
     }
+
+    .header__call-img {
+      width: 0.9em;
+      margin-right: 1em;
+      vertical-align: middle;
+      stroke: none;
+    }
+
+    .header__call-text {}
+
+    .header__lang {}
   }
   @media screen and (max-width: 767px) {
     &__top {
