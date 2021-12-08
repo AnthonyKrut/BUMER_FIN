@@ -56,7 +56,7 @@ export default {
 .quote__text {
   margin-bottom: 5em;
   line-height: 1.85em;
-  color: $grey_color_dark;
+  color: $text_color_dark;
 }
 
 .quote__quotes {

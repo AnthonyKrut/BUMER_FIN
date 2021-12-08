@@ -56,7 +56,7 @@ export default {
 .map-stores__text {
   font-size: adaptive_fz(14px, 8px);
   font-weight: 400;
-  color: $grey_color;
+  color: $text_color;
   @media screen and (min-width: 1440px) {
     font-size: 14px;
   }
