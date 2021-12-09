@@ -5,6 +5,8 @@ import auth from '@/store/auth'
 import cart from '@/store/cart'
 import products from '@/store/products'
 import common from '@/store/common'
+import call from '@/store/call'
+import lang from '@/store/lang'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -14,5 +16,7 @@ export default new Vuex.Store({
     cart,
     products,
     common,
+    call,
+    lang,
   },
 })

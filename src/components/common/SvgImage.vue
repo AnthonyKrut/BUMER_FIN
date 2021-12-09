@@ -16,6 +16,9 @@ import IconCheck1 from '../icons/IconCheck1'
 import IconLetter from '../icons/IconLetter.vue'
 import IconPhone from '../icons/IconPhone.vue'
 import IconCall from '../icons/IconCall.vue'
+import IconUa from '../icons/IconUa.vue'
+import IconRu from '../icons/IconRu.vue'
+import IconAngle from '../icons/IconAngle.vue'
 
 
 export default {
@@ -34,6 +37,9 @@ export default {
     IconLetter,
     IconPhone,
     IconCall,
+    IconUa,
+    IconRu,
+    IconAngle,
   },
   props: {
     name: {
