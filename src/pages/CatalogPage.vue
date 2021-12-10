@@ -1,9 +1,9 @@
 <template>
   <section class="catalog">
     <div class="container">
-      <h2 class="catalog__title">
+      <h1>
         Заголовок категории
-      </h2>
+      </h1>
 
       <CatalogFilters />
 
@@ -488,16 +488,6 @@ export default {
 .catalog {
   margin-bottom: 4em;
   font-size: adaptive_fz(25px, 14px);
-  // .container {}
-  &__title {
-    padding: 1em 0 1.5em;
-    // height: 1.25em;
-    font-size: adaptive_fz(25px, 14px);
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    background: $contrast_color;
-  }
 
   &__notice {
     font-size: adaptive_fz(14px, 9px);

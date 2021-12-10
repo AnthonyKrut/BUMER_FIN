@@ -1,0 +1,96 @@
+.form {
+
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 12px;
+  color: #6D6D6D;
+
+  &.form__label--required {
+    &:after {
+      content: '*';
+      color: #ff0000;
+      margin-left: 3px;
+    }
+  }
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  border: 1px solid #C4C4C4;
+  font-size: 12px;
+  border-radius: 0;
+  min-height: 42px;
+  padding: 12px 15px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.form__select {
+
+  .multiselect__tags {
+    border: 1px solid #C4C4C4;
+    border-radius: 0;
+    min-height: 42px;
+    font-size: 12px;
+    padding: 12px 40px 0 15px;
+  }
+
+  .multiselect__single {
+    font-size: 12px;
+    padding-left: 0;
+    position: relative;
+    top: -1px;
+  }
+
+  .multiselect__input {
+    font-size: 12px;
+    color: #000;
+    padding-left: 0;
+    position: relative;
+    top: -1px;
+  }
+
+  .multiselect__option {
+    font-size: 12px;
+    padding: 14px 16px;
+  }
+
+  .multiselect__option--highlight {
+    background: #fafafa;
+    color: #000;
+  }
+
+  .multiselect__content-wrapper {
+    border: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.23);
+    border-radius: 0px;
+  }
+
+  .multiselect__option--selected {
+    color: #000000;
+  }
+
+  .multiselect__select {
+    padding-left: 0;
+    top: 7%;
+    padding-right: 0;
+
+    &:before {
+      content: "";
+      border: solid black;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 4px;
+      transform: rotate(45deg);
+      top: 10%;
+      margin: 0;
+    }
+  }
+}
+

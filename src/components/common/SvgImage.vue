@@ -1,5 +1,5 @@
 <template>
-  <component :is="`icon-${name}`" fill="currentColor" stroke="currentColor" />
+  <component :is="`icon-${name}`" fill="currentColor" />
 </template>
 
 <script>
@@ -15,7 +15,7 @@ import IconQuotes from '../icons/IconQuotes.vue'
 import IconCheck1 from '../icons/IconCheck1'
 import IconLetter from '../icons/IconLetter.vue'
 import IconPhone from '../icons/IconPhone.vue'
-
+import IconTrash from '../icons/IconTrash'
 
 export default {
   name: 'IconBase',
@@ -32,6 +32,7 @@ export default {
     IconCheck1,
     IconLetter,
     IconPhone,
+    IconTrash,
   },
   props: {
     name: {

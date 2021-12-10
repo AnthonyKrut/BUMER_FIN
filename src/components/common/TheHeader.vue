@@ -8,26 +8,25 @@
         </div>
         <nav class="header__nav nav">
           <router-link
-            class="nav__item"
             active-class="nav__item--active"
-            to="/"
+            class="nav__item"
             exact
+            to="/"
           >
             ОПЛАТА
           </router-link>
           <router-link
-            class="nav__item"
             active-class="nav__item--active"
+            class="nav__item"
             :to="{name: 'ShipmentInfoPage'}"
-
           >
             ДОСТАВКА
           </router-link>
           <router-link
-            class="nav__item"
             active-class="nav__item--active"
-            to="/"
+            class="nav__item"
             exact
+            to="/"
           >
             НАШИ МАГАЗИНЫ
           </router-link>

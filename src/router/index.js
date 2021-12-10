@@ -10,12 +10,12 @@ import CooperationInfoPage from '../pages/CooperationInfoPage'
 import PaymentInfoPage from '../pages/PaymentInfoPage'
 import GuaranteeInfoPage from '../pages/GuaranteeInfoPage'
 import Error404Page from '../pages/Error404Page'
+import PrivacyPolicyInfoPage from '../pages/PrivacyPolicyInfoPage'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-
     component: HomePage,
   },
   {
@@ -47,17 +47,21 @@ const routes = [
     path: '/payment-info',
     name: 'PaymentInfoPage',
     component: PaymentInfoPage,
-  }, 
+  },
   {
     path: '/guarantee-info',
     name: 'GuaranteeInfoPage',
     component: GuaranteeInfoPage,
   },
   {
-    path: '/error-404',
-    name: 'Error404Page',
+    path: '/privacy-policy',
+    name: 'PrivacyPolicyInfo',
+    component: PrivacyPolicyInfoPage,
+  },
+  {
+    path: '*',
     component: Error404Page,
-  }, 
+  },
 ]
 
 Vue.use(VueRouter)
