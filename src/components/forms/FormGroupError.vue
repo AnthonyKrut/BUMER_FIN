@@ -1,6 +1,6 @@
 <template>
   <div class="form-group-error">
-    {{text}}
+    {{ text }}
   </div>
 </template>
 

@@ -7,7 +7,7 @@
           <SvgImage name="trash" />
         </div>
 
-        <router-link :to="{name: 'Product'}" class="checkout-cart-item__name">
+        <router-link class="checkout-cart-item__name" :to="{name: 'Product'}">
           Кроссовки
         </router-link>
 
@@ -21,11 +21,11 @@
           </div>
 
           <Multiselect
-            :value="product.quantity || 1"
             class="form__select checkout-cart-item__count-select"
             :options="quantityAvailable"
             placeholder=""
             :show-labels="false"
+            :value="product.quantity || 1"
             @change="changeQuantity"
           />
         </div>
@@ -57,7 +57,7 @@ export default {
   name: 'CheckoutCartItem',
   components: {
     Multiselect,
-    SvgImage
+    SvgImage,
   },
   props: {
     product: {
@@ -68,7 +68,7 @@ export default {
   computed: {
     quantityAvailable () {
       return [1, 2, 3, 4, 5]
-    }
+    },
   },
   methods: {
     changeQuantity(e) {

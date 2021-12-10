@@ -1,10 +1,10 @@
 <template>
   <div
-      :class="{
-        'form-group--error': field.$error,
-        'form-group--small-spacing': smallSpacing
-      }"
-      class="form-group"
+    class="form-group"
+    :class="{
+      'form-group--error': field.$error,
+      'form-group--small-spacing': smallSpacing
+    }"
   >
     <slot />
   </div>

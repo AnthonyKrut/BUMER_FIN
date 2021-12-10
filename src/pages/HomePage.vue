@@ -6,32 +6,46 @@
       <Banner1 />
 
       <div class="popular-products">
-        <h3 class="popular-products__title">ПОПУЛЯРНЫЕ ТОВАРЫ</h3>
+        <h3 class="popular-products__title">
+          ПОПУЛЯРНЫЕ ТОВАРЫ
+        </h3>
         <div class="popular-products__line line line_fisrt">
           <router-link class="line__product product" :to="{ name: 'Product' }">
-            <div class="product__label">SALE</div>
+            <div class="product__label">
+              SALE
+            </div>
             <div class="product__pic">
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item01-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </router-link>
           <router-link class="line__product product" :to="{ name: 'Product' }">
-            <div class="product__label">TOP</div>
+            <div class="product__label">
+              TOP
+            </div>
             <div class="product__pic">
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item02-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </router-link>
           <router-link class="line__product product" :to="{ name: 'Product' }">
@@ -40,24 +54,34 @@
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item03-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </router-link>
           <router-link class="line__product product" :to="{ name: 'Product' }">
-            <div class="product__label">NEW</div>
+            <div class="product__label">
+              NEW
+            </div>
             <div class="product__pic">
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item01-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </router-link>
         </div>
@@ -66,29 +90,41 @@
 
         <div class="popular-products__line line line_second">
           <div class="line__product product">
-            <div class="product__label">SALE</div>
+            <div class="product__label">
+              SALE
+            </div>
             <div class="product__pic">
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item01-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </div>
           <div class="line__product product">
-            <div class="product__label">TOP</div>
+            <div class="product__label">
+              TOP
+            </div>
             <div class="product__pic">
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item02-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </div>
           <div class="line__product product">
@@ -97,24 +133,34 @@
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item03-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </div>
           <div class="line__product product">
-            <div class="product__label">NEW</div>
+            <div class="product__label">
+              NEW
+            </div>
             <div class="product__pic">
               <img
                 alt="product picture"
                 src="../../public/img/stock-items/item01-01.png"
-              />
+              >
             </div>
             <div class="product__specs">
-              <div class="product__article">QN380</div>
-              <div class="product__price">2250 <span>грн</span></div>
+              <div class="product__article">
+                QN380
+              </div>
+              <div class="product__price">
+                2250 <span>грн</span>
+              </div>
             </div>
           </div>
         </div>

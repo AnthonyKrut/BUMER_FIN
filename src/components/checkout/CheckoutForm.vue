@@ -1,6 +1,5 @@
 <template>
   <div class="form checkout-form">
-
     <div class="form__fieldset-heading form__fieldset-heading--required form__fieldset-heading--mb">
       Информация о получателе:
     </div>
@@ -8,13 +7,13 @@
     <div class="form__fieldset">
       <FormGroup :field="$v.form.first_name">
         <label class="form__label form__label--required">Имя:</label>
-        <input v-model.trim="$v.form.first_name.$model" class="form__input" />
+        <input v-model.trim="$v.form.first_name.$model" class="form__input">
         <FormGroupError v-if="!$v.form.first_name.required" type="required" />
       </FormGroup>
 
       <FormGroup :field="$v.form.last_name">
         <label class="form__label form__label--required">Фамилия:</label>
-        <input v-model.trim="$v.form.last_name.$model" class="form__input" />
+        <input v-model.trim="$v.form.last_name.$model" class="form__input">
         <FormGroupError v-if="!$v.form.last_name.required" type="required" />
       </FormGroup>
 
@@ -25,8 +24,8 @@
           class="form__input"
           mask="+38 (0##) ### ## ##"
           masked
-          @input="$v.form.phone.$reset"
           @blur.native="$v.form.phone.$touch"
+          @input="$v.form.phone.$reset"
         />
         <FormGroupError v-if="!$v.form.phone.required" type="required" />
         <FormGroupError v-if="!$v.form.phone.phoneMask" type="phone" />
@@ -34,7 +33,7 @@
 
       <FormGroup :field="$v.form.email">
         <label class="form__label form__label--required">Email:</label>
-        <input v-model.trim.lazy="$v.form.email.$model" class="form__input" />
+        <input v-model.trim.lazy="$v.form.email.$model" class="form__input">
         <FormGroupError v-if="!$v.form.email.required" type="required" />
         <FormGroupError v-if="!$v.form.email.email" type="email" />
       </FormGroup>
@@ -49,11 +48,11 @@
         <Multiselect
           v-model="$v.form.payment.$model"
           class="form__select"
-          track-by="id"
           label="label"
           :options="paymentVariants"
           placeholder="Выберите способ оплаты"
           :show-labels="false"
+          track-by="id"
         />
         <FormGroupError v-if="!$v.form.payment.required" type="required" />
       </FormGroup>
@@ -68,11 +67,11 @@
         <Multiselect
           v-model="$v.form.shippingCompany.$model"
           class="form__select"
-          track-by="id"
           label="label"
           :options="shippingCompanies"
           placeholder="Выберите почту"
           :show-labels="false"
+          track-by="id"
         />
         <FormGroupError v-if="!$v.form.shippingCompany.required" type="required" />
       </FormGroup>
@@ -81,11 +80,11 @@
         <Multiselect
           v-model="$v.form.shippingType.$model"
           class="form__select"
-          track-by="id"
           label="label"
           :options="paymentVariants"
           placeholder="В отделении"
           :show-labels="false"
+          track-by="id"
         />
         <FormGroupError v-if="!$v.form.shippingType.required" type="required" />
       </FormGroup>
@@ -94,11 +93,11 @@
         <Multiselect
           v-model="$v.form.city.$model"
           class="form__select"
-          track-by="id"
           label="label"
           :options="paymentVariants"
           placeholder="Выберите город"
           :show-labels="false"
+          track-by="id"
         />
         <FormGroupError v-if="!$v.form.city.required" type="required" />
       </FormGroup>
@@ -107,16 +106,15 @@
         <Multiselect
           v-model="$v.form.postOffice.$model"
           class="form__select"
-          track-by="id"
           label="label"
           :options="paymentVariants"
           placeholder="Выберите отделение"
           :show-labels="false"
+          track-by="id"
         />
         <FormGroupError v-if="!$v.form.postOffice.required" type="required" />
       </FormGroup>
     </div>
-
   </div>
 </template>
 
@@ -135,7 +133,7 @@ export default {
     FormGroup,
     FormGroupError,
     TheMask,
-    Multiselect
+    Multiselect,
   },
   data() {
     return {
@@ -154,27 +152,27 @@ export default {
       paymentVariants: [
         {
           id: 'cash',
-          label: 'Наличными при получении'
+          label: 'Наличными при получении',
         },
         {
           id: 'card',
-          label: 'Оплата на карту по реквизитам        4168 1234 1234 1234'
+          label: 'Оплата на карту по реквизитам        4168 1234 1234 1234',
         },
       ],
       shippingCompanies: [
         {
           id: 'np',
-          label: 'Новая почта'
+          label: 'Новая почта',
         },
         {
           id: 'up',
-          label: 'Укрпочта'
+          label: 'Укрпочта',
         },
         {
           id: 'justin',
-          label: 'Justin'
+          label: 'Justin',
         },
-      ]
+      ],
     }
   },
   validations: {
