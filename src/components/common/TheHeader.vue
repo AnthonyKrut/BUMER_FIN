@@ -2,9 +2,28 @@
   <header class="header">
     <div class="header__top">
       <div class="container">
-        <div class="header__free-delivery">
-          <SvgImage name="delivery" />
-          <span>БЕСПЛАТНАЯ ДОСТАВКА ОТ 3999 ГРН</span>
+        <div class="header__top-wrapper">
+          <div class="header__free-delivery">
+            <SvgImage class="header__free-delivery-img" name="delivery" />
+            <span class="header__free-delivery-text">БЕСПЛАТНАЯ ДОСТАВКА ОТ 3999 ГРН</span>
+          </div>
+          <div class="header__call-lang">
+            <div class="header__call">
+              <div class="header__call-wrapper" @click="toggleCallPopover">
+                <SvgImage class="header__call-img" name="call" />
+                <span class="header__call-text">Заказать звонок</span>
+              </div>
+              <CallPopover />
+            </div>
+            <div class="header__lang">
+              <div class="header__lang-wrapper" @click="toggleLangPopover">
+                <SvgImage v-if="language==='ua'" class="header__lang-img" name="ua" />
+                <SvgImage v-if="language==='ru'" class="header__lang-img" name="ru" />
+                <SvgImage class="header__lang-angle" :class="{rotated: isLangPopoverVisible}" name="angle" />
+              </div>
+              <LangPopover />
+            </div>
+          </div>
         </div>
         <nav class="header__nav nav">
           <router-link
@@ -102,6 +121,8 @@ import CartPopover from '@/components/common/CartPopover'
 import {mapMutations, mapState} from 'vuex'
 import MainNav from '@/components/common/MainNav'
 import HeaderSearchForm from '@/components/common/HeaderSearchForm'
+import CallPopover from '@/components/common/CallPopover'
+import LangPopover from '@/components/common/LangPopover'
 
 export default {
   name: 'TheHeader',
@@ -110,15 +131,27 @@ export default {
     MainNav,
     CartPopover,
     SvgImage,
+    CallPopover,
+    LangPopover,
   },
   computed: {
     ...mapState('cart', [
       'cart',
     ]),
+    ...mapState('lang', [
+      'language',
+      'isLangPopoverVisible',
+    ]),
   },
   methods: {
     ...mapMutations('common', [
       'toggleCartPopover',
+    ]),
+    ...mapMutations('lang', [
+      'toggleLangPopover',
+    ]),
+    ...mapMutations('call', [
+      'toggleCallPopover',
     ]),
   },
 }
@@ -134,87 +167,81 @@ export default {
   left: 0;
   z-index: 100;
   width: 100vw;
-  &__top {
-    font-size: adaptive_fz(11px, 8px);
-    color: $contrast_color;
-    background: $main_color;
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding-top: 0.75em;
-      padding-bottom: 0.75em;
-    }
-    .header__free-delivery {
-      display: flex;
-      align-items: center;
-      font-weight: 700;
-      svg {
-        height: 1.5em;
-        width: 1.5em;
-        margin-right: 0.75em;
-      }
-      // span {}
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      font-weight: 400;
-      &__item {
-        color: $contrast_color;
-        text-decoration: none;
-        &:not(:last-child) {
-          margin-right: 2.5vw;
-        }
-        &:hover {
-          color: $attention_color;
-        }
-        &.nav__item--active {
-          color: $attention_color;
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 767px) {
-    &__top {
-      .container {
-        justify-content: center;
-      }
-      .nav {
-        display: none;
-      }
-    }
-    &__bottom {
-      .container {
-        padding: 2em calc(5% + 2.5px);
-      }
-      .header__burger-img {
-        display: block;
-        width: 20px;
-        height: 18px;
-        border-top: 2px solid $main_color;
-        border-bottom: 2px solid $main_color;
-        margin-right: 25px;
-        cursor: pointer;
-        &::after {
-          content: '';
-          display: block;
-          width: 20px;
-          height: 2px;
-          background: $main_color;
-          margin-top: 6px;
-        }
-      }
-      .burger {
-        &.active {
-          left: 0;
-        }
-      }
-      .header__btns {
-        min-width: unset;
-        position: relative;
+}
 
-      }
-    }
+.header__top {
+  font-size: adaptive_fz(11px, 8px);
+  line-height: 2.5em;
+  color: $contrast_color;
+  background: $main_color;
+}
+
+.header__top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  // @media screen and (max-width: 575px) {
+  //   justify-content: center;
+  // }
+}
+
+.header__free-delivery {
+  font-weight: 700;
+}
+
+.header__free-delivery-img {
+  width: 1.5em;
+  margin-right: 0.75em;
+  vertical-align: middle;
+  stroke: none;
+}
+
+//.header__free-delivery-text {}
+
+.header__call-lang {
+  display: flex;
+}
+
+.header__call {
+  position: relative;
+  margin-right: 34px;
+  font-weight: 400;
+}
+
+.header__call-wrapper {
+  cursor: pointer;
+}
+
+.header__call-img {
+  width: 0.9em;
+  margin-right: 1em;
+  vertical-align: middle;
+  stroke: none;
+}
+
+//.header__call-text {}
+
+.header__lang {
+  position: relative;
+}
+
+.header__lang-wrapper {
+  cursor: pointer;
+}
+
+.header__lang-img {
+  width: 17px;
+  margin-right: 6px;
+  vertical-align: middle;
+  stroke: none;
+}
+
+.header__lang-angle {
+  width: 6px;
+  vertical-align: middle;
+  fill: none;
+  stroke: #F3F3F3;
+  &.rotated {
+    transform: rotate(180deg);
   }
 }
 
@@ -334,13 +361,43 @@ export default {
       min-width: 120px;
     }
   }
-
   .header__btns {
     display: flex;
     justify-content: space-between;
     width: 20%;
     min-width: 215px;
     position: relative;
+  }
+  @media screen and (max-width: 767px) {
+    .container {
+      padding: 2em calc(5% + 2.5px);
+    }
+    .header__burger-img {
+      display: block;
+      width: 20px;
+      height: 18px;
+      border-top: 2px solid $main_color;
+      border-bottom: 2px solid $main_color;
+      margin-right: 25px;
+      cursor: pointer;
+      &::after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: $main_color;
+        margin-top: 6px;
+      }
+    }
+    .burger {
+      &.active {
+        left: 0;
+      }
+    }
+    .header__btns {
+      min-width: unset;
+      position: relative;
+    }
   }
 }
 
