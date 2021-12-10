@@ -25,31 +25,6 @@
             </div>
           </div>
         </div>
-        <nav class="header__nav nav">
-          <router-link
-            active-class="nav__item--active"
-            class="nav__item"
-            exact
-            to="/"
-          >
-            ОПЛАТА
-          </router-link>
-          <router-link
-            active-class="nav__item--active"
-            class="nav__item"
-            :to="{name: 'ShipmentInfoPage'}"
-          >
-            ДОСТАВКА
-          </router-link>
-          <router-link
-            active-class="nav__item--active"
-            class="nav__item"
-            exact
-            to="/"
-          >
-            НАШИ МАГАЗИНЫ
-          </router-link>
-        </nav>
       </div>
     </div>
     <div class="header__bottom">

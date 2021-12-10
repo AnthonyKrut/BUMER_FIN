@@ -12,14 +12,15 @@
       Либо оставьте свой телефон для обратного звонка
     </div>
     <input
-      v-model="userPhoneNumber" 
-      class="call-popover__input" 
+      class="call-popover__input"
       type="text"
+      :value="userPhoneNumber" 
+      @input="updateUserPhoneNumber"
     >
     <Btn
       class="call-popover__button"
       full-width
-      @click="sendCallRequest"
+      @click.native="orderCallBack"
     >
       ПЕРЕЗВОНИТЬ МНЕ
     </Btn>
@@ -29,7 +30,7 @@
 <script>
 import SvgImage from './SvgImage.vue'
 import Btn from '@/components/common/Btn'
-import {mapActions, mapMutations, mapState} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 
 export default {
   name: 'CallPopover',
@@ -44,11 +45,9 @@ export default {
     ]),
   },
   methods: {
-    ...mapMutations('call', [
-      'closeCallPopover',
-    ]),
     ...mapActions('call', [
-      'sendCallRequest',
+      'orderCallBack',
+      'updateUserPhoneNumber',
     ]),
   },
 }
