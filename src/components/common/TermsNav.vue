@@ -1,29 +1,29 @@
 <template>
   <nav class="nav">
     <router-link
-      class="nav__item"
       active-class="nav__item--active"
+      class="nav__item"
       :to="{ name: 'ShipmentInfoPage' }"
     >
       Доставка
     </router-link>
     <router-link
-      class="nav__item"
       active-class="nav__item--active"
+      class="nav__item"
       :to="{ name: 'PaymentInfoPage' }"
     > 
       Оплата
     </router-link>
     <router-link
-      class="nav__item"
       active-class="nav__item--active"
+      class="nav__item"
       :to="{ name: 'GuaranteeInfoPage' }"
     >
       Гарантия 
     </router-link>
     <router-link
-      class="nav__item"
       active-class="nav__item--active"
+      class="nav__item"
       :to="{ name: 'CooperationInfoPage' }"
     >
       Сотрудничество

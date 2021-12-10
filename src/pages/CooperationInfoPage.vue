@@ -1,9 +1,9 @@
 <template>
   <section class="cooperation">
     <div class="container">
-      <h2 class="infopage-title">
+      <h1>
         Сотрудничество
-      </h2>
+      </h1>
       <div class="redactor-content">
         <TermsNav />
         <article>
@@ -15,7 +15,7 @@
           </h4>
           <p>
             Чтобы получить оптовый прайс на все наши коллекции - свяжитесь с менеджером позвонив по номеру указному в контактах.
-          </p>    
+          </p>
           <p>
             Мы являемся производителями, поэтому у нас самые низкие цены, качественный товар, и самые ходовые модели!
           </p>
@@ -37,7 +37,7 @@
                 <a href="mailto:bumer.shoes@gmail.com">bumer.shoes@gmail.com</a>
               </li>
             </ul>
-          </address>   
+          </address>
         </article>
       </div>
     </div>

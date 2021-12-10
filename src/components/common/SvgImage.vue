@@ -1,5 +1,5 @@
 <template>
-  <component :is="`icon-${name}`" fill="currentColor" stroke="currentColor" />
+  <component :is="`icon-${name}`" fill="currentColor" />
 </template>
 
 <script>
@@ -15,6 +15,7 @@ import IconQuotes from '../icons/IconQuotes.vue'
 import IconCheck1 from '../icons/IconCheck1'
 import IconLetter from '../icons/IconLetter.vue'
 import IconPhone from '../icons/IconPhone.vue'
+import IconTrash from '../icons/IconTrash'
 import IconCall from '../icons/IconCall.vue'
 import IconUa from '../icons/IconUa.vue'
 import IconRu from '../icons/IconRu.vue'
@@ -36,6 +37,7 @@ export default {
     IconCheck1,
     IconLetter,
     IconPhone,
+    IconTrash,
     IconCall,
     IconUa,
     IconRu,

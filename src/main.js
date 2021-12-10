@@ -7,7 +7,9 @@ import store from './store'
 import vueDebounce from 'vue-debounce'
 import VueSweetalert2 from 'vue-sweetalert2'
 import VueCookies from 'vue-cookies'
+import Vuelidate from 'vuelidate'
 
+Vue.use(Vuelidate)
 Vue.use(vueDebounce)
 Vue.use(VueSweetalert2)
 Vue.use(VueCookies)
