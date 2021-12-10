@@ -27,7 +27,7 @@
 
           <div class="checkout-page__privacy-policy">
             Подтверждая заказ вы соглашаетесь с
-            <router-link :to="{name: 'PrivacyPolicyInfo'}" class="checkout-page__privacy-policy-link">
+            <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PrivacyPolicyInfo'}">
               Политикой конфиденциальности
             </router-link>
           </div>

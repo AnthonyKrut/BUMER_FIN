@@ -1,36 +1,35 @@
 <template>
-<div class="checkout-cart">
-  <h2 class="checkout-cart__heading">
-    Корзина
-  </h2>
+  <div class="checkout-cart">
+    <h2 class="checkout-cart__heading">
+      Корзина
+    </h2>
 
-  <div v-if="cart.length" class="checkout-cart__content">
-    <CheckoutCartItem
-      v-for="product in cart"
-      :key="product.article_num"
-      :product="product"
-    />
-  </div>
-
-  <div v-else class="checkout-page__empty">
-    Ваша корзина пока пуста
-  </div>
-
-  <div class="checkout-page__discount">
-    <div>Экономия</div>
-    <div>400 грн</div>
-  </div>
-
-  <div class="checkout-page__total">
-    <div class="checkout-page__total-label">
-      К оплате
+    <div v-if="cart.length" class="checkout-cart__content">
+      <CheckoutCartItem
+        v-for="product in cart"
+        :key="product.article_num"
+        :product="product"
+      />
     </div>
-    <div class="checkout-page__total-value">
-      4 998 грн
+
+    <div v-else class="checkout-page__empty">
+      Ваша корзина пока пуста
+    </div>
+
+    <div class="checkout-page__discount">
+      <div>Экономия</div>
+      <div>400 грн</div>
+    </div>
+
+    <div class="checkout-page__total">
+      <div class="checkout-page__total-label">
+        К оплате
+      </div>
+      <div class="checkout-page__total-value">
+        4 998 грн
+      </div>
     </div>
   </div>
-
-</div>
 </template>
 
 <script>
