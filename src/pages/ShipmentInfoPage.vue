@@ -1,9 +1,9 @@
 <template>
   <section class="shipment">
     <div class="container">
-      <h2 class="infopage-title">
+      <h1>
         Доставкa
-      </h2>
+      </h1>
       <div class="redactor-content">
         <TermsNav />
         <article>

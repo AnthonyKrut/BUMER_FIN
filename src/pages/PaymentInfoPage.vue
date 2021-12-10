@@ -1,9 +1,9 @@
 <template>
   <section class="payment">
     <div class="container">
-      <h2 class="infopage-title">
+      <h1>
         Оплата
-      </h2>
+      </h1>
       <div class="redactor-content">
         <TermsNav />
         <article>
