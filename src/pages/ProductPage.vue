@@ -9,14 +9,14 @@
             <img
               v-for="pic in item_to_show.pics"
               :key="pic"
-              alt="product image"
               :src="pic"
+              alt="product image"
               @click="selectPic(pic)"
             >
           </div>
 
           <div class="main-pic">
-            <img alt="big product image" :src="pic_to_show">
+            <img :src="pic_to_show" alt="big product image">
           </div>
 
           <div class="col-info">
@@ -31,30 +31,30 @@
               </div>
               <table class="col-info__table table">
                 <tbody>
-                  <tr>
-                    <td>Материал верха:</td>
-                    <td>{{ product.top_material }}</td>
-                  </tr>
-                  <tr>
-                    <td>Материал стельки:</td>
-                    <td>{{ product.insole_material }}</td>
-                  </tr>
-                  <tr>
-                    <td>Материал подошвы:</td>
-                    <td>{{ product.sole_material }}</td>
-                  </tr>
-                  <tr style="color: transparent">
-                    <td />
-                    <td>.</td>
-                  </tr>
-                  <tr>
-                    <td>Сезон:</td>
-                    <td>{{ product.season }}</td>
-                  </tr>
-                  <tr>
-                    <td>Вид обуви:</td>
-                    <td>{{ product.category }}</td>
-                  </tr>
+                <tr>
+                  <td>Материал верха:</td>
+                  <td>{{ product.top_material }}</td>
+                </tr>
+                <tr>
+                  <td>Материал стельки:</td>
+                  <td>{{ product.insole_material }}</td>
+                </tr>
+                <tr>
+                  <td>Материал подошвы:</td>
+                  <td>{{ product.sole_material }}</td>
+                </tr>
+                <tr style="color: transparent">
+                  <td />
+                  <td>.</td>
+                </tr>
+                <tr>
+                  <td>Сезон:</td>
+                  <td>{{ product.season }}</td>
+                </tr>
+                <tr>
+                  <td>Вид обуви:</td>
+                  <td>{{ product.category }}</td>
+                </tr>
                 </tbody>
               </table>
               <div class="col-info__colors colors">
@@ -65,9 +65,9 @@
                   <div
                     v-for="item in product.items"
                     :key="item.color_code"
-                    class="colors__color"
                     :class="{active: item_to_show === item}"
                     :style="{backgroundColor: item.color_code}"
+                    class="colors__color"
                     @click="selectColor(item)"
                   />
                 </div>
@@ -75,7 +75,7 @@
             </div>
 
             <div class="adaptive-wrapper02">
-              <div class="col-info__price-old" :class="{invisible: !isOnSale}">
+              <div :class="{invisible: !isOnSale}" class="col-info__price-old">
                 <span>{{ item_to_show.price_stndrt }}</span>грн
               </div>
               <div class="col-info__price-active">
@@ -133,158 +133,17 @@
               46
             </li>
           </ul>
-          <div class="sizes-table-btn">
+          <div class="sizes-table-btn" @click="$refs.sizesGridModal.openModal()">
             <SvgImage name="boot" />
             <span>Таблица размеров ></span>
           </div>
         </div>
       </div>
 
-      <div class="goods-offer">
-        <!-- WRITE IDENTICAL TO START PAGE -->
-        <div class="popular-products">
-          <div class="popular-products__line line">
-            <div class="line__product product">
-              <div class="product__label">
-                SALE
-              </div>
-              <div class="product__pic">
-                <img alt="product picture" src="/img/stock-items/item01-01.png">
-              </div>
-              <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
-              </div>
-            </div>
-            <div class="line__product product">
-              <div class="product__label">
-                TOP
-              </div>
-              <div class="product__pic">
-                <img alt="product picture" src="/img/stock-items/item02-01.png">
-              </div>
-              <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
-              </div>
-            </div>
-            <div class="line__product product">
-              <div class="product__label" />
-              <div class="product__pic">
-                <img alt="product picture" src="/img/stock-items/item03-01.png">
-              </div>
-              <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
-              </div>
-            </div>
-            <div class="line__product product">
-              <div class="product__label">
-                NEW
-              </div>
-              <div class="product__pic">
-                <img alt="product picture" src="/img/stock-items/item01-01.png">
-              </div>
-              <div class="product__specs">
-                <div class="product__article">
-                  QN380
-                </div>
-                <div class="product__price">
-                  2250 <span>грн</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Catalog :products="[1,2,3,4]" heading="Рекомендуем" heading-position="left" />
     </div>
 
-    <div class="sizes-modal">
-      <div class="sizes-modal__wrapper">
-        <div class="sizes-modal__btn" />
-        <table class="sizes-modal__table">
-          <caption>таблица размеров</caption>
-          <thead>
-            <tr>
-              <th>EUR</th>
-              <th>UK</th>
-              <th>длина стопы</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td />
-              <td />
-              <td>.</td>
-            </tr>
-            <tr>
-              <td>39</td>
-              <td>5</td>
-              <td>25,3</td>
-            </tr>
-            <tr>
-              <td>40</td>
-              <td>6</td>
-              <td>25,8</td>
-            </tr>
-            <tr>
-              <td>41</td>
-              <td>7</td>
-              <td>26,4</td>
-            </tr>
-            <tr>
-              <td>42</td>
-              <td>8</td>
-              <td>27</td>
-            </tr>
-            <tr>
-              <td>43</td>
-              <td>9</td>
-              <td>27,6</td>
-            </tr>
-            <tr>
-              <td>44</td>
-              <td>10</td>
-              <td>28,3</td>
-            </tr>
-            <tr>
-              <td>45</td>
-              <td>11</td>
-              <td>28,9</td>
-            </tr>
-            <tr>
-              <td>46</td>
-              <td>12</td>
-              <td>29,6</td>
-            </tr>
-            <tr>
-              <td>47</td>
-              <td>13</td>
-              <td>30,3</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="sizes-modal__text">
-          Чтобы правильно измерить длину вашей стопы, поставьте ногу на лист бумаги, отметьте две точки, носок и
-          пятка. Нарисуйте две линии перпендикулярно к ним - расстояние между этими линиями - это длина стопы.
-        </div>
-      </div>
-    </div>
-    <div class="added-modal">
-      <!-- WRITE IDENTICAL TO sizes-modal -->
-    </div>
+    <SizesGridModal ref="sizesGridModal" />
   </section>
 </template>
 
@@ -292,10 +151,14 @@
 import SvgImage from '../components/common/SvgImage.vue'
 import Btn from '@/components/common/Btn'
 import {mapMutations} from 'vuex'
+import SizesGridModal from '@/components/product/SizesGridModal'
+import Catalog from '@/components/catalog/Catalog'
 
 export default {
-  name: 'ProductCardPage',
+  name: 'ProductPage',
   components: {
+    Catalog,
+    SizesGridModal,
     Btn,
     SvgImage,
   },
@@ -422,9 +285,6 @@ export default {
 @import "../assets/scss/mixins";
 
 .product-card {
-  .container {
-    background: $contrast_color;
-  }
 
   .stock-article {
     &__top {
@@ -756,29 +616,6 @@ export default {
           }
         }
       }
-
-      .sizes-table-btn {
-        display: inline-flex;
-        margin-bottom: 8em;
-        font-size: adaptive_fz(12px, 9px); // no adaptive fz!
-        font-weight: 300;
-        line-height: 1.5em;
-        text-transform: uppercase;
-        cursor: pointer;
-        // border: 1px solid green;
-        svg {
-          width: 1.67em;
-          height: 1.25em;
-          margin-right: 0.5em;
-          stroke: $main_color;
-        }
-
-        &:hover svg {
-          stroke: $attention_color;
-        }
-
-        // span {}
-      }
     }
 
     @media screen and (max-width: 575px) {
@@ -791,89 +628,27 @@ export default {
     @include popular-products;
   }
 
-  .sizes-modal {
-    position: fixed;
-    top: -125vh;
-    left: 0;
-    z-index: 10;
-    transform: rotate3d(1, 1, 0, 90deg);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: all 1s 0.125s ease;
-
-    &.active {
-      top: 0;
-      transform: rotate3d(1, 1, 0, 0deg);
+  .sizes-table-btn {
+    display: inline-flex;
+    margin-bottom: 8em;
+    font-size: adaptive_fz(12px, 9px); // no adaptive fz!
+    font-weight: 300;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    cursor: pointer;
+    // border: 1px solid green;
+    svg {
+      width: 1.67em;
+      height: 1.25em;
+      margin-right: 0.5em;
+      stroke: $main_color;
     }
 
-    &__wrapper {
-      position: relative;
-      width: 45vw;
-      max-width: calc(0.45 * 1180px);
-      padding: 2.5em Min(calc(0.15 * 45vw), calc(0.15 * 1180px));
-      font-size: adaptive_fz(14px, 9px);
-      font-weight: 400;
-      background-color: $contrast_color;
-      @media screen and (max-width: 767px) {
-        width: 75vw;
-      }
+    &:hover svg {
+      stroke: $attention_color;
     }
 
-    &__btn {
-      position: absolute;
-      top: calc(0.05 * 40vw);
-      right: calc(0.05 * 40vw);
-      width: 16px;
-      height: 16px;
-      background: url('../assets/img/svg/cross.svg') center/ contain no-repeat;
-      cursor: pointer;
-    }
-
-    &__table {
-      width: 100%;
-      margin-bottom: 2em;
-      border-spacing: 0;
-
-      caption {
-        margin-bottom: 1.2em;
-        font-size: adaptive_fz(25px, 12px);
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-
-      tbody tr:first-child {
-        visibility: hidden;
-      }
-
-      tr {
-        line-height: 2em;
-        text-transform: uppercase;
-        text-align: center;
-
-        th,
-        td {
-          border-bottom: 1px solid $text_color;
-        }
-
-        th:last-child,
-        td:last-child {
-          width: 50%;
-        }
-      }
-    }
-
-    &__text {
-      font-size: adaptive_fz(11px, 8px);
-      line-height: 1.3em;
-      color: $text_color_dark;
-      text-align: center;
-    }
+    // span {}
   }
-
-  //.added-modal{}
 }
 </style>

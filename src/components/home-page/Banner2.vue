@@ -25,6 +25,8 @@ export default {
   height: 4.85em; // 580px;
   font-size: adaptive_fz(120px, 24px);
   font-weight: 700;
+  margin-top: 100px;
+  margin-bottom: 80px;
   color: $contrast_color;
   background: url("../../assets/img/img-baner02.jpg") center/cover no-repeat;
   @media screen and (min-width: 1440px) {

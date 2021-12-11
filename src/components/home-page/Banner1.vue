@@ -36,6 +36,8 @@ export default {
   display: flex;
   font-size: adaptive_fz(20px, 12px);
   font-weight: 700;
+  margin-bottom: 70px;
+  margin-top: 90px;
 }
 
 .banner-1__pic {

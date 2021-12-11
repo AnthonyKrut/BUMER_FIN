@@ -93,7 +93,7 @@
       </div>
     </div>
 
-    <div class="catalog-filters__selected">
+    <div v-if="isAnyFilterSelected" class="catalog-filters__selected">
       <div v-if="selectedFilters.sortBy" class="catalog-filters__selected-group">
         Сортировать по:
         <div class="catalog-filters__selected-item">
@@ -218,6 +218,14 @@ export default {
         category: null,
       },
     }
+  },
+  computed: {
+    isAnyFilterSelected() {
+      return !!(this.selectedFilters.sortBy
+        || this.selectedFilters.sizes.length
+        || this.selectedFilters.colors.length
+        || this.selectedFilters.category)
+    },
   },
   methods: {
     removeSelectedFilter(val, type) {
