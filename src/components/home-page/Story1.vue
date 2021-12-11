@@ -41,6 +41,7 @@ export default {
   font-family: "Roboto", sans-serif;
   font-size: adaptive_fz(46px, 15px);
   font-weight: 700;
+  margin-top: 160px;
   @media screen and (min-width: 1440px) {
     font-size: 46px;
   }

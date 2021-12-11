@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import HomePage from '../pages/HomePage'
 import CatalogPage from '../pages/CatalogPage'
-import ProductPage from '../pages/ProductCardPage'
+import ProductPage from '../pages/ProductPage'
 import CheckoutPage from '../pages/СheckoutPage'
 import ShipmentInfoPage from '../pages/ShipmentInfoPage'
 import CooperationInfoPage from '../pages/CooperationInfoPage'
