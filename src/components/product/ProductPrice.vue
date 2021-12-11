@@ -1,19 +1,22 @@
 <template>
-<div class="product-price">
-  <div v-if="isOnSale" class="product-price__price-old">
-    <div class="product-price__price-old-value">
-      {{ priceOld }}
+  <div class="product-price">
+    <div v-if="isOnSale" class="product-price__price-old">
+      <div class="product-price__price-old-value">
+        {{ priceOld }}
+      </div>
+      <div class="product-price__price-old-currency">
+        грн
+      </div>
     </div>
-    <div class="product-price__price-old-currency">грн</div>
-
-  </div>
-  <div class="product-price__price-active">
-    <div class="product-price__price-active-value">
-      {{ activePrice }}
+    <div class="product-price__price-active">
+      <div class="product-price__price-active-value">
+        {{ activePrice }}
+      </div>
+      <div class="product-price__price-active-currency">
+        грн
+      </div>
     </div>
-    <div class="product-price__price-active-currency">грн</div>
   </div>
-</div>
 </template>
 
 <script>
@@ -36,7 +39,7 @@ export default {
     },
     priceOld() {
       return this.product.items[0].price_stndrt
-    }
+    },
   },
 }
 </script>

@@ -7,7 +7,7 @@
       :class="{'sizes-list__item--not-available': !size.is_available, 'sizes-list__item--active': size.is_active}"
       @click="selectSize(40)"
     >
-      {{size.value}}
+      {{ size.value }}
     </div>
   </div>
 </template>
@@ -21,37 +21,37 @@ export default {
         {
           value: 40,
           is_available: true,
-          is_active: false
+          is_active: false,
         },
         {
           value: 41,
           is_available: true,
-          is_active: false
+          is_active: false,
         },
         {
           value: 42,
           is_available: false,
-          is_active: false
+          is_active: false,
         },
         {
           value: 43,
           is_available: false,
-          is_active: false
+          is_active: false,
         },
         {
           value: 44,
           is_available: true,
-          is_active: true
+          is_active: true,
         },
         {
           value: 45,
           is_available: true,
-          is_active: false
+          is_active: false,
         },
         {
           value: 46,
           is_available: true,
-          is_active: false
+          is_active: false,
         },
       ],
     }

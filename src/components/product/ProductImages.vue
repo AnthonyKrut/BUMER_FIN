@@ -4,17 +4,17 @@
       <img
         v-for="pic in product.items[0].pics"
         :key="pic"
-        :src="pic"
-        class="product-images__secondary-img"
         alt=""
+        class="product-images__secondary-img"
+        :src="pic"
       >
     </div>
 
     <div class="product-images__main-img-wrapper">
       <img
-        :src="product.items[0].pics[0]"
-        class="product-images__main-img"
         alt=""
+        class="product-images__main-img"
+        :src="product.items[0].pics[0]"
       >
     </div>
   </div>

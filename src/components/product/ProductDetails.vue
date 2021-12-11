@@ -1,30 +1,30 @@
 <template>
   <table class="table">
     <tbody>
-    <tr>
-      <td>Материал верха:</td>
-      <td>{{ product.top_material }}</td>
-    </tr>
-    <tr>
-      <td>Материал стельки:</td>
-      <td>{{ product.insole_material }}</td>
-    </tr>
-    <tr>
-      <td>Материал подошвы:</td>
-      <td>{{ product.sole_material }}</td>
-    </tr>
-    <tr style="color: transparent">
-      <td />
-      <td>.</td>
-    </tr>
-    <tr>
-      <td>Сезон:</td>
-      <td>{{ product.season }}</td>
-    </tr>
-    <tr>
-      <td>Вид обуви:</td>
-      <td>{{ product.category }}</td>
-    </tr>
+      <tr>
+        <td>Материал верха:</td>
+        <td>{{ product.top_material }}</td>
+      </tr>
+      <tr>
+        <td>Материал стельки:</td>
+        <td>{{ product.insole_material }}</td>
+      </tr>
+      <tr>
+        <td>Материал подошвы:</td>
+        <td>{{ product.sole_material }}</td>
+      </tr>
+      <tr style="color: transparent">
+        <td />
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>Сезон:</td>
+        <td>{{ product.season }}</td>
+      </tr>
+      <tr>
+        <td>Вид обуви:</td>
+        <td>{{ product.category }}</td>
+      </tr>
     </tbody>
   </table>
 </template>

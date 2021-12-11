@@ -1,14 +1,16 @@
 <template>
   <div class="colors-list">
-    <div class="colors-list__label">Цвет:</div>
+    <div class="colors-list__label">
+      Цвет:
+    </div>
 
     <div class="colors-list__list">
       <div
         v-for="color in colors"
         :key="color.color_code"
+        class="colors-list__color"
         :class="{'colors-list__color--active': color.is_active}"
         :style="{backgroundColor: color.color_code}"
-        class="colors-list__color"
       >
         <div v-if="color.is_active" class="colors-list__color-check">
           <SvgImage name="check1" />
@@ -31,15 +33,15 @@ export default {
       colors: [
         {
           color_code: '#ff0000',
-          is_active: true
+          is_active: true,
         },
         {
           color_code: '#477d22',
-          is_active: false
+          is_active: false,
         },
         {
           color_code: '#ad9c2b',
-          is_active: false
+          is_active: false,
         },
       ],
     }
