@@ -4,16 +4,16 @@
     class="sizes-modal"
     title="Tаблица размеров"
   >
-      <div class="sizes-modal__body">
-        <table class="sizes-modal__table">
-          <thead>
+    <div class="sizes-modal__body">
+      <table class="sizes-modal__table">
+        <thead>
           <tr>
             <th>EUR</th>
             <th>UK</th>
             <th>Длина стопы</th>
           </tr>
-          </thead>
-          <tbody>
+        </thead>
+        <tbody>
           <tr>
             <td />
             <td />
@@ -64,13 +64,13 @@
             <td>13</td>
             <td>30,3</td>
           </tr>
-          </tbody>
-        </table>
-        <div class="sizes-modal__text">
-          Чтобы правильно измерить длину вашей стопы, поставьте ногу на лист бумаги, отметьте две точки, носок и
-          пятка. Нарисуйте две линии перпендикулярно к ним - расстояние между этими линиями - это длина стопы.
-        </div>
+        </tbody>
+      </table>
+      <div class="sizes-modal__text">
+        Чтобы правильно измерить длину вашей стопы, поставьте ногу на лист бумаги, отметьте две точки, носок и
+        пятка. Нарисуйте две линии перпендикулярно к ним - расстояние между этими линиями - это длина стопы.
       </div>
+    </div>
   </sweet-modal>
 </template>
 
@@ -80,7 +80,7 @@ import { SweetModal } from 'sweet-modal-vue'
 export default {
   name: 'SizesGridModal',
   components: {
-    SweetModal
+    SweetModal,
   },
   methods: {
     openModal() {
@@ -88,7 +88,7 @@ export default {
     },
     closeModal() {
       this.$refs.modal.close()
-    }
+    },
   },
 }
 </script>

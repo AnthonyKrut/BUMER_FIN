@@ -32,7 +32,7 @@ export default {
     headingPosition: {
       type: String,
       default: 'center',
-    }
+    },
   },
 }
 </script>

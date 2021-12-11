@@ -1,12 +1,9 @@
 <template>
   <section class="catalog-page">
     <div class="container">
-      <h1>
-        Заголовок категории
-      </h1>
+      <h1>Заголовок категории</h1>
 
       <CatalogFilters />
-
       <Catalog v-if="products" :products="products" />
 
       <div v-else class="catalog__notice">
@@ -25,7 +22,7 @@ export default {
   name: 'CategoryPage',
   components: {
     CatalogFilters,
-    Catalog
+    Catalog,
   },
   data() {
     return {
@@ -40,7 +37,7 @@ export default {
         {id: 8},
         {id: 9},
         {id: 10},
-      ]
+      ],
     }
   },
   async created() {
@@ -55,5 +52,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.catalog__notice {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+  color: #b6b6b6;
+  font-weight: bold;
+  margin-top: 40px;
+}
 
 </style>

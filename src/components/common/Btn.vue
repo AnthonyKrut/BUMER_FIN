@@ -1,10 +1,10 @@
 <template>
   <component
-    :is="componentName"
-    class="button"
-    :class="{'button--full-width': fullWidth}"
-    :href="href"
-    :to="{name: to}"
+      :is="componentName"
+      :class="{'button--full-width': fullWidth}"
+      :href="href"
+      :to="{name: to}"
+      class="button"
   >
     <slot />
   </component>
@@ -66,6 +66,10 @@ export default {
 
   &.button--full-width {
     display: flex;
+  }
+
+  svg {
+    margin-right: 14px;
   }
 }
 

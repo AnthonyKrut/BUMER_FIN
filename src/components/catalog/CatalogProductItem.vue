@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'Product'}" class="catalog-product-item">
+  <router-link class="catalog-product-item" :to="{name: 'Product'}">
     <div class="catalog-product-item__label">
       TOP
     </div>

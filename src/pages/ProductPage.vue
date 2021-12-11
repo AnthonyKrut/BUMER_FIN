@@ -1,143 +1,39 @@
 <template>
   <section class="product-card">
     <div class="container">
-      <div id="stock-article" class="stock-article">
-        <div class="stock-article__top">
-          <div class="arrow arrow_prev" />
-          <div class="arrow arrow_next" />
-          <div class="col-pics">
-            <img
-              v-for="pic in item_to_show.pics"
-              :key="pic"
-              :src="pic"
-              alt="product image"
-              @click="selectPic(pic)"
-            >
-          </div>
+      <div class="product-card__top">
+        <PrevNextProductArrow type="prev" />
+        <PrevNextProductArrow type="next" />
 
-          <div class="main-pic">
-            <img :src="pic_to_show" alt="big product image">
-          </div>
+        <ProductImages :product="product" />
 
-          <div class="col-info">
-            <div class="adaptive-wrapper01">
-              <div class="col-info__title title">
-                <div class="title__article">
-                  {{ product.article_num }}
-                </div>
-                <div v-show="isOnSale" class="title__sale">
-                  SALE
-                </div>
-              </div>
-              <table class="col-info__table table">
-                <tbody>
-                <tr>
-                  <td>Материал верха:</td>
-                  <td>{{ product.top_material }}</td>
-                </tr>
-                <tr>
-                  <td>Материал стельки:</td>
-                  <td>{{ product.insole_material }}</td>
-                </tr>
-                <tr>
-                  <td>Материал подошвы:</td>
-                  <td>{{ product.sole_material }}</td>
-                </tr>
-                <tr style="color: transparent">
-                  <td />
-                  <td>.</td>
-                </tr>
-                <tr>
-                  <td>Сезон:</td>
-                  <td>{{ product.season }}</td>
-                </tr>
-                <tr>
-                  <td>Вид обуви:</td>
-                  <td>{{ product.category }}</td>
-                </tr>
-                </tbody>
-              </table>
-              <div class="col-info__colors colors">
-                <div class="colors__title">
-                  Цвет:
-                </div>
-                <div class="colors__list">
-                  <div
-                    v-for="item in product.items"
-                    :key="item.color_code"
-                    :class="{active: item_to_show === item}"
-                    :style="{backgroundColor: item.color_code}"
-                    class="colors__color"
-                    @click="selectColor(item)"
-                  />
-                </div>
-              </div>
+        <div class="product-card__info-column">
+          <div class="product-card__adaptive-wrapper-1">
+            <div class="product-card__title">
+              <div class="product-card__sku">{{ product.article_num }}</div>
+              <div v-show="isOnSale" class="product-card__sale-label">SALE</div>
             </div>
 
-            <div class="adaptive-wrapper02">
-              <div :class="{invisible: !isOnSale}" class="col-info__price-old">
-                <span>{{ item_to_show.price_stndrt }}</span>грн
-              </div>
-              <div class="col-info__price-active">
-                <span>{{ activePrice }}</span>грн
-              </div>
-              <Btn @click.native="addProductToCart">
-                <SvgImage name="cart" />
-                <span>Купить</span>
-              </Btn>
-            </div>
+            <ProductDetails :product="product" />
+            <ColorsList :product="product" />
+          </div>
+
+          <div class="product-card__adaptive-wrapper-2">
+            <ProductPrice :product="product" />
+
+            <Btn @click.native="addProductToCart">
+              <SvgImage class="product-card__cart-icon" name="cart" />
+              Купить
+            </Btn>
           </div>
         </div>
-        <div class="stock-article__bottom">
-          <ul class="sizes-available">
-            <li
-              :class="{notInStock: !isAvailableSize(40), active: item_to_cart.size === 40}"
-              @click="selectSize(40)"
-            >
-              40
-            </li>
-            <li
-              :class="{notInStock: !isAvailableSize(41), active: item_to_cart.size === 41}"
-              @click="selectSize(41)"
-            >
-              41
-            </li>
-            <li
-              :class="{notInStock: !isAvailableSize(42), active: item_to_cart.size === 42}"
-              @click="selectSize(42)"
-            >
-              42
-            </li>
-            <li
-              :class="{notInStock: !isAvailableSize(43), active: item_to_cart.size === 43}"
-              @click="selectSize(43)"
-            >
-              43
-            </li>
-            <li
-              :class="{notInStock: !isAvailableSize(44), active: item_to_cart.size === 44}"
-              @click="selectSize(44)"
-            >
-              44
-            </li>
-            <li
-              :class="{notInStock: !isAvailableSize(45), active: item_to_cart.size === 45}"
-              @click="selectSize(45)"
-            >
-              45
-            </li>
-            <li
-              :class="{notInStock: !isAvailableSize(46), active: item_to_cart.size === 46}"
-              @click="selectSize(46)"
-            >
-              46
-            </li>
-          </ul>
-          <div class="sizes-table-btn" @click="$refs.sizesGridModal.openModal()">
-            <SvgImage name="boot" />
-            <span>Таблица размеров ></span>
-          </div>
-        </div>
+      </div>
+
+      <SizesList :product="product" />
+
+      <div class="sizes-grid-button" @click="$refs.sizesGridModal.openModal()">
+        <SvgImage name="boot" />
+        <span>Таблица размеров ></span>
       </div>
 
       <Catalog :products="[1,2,3,4]" heading="Рекомендуем" heading-position="left" />
@@ -148,15 +44,27 @@
 </template>
 
 <script>
-import SvgImage from '../components/common/SvgImage.vue'
+import SvgImage from '@/components/common/SvgImage.vue'
 import Btn from '@/components/common/Btn'
 import {mapMutations} from 'vuex'
 import SizesGridModal from '@/components/product/SizesGridModal'
 import Catalog from '@/components/catalog/Catalog'
+import SizesList from '@/components/product/SizesList'
+import ColorsList from '@/components/product/ColorsList'
+import ProductDetails from '@/components/product/ProductDetails'
+import PrevNextProductArrow from '@/components/product/PrevNextProductArrow'
+import ProductImages from '@/components/product/ProductImages'
+import ProductPrice from '@/components/product/ProductPrice'
 
 export default {
   name: 'ProductPage',
   components: {
+    ProductPrice,
+    ProductImages,
+    PrevNextProductArrow,
+    ProductDetails,
+    ColorsList,
+    SizesList,
     Catalog,
     SizesGridModal,
     Btn,
@@ -213,30 +121,11 @@ export default {
           },
         ],
       },
-      item_to_show: {
-        sizes: [],
-      },
-      pic_to_show: '/img/stock-items/item03-01.png',
-      item_to_cart: {
-        article_num: null,
-        category: null,
-        color_name: null,
-        price: null,
-        size: null,
-        pic: null,
-      },
     }
   },
   computed: {
     isOnSale() {
-      return this.item_to_show.price_sale
-    },
-    activePrice() {
-      if (this.item_to_show.price_sale) {
-        return this.item_to_show.price_sale
-      } else {
-        return this.item_to_show.price_stndrt
-      }
+      return this.product?.items?.[0].price_sale
     },
   },
   methods: {
@@ -250,31 +139,6 @@ export default {
       this.addToCart(this.product)
       this.openCartPopover()
     },
-    selectPic(pic) {
-      this.pic_to_show = pic
-    },
-    selectColor(item) {
-      this.item_to_show = item
-      this.pic_to_show = item.pics[0]
-      this.item_to_cart.size = item.sizes[0]
-    },
-    isAvailableSize(arg) {
-      return this.item_to_show.sizes.some(
-        size => {
-          return size === arg
-        },
-      )
-    },
-    selectSize(arg) {
-      if (this.isAvailableSize(arg)) {
-        this.item_to_cart.article_num = this.product.article_num
-        this.item_to_cart.category = this.product.category
-        this.item_to_cart.color_name = this.item_to_show.color_name
-        this.item_to_cart.price = this.activePrice
-        this.item_to_cart.size = arg
-        this.item_to_cart.pic = this.item_to_show.pics[0]
-      }
-    },
   },
 }
 </script>
@@ -285,370 +149,97 @@ export default {
 @import "../assets/scss/mixins";
 
 .product-card {
-
-  .stock-article {
-    &__top {
-      position: relative;
-      display: flex;
-
-      .arrow {
-        position: absolute;
-        top: calc(50% - 0.5 * Min(52.5px, Max(30px, 0.75 * 5vw)));
-        width: 5vw;
-        min-width: 40px;
-        max-width: 70px;
-        height: calc(0.75 * 5vw);
-        min-height: 30px;
-        max-height: 52.5px;
-        cursor: pointer;
-        // border: 1px solid red;
-        &_prev {
-          background: url('../assets/img/svg/arr-left-black.svg') 100% center/ 66% no-repeat;
-          left: calc(-1 * Max(40px, 5vw));
-        }
-
-        &_next {
-          background: url('../assets/img/svg/arr-right-black.svg') 0% center/ 66% no-repeat;
-          right: calc(-1 * Max(40px, 5vw));
-        }
-      }
-
-      .col-pics {
-        width: 25%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        // border: 1px solid red;
-        img {
-          width: 50%;
-          object-fit: contain;
-          cursor: pointer;
-
-          &:hover {
-            box-shadow: 0 0 0 2px $text_color;
-          }
-        }
-      }
-
-      .main-pic {
-        // width: 42%;
-        width: calc(0.42 * 90vw);
-        max-width: calc (0.42 * 1180px);
-        height: calc(0.57 * 90vw);
-        max-height: calc(0.57 * 1180px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        // border: 1px solid red;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          // border: 1px solid green;
-        }
-      }
-
-      .col-info {
-        width: 33%;
-        //border: 1px solid red;
-        &__title {
-          display: flex;
-          align-items: center;
-          margin: 2em 0;
-          font-size: adaptive_fz(16px, 10px);
-          font-weight: 700;
-          // border: 1px solid red;
-          .title__article {
-            margin-right: 2em;
-            line-height: 1.2;
-            text-transform: uppercase;
-          }
-
-          .title__sale {
-            padding: 0 1em;
-            font-size: adaptive_fz(12px, 8px);
-            line-height: 2.5em;
-            color: $contrast_color;
-            background-color: #c61d24;
-          }
-        }
-
-        &__table {
-          width: 100%;
-          margin-bottom: 2.3em;
-          font-size: adaptive_fz(12px, 8px);
-          font-weight: 400;
-          line-height: 1.7em;
-          // border: 1px solid blue;
-          tr {
-            td:first-child {
-              color: $text_color_dark;
-              text-transform: uppercase;
-            }
-
-            td:last-child {
-              font-weight: 700;
-            }
-          }
-        }
-
-        &__colors {
-          margin-bottom: 5.5em;
-          font-size: adaptive_fz(12px, 9px);
-          font-weight: 400;
-
-          .colors__title {
-            margin-bottom: 1em;
-            color: $text_color_dark;
-            // border: 1px solid red;
-          }
-
-          .colors__list {
-            display: flex;
-            // border: 1px solid red;
-            .colors__color {
-              position: relative;
-              width: 26px;
-              height: 26px;
-              border: 2px solid $contrast_color;
-              box-shadow: 0 0 0 2px $text_color;
-              cursor: pointer;
-
-              &:not(:last-child) {
-                margin-right: 10px;
-              }
-
-              &.active::before,
-              &.active::after {
-                position: absolute;
-                right: -4px;
-                bottom: -4px;
-                display: block;
-                content: '';
-                width: 11px;
-                height: 11px;
-                background: $main_color;
-              }
-
-              &.active::after {
-                background: url('../assets/img/svg/tick.svg') center/ 80% no-repeat;
-              }
-            }
-          }
-        }
-
-        &__price-old {
-          font-size: adaptive_fz(14px, 9px);
-          color: $text_color_light;
-          // border: 1px solid red;
-          &.invisible {
-            visibility: hidden;
-          }
-
-          span {
-            margin-right: 0.1em;
-            font-size: adaptive_fz(25px, 14px);
-            font-weight: 600;
-            text-decoration: line-through;
-          }
-        }
-
-        &__price-active {
-          margin-bottom: 0.3em;
-          font-size: adaptive_fz(30px, 16px);
-          // border: 1px solid green;
-          span {
-            margin-right: 0.1em;
-            font-size: adaptive_fz(80px, 20px);
-            font-weight: 700;
-            line-height: 1.5em;
-          }
-        }
-
-        &__btn {
-          display: inline-flex;
-          padding: 0 2em;
-          border: 1px solid $main_color;
-          font-size: adaptive_fz(12px, 8px);
-          font-weight: 700;
-          line-height: 3.33em;
-          cursor: pointer;
-
-          svg {
-            width: 1.5em;
-            height: 3.33em;
-            margin-right: 2em;
-            stroke: $main_color
-            // border: 1px solid green;
-          }
-
-          &:hover {
-            color: $contrast_color;
-            background: $main_color;
-
-            svg {
-              stroke: $contrast_color;
-            }
-          }
-
-          // span {}
-        }
-      }
-
-      @media screen and (max-width: 370px) {
-        .col-info {
-          &__colors {
-            .colors__list {
-              .colors__color {
-                width: 20px;
-                height: 20px;
-              }
-            }
-          }
-
-          &__btn {
-            line-height: 2.66em;
-
-            svg {
-              height: 2.66em;
-            }
-          }
-        }
-      }
-      @media screen and (max-width: 767px) {
-        flex-direction: column-reverse;
-        .arrow {
-          top: 100%;
-
-          &_prev {
-            left: 0;
-            background-position: 0% center;
-          }
-
-          &_next {
-            right: 0;
-            background-position: 100% center;
-          }
-        }
-        .col-pics {
-          width: 100%;
-          flex-direction: row;
-
-          img {
-            width: 33%;
-            height: calc(1.36 * 0.33 * (100vw - 5px));
-          }
-        }
-        .main-pic {
-          width: 100%;
-          height: calc(1.36 * (100vw - 5px));
-        }
-        .col-info {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-
-          .adaptive-wrapper01 {
-            width: 66%;
-            //.col-info__table {// margin-bottom: 0;// 2.3em;}
-            .col-info__colors {
-              display: flex;
-              align-items: center;
-              margin-bottom: 0;
-
-              .colors__title {
-                padding-left: 0.15em;
-                width: 50%;
-              }
-
-              .colors__list {
-                width: 50%;
-                padding-left: 1.15em;
-              }
-            }
-          }
-
-          .adaptive-wrapper02 {
-            width: 33%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            .col-info__btn {
-              align-self: flex-start;
-            }
-          }
-        }
-      }
-    }
-
-    &__bottom {
-      text-align: center;
-      // border: 1px solid green;
-      .sizes-available {
-        display: flex;
-        justify-content: center;
-        margin: 2.5em 0 1em;
-        font-size: adaptive_fz(20px, 13px); // no adaptive fz!
-        font-weight: 300;
-        list-style-type: none;
-        // border: 1px solid red;
-        li {
-          width: 2em;
-          height: 2em;
-          line-height: 2em;
-          cursor: pointer;
-          border: 1px solid transparent;
-          // border: 1px solid red;
-          &:not(:last-child) {
-            margin-right: 0.75em;
-          }
-
-          &.active {
-            border: 1px solid $text_color_light;
-          }
-
-          &.notInStock {
-            text-decoration: line-through;
-            color: $text_color_light;
-          }
-        }
-      }
-    }
-
-    @media screen and (max-width: 575px) {
-      width: 90%;
-      margin: 0 auto;
-    }
+  @media screen and (max-width: 575px) {
+    width: 90%;
+    margin: 0 auto;
   }
+}
 
-  .goods-offer {
-    @include popular-products;
+.product-card__title {
+  display: flex;
+  align-items: center;
+  margin: 2em 0;
+  font-size: adaptive_fz(16px, 10px);
+  font-weight: 700;
+}
+
+.product-card__sku {
+  margin-right: 2em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.product-card__sale-label {
+  padding: 0 1em;
+  font-size: adaptive_fz(12px, 8px);
+  line-height: 2.5em;
+  color: $contrast_color;
+  background-color: #c61d24;
+}
+
+.product-card__top {
+  position: relative;
+  display: flex;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column-reverse;
   }
+}
 
-  .sizes-table-btn {
-    display: inline-flex;
-    margin-bottom: 8em;
-    font-size: adaptive_fz(12px, 9px); // no adaptive fz!
-    font-weight: 300;
-    line-height: 1.5em;
-    text-transform: uppercase;
-    cursor: pointer;
-    // border: 1px solid green;
+.product-card__info-column {
+  width: 33%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.product-card__adaptive-wrapper-1 {
+  @media screen and (max-width: 767px) {
+    width: 66%;
+  }
+}
+
+.product-card__adaptive-wrapper-2 {
+  @media screen and (max-width: 767px) {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+.sizes-grid-button {
+  display: flex;
+  margin: 0 auto 8em auto;
+  font-size: adaptive_fz(12px, 9px);
+  font-weight: 300;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  justify-content: center;
+
+  &:hover {
+    color: $attention_color;
+
     svg {
-      width: 1.67em;
-      height: 1.25em;
-      margin-right: 0.5em;
-      stroke: $main_color;
-    }
-
-    &:hover svg {
       stroke: $attention_color;
     }
-
-    // span {}
   }
+
+  svg {
+    width: 1.67em;
+    height: 1.25em;
+    margin-right: 0.5em;
+    stroke: $main_color;
+  }
+}
+
+.product-card__cart-icon {
+  height: 18px;
+  width: 18px;
+  stroke: $main_color
 }
 </style>
