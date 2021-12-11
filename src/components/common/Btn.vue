@@ -1,10 +1,10 @@
 <template>
   <component
-      :is="componentName"
-      :class="{'button--full-width': fullWidth}"
-      :href="href"
-      :to="{name: to}"
-      class="button"
+    :is="componentName"
+    class="button"
+    :class="{'button--full-width': fullWidth}"
+    :href="href"
+    :to="{name: to}"
   >
     <slot />
   </component>

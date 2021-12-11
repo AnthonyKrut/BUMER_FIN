@@ -10,8 +10,12 @@
         <div class="product-card__info-column">
           <div class="product-card__adaptive-wrapper-1">
             <div class="product-card__title">
-              <div class="product-card__sku">{{ product.article_num }}</div>
-              <div v-show="isOnSale" class="product-card__sale-label">SALE</div>
+              <div class="product-card__sku">
+                {{ product.article_num }}
+              </div>
+              <div v-show="isOnSale" class="product-card__sale-label">
+                SALE
+              </div>
             </div>
 
             <ProductDetails :product="product" />
@@ -36,7 +40,7 @@
         <span>Таблица размеров ></span>
       </div>
 
-      <Catalog :products="[1,2,3,4]" heading="Рекомендуем" heading-position="left" />
+      <Catalog heading="Рекомендуем" heading-position="left" :products="[1,2,3,4]" />
     </div>
 
     <SizesGridModal ref="sizesGridModal" />
