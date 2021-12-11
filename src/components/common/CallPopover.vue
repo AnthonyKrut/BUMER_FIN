@@ -11,16 +11,22 @@
     <div class="call-popover__message">
       Либо оставьте свой телефон для обратного звонка
     </div>
-    <input
-      class="call-popover__input"
-      type="text"
-      :value="userPhoneNumber" 
-      @input="updateUserPhoneNumber"
-    >
+    <FormGroup :field="$v.form.phone">
+      <TheMask
+        v-model.lazy="$v.form.phone.$model"
+        class="call-popover__input"
+        mask="+38 (0##) ### ## ##"
+        masked
+        @blur.native="$v.form.phone.$touch"
+        @input="$v.form.phone.$reset"
+      />
+      <FormGroupError v-if="!$v.form.phone.required" type="required" />
+      <FormGroupError v-if="!$v.form.phone.phoneMask" type="phone" />
+    </FormGroup>
     <Btn
       class="call-popover__button"
       full-width
-      @click.native="orderCallBack"
+      @click.native="requestCallBack"
     >
       ПЕРЕЗВОНИТЬ МНЕ
     </Btn>
@@ -31,23 +37,49 @@
 import SvgImage from './SvgImage.vue'
 import Btn from '@/components/common/Btn'
 import {mapActions, mapState} from 'vuex'
+import {helpers, required} from 'vuelidate/lib/validators'
+import FormGroupError from '@/components/forms/FormGroupError'
+import FormGroup from '@/components/forms/FormGroup'
+import {TheMask} from 'vue-the-mask'
+
+const phoneMask = helpers.regex('phone', /^\+38 \(0\d\d\) \d\d\d \d\d \d\d$/)
 
 export default {
   name: 'CallPopover',
-  components: {SvgImage, Btn},
+  components: {
+    SvgImage, 
+    Btn,
+    FormGroup,
+    FormGroupError,
+    TheMask,
+  },
   data() {
-    return {}
+    return {
+      form: {
+        phone: '+38 (0',
+      },
+    }
+  },
+  validations: {
+    form: {
+      phone: {required, phoneMask},
+    },
   },
   computed: {
     ...mapState('call', [
       'isCallPopoverVisible',
-      'userPhoneNumber',
     ]),
   },
   methods: {
+    requestCallBack() {
+      if (!this.$v.$invalid) {
+        this.orderCallBack(this.form.phone)
+      } else {
+        return
+      }
+    },
     ...mapActions('call', [
       'orderCallBack',
-      'updateUserPhoneNumber',
     ]),
   },
 }

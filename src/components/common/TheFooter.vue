@@ -26,7 +26,7 @@
         <router-link class="nav__item" :to="{name: 'ShipmentInfoPage'}">
           ДОСТАВКА
         </router-link>
-        <router-link class="nav__item" :to="{path: '*'}">
+        <router-link class="nav__item" :to="{path: 'NewsPage'}">
           НОВОСТИ
         </router-link>
         <router-link class="nav__item" :to="{name: 'CooperationInfoPage'}">
