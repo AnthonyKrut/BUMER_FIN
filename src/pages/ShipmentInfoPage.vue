@@ -2,7 +2,7 @@
   <section class="shipment">
     <div class="container">
       <h1>
-        Доставкa
+        {{ $t('common.shipping') }}
       </h1>
       <div class="redactor-content">
         <TermsNav />

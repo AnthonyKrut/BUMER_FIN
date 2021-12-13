@@ -1,7 +1,6 @@
 export default {
     state: () => ({
       isLangPopoverVisible: false,
-      language: 'ru',
     }),
     mutations: {
       openLangPopover(state) {
@@ -12,10 +11,6 @@ export default {
       },
       toggleLangPopover(state) {
         state.isLangPopoverVisible = !state.isLangPopoverVisible
-      },
-      selectLanguage(state, lang) {
-        state.language = lang
-        state.isLangPopoverVisible = false
       },
     },
     getters: {},

@@ -2,7 +2,7 @@
   <section class="cooperation">
     <div class="container">
       <h1>
-        Сотрудничество
+        {{ $t('common.cooperation') }}
       </h1>
       <div class="redactor-content">
         <TermsNav />

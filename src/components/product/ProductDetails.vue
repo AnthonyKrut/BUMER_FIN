@@ -2,15 +2,15 @@
   <table class="table">
     <tbody>
       <tr>
-        <td>Материал верха:</td>
+        <td>{{ $t('product.top_material') }}:</td>
         <td>{{ product.top_material }}</td>
       </tr>
       <tr>
-        <td>Материал стельки:</td>
+        <td>{{ $t('product.insole_material') }}:</td>
         <td>{{ product.insole_material }}</td>
       </tr>
       <tr>
-        <td>Материал подошвы:</td>
+        <td>{{ $t('product.outsole_material') }}:</td>
         <td>{{ product.sole_material }}</td>
       </tr>
       <tr style="color: transparent">
@@ -18,11 +18,11 @@
         <td>.</td>
       </tr>
       <tr>
-        <td>Сезон:</td>
+        <td>{{ $t('product.season') }}:</td>
         <td>{{ product.season }}</td>
       </tr>
       <tr>
-        <td>Вид обуви:</td>
+        <td>{{ $t('product.footwear_type') }}:</td>
         <td>{{ product.category }}</td>
       </tr>
     </tbody>

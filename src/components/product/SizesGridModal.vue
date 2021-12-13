@@ -2,7 +2,7 @@
   <sweet-modal
     ref="modal"
     class="sizes-modal"
-    title="Tаблица размеров"
+    :title="$t('product.size_grid')"
   >
     <div class="sizes-modal__body">
       <table class="sizes-modal__table">
@@ -10,7 +10,7 @@
           <tr>
             <th>EUR</th>
             <th>UK</th>
-            <th>Длина стопы</th>
+            <th>{{ $t('product.foot_length') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -67,8 +67,7 @@
         </tbody>
       </table>
       <div class="sizes-modal__text">
-        Чтобы правильно измерить длину вашей стопы, поставьте ногу на лист бумаги, отметьте две точки, носок и
-        пятка. Нарисуйте две линии перпендикулярно к ним - расстояние между этими линиями - это длина стопы.
+        {{ $t('product.sizes_grid_description') }}
       </div>
     </div>
   </sweet-modal>

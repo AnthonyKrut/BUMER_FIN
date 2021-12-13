@@ -4,7 +4,7 @@
 
     <div class="container">
       <Banner1 />
-      <Catalog heading="Популярные товары" :products="[1,2,3,4]" />
+      <Catalog :heading="$t('homepage.popular_goods')" :products="[1,2,3,4]" />
       <Banner2 />
       <Catalog :products="[1,2,3,4]" />
       <Story1 />

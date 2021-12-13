@@ -21,9 +21,8 @@ import IconUa from '../icons/IconUa.vue'
 import IconRu from '../icons/IconRu.vue'
 import IconAngle from '../icons/IconAngle.vue'
 
-
 export default {
-  name: 'IconBase',
+  name: 'SvgImage',
   components: {
     IconLogo,
     IconDelivery,

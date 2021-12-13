@@ -1,7 +1,7 @@
 <template>
   <div class="checkout-cart">
     <h2 class="checkout-cart__heading">
-      Корзина
+      {{ $t('cart.cart') }}
     </h2>
 
     <div v-if="cart.length" class="checkout-cart__content">
@@ -13,17 +13,17 @@
     </div>
 
     <div v-else class="checkout-page__empty">
-      Ваша корзина пока пуста
+      {{ $t('cart.empty_cart') }}
     </div>
 
     <div class="checkout-page__discount">
-      <div>Экономия</div>
+      <div>{{ $t('cart.saving') }}</div>
       <div>400 грн</div>
     </div>
 
     <div class="checkout-page__total">
       <div class="checkout-page__total-label">
-        К оплате
+        {{ $t('cart.to_pay') }}
       </div>
       <div class="checkout-page__total-value">
         4 998 грн

@@ -27,7 +27,7 @@
 
             <Btn @click.native="addProductToCart">
               <SvgImage class="product-card__cart-icon" name="cart" />
-              Купить
+              {{ $t('product.buy') }}
             </Btn>
           </div>
         </div>
@@ -37,10 +37,10 @@
 
       <div class="sizes-grid-button" @click="$refs.sizesGridModal.openModal()">
         <SvgImage name="boot" />
-        <span>Таблица размеров ></span>
+        <span>{{ $t('product.size_grid') }} ></span>
       </div>
 
-      <Catalog heading="Рекомендуем" heading-position="left" :products="[1,2,3,4]" />
+      <Catalog :heading="$t('product.recommended')" heading-position="left" :products="[1,2,3,4]" />
     </div>
 
     <SizesGridModal ref="sizesGridModal" />

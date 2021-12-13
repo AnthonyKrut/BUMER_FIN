@@ -5,12 +5,10 @@
         <SvgImage class="quote__svg-quotes" name="quotes" />
       </div>
       <div class="quote__text-paragraph">
-        В мире моды для нас нет границ и ограничений!
+        {{ $t('homepage.quote_text_1') }}
       </div>
       <div class="quote__text-paragraph">
-        BUMER следует самым актуальным модным трендам — в наших коллекциях
-        классические узоры сочетаются с оригинальными, ультрасовременными
-        решениями.
+        {{ $t('homepage.quote_text_2') }}
       </div>
     </div>
     <div class="quote__author">
@@ -69,7 +67,7 @@ export default {
 .quote__svg-quotes {
   width: 100%;
   height: 100%;
-  stroke: none;  
+  stroke: none;
 }
 
 // .quote__text-paragraph {}

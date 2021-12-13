@@ -9,17 +9,16 @@
     </div>
     <div class="story-one__text">
       <p class="story-one__text-plain">
-        Мы объединяем классические модели с модными вырезами и
-        высококачественными материалами.
+        {{ $t('homepage.story_1_text_1') }}
       </p>
       <p class="story-one__text-strong">
-        Мировые тренды в оригинальном и удобном варианте.
+        {{ $t('homepage.story_1_text_2') }}
       </p>
       <p class="story-one__text-plain">
-        Бесплатный возврат и обмен до 30 дней.
+        {{ $t('homepage.story_1_text_3') }}
       </p>
       <p class="story-one__text-plain">
-        Новые модели каждый день. Специальное предложение.
+        {{ $t('homepage.story_1_text_4') }}
       </p>
     </div>
   </div>
@@ -65,7 +64,7 @@ export default {
   position: relative;
   left: 10%;
   top: 10%;
-  z-index: 5;
+  z-index: 2;
   width: 100%;
   display: block;
   @media screen and (max-width: 575px) {

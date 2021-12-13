@@ -2,7 +2,7 @@
   <section class="payment">
     <div class="container">
       <h1>
-        Оплата
+        {{ $t('common.payment') }}
       </h1>
       <div class="redactor-content">
         <TermsNav />

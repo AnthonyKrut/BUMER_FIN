@@ -5,7 +5,7 @@
     </div>
     <div class="banner-1__about">
       <h3 class="banner-1__about-title">
-        ЗИМНЯЯ КОЛЛЕКЦИЯ 2021
+        {{ $t('homepage.banner_1_text') }}
       </h3>
       <div class="banner-1__about-article">
         qn 380
@@ -86,6 +86,7 @@ export default {
 }
 
 .banner-1__about-title {
+  text-transform: uppercase;
   font-size: adaptive_fz(20px, 12px);
 }
 

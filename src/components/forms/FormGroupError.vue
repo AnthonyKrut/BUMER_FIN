@@ -16,11 +16,11 @@ export default {
   computed: {
     text() {
       if (this.type === 'required') {
-        return 'Поле обязательно для заполнения'
+        return this.$t('checkout.field_is_required')
       } else if (this.type === 'email') {
-        return 'Неверный формат email'
+        return this.$t('checkout.wrong_email_format')
       } else if (this.type === 'phone') {
-        return 'Неверный формат телефона'
+        return this.$t('checkout.wrong_phone_format')
       }
       return ''
     },

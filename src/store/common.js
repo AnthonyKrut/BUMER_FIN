@@ -2,6 +2,7 @@
 export default {
   state: () => ({
     isCartPopoverVisible: false,
+    isMobileMenuVisible: false,
   }),
   mutations: {
     openCartPopover(state) {
@@ -12,6 +13,12 @@ export default {
     },
     toggleCartPopover(state) {
       state.isCartPopoverVisible = !state.isCartPopoverVisible
+    },
+    openMobileMenu(state) {
+      state.isMobileMenuVisible = true
+    },
+    closeMobileMenu(state) {
+      state.isMobileMenuVisible = false
     },
   },
   getters: {},

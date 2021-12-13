@@ -2,7 +2,7 @@
   <section class="guarantee">
     <div class="container">
       <h1>
-        ГАРАНТИЯ
+        {{ $t('common.guaranty') }}
       </h1>
       <div class="redactor-content">
         <TermsNav />

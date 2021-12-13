@@ -57,6 +57,7 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: 40px;
+  line-height: 1.3;
 
 
   &:hover {

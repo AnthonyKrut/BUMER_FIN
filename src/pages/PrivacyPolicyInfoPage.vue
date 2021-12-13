@@ -2,7 +2,7 @@
   <section class="privacy-policy">
     <div class="container">
       <h1>
-        Политика конфиденциальности
+        {{ $t('common.privacy_policy') }}
       </h1>
       <div class="redactor-content">
         <article>

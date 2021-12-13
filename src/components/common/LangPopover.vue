@@ -14,6 +14,7 @@
 <script>
 import SvgImage from './SvgImage.vue'
 import {mapMutations, mapState} from 'vuex'
+import {setLocale} from '@/utils/Locale'
 
 export default {
   name: 'LangPopover',
@@ -24,13 +25,17 @@ export default {
   computed: {
     ...mapState('lang', [
       'isLangPopoverVisible',
-      'language',
     ]),
   },
   methods: {
     ...mapMutations('lang', [
-      'selectLanguage',
+      'closeLangPopover',
     ]),
+    selectLanguage(lang) {
+      this.$i18n.locale = lang
+      setLocale(lang)
+      this.closeLangPopover()
+    },
   },
 }
 </script>
@@ -44,16 +49,14 @@ export default {
   top: 100%;
   right: 0;
   width: 110px;
-  padding: 10px 0;
   background-color: $contrast_color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .lang-popover__nation {
   padding: 0 10px;
-  &:first-of-type {
-    margin-bottom: 10px;
-  }
+  cursor: pointer;
+
   &:hover {
     background-color: #F3F3F3;
   }
