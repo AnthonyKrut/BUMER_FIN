@@ -7,7 +7,7 @@
       <Catalog v-if="products" :products="products" />
 
       <div v-else class="catalog__notice">
-        Товаров с такими параметрами не обнаружено
+        {{ $t('product.empty_product_list') }}
       </div>
     </div>
   </section>
@@ -41,7 +41,7 @@ export default {
     }
   },
   async created() {
-    // await this.fetchAllProducts()
+    await this.fetchAllProducts()
   },
   methods: {
     ...mapActions('products', [

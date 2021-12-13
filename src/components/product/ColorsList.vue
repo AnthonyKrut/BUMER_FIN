@@ -1,7 +1,7 @@
 <template>
   <div class="colors-list">
     <div class="colors-list__label">
-      Цвет:
+      {{ $t('product.color') }}:
     </div>
 
     <div class="colors-list__list">

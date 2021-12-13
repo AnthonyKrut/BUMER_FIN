@@ -19,7 +19,7 @@
             22+
           </div>
           <div class="col-big__number-text">
-            года в индустрии моды
+            {{ $t('homepage.story_2_text_1') }}
           </div>
         </div>
         <div class="col-big__number">
@@ -28,7 +28,7 @@
             <span class="col-big__number-currency">грн</span>
           </div>
           <div class="col-big__number-text">
-            Бесплатная доставка
+            {{ $t('homepage.story_2_text_2') }}
           </div>
         </div>
         <div class="col-big__number">
@@ -36,7 +36,7 @@
             10+
           </div>
           <div class="col-big__number-text">
-            магазинов по Украине
+            {{ $t('homepage.story_2_text_3') }}
           </div>
         </div>
       </div>
@@ -44,9 +44,7 @@
     <div class="col-small">
       <div class="col-small__text">
         <div class="col-small__text-wrapper">
-          <span class="col-small__text-strong">BUMER</span> объединяет
-          классические формы с оригинальными деталями, вдохновленными подиумной
-          модой, а также предлагаем смелые решения от популярных инфлюенсеров.
+          <span class="col-small__text-strong">BUMER</span> {{ $t('homepage.story_2_text_4') }}
         </div>
       </div>
       <div class="col-small__pic">

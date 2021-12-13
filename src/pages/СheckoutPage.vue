@@ -1,20 +1,20 @@
 <template>
   <div class="checkout-page">
     <div class="container">
-      <h1>Оформить заказ</h1>
+      <h1>{{ $t('checkout.checkout') }}</h1>
 
       <div class="checkout-page__inner">
         <div class="checkout-page__left">
           <CheckoutForm ref="checkoutForm" />
 
           <div class="checkout-page__discount">
-            <div>Экономия</div>
+            <div>{{ $t('checkout.saving') }}</div>
             <div>400 грн</div>
           </div>
 
           <div class="checkout-page__total">
             <div class="checkout-page__total-label">
-              К оплате
+              {{ $t('checkout.to_pay') }}
             </div>
             <div class="checkout-page__total-value">
               4 998 грн
@@ -22,13 +22,13 @@
           </div>
 
           <Btn full-width @click.native="$refs.checkoutForm.submit">
-            Подтвердить заказ
+            {{ $t('checkout.confirm_checkout') }}
           </Btn>
 
           <div class="checkout-page__privacy-policy">
-            Подтверждая заказ вы соглашаетесь с
+            {{ $t('checkout.privacy_policy_link') }}
             <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PrivacyPolicyInfo'}">
-              Политикой конфиденциальности
+              {{ $t('checkout.privacy_policy') }}
             </router-link>
           </div>
         </div>
@@ -46,7 +46,11 @@ import Btn from '@/components/common/Btn'
 import CheckoutCart from '@/components/checkout/CheckoutCart'
 export default {
   name: 'CheckoutPage',
-  components: {CheckoutCart, Btn, CheckoutForm},
+  components: {
+    CheckoutCart,
+    Btn,
+    CheckoutForm
+  },
 }
 </script>
 

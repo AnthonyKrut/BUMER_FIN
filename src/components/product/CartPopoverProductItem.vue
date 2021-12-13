@@ -8,11 +8,11 @@
         </div>
 
         <div class="cart-popover-product-item__count">
-          Кол-во: 1шт
+          {{ $t('product.quantity_short') }}: 1шт
         </div>
 
         <div class="cart-popover-product-item__size">
-          Размер: 43
+          {{ $t('product.size') }}: 43
         </div>
       </div>
 
