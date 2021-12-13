@@ -2,13 +2,13 @@
   <div class="footer-soc-menu">
     <a
       v-for="item in items"
+      :key="item.icon"
       class="footer-soc-menu__item"
       :href="item.link"
-      :key="item.icon"
     >
       <SvgImage class="footer-soc-menu__item-icon" :name="item.icon" />
       <span class="footer-soc-menu__item-label">
-        {{item.label}}
+        {{ item.label }}
       </span>
     </a>
   </div>
@@ -20,7 +20,7 @@ import SvgImage from '@/components/common/SvgImage'
 export default {
   name: 'FooterSocMenu',
   components: {
-    SvgImage
+    SvgImage,
   },
   data() {
     return {
@@ -28,17 +28,17 @@ export default {
         {
           link: '',
           icon: 'telegram',
-          label: 'Telegram'
+          label: 'Telegram',
         },
         {
           link: '',
           icon: 'instagram',
-          label: 'Instagram'
+          label: 'Instagram',
         },
         {
           link: '',
           icon: 'facebook',
-          label: 'Facebook'
+          label: 'Facebook',
         },
       ],
     }

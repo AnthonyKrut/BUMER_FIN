@@ -2,12 +2,12 @@
   <nav class="footer-nav">
     <router-link
       v-for="item in items"
-      class="footer-nav__item"
-      active-class="footer-nav__item--active"
-      :to="{name: item.to}"
       :key="item.label"
+      active-class="footer-nav__item--active"
+      class="footer-nav__item"
+      :to="{name: item.to}"
     >
-      {{item.label}}
+      {{ item.label }}
     </router-link>
   </nav>
 </template>

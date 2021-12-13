@@ -18,8 +18,8 @@ import SvgImage from '@/components/common/SvgImage'
 export default {
   name: 'MobileSocMenu',
   components: {
-    SvgImage
-  }
+    SvgImage,
+  },
 }
 </script>
 

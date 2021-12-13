@@ -2,10 +2,10 @@
   <nav class="terms-nav">
     <router-link
       v-for="item in items"
+      :key="item.label"
       active-class="terms-nav__item--active"
       class="terms-nav__item"
       :to="{ name: item.to }"
-      :key="item.label"
     >
       {{ item.label }}
     </router-link>
@@ -20,23 +20,23 @@ export default {
       items: [
         {
           to: 'ShipmentInfoPage',
-          label: this.$t('common.shipping')
+          label: this.$t('common.shipping'),
         },
         {
           to: 'PaymentInfoPage',
-          label: this.$t('common.payment')
+          label: this.$t('common.payment'),
         },
         {
           to: 'GuaranteeInfoPage',
-          label: this.$t('common.guaranty')
+          label: this.$t('common.guaranty'),
         },
         {
           to: 'CooperationInfoPage',
-          label: this.$t('common.cooperation')
+          label: this.$t('common.cooperation'),
         },
-      ]
+      ],
     }
-  }
+  },
 }
 </script>
 

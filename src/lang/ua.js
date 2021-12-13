@@ -12,5 +12,5 @@ export default {
   homepage,
   checkout,
   cart,
-  product
+  product,
 }

@@ -49,7 +49,7 @@ export default {
   components: {
     CheckoutCart,
     Btn,
-    CheckoutForm
+    CheckoutForm,
   },
 }
 </script>

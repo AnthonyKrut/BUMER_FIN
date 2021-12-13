@@ -23,7 +23,7 @@ export default {
   name: 'LangSwitcher',
   components: {
     LangPopover,
-    SvgImage
+    SvgImage,
   },
   computed: {
     ...mapState('lang', [

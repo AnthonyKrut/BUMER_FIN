@@ -4,13 +4,17 @@
       <div class="footer__logo">
         <SvgImage class="footer__logo-image" name="logo" />
         <div class="footer__copy">
-          <div class="footer__copy-text">BUMER 2021</div>
-          <div class="footer__copy-text">&copy; All rights reserved</div>
+          <div class="footer__copy-text">
+            BUMER 2021
+          </div>
+          <div class="footer__copy-text">
+            &copy; All rights reserved
+          </div>
         </div>
       </div>
 
-      <FooterNav :items="navColumn1" class="footer__nav footer__nav--first" />
-      <FooterNav :items="navColumn2" class="footer__nav footer__nav--second" />
+      <FooterNav class="footer__nav footer__nav--first" :items="navColumn1" />
+      <FooterNav class="footer__nav footer__nav--second" :items="navColumn2" />
 
       <div class="footer__right">
         <div class="footer__right-heading">

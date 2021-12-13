@@ -17,10 +17,9 @@
     <div class="header__bottom">
       <div class="container">
         <div class="header__bottom-inner">
-
           <div class="header__bottom-left">
             <div class="header__burger" @click="openMobileMenu" />
-            <router-link :to="{name: 'Home'}" class="header__logo">
+            <router-link class="header__logo" :to="{name: 'Home'}">
               <SvgImage name="logo" />
             </router-link>
           </div>
@@ -37,7 +36,6 @@
 
             <CartPopover />
           </div>
-
         </div>
       </div>
     </div>
@@ -90,7 +88,7 @@ export default {
     ]),
     onPageScroll() {
       this.isScrolled = window.scrollY > 30
-    }
+    },
   },
 }
 </script>

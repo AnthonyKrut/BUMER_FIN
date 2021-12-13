@@ -1,14 +1,14 @@
 <template>
   <Swiper
     ref="swiper"
-    :options="swiperOption"
     class="swiper"
+    :options="swiperOption"
   >
     <SwiperSlide
       v-for="(slide, index) in slides"
       :key="index"
-      :style="`background-image: url(${slide.image})`"
       class="swiper__item"
+      :style="`background-image: url(${slide.image})`"
     >
       <div class="swiper__item-content">
         <SvgImage class="swiper__item-logo" name="logo" />
@@ -63,12 +63,12 @@ export default {
         {
           image: '/img/hero-slider/img-slider01.jpg',
           text_ru: 'Удобство. Легкость. Практичность.',
-          text_ua: 'Зручність. Легкість. Практичність'
+          text_ua: 'Зручність. Легкість. Практичність',
         },
         {
           image: '/img/hero-slider/img-slider02.jpg',
           text_ru: 'Удобство. Легкость. Практичность.',
-          text_ua: 'Зручність. Легкість. Практичність'
+          text_ua: 'Зручність. Легкість. Практичність',
         },
       ],
     }

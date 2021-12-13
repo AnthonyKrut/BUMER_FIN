@@ -18,7 +18,7 @@ export default {
   name: 'HeaderCall',
   components: {
     CallPopover,
-    SvgImage
+    SvgImage,
   },
   methods: {
     ...mapMutations('call', [
