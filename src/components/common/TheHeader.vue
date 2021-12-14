@@ -9,14 +9,22 @@
           </div>
           <div class="header__call-lang">
             <div class="header__call">
-              <div class="header__call-wrapper" @click="toggleCallPopover">
+              <div 
+                class="header__call-wrapper" 
+                :class="{'click-disabled': isCallPopoverVisible}" 
+                @click="openCallPopover"
+              >
                 <SvgImage class="header__call-img" name="call" />
                 <span class="header__call-text">Заказать звонок</span>
               </div>
               <CallPopover />
             </div>
             <div class="header__lang">
-              <div class="header__lang-wrapper" @click="toggleLangPopover">
+              <div 
+                class="header__lang-wrapper" 
+                :class="{'click-disabled': isLangPopoverVisible}" 
+                @click="openLangPopover"
+              >
                 <SvgImage v-if="language==='ua'" class="header__lang-img" name="ua" />
                 <SvgImage v-if="language==='ru'" class="header__lang-img" name="ru" />
                 <SvgImage class="header__lang-angle" :class="{rotated: isLangPopoverVisible}" name="angle" />
@@ -117,16 +125,19 @@ export default {
       'language',
       'isLangPopoverVisible',
     ]),
+    ...mapState('call', [
+      'isCallPopoverVisible',
+    ]),
   },
   methods: {
     ...mapMutations('common', [
       'toggleCartPopover',
     ]),
     ...mapMutations('lang', [
-      'toggleLangPopover',
+      'openLangPopover',
     ]),
     ...mapMutations('call', [
-      'toggleCallPopover',
+      'openCallPopover',
     ]),
   },
 }
@@ -184,6 +195,9 @@ export default {
 
 .header__call-wrapper {
   cursor: pointer;
+  &.click-disabled {
+    pointer-events: none;
+  }
 }
 
 .header__call-img {
@@ -201,6 +215,9 @@ export default {
 
 .header__lang-wrapper {
   cursor: pointer;
+  &.click-disabled {
+    pointer-events: none;
+  }
 }
 
 .header__lang-img {

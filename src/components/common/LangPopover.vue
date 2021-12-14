@@ -1,5 +1,10 @@
 <template>
-  <div v-if="isLangPopoverVisible" class="lang-popover">
+  <div 
+    v-show="isLangPopoverVisible" 
+    class="lang-popover"
+    tabindex="0"
+    @focusout="closeLangPopover"
+  >
     <div class="lang-popover__nation" @click="selectLanguage('ua')">
       <SvgImage class="lang-popover__img" name="ua" />
       <span class="lang-popover__label">Українська</span>
@@ -27,9 +32,15 @@ export default {
       'language',
     ]),
   },
+  updated() {
+    if (this.isLangPopoverVisible)
+    this.$el.focus()
+  },
   methods: {
     ...mapMutations('lang', [
       'selectLanguage',
+      'closeLangPopover',
+      'openLangPopover',
     ]),
   },
 }
@@ -47,6 +58,7 @@ export default {
   padding: 10px 0;
   background-color: $contrast_color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  outline: none;
 }
 
 .lang-popover__nation {

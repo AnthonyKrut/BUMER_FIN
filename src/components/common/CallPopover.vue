@@ -1,5 +1,11 @@
 <template>
-  <div v-if="isCallPopoverVisible" class="call-popover">
+  <div
+    v-if="isCallPopoverVisible"
+    v-focus
+    class="call-popover"
+    tabindex="0"
+    @focusout="close($event)"
+  >
     <div class="call-popover__number">
       <SvgImage class="call-popover__number-img" name="call" />
       <span class="call-popover__number-text">063 373 39 88</span>
@@ -17,6 +23,7 @@
         class="call-popover__input"
         mask="+38 (0##) ### ## ##"
         masked
+        @focusout="close($event)"
         @blur.native="$v.form.phone.$touch"
         @input="$v.form.phone.$reset"
       />
@@ -36,7 +43,7 @@
 <script>
 import SvgImage from './SvgImage.vue'
 import Btn from '@/components/common/Btn'
-import {mapActions, mapState} from 'vuex'
+import {mapMutations, mapActions, mapState} from 'vuex'
 import {helpers, required} from 'vuelidate/lib/validators'
 import FormGroupError from '@/components/forms/FormGroupError'
 import FormGroup from '@/components/forms/FormGroup'
@@ -52,6 +59,13 @@ export default {
     FormGroup,
     FormGroupError,
     TheMask,
+  },
+  directives: {
+    focus: {
+      inserted: function (el) {
+        el.focus()
+      },
+    },
   },
   data() {
     return {
@@ -71,6 +85,14 @@ export default {
     ]),
   },
   methods: {
+    close(event) {
+      if (this.$el === event.relatedTarget 
+        || this.$el.contains(event.relatedTarget)) {
+        return
+      } else {
+        this.closeCallPopover()
+      }
+    },
     requestCallBack() {
       if (!this.$v.$invalid) {
         this.orderCallBack(this.form.phone)
@@ -80,6 +102,9 @@ export default {
     },
     ...mapActions('call', [
       'orderCallBack',
+    ]),
+    ...mapMutations('call', [
+      'closeCallPopover',
     ]),
   },
 }
@@ -97,6 +122,8 @@ export default {
   padding: 30px;
   background-color: $contrast_color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  outline: none;
+  line-height: normal;
   text-align: center;
 }
 
@@ -129,7 +156,6 @@ export default {
   width: 100%;
   height: 26px;
   padding: 10px;
-  margin-bottom: 15px;
   border: none;
   outline: none;
   background-color: #F3F3F3;
