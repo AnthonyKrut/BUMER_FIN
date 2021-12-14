@@ -1,24 +1,24 @@
 <template>
   <div class="form checkout-form">
     <div class="form__fieldset-heading form__fieldset-heading--required form__fieldset-heading--mb">
-      Информация о получателе:
+      {{ $t('checkout.recipient_information') }}:
     </div>
 
     <div class="form__fieldset">
       <FormGroup :field="$v.form.first_name">
-        <label class="form__label form__label--required">Имя:</label>
+        <label class="form__label form__label--required">{{ $t('checkout.name') }}:</label>
         <input v-model.trim="$v.form.first_name.$model" class="form__input">
         <FormGroupError v-if="!$v.form.first_name.required" type="required" />
       </FormGroup>
 
       <FormGroup :field="$v.form.last_name">
-        <label class="form__label form__label--required">Фамилия:</label>
+        <label class="form__label form__label--required">{{ $t('checkout.last_name') }}:</label>
         <input v-model.trim="$v.form.last_name.$model" class="form__input">
         <FormGroupError v-if="!$v.form.last_name.required" type="required" />
       </FormGroup>
 
       <FormGroup :field="$v.form.phone">
-        <label class="form__label form__label--required">Телефон:</label>
+        <label class="form__label form__label--required">{{ $t('checkout.phone') }}:</label>
         <TheMask
           v-model.lazy="$v.form.phone.$model"
           class="form__input"
@@ -40,7 +40,7 @@
     </div>
 
     <div class="form__fieldset-heading form__fieldset-heading--required">
-      Способ оплаты:
+      {{ $t('checkout.payment_method') }}:
     </div>
 
     <div class="form__fieldset">
@@ -50,7 +50,7 @@
           class="form__select"
           label="label"
           :options="paymentVariants"
-          placeholder="Выберите способ оплаты"
+          :placeholder="$t('checkout.check_payment_method')"
           :show-labels="false"
           track-by="id"
         />
@@ -59,7 +59,7 @@
     </div>
 
     <div class="form__fieldset-heading form__fieldset-heading--required">
-      Способ доставки:
+      {{ $t('checkout.shipping_method') }}:
     </div>
 
     <div class="form__fieldset">
@@ -69,7 +69,7 @@
           class="form__select"
           label="label"
           :options="shippingCompanies"
-          placeholder="Выберите почту"
+          :placeholder="$t('checkout.check_shipping_method')"
           :show-labels="false"
           track-by="id"
         />
@@ -82,7 +82,7 @@
           class="form__select"
           label="label"
           :options="paymentVariants"
-          placeholder="В отделении"
+          :placeholder="$t('checkout.in_post_office')"
           :show-labels="false"
           track-by="id"
         />
@@ -95,7 +95,7 @@
           class="form__select"
           label="label"
           :options="paymentVariants"
-          placeholder="Выберите город"
+          :placeholder="$t('checkout.select_city')"
           :show-labels="false"
           track-by="id"
         />
@@ -108,7 +108,7 @@
           class="form__select"
           label="label"
           :options="paymentVariants"
-          placeholder="Выберите отделение"
+          :placeholder="$t('checkout.select_post_office')"
           :show-labels="false"
           track-by="id"
         />
@@ -152,21 +152,21 @@ export default {
       paymentVariants: [
         {
           id: 'cash',
-          label: 'Наличными при получении',
+          label: this.$t('checkout.cash'),
         },
         {
           id: 'card',
-          label: 'Оплата на карту по реквизитам        4168 1234 1234 1234',
+          label: this.$t('checkout.card'),
         },
       ],
       shippingCompanies: [
         {
           id: 'np',
-          label: 'Новая почта',
+          label: this.$t('checkout.novaya_poshta'),
         },
         {
           id: 'up',
-          label: 'Укрпочта',
+          label: this.$t('checkout.ukr_poshta'),
         },
         {
           id: 'justin',

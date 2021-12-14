@@ -5,7 +5,7 @@
     </div>
     <div class="banner-1__about">
       <h3 class="banner-1__about-title">
-        ЗИМНЯЯ КОЛЛЕКЦИЯ 2021
+        {{ $t('homepage.banner_1_text') }}
       </h3>
       <div class="banner-1__about-article">
         qn 380
@@ -36,6 +36,8 @@ export default {
   display: flex;
   font-size: adaptive_fz(20px, 12px);
   font-weight: 700;
+  margin-bottom: 70px;
+  margin-top: 90px;
 }
 
 .banner-1__pic {
@@ -84,6 +86,7 @@ export default {
 }
 
 .banner-1__about-title {
+  text-transform: uppercase;
   font-size: adaptive_fz(20px, 12px);
 }
 

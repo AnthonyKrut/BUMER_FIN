@@ -9,13 +9,13 @@
     </div>
 
     <div v-else class="cart-popover__empty">
-      Ваша корзина пока пуста
+      {{ $t('cart.empty_cart') }}
     </div>
 
     <div class="cart-popover__footer">
       <div v-if="cart.length" class="cart-popover__total-wrapper">
         <div class="cart-popover__total-label">
-          Oбщая сумма:
+          {{ $t('cart.total') }}:
         </div>
         <div class="cart-popover__total-price">
           3 599 грн
@@ -28,11 +28,11 @@
         to="Checkout"
         @click.native="closeCartPopover"
       >
-        Перейти в корзину
+        {{ $t('cart.go_to_cart') }}
       </Btn>
 
       <div class="cart-popover__footer-link" @click="closeCartPopover">
-        Продолжить покупки
+        {{ $t('cart.continue_purchaising') }}
       </div>
     </div>
   </div>

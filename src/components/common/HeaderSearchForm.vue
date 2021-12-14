@@ -3,7 +3,7 @@
     <input
       class="header-search-form__input"
       name="q"
-      placeholder="Поиск"
+      :placeholder="$t('common.search')"
       type="search"
     >
 
@@ -28,6 +28,7 @@ export default {
 .header-search-form {
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
 
   @media screen and (max-width: 767px) {
     border-bottom: 1px solid transparent;
@@ -42,7 +43,7 @@ export default {
   background-color: $contrast_color;
   font-size: 11px;
   font-weight: 500;
-  color: $text_color_light;
+  color: #000000;
 
   @media screen and (max-width: 767px) {
     position: absolute;
@@ -69,5 +70,9 @@ export default {
   height: 15px;
   cursor: pointer;
   overflow: visible;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 </style>

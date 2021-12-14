@@ -1,5 +1,9 @@
 <template>
-  <Swiper class="swiper" :options="swiperOption">
+  <Swiper
+    ref="swiper"
+    class="swiper"
+    :options="swiperOption"
+  >
     <SwiperSlide
       v-for="(slide, index) in slides"
       :key="index"
@@ -8,11 +12,15 @@
     >
       <div class="swiper__item-content">
         <SvgImage class="swiper__item-logo" name="logo" />
-        <div class="swiper__item-text">
-          {{ slide.text }}
+        <div v-if="locale === 'ru'" class="swiper__item-text">
+          {{ slide.text_ru }}
+        </div>
+        <div v-if="locale === 'ua'" class="swiper__item-text">
+          {{ slide.text_ua }}
         </div>
       </div>
     </SwiperSlide>
+
     <div slot="pagination" class="swiper__pagination" />
     <div slot="button-prev" class="swiper__button swiper__button--prev" />
     <div slot="button-next" class="swiper__button swiper__button--next" />
@@ -54,14 +62,31 @@ export default {
       slides: [
         {
           image: '/img/hero-slider/img-slider01.jpg',
-          text: 'УДОБСТВО. ЛЕГКОСТЬ. ПРАКТИЧНОСТЬ.',
+          text_ru: 'Удобство. Легкость. Практичность.',
+          text_ua: 'Зручність. Легкість. Практичність',
         },
         {
           image: '/img/hero-slider/img-slider02.jpg',
-          text: 'УДОБСТВО. ЛЕГКОСТЬ. ПРАКТИЧНОСТЬ.',
+          text_ru: 'Удобство. Легкость. Практичность.',
+          text_ua: 'Зручність. Легкість. Практичність',
         },
       ],
     }
+  },
+  computed: {
+    locale() {
+      return this.$i18n.locale
+    },
+  },
+  watch: {
+    '$i18n.locale'() {
+      this.$refs.swiper.updateSwiper()
+      // this.$refs.swiper.initSwiper()
+      console.log('locale change', this.$refs.swiper)
+    },
+  },
+  mounted() {
+    console.log(this.$i18n)
   },
 }
 </script>
@@ -134,6 +159,10 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.swiper__item-text {
+  text-align: center;
 }
 
 .swiper__item-logo {

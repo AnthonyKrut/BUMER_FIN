@@ -6,11 +6,11 @@
           v-model="selectedFilters.sortBy"
           class="catalog-filters__filter"
           :options="filters.sortBy"
-          placeholder="Сортировать по"
+          :placeholder="$t('product.sort_by')"
           :show-labels="false"
         >
           <template slot="singleLabel">
-            Сортировать по
+            {{ $t('product.sort_by') }}
           </template>
         </Multiselect>
       </div>
@@ -21,13 +21,13 @@
           class="catalog-filters__filter"
           multiple
           :options="filters.sizes"
-          placeholder="Размеры"
+          :placeholder="$t('product.sizes')"
           :searchable="false"
           :show-labels="false"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
             <span v-if="values.length || isOpen" class="multiselect__single">
-              Размеры
+              {{ $t('product.sizes') }}
             </span>
           </template>
           <template slot="option" slot-scope="{option}">
@@ -50,14 +50,14 @@
           label="color_name"
           multiple
           :options="filters.colors"
-          placeholder="Цвета"
+          :placeholder="$t('product.colors')"
           :searchable="false"
           :show-labels="false"
           track-by="color_code"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
             <span v-if="values.length || isOpen" class="multiselect__single">
-              Цвета
+              {{ $t('product.colors') }}
             </span>
           </template>
           <template slot="option" slot-scope="{option}">
@@ -83,19 +83,19 @@
           v-model="selectedFilters.category"
           class="catalog-filters__filter"
           :options="filters.category"
-          placeholder="Вид обуви"
+          :placeholder="$t('product.footwear_type')"
           :show-labels="false"
         >
           <template slot="singleLabel">
-            Вид обуви
+            {{ $t('product.footwear_type') }}
           </template>
         </Multiselect>
       </div>
     </div>
 
-    <div class="catalog-filters__selected">
+    <div v-if="isAnyFilterSelected" class="catalog-filters__selected">
       <div v-if="selectedFilters.sortBy" class="catalog-filters__selected-group">
-        Сортировать по:
+        {{ $t('product.sort_by') }}:
         <div class="catalog-filters__selected-item">
           {{ selectedFilters.sortBy }}
           <div class="catalog-filters__selected-item-close" @click="selectedFilters.sortBy = null">
@@ -105,7 +105,7 @@
       </div>
 
       <div v-if="selectedFilters.sizes.length" class="catalog-filters__selected-group">
-        Размеры:
+        {{ $t('product.sizes') }}:
         <div
           v-for="size in selectedFilters.sizes"
           :key="size"
@@ -119,7 +119,7 @@
       </div>
 
       <div v-if="selectedFilters.colors.length" class="catalog-filters__selected-group">
-        Цвета:
+        {{ $t('product.colors') }}:
         <div
           v-for="color in selectedFilters.colors"
           :key="color.color_code"
@@ -133,7 +133,7 @@
       </div>
 
       <div v-if="selectedFilters.category" class="catalog-filters__selected-group">
-        Вид обуви:
+        {{ $t('product.footwear_type') }}:
         <div class="catalog-filters__selected-item">
           {{ selectedFilters.category }}
           <div class="catalog-filters__selected-item-close" @click="selectedFilters.category = null">
@@ -160,9 +160,9 @@ export default {
     return {
       filters: {
         sortBy: [
-          'Возрастанию цены',
-          'Убыванию цены',
-          'Новинкам',
+          this.$t('product.price_asc'),
+          this.$t('product.price_desc'),
+          this.$t('product.novelty'),
         ],
         sizes: [
           34,
@@ -218,6 +218,14 @@ export default {
         category: null,
       },
     }
+  },
+  computed: {
+    isAnyFilterSelected() {
+      return !!(this.selectedFilters.sortBy
+        || this.selectedFilters.sizes.length
+        || this.selectedFilters.colors.length
+        || this.selectedFilters.category)
+    },
   },
   methods: {
     removeSelectedFilter(val, type) {

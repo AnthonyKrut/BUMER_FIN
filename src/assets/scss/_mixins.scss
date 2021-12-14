@@ -3,46 +3,7 @@
   width: 0;
   min-width: 100%;
 }
-@mixin product-small {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 23.5%;
-  &__label {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    padding: 0 1em;
-    font-size: adaptive_fz(12px, 8px);
-    line-height: 2em;
-    background-color: #f5973f;
-  }
-  &__pic {
-    flex-grow: 1;
-    background: #f0f0f0;
-    img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-  &__specs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.33em;
-    .product__article {
-      font-size: adaptive_fz(12px, 8px);
-      font-weight: 400;
-      color: $text_color_dark;
-    }
-    .product__price {
-      span {
-        font-size: 0.75em;
-      }
-    }
-  }
-}
+
 @mixin popular-products {
   font-size: adaptive_fz(20px, 12px);
   font-weight: 700;
@@ -58,9 +19,6 @@
     // &_first {}
     &_second {
       margin-top: 1em;
-    }
-    .product {
-      @include product-small;
     }
   }
   @media screen and (max-width: 370px) {

@@ -2,7 +2,7 @@
   <div class="map-stores">
     <div class="map-stores__numbers">
       <span class="map-stores__digit">10+</span>
-      <span class="map-stores__text">магазинов по Украине</span>
+      <span class="map-stores__text">{{ $t('homepage.map_stores_text') }}</span>
     </div>
     <div class="map-stores__pic">
       <img

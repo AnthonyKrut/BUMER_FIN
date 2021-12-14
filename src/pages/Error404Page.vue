@@ -12,10 +12,10 @@
         </div>
       </div>
       <div class="error-message">
-        Что-то пошло не так...
+        {{ $t('common.text_404') }}
       </div>
       <Btn class="error-btn" to="Home">
-        <span>вернуться на главную</span>
+        <span>{{ $t('common.back_to_homepage') }}</span>
       </Btn>
     </div>
   </section>

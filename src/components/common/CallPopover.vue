@@ -15,7 +15,7 @@
       <span class="call-popover__number-text">093 220 03 77</span>
     </div>
     <div class="call-popover__message">
-      Либо оставьте свой телефон для обратного звонка
+      {{ $t('common.call_popover_message') }}
     </div>
     <FormGroup :field="$v.form.phone">
       <TheMask
@@ -35,7 +35,7 @@
       full-width
       @click.native="requestCallBack"
     >
-      ПЕРЕЗВОНИТЬ МНЕ
+      {{ $t('common.call_popover_button') }}
     </Btn>
   </div>
 </template>
@@ -54,7 +54,7 @@ const phoneMask = helpers.regex('phone', /^\+38 \(0\d\d\) \d\d\d \d\d \d\d$/)
 export default {
   name: 'CallPopover',
   components: {
-    SvgImage, 
+    SvgImage,
     Btn,
     FormGroup,
     FormGroupError,
@@ -163,7 +163,5 @@ export default {
   border-radius: 0; // fixing rounded corners and shadow in Safari
   background-image: linear-gradient(transparent, transparent); //
 }
-
-//.call-popover__button {}
 
 </style>

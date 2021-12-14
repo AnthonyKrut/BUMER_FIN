@@ -8,6 +8,7 @@ import vueDebounce from 'vue-debounce'
 import VueSweetalert2 from 'vue-sweetalert2'
 import VueCookies from 'vue-cookies'
 import Vuelidate from 'vuelidate'
+import i18n from './i18n.bootstrap'
 
 Vue.use(Vuelidate)
 Vue.use(vueDebounce)
@@ -19,6 +20,7 @@ Vue.prototype.$http = axios
 Vue.prototype.$http.defaults.baseURL = process.env.VUE_APP_BASE_API_URI
 
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App),
