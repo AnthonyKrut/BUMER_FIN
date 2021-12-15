@@ -29,6 +29,11 @@ export default {
 
 .top-header-nav {
   display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    display: none; // it is available in mobile menu now
+  }
 }
 
 .top-header-nav__item {

@@ -1,6 +1,10 @@
 <template>
   <div class="lang-switcher">
-    <div class="lang-switcher__wrapper" @click="toggleLangPopover">
+    <div 
+      class="lang-switcher__wrapper"
+      :class="{'lang-switcher__wrapper--click-disabled': isLangPopoverVisible}" 
+      @click="toggleLangPopover"
+    >
       <SvgImage v-if="locale==='ua'" class="lang-switcher__img" name="ua" />
       <SvgImage v-if="locale==='ru'" class="lang-switcher__img" name="ru" />
       <SvgImage
@@ -59,6 +63,10 @@ export default {
   &:hover {
     opacity: 0.7;
   }
+
+  &--click-disabled {
+    pointer-events: none;
+  }
 }
 
 .lang-switcher__img {
@@ -73,7 +81,8 @@ export default {
   vertical-align: middle;
   fill: none;
   stroke: #F3F3F3;
-  &.rotated {
+
+  &--rotated {
     transform: rotate(180deg);
   }
 }
