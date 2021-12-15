@@ -1,8 +1,19 @@
 <template>
   <div class="banner-2">
     <div class="banner-2__title">
-      <span class="banner-2__title-text">{{ $t('homepage.banner_2_text') }}</span>
-      <span class="banner-2__title-discount">-30%</span>
+      <span
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        class="banner-2__title-text"
+      >
+        {{ $t('homepage.banner_2_text') }}
+      </span>
+      <span
+        data-aos="fade-left"
+        data-aos-delay="150"
+        data-aos-duration="1000"
+        class="banner-2__title-discount"
+      >-30%</span>
     </div>
   </div>
 </template>

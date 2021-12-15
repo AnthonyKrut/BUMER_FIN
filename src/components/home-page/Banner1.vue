@@ -1,5 +1,9 @@
 <template>
-  <div class="banner-1">
+  <div
+    class="banner-1"
+    data-aos="complex-animation"
+    data-aos-offset="200"
+  >
     <div class="banner-1__pic">
       <img alt="boy in sneakers" class="banner-1__img" src="../../assets/img/img-baner01-1.jpg">
     </div>
@@ -7,13 +11,19 @@
       <h3 class="banner-1__about-title">
         {{ $t('homepage.banner_1_text') }}
       </h3>
-      <div class="banner-1__about-article">
+      <div class="banner-1__about-sku">
         qn 380
       </div>
       <div class="banner-1__about-price">
         2999.99 <span class="banner-1__about-price-currency">ГРН</span>
       </div>
-      <img alt="sneaker" class="banner-1__about-img" src="../../assets/img/img-baner01-2.png">
+
+      <img
+        alt="sneaker"
+        class="banner-1__about-img"
+        src="../../assets/img/img-baner01-2.png"
+      >
+
       <router-link class="banner-1__about-link" to="/">
         <img alt="arrow pointer" class="banner-1__about-link-img" src="../../assets/img/svg/arr-right-black.svg">
       </router-link>
@@ -90,7 +100,7 @@ export default {
   font-size: adaptive_fz(20px, 12px);
 }
 
-.banner-1__about-article {
+.banner-1__about-sku {
   margin-bottom: 2em;
   font-size: adaptive_fz(122px, 25px);
   text-transform: uppercase;
@@ -106,5 +116,38 @@ export default {
 
 .banner-1__about-price-currency {
   font-size: adaptive_fz(18px, 10px);
+}
+
+[data-aos="complex-animation"] {
+
+  .banner-1__about-sku {
+    transition: transform 2s ease-out, opacity 0.3s;
+
+    @media screen and (min-width: 768px) {
+      transform: translateX(-40px);
+      opacity: 0;
+    }
+  }
+
+  .banner-1__about-img {
+    transition: transform 2s ease-out, opacity 0.3s;
+
+    @media screen and (min-width: 768px) {
+      transform: translateX(40px);
+      opacity: 0;
+    }
+  }
+
+  &.aos-animate {
+    .banner-1__about-sku {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .banner-1__about-img {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 }
 </style>

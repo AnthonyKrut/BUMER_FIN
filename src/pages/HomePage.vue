@@ -24,6 +24,8 @@ import Story1 from '@/components/home-page/Story1';
 import HomePageQuote from '@/components/home-page/HomePageQuote';
 import MapStores from '@/components/home-page/MapStores';
 import Catalog from '@/components/catalog/Catalog'
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 export default {
   name: 'HomePage',
@@ -37,6 +39,11 @@ export default {
     Banner1,
     HeroSlider,
   },
+  mounted() {
+    AOS.init({
+      once: true,
+    })
+  }
 };
 </script>
 
