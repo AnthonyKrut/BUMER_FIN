@@ -55,7 +55,7 @@ export default {
     color: #aaaaaa;
   }
 
-  &--click-disabled {
+  &.header-call__wrapper--click-disabled {
     pointer-events: none;
   }
 }

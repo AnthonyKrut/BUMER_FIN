@@ -64,7 +64,7 @@ export default {
     opacity: 0.7;
   }
 
-  &--click-disabled {
+  &.lang-switcher__wrapper--click-disabled {
     pointer-events: none;
   }
 }
@@ -82,7 +82,7 @@ export default {
   fill: none;
   stroke: #F3F3F3;
 
-  &--rotated {
+  &.lang-switcher__angle--rotated {
     transform: rotate(180deg);
   }
 }
