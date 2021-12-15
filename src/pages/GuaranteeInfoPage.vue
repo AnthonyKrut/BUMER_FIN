@@ -55,9 +55,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.guarantee {
-  min-height: 70vh;
-}
-
 </style>

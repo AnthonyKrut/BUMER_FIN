@@ -60,8 +60,4 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/variables";
 
-.cooperation {
-  min-height: 70vh;
-}
-
 </style>

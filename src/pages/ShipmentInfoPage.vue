@@ -53,9 +53,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.shipment {
-  min-height: 70vh;
-}
-
 </style>

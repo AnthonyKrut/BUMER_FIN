@@ -37,7 +37,6 @@ export default {
 @import "../assets/scss/functions";
 
 .error-404page {
-  min-height: 75vh;
   text-align: center;
 }
 
