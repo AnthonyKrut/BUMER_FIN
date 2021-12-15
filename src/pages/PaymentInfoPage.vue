@@ -41,8 +41,4 @@ export default {
 
 <style lang="scss" scoped>
 
-.payment {
-  min-height: 70vh;
-}
-
 </style>

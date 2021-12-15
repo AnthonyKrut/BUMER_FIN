@@ -47,10 +47,6 @@ export default {
 
 <style lang="scss" scoped>
 
-.privacy-policy {
-  min-height: 70vh;
-}
-
 .redactor-content {
   justify-content: center;
 }

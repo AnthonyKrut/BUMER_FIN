@@ -1,5 +1,11 @@
 <template>
-  <div class="story-one">
+  <div
+    class="story-one"
+    data-aos="complex-animation"
+    data-aos-anchor-placement="top-bottom"
+    data-aos-duration="1"
+    data-aos-offset="100"
+  >
     <div class="story-one__pic">
       <img
         alt="boot image"
@@ -8,18 +14,18 @@
       >
     </div>
     <div class="story-one__text">
-      <p class="story-one__text-plain">
+      <div class="story-one__text-item story-one__text-plain">
         {{ $t('homepage.story_1_text_1') }}
-      </p>
-      <p class="story-one__text-strong">
+      </div>
+      <div class="story-one__text-item story-one__text-strong">
         {{ $t('homepage.story_1_text_2') }}
-      </p>
-      <p class="story-one__text-plain">
+      </div>
+      <div class="story-one__text-item story-one__text-plain">
         {{ $t('homepage.story_1_text_3') }}
-      </p>
-      <p class="story-one__text-plain">
+      </div>
+      <div class="story-one__text-item story-one__text-plain">
         {{ $t('homepage.story_1_text_4') }}
-      </p>
+      </div>
     </div>
   </div>
 </template>
@@ -41,6 +47,7 @@ export default {
   font-size: adaptive_fz(46px, 15px);
   font-weight: 700;
   margin-top: 160px;
+  align-items: center;
   @media screen and (min-width: 1440px) {
     font-size: 46px;
   }
@@ -62,7 +69,7 @@ export default {
 
 .story-one__pic-img {
   position: relative;
-  left: 10%;
+  left: 5%;
   top: 10%;
   z-index: 2;
   width: 100%;
@@ -95,6 +102,55 @@ export default {
 .story-one__text-plain {
   @media screen and (max-width: 575px) {
     margin-bottom: 1.5em;
+  }
+}
+
+[data-aos="complex-animation"] {
+
+  .story-one__text-item {
+    transition: 0.4s ease-out;
+
+    @media screen and (min-width: 768px) {
+      opacity: 0;
+      transform: translateX(300px);
+    }
+
+    &:nth-child(1) {
+      transition-delay: 0ms;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 1000ms;
+    }
+
+    &:nth-child(3) {
+      transition-delay: 2000ms;
+    }
+
+    &:nth-child(4) {
+      transition-delay: 3000ms;
+    }
+  }
+
+  .story-one__pic-img {
+    transition: 3s 1s ease-out;
+    opacity: 0;
+
+    @media screen and (min-width: 768px) {
+      transform: translateY(250px);
+    }
+  }
+
+  &.aos-animate {
+    .story-one__text-item {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .story-one__pic-img {
+      transform: translateY(60px);
+      opacity: 1;
+    }
   }
 }
 </style>
