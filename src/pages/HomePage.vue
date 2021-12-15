@@ -54,5 +54,6 @@ export default {
 
 .container {
   background: $contrast_color;
+  overflow-x: hidden;
 }
 </style>
