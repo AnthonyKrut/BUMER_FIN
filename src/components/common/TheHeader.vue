@@ -114,7 +114,7 @@ export default {
   line-height: 2.5em;
   color: $contrast_color;
   background: $main_color;
-  min-height: 30px;
+  //min-height: 30px;
 }
 
 .header__top-wrapper {
