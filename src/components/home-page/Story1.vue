@@ -3,8 +3,8 @@
     class="story-one"
     data-aos="complex-animation"
     data-aos-anchor-placement="top-bottom"
-    data-aos-offset="100"
     data-aos-duration="1"
+    data-aos-offset="100"
   >
     <div class="story-one__pic">
       <img
