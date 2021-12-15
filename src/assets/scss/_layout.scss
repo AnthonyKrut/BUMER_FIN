@@ -5,9 +5,13 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: $main_color;
   background: $contrast_color;
+}
+
+section {
+  flex-grow: 1;
 }
 
 h1 {
@@ -20,18 +24,15 @@ h1 {
   background: $contrast_color;
 }
 
-// .container { // old variant
-//     width: 90%;
-//     max-width: 1180px;
-//     margin: 0 auto;
-//     @media screen and (max-width: 767px) {
-//         width: calc(100% - 5px);
-//     }
-// }
+.application {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .container {
   width: 100vw;
-  padding: 0 Max((5vw, calc((100vw - 1180px)/2)));
+  padding: 0 Max((5vw, calc((100vw - 1180px) / 2)));
   @media screen and (max-width: 575px) {
     padding: 0 2.5px;
   }

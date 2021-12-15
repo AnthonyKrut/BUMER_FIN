@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout-page">
+  <section class="checkout-page">
     <div class="container">
       <h1>{{ $t('checkout.checkout') }}</h1>
 
@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

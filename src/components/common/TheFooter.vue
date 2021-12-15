@@ -4,12 +4,12 @@
       <div class="footer__logo">
         <SvgImage class="footer__logo-image" name="logo" />
         <div class="footer__copy">
-          <div class="footer__copy-text">
+          <span class="footer__copy-text">
             BUMER 2021
-          </div>
-          <div class="footer__copy-text">
+          </span>
+          <span class="footer__copy-text">
             &copy; All rights reserved
-          </div>
+          </span>
         </div>
       </div>
 
@@ -89,25 +89,15 @@ export default {
   }
 }
 
-.footer__nav {
-  &.footer__nav--first {
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  }
-}
-
-.footer__right {
-  @media screen and (max-width: 767px) {
-    margin: 2em 0;
-  }
-}
-
-.footer__right-heading {
-  margin-bottom: 2.5em;
+.container {
+  display: flex;
+  justify-content: space-around;
 
   @media screen and (max-width: 767px) {
-    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
   }
 }
 
@@ -128,20 +118,8 @@ export default {
   }
 }
 
-.footer__copy-text {
-  line-height: 2.5em;
-  text-align: center;
-
-  &:first-of-type {
-    display: inline;
-
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  }
-}
-
 .footer__logo-image {
+  width: 100%;
   margin-bottom: 1.5em;
 
   @media screen and (max-width: 767px) {
@@ -153,14 +131,37 @@ export default {
   color: #FFFFFF;
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
+.footer__copy-text {
+  line-height: 2.5em;
+
+  &:first-of-type {
+    display: none;
+
+    @media screen and (max-width: 767px) {
+      display: inline;
+    }
+  }
+}
+
+.footer__nav {
+  &.footer__nav--first {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
+.footer__right {
+  @media screen and (max-width: 767px) {
+    margin: 2em 0;
+  }
+}
+
+.footer__right-heading {
+  margin-bottom: 2.5em;
 
   @media screen and (max-width: 767px) {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    display: none;
   }
 }
 
