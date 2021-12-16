@@ -1,11 +1,19 @@
 .redactor-content {
   display: flex;
 
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
   h3 {
     font-size: adaptive_fz(14px, 10px);
     font-weight: 700;
     line-height: 1.5em;
     text-transform: uppercase;
+
+    @media screen and (max-width: 767px) {
+      margin-top: 2em;
+    }
   }
 
   h4 {
@@ -17,6 +25,10 @@
 
   article {
     width: 60%;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
   }
 
   p {

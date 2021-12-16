@@ -42,6 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
+@import "../../assets/scss/functions";
 
 .terms-nav {
   display: flex;
@@ -50,9 +51,15 @@ export default {
   margin-right: 5%;
   font-size: adaptive_fz(14px, 9px);
   font-weight: 700;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: row;
+    margin-right: 0;
+  }
 }
 
 .terms-nav__item {
+  margin-left: 0;
   line-height: 3em;
   color: $main_color;
   text-decoration: none;
@@ -60,6 +67,10 @@ export default {
   text-align: center;
     &.terms-nav__item--active {
     background-color: #f5f5f5;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-grow: 1;
   }
 }
 
