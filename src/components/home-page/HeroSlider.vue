@@ -99,7 +99,7 @@ export default {
 .swiper {
   @include slider_fix;
   position: relative;
-  justify-content: space-evenly;
+  //justify-content: space-evenly;
   margin-bottom: adaptive_fz(60px, 20px);
 
   @media (min-width: 700px) {
@@ -109,19 +109,19 @@ export default {
 
 .swiper__button {
   position: absolute;
-  top: calc(50% - 0.5 * Min(52.5px, Max(30px, 0.75 * 5vw)));
+  top: calc(50% - 0.5 * 30px);
   z-index: 5;
   display: block;
-  width: 5vw;
-  min-width: 40px;
-  max-width: 70px;
-  height: calc(0.75 * 5vw);
-  min-height: 30px;
-  max-height: 52.5px;
+  width: 40px;
+  height: 30px;
   border: none;
   background-color: rgba(255, 255, 255, 0.3);
   font-size: 0;
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 
   &:before {
     content: '';
@@ -148,12 +148,13 @@ export default {
 }
 
 .swiper__item {
-  height: calc(100vh - 161px);
+  height: calc(100vh - ((2.5 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw))));
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: calc(0.5 *(100vh - ((2.5 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw)))));
   font-family: 'PT Sans Caption', sans-serif;
-  font-size: adaptive_fz(30px, 10px);
+  font-size: adaptive_fz(15px, 10px);
   font-weight: 700;
   color: $contrast_color;
   background-position: center;
@@ -163,17 +164,18 @@ export default {
 
 .swiper__item-text {
   text-align: center;
+  text-transform: uppercase;
 }
 
 .swiper__item-logo {
-  margin-bottom: 3.25em;
+  margin-bottom: 2.5em;
   display: block;
   width: 19.25em;
 }
 
 .swiper__pagination {
   position: absolute;
-  bottom: 7px;
+  bottom: 10px;
   left: calc(50% - 0.5 * 29px);
   display: flex;
   font-size: 0;
