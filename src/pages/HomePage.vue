@@ -5,11 +5,23 @@
     <div class="container">
       <Banner1 />
       <Catalog :heading="$t('homepage.popular_goods')" :products="[1,2,3,4]" />
+    </div>
+
+    <div class="container container--mobile">
       <Banner2 />
+    </div>
+
+    <div class="container">
       <Catalog :products="[1,2,3,4]" />
       <Story1 />
       <Story2 />
+    </div>
+
+    <div class="container container--overflow-visible container--mobile ">
       <MapStores />
+    </div>
+
+    <div class="container">
       <HomePageQuote />
     </div>
   </section>
@@ -56,4 +68,16 @@ export default {
   background: $contrast_color;
   overflow-x: hidden;
 }
+
+.container--overflow-visible {
+  overflow-x: visible;
+}
+
+.container--mobile {
+
+  @media screen and (max-width: 767px) {
+    padding: 0;
+  }
+}
+
 </style>
