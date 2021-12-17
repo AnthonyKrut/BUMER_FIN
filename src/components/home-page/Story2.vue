@@ -121,7 +121,7 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   height: 30em;
-  padding-left: calc(3vw + Min(4vw, 55px));
+  padding-left: calc(3vw + 0.5 * adaptive_fz(70px, 40px));
 
   @media screen and (max-width: 767px) {
     height: unset;
