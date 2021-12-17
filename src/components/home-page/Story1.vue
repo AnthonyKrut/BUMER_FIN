@@ -52,7 +52,7 @@ export default {
     font-size: 46px;
   }
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
     align-items: center;
     margin: 2.5em 0 1.75em;
@@ -64,7 +64,7 @@ export default {
   align-items: center;
   width: 40%;
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 767px) {
     width: 60%;
   }
 }
@@ -77,7 +77,7 @@ export default {
   width: 100%;
   display: block;
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 767px) {
     left: 0%;
     top: -60px;
   }
@@ -89,7 +89,7 @@ export default {
   line-height: 1em;
   color: $text_color_light;
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 767px) {
     width: 75%;
     text-transform: uppercase;
     line-height: normal;
@@ -99,13 +99,13 @@ export default {
 .story-one__text-strong {
   color: $main_color;
 
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 767px) {
     margin-bottom: 1em;
   }
 }
 
 .story-one__text-plain {
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 767px) {
     margin-bottom: 1em;
   }
 }
@@ -115,7 +115,7 @@ export default {
   .story-one__text-item {
     transition: 0.4s ease-out;
 
-    @media screen and (min-width: 576px) {
+    @media screen and (min-width: 768px) {
       opacity: 0;
       transform: translateX(300px);
     }
@@ -141,7 +141,7 @@ export default {
     transition: 3s 1s ease-out;
     opacity: 0;
 
-    @media screen and (min-width: 576px) {
+    @media screen and (min-width: 768px) {
       transform: translateY(250px);
     }
   }

@@ -80,17 +80,19 @@ export default {
   font-size: adaptive_fz(14px, 12px);
   font-weight: 400;
   color: $text_color_dark;
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
     align-items: center;
-    margin-bottom: 3em;
+    margin-bottom: 4em;
   }
 }
 
 .col-big {
   width: 58%;
-  @media screen and (max-width: 575px) {
-    width: 60%;
+
+  @media screen and (max-width: 767px) {
+    width: 65%;
   }
 }
 
@@ -99,14 +101,16 @@ export default {
 
   &:first-of-type {
     display: block;
-    @media screen and (max-width: 575px) {
+
+    @media screen and (max-width: 767px) {
       display: none;
     }
   }
 
   &:last-of-type {
     display: none;
-    @media screen and (max-width: 575px) {
+
+    @media screen and (max-width: 767px) {
       display: block;
     }
   }
@@ -117,8 +121,9 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   height: 30em;
-  padding-left: 6.5vw;
-  @media screen and (max-width: 575px) {
+  padding-left: calc(3vw + Min(4vw, 55px));
+
+  @media screen and (max-width: 767px) {
     height: unset;
     padding: 0;
     text-align: center;
@@ -126,23 +131,26 @@ export default {
 }
 
 .col-big__number {
-  @media screen and (max-width: 575px) {
-    margin-top: 2.5em;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 4em;
   }
 
   &:last-child {
     display: none;
-    @media screen and (max-width: 575px) {
-      display: block;
-    }
+
+    // @media screen and (max-width: 767px) {
+    //   display: block;
+    // }
   }
 }
 
 .col-big__number-digit {
-  font-size: adaptive_fz(70px, 20px);
+  font-size: adaptive_fz(70px, 40px);
   font-weight: 600;
   color: $main_color;
   text-transform: uppercase;
+
   @media screen and (min-width: 1440px) {
     font-size: 70px;
   }
@@ -152,13 +160,21 @@ export default {
   font-size: 0.5em;
 }
 
+.col-big__number-text {
+
+    @media screen and (max-width: 767px) {
+    line-height: 2.5em;
+  }
+}
+
 .col-small {
   display: flex;
   flex-direction: column;
   width: 32%;
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -167,9 +183,10 @@ export default {
   display: flex;
   align-items: center;
   line-height: 1.7em;
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     width: 80%;
-    margin: 2.5em auto;
+    margin: 4em auto;
   }
 }
 
@@ -183,14 +200,16 @@ export default {
 
   &:first-of-type {
     display: block;
-    @media screen and (max-width: 575px) {
+
+    @media screen and (max-width: 767px) {
       display: none;
     }
   }
 
   &:last-of-type {
     display: none;
-    @media screen and (max-width: 575px) {
+
+    @media screen and (max-width: 767px) {
       display: block;
     }
   }
