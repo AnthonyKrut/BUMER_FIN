@@ -45,16 +45,9 @@ export default {
   cursor: pointer;
   text-transform: uppercase;
 
-  @media screen and (max-width: 767px) {
-    &:not(:last-child) {
-      margin-bottom: 1.25em;
-    }
-  }
-
   &:not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 1.25em;
   }
-
 
   &:hover {
     color: #aaaaaa;
