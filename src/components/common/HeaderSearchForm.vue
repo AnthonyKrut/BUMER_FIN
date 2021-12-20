@@ -1,23 +1,58 @@
 <template>
-  <div class="header-search-form">
+  <form 
+    class="header-search-form"
+    @submit.prevent="requestSearch()"
+  >
     <input
+      v-model="userSearchRequest"
       class="header-search-form__input"
-      name="q"
+      :class="{active: isSearchFormActive}"
       :placeholder="$t('common.search')"
+      required
       type="search"
     >
 
-    <SvgImage class="header-search-form__icon" name="search" />
-  </div>
+    <SvgImage 
+      class="header-search-form__icon" 
+      name="search"
+      @click.native="toggleSearchForm"
+    />
+  </form>
 </template>
 
 <script>
 import SvgImage from '@/components/common/SvgImage'
+import {mapMutations, mapActions, mapState} from 'vuex'
 
 export default {
   name: 'HeaderSearchForm',
   components: {
     SvgImage,
+  },
+  data() {
+    return {
+      userSearchRequest: '',
+    }
+  },
+  computed: {
+    ...mapState('search', [
+      'isSearchFormActive',
+    ]),
+  },
+  methods: {
+    requestSearch() {
+      if (this.userSearchRequest) {
+        this.sendSearchRequest(this.userSearchRequest)
+      } else {
+        return
+      }
+    },
+    ...mapActions('search', [
+      'sendSearchRequest',
+    ]),
+    ...mapMutations('search', [
+      'toggleSearchForm',
+    ]),
   },
 }
 </script>

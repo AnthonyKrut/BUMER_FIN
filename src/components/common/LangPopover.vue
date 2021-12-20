@@ -60,13 +60,16 @@ export default {
   top: 100%;
   right: 0;
   width: 110px;
+  padding: 10px 0;
   background-color: $contrast_color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   outline: none;
+  font-size: 10px;
 }
 
 .lang-popover__nation {
   padding: 0 10px;
+  line-height: 2.5em;
   cursor: pointer;
 
   &:hover {

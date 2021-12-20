@@ -61,7 +61,7 @@ export default {
 }
 
 .header-call__img {
-  width: 0.9em;
+  width: 9px;
   margin-right: 1em;
   vertical-align: middle;
   stroke: none;
