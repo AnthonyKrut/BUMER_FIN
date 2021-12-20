@@ -46,8 +46,11 @@ export default {
   display: flex;
   font-size: adaptive_fz(20px, 12px);
   font-weight: 700;
-  margin-bottom: 70px;
-  margin-top: 90px;
+  margin: 4.5em 0 3.5em;
+
+  @media screen and (max-width: 767px) {
+    margin: 1.5em 0;
+  }
 }
 
 .banner-1__pic {
@@ -78,9 +81,9 @@ export default {
   justify-content: center;
   align-items: center;
   width: 5vw;
-  min-width: 40px;
+  //min-width: 40px;
   height: calc(0.75 * 5vw);
-  min-height: 30px;
+  //min-height: 30px;
 }
 
 .banner-1__about-link-img {

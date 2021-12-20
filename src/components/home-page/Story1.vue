@@ -42,19 +42,20 @@ export default {
 
 .story-one {
   display: flex;
-  margin-bottom: 4em;
+  margin: 3em 0 4.6em;
   font-family: "Roboto", sans-serif;
   font-size: adaptive_fz(46px, 15px);
   font-weight: 700;
-  margin-top: 160px;
   align-items: center;
+
   @media screen and (min-width: 1440px) {
     font-size: 46px;
   }
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
     align-items: center;
-    margin-bottom: 2em;
+    margin: 2.5em 0 1.75em;
   }
 }
 
@@ -62,7 +63,8 @@ export default {
   display: flex;
   align-items: center;
   width: 40%;
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     width: 60%;
   }
 }
@@ -74,9 +76,10 @@ export default {
   z-index: 2;
   width: 100%;
   display: block;
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     left: 0%;
-    top: 0%;
+    top: -60px;
   }
 }
 
@@ -85,7 +88,8 @@ export default {
   padding-right: 0.5em;
   line-height: 1em;
   color: $text_color_light;
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     width: 75%;
     text-transform: uppercase;
     line-height: normal;
@@ -94,14 +98,15 @@ export default {
 
 .story-one__text-strong {
   color: $main_color;
-  @media screen and (max-width: 575px) {
-    margin-bottom: 1.5em;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 1em;
   }
 }
 
 .story-one__text-plain {
-  @media screen and (max-width: 575px) {
-    margin-bottom: 1.5em;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 1em;
   }
 }
 

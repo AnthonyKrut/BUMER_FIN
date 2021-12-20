@@ -40,13 +40,13 @@ export default {
 
 .quote {
   width: 50%;
-  min-width: 300px;
   margin: 0 auto 10em;
   font-size: adaptive_fz(14px, 12px);
   font-weight: 400;
   text-align: center;
-  @media screen and (max-width: 991px) {
-    width: 75%;
+
+  @media screen and (max-width: 767px) {
+    width: 60%;
     margin-bottom: 2.5em;
   }
 }
@@ -55,13 +55,23 @@ export default {
   margin-bottom: 5em;
   line-height: 1.85em;
   color: $text_color_dark;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 3.5em;
+  }
 }
 
 .quote__quotes {
   width: 3.5em;
   height: 3.5em;
-  margin: 0 auto 1.75em;
+  margin: 0 auto 2.85em;
   color: #C0C0C0;
+
+  @media screen and (max-width: 767px) {
+    width: 1.75em;
+    height: 1.75em;
+    margin-bottom: 1em;
+  }
 }
 
 .quote__svg-quotes {

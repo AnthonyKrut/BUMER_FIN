@@ -10,6 +10,11 @@
         class="map-stores__pic-img"
         src="../../assets/img/map.svg"
       >
+      <img
+        alt="map of bumer stores"
+        class="map-stores__pic-img"
+        src="../../assets/img/map-mobile.svg"
+      >
     </div>
   </div>
 </template>
@@ -26,9 +31,10 @@ export default {
 
 .map-stores {
   position: relative;
-  margin-bottom: 1em;
-  font-size: adaptive_fz(70px, 20px);
+  margin-bottom: 1.35em;
+  font-size: adaptive_fz(70px, 40px);
   font-weight: 600;
+
   @media screen and (min-width: 1440px) {
     font-size: 70px;
   }
@@ -36,44 +42,51 @@ export default {
 
 .map-stores__numbers {
   position: absolute;
-  top: calc(0% - 0.33 * (2 * 3vw + 1.15 * adaptive_fz(70px, 20px)));
+  top: calc(0% - 0.33 * 2.15em);
   left: 3vw;
   display: flex;
   align-items: center;
   width: 40%;
-  padding: Min(3vw, 60px) Min(4vw, 60px);
+  padding: 0.5em;
   color: $contrast_color;
   background-color: $main_color;
-  @media screen and (max-width: 575px) {
+
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
 
 .map-stores__digit {
-  margin-right: 4vw;
+  margin-right: 0.5em;
 }
 
 .map-stores__text {
-  font-size: adaptive_fz(14px, 8px);
+  font-size: adaptive_fz(14px, 12px);
   font-weight: 400;
   color: $text_color;
+
   @media screen and (min-width: 1440px) {
     font-size: 14px;
   }
 }
 
-.map-stores__pic {
-  @media screen and (max-width: 575px) {
-    height: 13em;
-    background: url("../../assets/img/map.svg") 70% 40%/275% no-repeat;
-  }
-}
+//.map-stores__pic {}
 
 .map-stores__pic-img {
   display: block;
   width: 100%;
-  @media screen and (max-width: 575px) {
-    display: none;
+
+  &:first-child {
+  @media screen and (max-width: 767px) { 
+      display: none;
+    }
+  }
+  
+  &:last-child {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
   }
 }
+
 </style>

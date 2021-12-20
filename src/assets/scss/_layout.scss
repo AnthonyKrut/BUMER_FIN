@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   color: $main_color;
   background: $contrast_color;
 }
@@ -33,7 +33,7 @@ h1 {
 .container {
   width: 100vw;
   padding: 0 Max((5vw, calc((100vw - 1180px) / 2)));
-  @media screen and (max-width: 575px) {
-    padding: 0 2.5px;
-  }
+  // @media screen and (max-width: 575px) {
+  //   padding: 0 2.5px;
+  // }
 }

@@ -34,12 +34,12 @@ export default {
   justify-content: center;
   align-items: center;
   height: 4.85em; // 580px;
+  margin: 1em 0 0.66em;
   font-size: adaptive_fz(120px, 24px);
   font-weight: 700;
-  margin-top: 100px;
-  margin-bottom: 80px;
   color: $contrast_color;
   background: url("../../assets/img/img-baner02.jpg") center/cover no-repeat;
+  
   @media screen and (min-width: 1440px) {
     font-size: 120px;
   }
@@ -56,6 +56,7 @@ export default {
 .banner-2__title-text {
   font-size: adaptive_fz(40px, 17px);
   text-transform: uppercase;
+  
   @media screen and (min-width: 1440px) {
     font-size: 40px;
   }

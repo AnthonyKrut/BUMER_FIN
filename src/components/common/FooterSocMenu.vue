@@ -66,7 +66,7 @@ export default {
     margin-right: 10px;
 
     @media screen and (max-width: 767px) {
-      margin-right: 20px;
+      margin-right: 25px;
     }
   }
 
@@ -88,7 +88,7 @@ export default {
 .footer-soc-menu__item-icon {
   width: 20px;
   height: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 3.5px;
   fill: $contrast_color;
   stroke: none;
 

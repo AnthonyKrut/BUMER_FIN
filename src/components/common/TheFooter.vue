@@ -78,7 +78,7 @@ export default {
 @import "../../assets/scss/functions";
 
 .footer {
-  padding: 2.5em 0 5em;
+  padding: 2.5em 0;
   font-size: adaptive_fz(12px, 8px);
   font-weight: 300;
   color: $contrast_color;
@@ -120,7 +120,7 @@ export default {
 
 .footer__logo-image {
   width: 100%;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 
   @media screen and (max-width: 767px) {
     display: none;
@@ -158,7 +158,7 @@ export default {
 }
 
 .footer__right-heading {
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
 
   @media screen and (max-width: 767px) {
     display: none;
