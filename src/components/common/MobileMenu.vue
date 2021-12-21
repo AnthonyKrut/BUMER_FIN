@@ -5,8 +5,8 @@
       <SvgImage name="logo" />
     </div>
 
-    <MobileMainNav />
-    <MobileSecondaryNav />
+    <MobileMainNav :items="navMain" />
+    <MobileSecondaryNav :items="navSecondary" />
     <MobileSocMenu />
   </div>
 </template>
@@ -27,6 +27,42 @@ export default {
     SvgImage,
   },
   computed: {
+    navMain() {
+      return [
+        {
+          to: 'Catalog',
+          label: 'КРОССОВКИ',
+        },
+        {
+          to: 'Catalog',
+          label: 'БОТИНКИ',
+        },
+        {
+          to: 'Catalog',
+          label: 'ТУФЛИ',
+        },
+        {
+          to: 'Catalog',
+          label: 'SALE',
+        },
+      ]
+    },
+    navSecondary() {
+      return [
+        {
+          to: 'PaymentInfoPage',
+          label: this.$i18n.t('common.payment'),
+        },
+        {
+          to: 'ShipmentInfoPage',
+          label: this.$i18n.t('common.shipping'),
+        },
+        {
+          to: 'CooperationInfoPage',
+          label: this.$i18n.t('common.cooperation'),
+        },
+      ]
+    },
     ...mapState('common', [
       'isMobileMenuVisible',
     ]),

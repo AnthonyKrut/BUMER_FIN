@@ -1,16 +1,13 @@
 <template>
   <div class="mobile-main-nav">
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      КРОССОВКИ
-    </router-link>
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      БОТИНКИ
-    </router-link>
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      ТУФЛИ
-    </router-link>
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      SALE
+    <router-link
+      v-for="item in items"
+      :key="item.label"
+      active-class="mobile-main-nav__category--active"
+      class="mobile-main-nav__category"
+      :to="{name: item.to}"
+    >
+      {{ item.label }}
     </router-link>
   </div>
 </template>
@@ -18,6 +15,14 @@
 <script>
 export default {
   name: 'MobileMainNav',
+    props: {
+    items: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
+  },
 }
 </script>
 
@@ -54,6 +59,14 @@ export default {
     position: absolute;
     top: calc(50% - 0.5 * 0.75em);
     right: 2em;
+  }
+
+  &.mobile-main-nav__category--active {
+    color: $attention_color;
+
+    &::after {
+      transform: rotate(-90deg);
+    }
   }
 }
 

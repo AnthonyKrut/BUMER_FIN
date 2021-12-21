@@ -1,10 +1,13 @@
 <template>
   <nav class="mobile-secondary-nav">
-    <router-link class="mobile-secondary-nav__item" to="/">
-      Оплата и доставка
-    </router-link>
-    <router-link class="mobile-secondary-nav__item" to="/">
-      Новости
+    <router-link
+      v-for="item in items"
+      :key="item.label"
+      active-class="mobile-secondary-nav__item--active"
+      class="mobile-secondary-nav__item"
+      :to="{name: item.to}"
+    >
+      {{ item.label }}
     </router-link>
   </nav>
 </template>
@@ -12,6 +15,14 @@
 <script>
 export default {
   name: 'MobileSecondaryNav',
+  props: {
+    items: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
+  },
 }
 </script>
 
@@ -34,7 +45,7 @@ export default {
   &:hover {
     color: $attention_color;
   }
-  &.nav__item--active {
+  &.mobile-secondary-nav__item--active {
     color: $attention_color;
   }
 }
