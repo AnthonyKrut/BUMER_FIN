@@ -1,7 +1,7 @@
 <template>
   <form 
     class="header-search-form"
-    @submit.prevent="requestSearch()"
+    @submit.prevent="requestSearch"
   >
     <input
       v-model="userSearchRequest"
@@ -71,31 +71,28 @@ export default {
 }
 
 .header-search-form__input {
-  height: 25px;
+  height: 26px;
   padding: 7px 10px;
   border: none;
   outline: none;
   background-color: $contrast_color;
   font-size: 11px;
   font-weight: 500;
-  color: #000000;
+  color: $main_color;
 
   @media screen and (max-width: 767px) {
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
+    position: fixed;
+    top: -26px;
     left: 0;
     display: block;
     width: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    transition: z-index 0.5s, bottom 0.5s;
+    transition: top 0.5s;
   }
 
   &.active {
     @media screen and (max-width: 767px) {
-      z-index: 1;
-      bottom: -25px;
+      top: 0;
     }
   }
 }
