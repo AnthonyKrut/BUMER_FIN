@@ -15,9 +15,9 @@
 <script>
 export default {
   name: 'TermsNav',
-  data() {
-    return {
-      items: [
+  computed: {
+    items() {
+      return [
         {
           to: 'ShipmentInfoPage',
           label: this.$t('common.shipping'),
@@ -34,8 +34,8 @@ export default {
           to: 'CooperationInfoPage',
           label: this.$t('common.cooperation'),
         },
-      ],
-    }
+      ]
+    },
   },
 }
 </script>
