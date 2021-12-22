@@ -18,13 +18,9 @@ export default {
 
 .prev-next-product-arrow {
   position: absolute;
-  top: calc(50% - 0.5 * Min(52.5px, Max(30px, 0.75 * 5vw)));
-  width: 5vw;
-  min-width: 40px;
-  max-width: 70px;
-  height: calc(0.75 * 5vw);
-  min-height: 30px;
-  max-height: 52.5px;
+  top: calc(50% - 0.5 * 27px);
+  width: 46px;
+  height: 27px;
   cursor: pointer;
 
   @media screen and (max-width: 767px) {

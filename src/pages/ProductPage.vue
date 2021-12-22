@@ -25,7 +25,7 @@
           <div class="product-card__adaptive-wrapper-2">
             <ProductPrice :product="product" />
 
-            <Btn @click.native="addProductToCart">
+            <Btn class="product-card__buy-btn" @click.native="addProductToCart">
               <SvgImage class="product-card__cart-icon" name="cart" />
               {{ $t('product.buy') }}
             </Btn>
@@ -40,7 +40,12 @@
         <span>{{ $t('product.size_grid') }} ></span>
       </div>
 
-      <Catalog :heading="$t('product.recommended')" heading-position="left" :products="[1,2,3,4]" />
+      <Catalog 
+        class="product-card__catalog-recommend" 
+        :heading="$t('product.recommended')" 
+        heading-position="left"
+        :products="[1,2,3,4]"
+      />
     </div>
 
     <SizesGridModal ref="sizesGridModal" />
@@ -152,12 +157,7 @@ export default {
 @import "../assets/scss/functions";
 @import "../assets/scss/mixins";
 
-.product-card {
-  @media screen and (max-width: 575px) {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
+//.product-card {}
 
 .product-card__title {
   display: flex;
@@ -215,9 +215,20 @@ export default {
   }
 }
 
+.product-card__buy-btn {
+  padding: 0.83em 1.66em;
+  font-size: adaptive_fz(12px, 9px);
+}
+
+.product-card__cart-icon {
+  height: 18px;
+  width: 18px;
+  margin-right: 1em !important;
+  stroke: $main_color
+}
+
 .sizes-grid-button {
   display: flex;
-  margin: 0 auto 8em auto;
   font-size: adaptive_fz(12px, 9px);
   font-weight: 300;
   line-height: 1.5em;
@@ -226,24 +237,24 @@ export default {
   justify-content: center;
 
   &:hover {
-    color: $attention_color;
-
-    svg {
-      stroke: $attention_color;
-    }
+    color: #aaaaaa;
   }
 
   svg {
     width: 1.67em;
     height: 1.25em;
     margin-right: 0.5em;
-    stroke: $main_color;
+    //fill: $main_color;
   }
 }
 
-.product-card__cart-icon {
-  height: 18px;
-  width: 18px;
-  stroke: $main_color
+.product-card__catalog-recommend {
+  margin-top: calc(3 * adaptive_fz(20px, 12px));
+  margin-bottom: calc(4 * adaptive_fz(20px, 12px));
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: calc(1.5 * adaptive_fz(20px, 12px));
+  }
 }
+
 </style>

@@ -5,7 +5,7 @@
       :key="size.value"
       class="sizes-list__item"
       :class="{'sizes-list__item--not-available': !size.is_available, 'sizes-list__item--active': size.is_active}"
-      @click="selectSize(40)"
+      @click="selectSize(size.value)"
     >
       {{ size.value }}
     </div>
@@ -56,6 +56,17 @@ export default {
       ],
     }
   },
+  methods: {
+    selectSize(size_value) {
+      this.sizes.forEach(size => {
+        if (size.value === size_value && size.is_available) {
+          size.is_active = true
+        } else {
+          size.is_active = false
+        }
+      })
+    },
+  },
 }
 </script>
 
@@ -69,7 +80,6 @@ export default {
   margin: 2.5em 0 1em;
   font-size: adaptive_fz(20px, 13px);
   font-weight: 300;
-  list-style-type: none;
 }
 
 .sizes-list__item {

@@ -4,7 +4,7 @@
       <img
         v-for="pic in product.items[0].pics"
         :key="pic"
-        alt=""
+        alt="product image small"
         class="product-images__secondary-img"
         :src="pic"
       >
@@ -12,7 +12,7 @@
 
     <div class="product-images__main-img-wrapper">
       <img
-        alt=""
+        alt="product image big"
         class="product-images__main-img"
         :src="product.items[0].pics[0]"
       >
@@ -40,6 +40,10 @@ export default {
 
 .product-images {
   display: flex;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 }
 
 .product-images__secondary-imgs-wrapper {
@@ -50,6 +54,7 @@ export default {
   align-items: center;
 
   @media screen and (max-width: 767px) {
+    order: 2;
     width: 100%;
     flex-direction: row;
   }
@@ -66,7 +71,7 @@ export default {
   }
 
   &:hover {
-    box-shadow: 0 0 0 2px $text_color;
+    box-shadow: inset 0 0 0 2px $text_color;
   }
 }
 

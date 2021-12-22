@@ -13,10 +13,6 @@
         <td>{{ $t('product.outsole_material') }}:</td>
         <td>{{ product.sole_material }}</td>
       </tr>
-      <tr style="color: transparent">
-        <td />
-        <td>.</td>
-      </tr>
       <tr>
         <td>{{ $t('product.season') }}:</td>
         <td>{{ product.season }}</td>

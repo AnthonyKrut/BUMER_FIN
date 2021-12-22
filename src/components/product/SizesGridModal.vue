@@ -100,7 +100,8 @@ export default {
 }
 
 .sizes-modal__body {
-
+  margin: 0 auto;
+  
   @media screen and (max-width: 767px) {
     width: 75vw;
   }
