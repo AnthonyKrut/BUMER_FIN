@@ -40,10 +40,10 @@ export default {
   color: $contrast_color;
   text-decoration: none;
   &:not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 1.8em;
   }
   &:hover {
-    color: $attention_color;
+    color: #aaaaaa;
   }
   &.mobile-secondary-nav__item--active {
     color: $attention_color;

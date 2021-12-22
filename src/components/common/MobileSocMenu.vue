@@ -35,8 +35,8 @@ export default {
 .mobile-soc-menu__item {
   svg {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     fill: $contrast_color;
   }
   &:not(:last-child) {

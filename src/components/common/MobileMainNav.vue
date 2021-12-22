@@ -39,7 +39,7 @@ export default {
   position: relative;
   padding: 0 2em 0 3em;
   border-bottom: 1px solid #252525;
-  line-height: 2em;
+  line-height: 3.8em;
   color: $contrast_color;
   text-decoration: none;
 
@@ -48,7 +48,7 @@ export default {
   }
 
   &:hover {
-    color: $attention_color;
+    color: #aaaaaa;
   }
 
   &::after {
