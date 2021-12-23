@@ -23,9 +23,13 @@
       margin: 45px 0 0 0;
       padding: 0;
       font-weight: bold;
-      font-size: 25px;
+      font-size: adaptive_fz(25px, 14px);
       line-height: 1.2;
       white-space: normal;
+
+      @media screen and (min-width: 1440px) {
+        font-size: 25px;
+      }
     }
   }
 
@@ -39,8 +43,7 @@
   .sweet-action-close {
     &:hover {
       background: transparent !important;
-      color: $attention_color !important
+      color: $attention_color !important;
     }
   }
 }
-

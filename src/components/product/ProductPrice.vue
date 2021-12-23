@@ -50,13 +50,7 @@ export default {
 
 .product-price__price-old {
   display: flex;
-  align-items: flex-end;
-}
-
-.product-price__price-active {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 20px;
+  align-items: baseline;
 }
 
 .product-price__price-old-value {
@@ -65,23 +59,43 @@ export default {
   font-weight: 600;
   text-decoration: line-through;
   color: $text_color_light;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 25px;
+  }
 }
 
 .product-price__price-old-currency {
   font-size: adaptive_fz(14px, 9px);
   color: $text_color_light;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 14px;
+  }
+}
+
+.product-price__price-active {
+  display: flex;
+  align-items: baseline;
 }
 
 .product-price__price-active-value {
-  margin-right: 5px;
+  margin-right: 0.05em;
   font-size: adaptive_fz(80px, 20px);
-  font-weight: bold;
-  line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.5em;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 80px;
+  }
 }
 
 .product-price__price-active-currency {
-  margin-bottom: 0.3em;
   font-size: adaptive_fz(30px, 16px);
-  font-weight: bold;
+  font-weight: 700;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 30px;
+  }
 }
 </style>

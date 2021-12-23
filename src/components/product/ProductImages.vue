@@ -40,9 +40,11 @@ export default {
 
 .product-images {
   display: flex;
+  width: 67%;
 
   @media screen and (max-width: 767px) {
     flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -61,13 +63,13 @@ export default {
 }
 
 .product-images__secondary-img {
-  width: 80%;
+  width: 90%;
   object-fit: contain;
   cursor: pointer;
 
   @media screen and (max-width: 767px) {
     width: 33%;
-    height: calc(1.36 * 0.33 * (100vw - 5px));
+    //height: calc(1.36 * 0.33 * (100vw - 5px));
   }
 
   &:hover {
@@ -77,8 +79,7 @@ export default {
 
 .product-images__main-img-wrapper {
   width: 75%;
-  height: calc(0.57 * 90vw);
-  max-height: calc(0.57 * 1180px);
+  padding: 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,13 +87,12 @@ export default {
 
   @media screen and (max-width: 767px) {
     width: 100%;
-    height: calc(1.36 * (100vw - 5px));
+    padding: 0;
   }
 }
 
 .product-images__main-img {
   width: 100%;
-  height: 100%;
   object-fit: contain;
 }
 </style>

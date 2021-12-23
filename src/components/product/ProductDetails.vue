@@ -46,7 +46,7 @@ export default {
 .table {
   width: 100%;
   margin-bottom: 2.3em;
-  font-size: adaptive_fz(12px, 8px);
+  font-size: adaptive_fz(12px, 10px);
   font-weight: 400;
   line-height: 1.7em;
 

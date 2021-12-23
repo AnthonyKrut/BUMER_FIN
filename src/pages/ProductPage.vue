@@ -36,7 +36,7 @@
       <SizesList :product="product" />
 
       <div class="sizes-grid-button" @click="$refs.sizesGridModal.openModal()">
-        <SvgImage name="boot" />
+        <SvgImage class="sizes-grid-button__icon" name="boot" />
         <span>{{ $t('product.size_grid') }} ></span>
       </div>
 
@@ -159,28 +159,6 @@ export default {
 
 //.product-card {}
 
-.product-card__title {
-  display: flex;
-  align-items: center;
-  margin: 2em 0;
-  font-size: adaptive_fz(16px, 10px);
-  font-weight: 700;
-}
-
-.product-card__sku {
-  margin-right: 2em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.product-card__sale-label {
-  padding: 0 1em;
-  font-size: adaptive_fz(12px, 8px);
-  line-height: 2.5em;
-  color: $contrast_color;
-  background-color: #c61d24;
-}
-
 .product-card__top {
   position: relative;
   display: flex;
@@ -215,7 +193,29 @@ export default {
   }
 }
 
+.product-card__title {
+  display: flex;
+  align-items: center;
+  margin: 1em 0 2.5em;
+  font-size: adaptive_fz(16px, 10px);
+  font-weight: 700;
+}
+
+.product-card__sku {
+  margin-right: 2em;
+  text-transform: uppercase;
+}
+
+.product-card__sale-label {
+  padding: 0 1em;
+  font-size: adaptive_fz(12px, 8px);
+  line-height: 2.3em;
+  color: $contrast_color;
+  background-color: #c61d24;
+}
+
 .product-card__buy-btn {
+  margin-top: 0.5em;
   padding: 0.83em 1.66em;
   font-size: adaptive_fz(12px, 9px);
 }
@@ -239,13 +239,12 @@ export default {
   &:hover {
     color: #aaaaaa;
   }
+}
 
-  svg {
-    width: 1.67em;
-    height: 1.25em;
-    margin-right: 0.5em;
-    //fill: $main_color;
-  }
+.sizes-grid-button__icon {
+  width: 1.67em;
+  height: 1.25em;
+  margin-right: 0.5em;
 }
 
 .product-card__catalog-recommend {
