@@ -205,11 +205,18 @@ export default {
 
 .checkout-form {
   margin-bottom: 55px;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 0;
+  }
 }
 
 .form__fieldset {
-  margin-bottom: 45px;
-  margin-top: 10px;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 20px;
+  }
 }
 
 .form__fieldset-heading {
@@ -228,7 +235,6 @@ export default {
   &.form__fieldset-heading--mb {
     margin-bottom: 20px;
   }
-
 }
 
 </style>

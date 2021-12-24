@@ -503,6 +503,7 @@ export default {
 
   @media screen and (max-width: 767px) {
     max-height: unset;
+    padding: 20px;
   }
 }
 

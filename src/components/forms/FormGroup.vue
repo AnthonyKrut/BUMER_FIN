@@ -29,7 +29,11 @@ export default {
 <style lang="scss">
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 10px;
+  }
 
   &.form-group--error {
     .form__input {

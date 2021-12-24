@@ -15,6 +15,10 @@
           Размер: 43
         </div>
 
+        <div class="checkout-cart-item__color">
+          Цвет: Зеленый
+        </div>
+
         <div class="checkout-cart-item__count">
           <div class="checkout-cart-item__count-label">
             Количество
@@ -33,13 +37,17 @@
 
       <div>
         <div class="checkout-cart-item__price-old">
-          2 499
+          <div class="checkout-cart-item__value-old">
+            2 499
+          </div>
           <div class="checkout-cart-item__currency-old">
             грн
           </div>
         </div>
         <div class="checkout-cart-item__price">
-          2 499
+          <div class="checkout-cart-item__value">
+            2 499
+          </div>
           <div class="checkout-cart-item__currency">
             грн
           </div>
@@ -80,6 +88,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
+@import "../../assets/scss/functions";
 
 .checkout-cart-item {
   display: flex;
@@ -90,33 +99,45 @@ export default {
 }
 
 .checkout-cart-item__left {
-  width: 160px;
-  height: 200px;
+  width: 40%; //160px; //height: 200px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border-top: 14px solid $foreground;
-  border-bottom: 14px solid $foreground;
+  border-top: 1em solid $foreground;
+  border-bottom: 1em solid $foreground;
+  font-size: adaptive_fz(14px, 5px);
+
+  @media screen and (min-width: 1440px) {
+    font-size: 14px;
+  }
 }
 
 .checkout-cart-item__right {
-  background: $foreground;
-  flex-grow: 1;
-  padding: 15px 30px 20px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: background-color 0.1s;
-  border-top: 14px solid $foreground;
-  border-bottom: 14px solid $foreground;
   position: relative;
+  flex-grow: 1;
+  padding: 1.5em 3em 2em 4em; //15px 30px 20px 40px;
+  border-top: 1.25em solid $foreground;
+  border-bottom: 1.25em solid $foreground;
+  background: $foreground;
+  transition: background-color 0.1s;
+  font-size: adaptive_fz(10px, 5px);
+
+  @media screen and (min-width: 1440px) {
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 991px) {
+    padding: 1em 1em 1em 2em;
+    border-top-width: 0.5em;
+    border-bottom-width: 0.5em;
+  }
 }
 
 .checkout-cart-item__name {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: adaptive_fz(12px, 10px);
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 0.75em;
   display: block;
   color: #000;
   text-decoration: none;
@@ -126,77 +147,37 @@ export default {
   }
 }
 
+.checkout-cart-item__size {
+  color: #8e8e8e;
+  font-size: adaptive_fz(11px, 9px);
+  font-weight: 400;
+  margin-bottom: 0.9em;
+}
+
+.checkout-cart-item__color {
+  color: #8e8e8e;
+  font-size: adaptive_fz(11px, 9px);
+  font-weight: 400;
+}
+
 .checkout-cart-item__count {
   display: flex;
   align-items: center;
+  font-size: adaptive_fz(11px, 9px);
+  font-weight: 400;
+  margin: 0.7em 0;
 }
 
 .checkout-cart-item__count-label {
   color: #8e8e8e;
-  font-size: 11px;
-  font-weight: 400;
-  margin-bottom: 5px;
-  margin-right: 35px;
-}
-
-.checkout-cart-item__size {
-  color: #8e8e8e;
-  font-size: 11px;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
-.checkout-cart-item__price {
-  font-size: 15px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-}
-
-.checkout-cart-item__currency {
-  font-size: 12px;
-  font-weight: 700;
-  margin-left: 5px;
-  position: relative;
-  top: 1px;
-}
-
-.checkout-cart-item__price-old {
-  font-weight: 500;
-  font-size: 11px;
-  color: #8e8e8e;
-  text-decoration: line-through;
-  display: flex;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.checkout-cart-item__currency-old {
-  font-size: 9px;
-  text-decoration: none;
-  margin-left: 5px;
-  position: relative;
-  top: 1px;
-  text-transform: uppercase;
-}
-
-.checkout-cart-item__remove-icon {
-  color: #777777;
-  position: absolute;
-  right: 3px;
-  top: 3px;
-  cursor: pointer;
-
-  &:hover {
-    color: $attention_color;
-  }
+  margin-right: 3.3em;
 }
 
 .checkout-cart-item__count-select {
   width: 48px;
   height: 30px;
   position: relative;
-  top: 1px;
+  min-height: unset;
 
   &.multiselect--active {
 
@@ -230,6 +211,56 @@ export default {
       padding: 7px 10px;
       min-height: auto;
     }
+  }
+}
+
+.checkout-cart-item__price-old {
+  display: flex;
+  align-items: baseline;
+  font-size: adaptive_fz(11px, 8px);
+  font-weight: 500;
+  color: #8e8e8e;
+}
+
+.checkout-cart-item__value-old {
+  text-decoration: line-through;
+}
+
+.checkout-cart-item__currency-old {
+  margin-left: 0.56em;
+  font-size: adaptive_fz(9px, 8px);
+  text-decoration: none;
+}
+
+.checkout-cart-item__price {
+  display: flex;
+  align-items: baseline;
+  font-size: adaptive_fz(15px, 10px);
+  font-weight: 700;
+  line-height: 1.45em;
+}
+
+.checkout-cart-item__currency {
+  margin-left: 0.4em;
+  font-size: adaptive_fz(12px, 9px);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.checkout-cart-item__remove-icon {
+  color: #777777;
+  position: absolute;
+  top: 1.5em; //3px;
+  right: 3em; //3px;
+  cursor: pointer;
+
+  &:hover {
+    color: $attention_color;
+  }
+
+  @media screen and (max-width: 991px) {
+    right: 1em;
+    top: 1em;
   }
 }
 

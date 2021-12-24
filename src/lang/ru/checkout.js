@@ -1,6 +1,6 @@
 export default {
   checkout: 'Оформить заказ',
-  saving: 'Економія',
+  saving: 'Экономия',
   to_pay: 'К оплате',
   confirm_checkout: 'Подтвердить заказ',
   privacy_policy_link: 'Подтверждая заказ вы соглашаетесь с',
