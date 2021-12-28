@@ -4,7 +4,12 @@
       <h1>Заголовок категории</h1>
 
       <CatalogFilters />
-      <Catalog v-if="products" :products="products" />
+      <Catalog 
+        v-if="products" 
+        :is-columns-adaptive="true"
+        :is-specs-adaptive="false" 
+        :products="products"
+      />
 
       <div v-else class="catalog__notice">
         {{ $t('product.empty_product_list') }}
@@ -53,6 +58,14 @@ export default {
 
 <style lang="scss" scoped>
 
+.catalog-page {
+  padding-bottom: 90px;
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 30px;
+  }
+}
+
 .catalog__notice {
   text-transform: uppercase;
   text-align: center;
@@ -60,6 +73,12 @@ export default {
   color: #b6b6b6;
   font-weight: bold;
   margin-top: 40px;
+}
+
+::v-deep {
+  h1 {
+    margin-bottom: 1.5em;
+  }
 }
 
 </style>

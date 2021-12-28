@@ -6,7 +6,10 @@
     <span class="catalog-product-item__image-wrapper">
       <img alt="" class="catalog-product-item__image" src="/img/stock-items/item02-01.png">
     </span>
-    <span class="catalog-product-item__specs">
+    <span 
+      class="catalog-product-item__specs" 
+      :class="{'catalog-product-item__specs--adaptive': isSpecsAdaptive}"
+    >
       <span class="catalog-product-item__sku">
         QN380
       </span>
@@ -20,6 +23,12 @@
 <script>
 export default {
   name: 'CatalogProductItem',
+  props: {
+    isSpecsAdaptive: {
+      type: Boolean,
+      default: true,
+    },
+  },
   computed: {
     isOnSale(item) {
       return item.price_sale
@@ -83,9 +92,11 @@ export default {
   align-items: center;
   padding: 0.33em;
 
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-    align-items: flex-start;
+  &.catalog-product-item__specs--adaptive {
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }
 
