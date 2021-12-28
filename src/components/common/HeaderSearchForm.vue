@@ -6,7 +6,7 @@
     <input
       v-model="userSearchRequest"
       class="header-search-form__input"
-      :class="{active: isSearchFormActive}"
+      :class="{'header-search-form__input--active': isSearchFormActive}"
       :placeholder="$t('common.search')"
       required
       type="search"
@@ -90,7 +90,7 @@ export default {
     transition: top 0.5s;
   }
 
-  &.active {
+  &.header-search-form__input--active {
     @media screen and (max-width: 767px) {
       top: 0;
     }
