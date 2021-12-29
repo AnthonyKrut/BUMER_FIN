@@ -37,6 +37,9 @@ export default {
 @import "../assets/scss/functions";
 
 .error-404page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
@@ -80,7 +83,5 @@ export default {
   font-weight: 400;
   color: $text_color_dark;
 }
-
-//.error-btn {}
 
 </style>
