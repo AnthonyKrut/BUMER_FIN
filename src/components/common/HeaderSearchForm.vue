@@ -1,23 +1,58 @@
 <template>
-  <div class="header-search-form">
+  <form 
+    class="header-search-form"
+    @submit.prevent="requestSearch"
+  >
     <input
+      v-model="userSearchRequest"
       class="header-search-form__input"
-      name="q"
+      :class="{'header-search-form__input--active': isSearchFormActive}"
       :placeholder="$t('common.search')"
+      required
       type="search"
     >
 
-    <SvgImage class="header-search-form__icon" name="search" />
-  </div>
+    <SvgImage 
+      class="header-search-form__icon" 
+      name="search"
+      @click.native="toggleSearchForm"
+    />
+  </form>
 </template>
 
 <script>
 import SvgImage from '@/components/common/SvgImage'
+import {mapMutations, mapActions, mapState} from 'vuex'
 
 export default {
   name: 'HeaderSearchForm',
   components: {
     SvgImage,
+  },
+  data() {
+    return {
+      userSearchRequest: '',
+    }
+  },
+  computed: {
+    ...mapState('search', [
+      'isSearchFormActive',
+    ]),
+  },
+  methods: {
+    requestSearch() {
+      if (this.userSearchRequest) {
+        this.sendSearchRequest(this.userSearchRequest)
+      } else {
+        return
+      }
+    },
+    ...mapActions('search', [
+      'sendSearchRequest',
+    ]),
+    ...mapMutations('search', [
+      'toggleSearchForm',
+    ]),
   },
 }
 </script>
@@ -36,31 +71,28 @@ export default {
 }
 
 .header-search-form__input {
-  height: 25px;
+  height: 26px;
   padding: 7px 10px;
   border: none;
   outline: none;
   background-color: $contrast_color;
   font-size: 11px;
   font-weight: 500;
-  color: #000000;
+  color: $main_color;
 
   @media screen and (max-width: 767px) {
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
+    position: fixed;
+    top: -26px;
     left: 0;
     display: block;
     width: 100%;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    transition: z-index 0.5s, bottom 0.5s;
+    transition: top 0.5s;
   }
 
-  &.active {
+  &.header-search-form__input--active {
     @media screen and (max-width: 767px) {
-      z-index: 1;
-      bottom: -25px;
+      top: 0;
     }
   }
 }

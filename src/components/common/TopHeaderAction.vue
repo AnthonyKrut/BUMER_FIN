@@ -29,7 +29,6 @@ export default {
 .top-header-action__img {
   width: 1.5em;
   margin-right: 0.75em;
-  vertical-align: middle;
   stroke: none;
 }
 

@@ -72,13 +72,11 @@ export default {
 .lang-switcher__img {
   width: 17px;
   margin-right: 6px;
-  vertical-align: middle;
   stroke: none;
 }
 
 .lang-switcher__angle {
   width: 6px;
-  vertical-align: middle;
   fill: none;
   stroke: #F3F3F3;
 

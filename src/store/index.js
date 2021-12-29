@@ -7,6 +7,7 @@ import products from '@/store/products'
 import common from '@/store/common'
 import call from '@/store/call'
 import lang from '@/store/lang'
+import search from '@/store/search'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -18,5 +19,6 @@ export default new Vuex.Store({
     common,
     call,
     lang,
+    search,
   },
 })

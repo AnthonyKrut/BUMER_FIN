@@ -164,4 +164,8 @@ export default {
   background-image: linear-gradient(transparent, transparent); //
 }
 
+.call-popover__button {
+  padding: 10px;
+}
+
 </style>
