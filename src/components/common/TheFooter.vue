@@ -38,9 +38,9 @@ export default {
     FooterNav,
     SvgImage,
   },
-  data() {
-    return {
-      navColumn1: [
+  computed: {
+    navColumn1() {
+      return [
         {
           to: 'PaymentInfoPage',
           label: 'КРОССОВКИ',
@@ -53,8 +53,10 @@ export default {
           to: 'PaymentInfoPage',
           label: 'ТУФЛИ',
         },
-      ],
-      navColumn2: [
+      ]
+    },
+    navColumn2() {
+      return [
         {
           to: 'PaymentInfoPage',
           label: this.$i18n.t('common.payment'),
@@ -67,8 +69,8 @@ export default {
           to: 'CooperationInfoPage',
           label: this.$i18n.t('common.cooperation'),
         },
-      ],
-    }
+      ]
+    },
   },
 }
 </script>
