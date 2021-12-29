@@ -1,7 +1,9 @@
 <template>
   <section class="catalog-page">
     <div class="container">
-      <h1>Заголовок категории</h1>
+      <h1 class="catalog__title">
+        Заголовок категории
+      </h1>
 
       <CatalogFilters />
       <Catalog 
@@ -66,6 +68,10 @@ export default {
   }
 }
 
+.catalog__title {
+  margin-bottom: 1.5em;
+}
+
 .catalog__notice {
   text-transform: uppercase;
   text-align: center;
@@ -73,12 +79,6 @@ export default {
   color: #b6b6b6;
   font-weight: bold;
   margin-top: 40px;
-}
-
-::v-deep {
-  h1 {
-    margin-bottom: 1.5em;
-  }
 }
 
 </style>
