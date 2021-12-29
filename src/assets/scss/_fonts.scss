@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Century Gothic";
+  src: local("Century Gothic"), url("../fonts/CenturyGothic-Regular.woff") format("woff"),
+    url("../fonts/CenturyGothic-Regular.ttf") format("truetype"), url("../fonts/CenturyGothic-Regular.svg") format("svg"),
+    url("../fonts/CenturyGothic-Regular.eot") format("eot"), url("../fonts/CenturyGothic-Regular.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Century Gothic";
+  src: local("Century Gothic"), url("../fonts/CenturyGothic-Bold.woff") format("woff"),
+    url("../fonts/CenturyGothic-Bold.ttf") format("truetype"), url("../fonts/CenturyGothic-Bold.svg") format("svg"),
+    url("../fonts/CenturyGothic-Bold.eot") format("eot"), url("../fonts/CenturyGothic-Bold.otf") format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PT Sans Caption";
+  src: local("PT Sans Caption"), url("../fonts/PTSansCaption-Bold.woff") format("woff"),
+    url("../fonts/PTSansCaption-Bold.ttf") format("truetype"), url("../fonts/PTSansCaption-Bold.svg") format("svg"),
+    url("../fonts/PTSansCaption-Bold.eot") format("eot"), url("../fonts/PTSansCaption-Bold.otf") format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../fonts/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto-Bold.ttf") format("truetype"),
+    url("../fonts/Roboto-Bold.svg") format("svg"), url("../fonts/Roboto-Bold.eot") format("eot"),
+    url("../fonts/Roboto-Bold.otf") format("otf");
+  font-weight: 700;
+  font-style: normal;
+}

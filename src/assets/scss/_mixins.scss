@@ -1,0 +1,34 @@
+@mixin slider_fix {
+  overflow: hidden;
+  width: 0;
+  min-width: 100%;
+}
+
+@mixin popular-products {
+  font-size: adaptive_fz(20px, 12px);
+  font-weight: 700;
+  &__title {
+    margin: 2.5em 0 2em;
+    font-size: adaptive_fz(20px, 12px);
+    text-align: center;
+  }
+  .line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4.5em;
+    // &_first {}
+    &_second {
+      margin-top: 1em;
+    }
+  }
+  @media screen and (max-width: 370px) {
+    .line {
+      .product {
+        &__specs {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    }
+  }
+}

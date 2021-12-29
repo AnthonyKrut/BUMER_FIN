@@ -1,0 +1,43 @@
+@import "fonts";
+@import "variables";
+@import "mixin";
+@import "functions";
+@import "normalize";
+
+// font-family: 'Poppins', sans-serif;
+// font-family: 'PT Sans Caption', sans-serif;
+// font-family: 'Roboto', sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: $main_color;
+    background: $contrast_color;
+}
+// .container { // old variant
+//     width: 90%;
+//     max-width: 1180px;
+//     margin: 0 auto;
+//     @media screen and (max-width: 767px) {
+//         width: calc(100% - 5px);
+//     }
+// }
+
+.container {
+    width: 100vw;
+    padding: 0 Max((5vw, calc((100vw - 1180px)/2)));
+    @media screen and (max-width: 575px) {
+        padding: 0 2.5px;
+    }
+}
+
+@import "header";
+@import "start-page";
+@import "item-card";
+@import "catalog";
+
+@import "footer";

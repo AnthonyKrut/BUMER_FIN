@@ -1,0 +1,15 @@
+export default {
+  shipping_action: 'Безкоштовна доставка від 3999 грн',
+  ask_callback: 'Замовити дзвінок',
+  call_popover_message: 'Або залиште свій телефон для зворотного дзвінка',
+  call_popover_button: 'Перетелефонувати мені',
+  search: 'Пошук',
+  payment: 'Оплата',
+  shipping: 'Доставка',
+  cooperation: 'Співробітництво',
+  footer_soc_heading: 'Дізнатись більше про BUMER',
+  guaranty: 'Гарантія',
+  text_404: 'Что-то пошло не так...',
+  privacy_policy: 'Політика конфіденційності',
+  back_to_homepage: 'Повернутися на головну',
+}

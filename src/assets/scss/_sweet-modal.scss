@@ -1,0 +1,46 @@
+.sweet-modal-overlay.theme-light {
+  background: rgba(0, 0, 0, 0.5);
+  transition: none;
+}
+
+.sweet-modal.theme-light {
+  transition: none;
+
+  .sweet-title {
+    margin-bottom: 1.2em;
+    font-size: adaptive_fz(25px, 12px);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    white-space: normal;
+
+    h2 {
+      font-weight: bold;
+      margin: 45px 0 0 0;
+      padding: 0;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 1.2;
+      white-space: normal;
+    }
+  }
+
+  .sweet-content {
+    padding: 2.5em Min(calc(0.11 * 45vw), calc(0.15 * 1180px));
+    font-size: adaptive_fz(14px, 9px);
+    font-weight: 400;
+    transition: none;
+  }
+
+  .sweet-action-close {
+    &:hover {
+      background: transparent !important;
+      color: $attention_color !important
+    }
+  }
+}
+
