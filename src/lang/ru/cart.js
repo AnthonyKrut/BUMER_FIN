@@ -1,7 +1,7 @@
 export default {
   cart: 'Корзина',
   empty_cart: 'Ваша корзина пока пуста',
-  saving: 'Економія',
+  saving: 'Экономия',
   to_pay: 'К оплате',
   total: 'Oбщая сумма',
   go_to_cart: 'Перейти в корзину',

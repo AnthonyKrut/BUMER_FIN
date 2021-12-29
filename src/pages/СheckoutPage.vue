@@ -56,39 +56,77 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables";
+@import "../assets/scss/functions";
 
 .checkout-page__inner {
   display: flex;
-  margin-right: -60px;
-  margin-left: -60px;
-  margin-bottom: 140px;
+  margin-bottom: 6em; //140px;
+  font-size: adaptive_fz(25px, 14px);
+
+  @media screen and (min-width: 1440px) {
+    font-size: 25px;
+  }
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 3em;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 }
 
 .checkout-page__left {
   width: 50%;
-  padding-right: 60px;
-  padding-left: 60px;
+  padding-right: 7.6%; //90px;
+
+  @media screen and (max-width: 991px) {
+    padding-right: 5%;
+  }
+
+  @media screen and (max-width: 767px) {
+    order: 2;
+    width: 100%;
+    padding-right: 0;
+  }
 }
 
 .checkout-page__right {
   width: 50%;
-  padding-right: 60px;
-  padding-left: 60px;
+  padding-left: 3.4%;//40px;
+
+  @media screen and (max-width: 991px) {
+    padding-left: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    order: 1;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 .checkout-page__discount {
   color: $cuccess_color;
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: adaptive_fz(14px, 11px);
   margin-bottom: 15px;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 5px;
+  }
 }
 
 .checkout-page__total {
-  font-size: 20px;
+  font-size: adaptive_fz(20px, 12px);
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 20px;
+  }
 }
 
 .checkout-page__total-label {
@@ -113,6 +151,5 @@ export default {
     text-decoration: underline;
   }
 }
-
 
 </style>

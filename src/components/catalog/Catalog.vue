@@ -7,10 +7,14 @@
     >
       {{ heading }}
     </div>
-    <div class="catalog__body">
+    <div 
+      class="catalog__body"
+      :class="{'catalog__body--adaptive': isColumnsAdaptive}"
+    >
       <CatalogProductItem
         v-for="product in products"
         :key="product.id"
+        :is-specs-adaptive="isSpecsAdaptive"
       />
     </div>
   </div>
@@ -37,6 +41,14 @@ export default {
       type: String,
       default: 'center',
     },
+    isColumnsAdaptive: {
+      type: Boolean,
+      default: false,
+    },
+    isSpecsAdaptive: {
+      type: Boolean,
+      default: true,
+    },
   },
 }
 </script>
@@ -45,10 +57,6 @@ export default {
 @import "../../assets/scss/variables";
 @import "../../assets/scss/functions";
 
-.catalog {
-  //margin-bottom: 80px;
-}
-
 .catalog__body {
   display: grid;
   grid-gap: 20px;
@@ -56,6 +64,10 @@ export default {
 
   @media screen and (max-width: 767px) {
     grid-gap: 8px;
+
+    &.catalog__body--adaptive {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 
@@ -72,7 +84,7 @@ export default {
 
   &.catalog__heading--left {
     text-align: left;
-    padding-left: 2em; //40px;
+    padding-left: 2em;
   }
 }
 

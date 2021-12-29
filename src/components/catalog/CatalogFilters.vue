@@ -246,11 +246,19 @@ export default {
 
 .catalog-filters {
   margin-bottom: 30px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 15px;;
+  }
 }
 
 .catalog-filters__body {
   display: flex;
   align-items: flex-start;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 }
 
 .catalog-filters__filter-wrapper {
@@ -259,6 +267,10 @@ export default {
   &:last-of-type {
     margin-right: 0;
   }
+}
+
+.multiselect--active {
+  z-index: 3;
 }
 
 .catalog-filters__filter {
@@ -275,20 +287,25 @@ export default {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 10px;
+  }
 }
 
 .catalog-filters__selected-group {
-  margin-bottom: 8px;
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .catalog-filters__selected-item {
-  display: inline-block;
   padding: 0 4px 0 10px;
   background: #f1f1f1;
   display: inline-flex;
   align-items: center;
-  margin-left: 8px;
 }
 
 .catalog-filters__selected-item-close {
@@ -372,6 +389,21 @@ export default {
     color: #000;
   }
 
+  .catalog-filters__body {
+    .catalog-filters__filter-wrapper {
+      &:nth-child(1) {
+        .multiselect__input {
+          max-width: 128px !important;         
+        }
+      }
+      &:nth-child(4) {
+        .multiselect__input {
+          max-width: 82px !important;
+        }
+      }
+    }
+  }
+  
   .multiselect__tags {
     padding-left: 0;
     border: none;
@@ -381,6 +413,21 @@ export default {
     color: #000;
     text-transform: uppercase;
     font-size: 14px;
+  }
+
+  .catalog-filters__body {
+    .catalog-filters__filter-wrapper {
+      &:nth-child(1) {
+        .multiselect__placeholder {
+          width: 128px;
+        }
+      }
+      &:nth-child(4) {
+        .multiselect__placeholder {
+          width: 82px;
+        }
+      }
+    }
   }
 
   .multiselect__option {
@@ -419,7 +466,7 @@ export default {
   }
 
   .multiselect__select {
-    padding-left: 0;
+    right: 0;
 
     &:before {
       content: "";

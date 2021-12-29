@@ -1,10 +1,17 @@
 <template>
   <section class="catalog-page">
     <div class="container">
-      <h1>Заголовок категории</h1>
+      <h1 class="catalog__title">
+        Заголовок категории
+      </h1>
 
       <CatalogFilters />
-      <Catalog v-if="products" :products="products" />
+      <Catalog 
+        v-if="products" 
+        :is-columns-adaptive="true"
+        :is-specs-adaptive="false" 
+        :products="products"
+      />
 
       <div v-else class="catalog__notice">
         {{ $t('product.empty_product_list') }}
@@ -52,6 +59,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.catalog-page {
+  padding-bottom: 90px;
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 30px;
+  }
+}
+
+.catalog__title {
+  margin-bottom: 1.5em;
+}
 
 .catalog__notice {
   text-transform: uppercase;
