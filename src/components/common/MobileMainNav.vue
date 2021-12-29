@@ -1,16 +1,13 @@
 <template>
   <div class="mobile-main-nav">
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      КРОССОВКИ
-    </router-link>
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      БОТИНКИ
-    </router-link>
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      ТУФЛИ
-    </router-link>
-    <router-link class="mobile-main-nav__category" :to="{name: 'Catalog'}">
-      SALE
+    <router-link
+      v-for="item in items"
+      :key="item.label"
+      active-class="mobile-main-nav__category--active"
+      class="mobile-main-nav__category"
+      :to="{name: item.to}"
+    >
+      {{ item.label }}
     </router-link>
   </div>
 </template>
@@ -18,6 +15,14 @@
 <script>
 export default {
   name: 'MobileMainNav',
+    props: {
+    items: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
+  },
 }
 </script>
 
@@ -34,7 +39,7 @@ export default {
   position: relative;
   padding: 0 2em 0 3em;
   border-bottom: 1px solid #252525;
-  line-height: 2em;
+  line-height: 3.8em;
   color: $contrast_color;
   text-decoration: none;
 
@@ -43,7 +48,7 @@ export default {
   }
 
   &:hover {
-    color: $attention_color;
+    color: #aaaaaa;
   }
 
   &::after {
@@ -54,6 +59,14 @@ export default {
     position: absolute;
     top: calc(50% - 0.5 * 0.75em);
     right: 2em;
+  }
+
+  &.mobile-main-nav__category--active {
+    color: $attention_color;
+
+    &::after {
+      transform: rotate(-90deg);
+    }
   }
 }
 
