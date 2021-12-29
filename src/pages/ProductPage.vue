@@ -25,7 +25,7 @@
           <div class="product-card__adaptive-wrapper-2">
             <ProductPrice :product="product" />
 
-            <Btn @click.native="addProductToCart">
+            <Btn class="product-card__buy-btn" @click.native="addProductToCart">
               <SvgImage class="product-card__cart-icon" name="cart" />
               {{ $t('product.buy') }}
             </Btn>
@@ -36,11 +36,16 @@
       <SizesList :product="product" />
 
       <div class="sizes-grid-button" @click="$refs.sizesGridModal.openModal()">
-        <SvgImage name="boot" />
+        <SvgImage class="sizes-grid-button__icon" name="boot" />
         <span>{{ $t('product.size_grid') }} ></span>
       </div>
 
-      <Catalog :heading="$t('product.recommended')" heading-position="left" :products="[1,2,3,4]" />
+      <Catalog 
+        class="product-card__catalog-recommend" 
+        :heading="$t('product.recommended')" 
+        heading-position="left"
+        :products="[1,2,3,4]"
+      />
     </div>
 
     <SizesGridModal ref="sizesGridModal" />
@@ -152,34 +157,7 @@ export default {
 @import "../assets/scss/functions";
 @import "../assets/scss/mixins";
 
-.product-card {
-  @media screen and (max-width: 575px) {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
-.product-card__title {
-  display: flex;
-  align-items: center;
-  margin: 2em 0;
-  font-size: adaptive_fz(16px, 10px);
-  font-weight: 700;
-}
-
-.product-card__sku {
-  margin-right: 2em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.product-card__sale-label {
-  padding: 0 1em;
-  font-size: adaptive_fz(12px, 8px);
-  line-height: 2.5em;
-  color: $contrast_color;
-  background-color: #c61d24;
-}
+//.product-card {}
 
 .product-card__top {
   position: relative;
@@ -215,9 +193,42 @@ export default {
   }
 }
 
+.product-card__title {
+  display: flex;
+  align-items: center;
+  margin: 1em 0 2.5em;
+  font-size: adaptive_fz(16px, 10px);
+  font-weight: 700;
+}
+
+.product-card__sku {
+  margin-right: 2em;
+  text-transform: uppercase;
+}
+
+.product-card__sale-label {
+  padding: 0 1em;
+  font-size: adaptive_fz(12px, 8px);
+  line-height: 2.3em;
+  color: $contrast_color;
+  background-color: #c61d24;
+}
+
+.product-card__buy-btn {
+  margin-top: 0.5em;
+  padding: 0.83em 1.66em;
+  font-size: adaptive_fz(12px, 9px);
+}
+
+.product-card__cart-icon {
+  height: 18px;
+  width: 18px;
+  margin-right: 1em !important;
+  stroke: $main_color
+}
+
 .sizes-grid-button {
   display: flex;
-  margin: 0 auto 8em auto;
   font-size: adaptive_fz(12px, 9px);
   font-weight: 300;
   line-height: 1.5em;
@@ -226,24 +237,23 @@ export default {
   justify-content: center;
 
   &:hover {
-    color: $attention_color;
-
-    svg {
-      stroke: $attention_color;
-    }
-  }
-
-  svg {
-    width: 1.67em;
-    height: 1.25em;
-    margin-right: 0.5em;
-    stroke: $main_color;
+    color: #aaaaaa;
   }
 }
 
-.product-card__cart-icon {
-  height: 18px;
-  width: 18px;
-  stroke: $main_color
+.sizes-grid-button__icon {
+  width: 1.67em;
+  height: 1.25em;
+  margin-right: 0.5em;
 }
+
+.product-card__catalog-recommend {
+  margin-top: calc(3 * adaptive_fz(20px, 12px));
+  margin-bottom: calc(4 * adaptive_fz(20px, 12px));
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: calc(1.5 * adaptive_fz(20px, 12px));
+  }
+}
+
 </style>

@@ -13,10 +13,6 @@
         <td>{{ $t('product.outsole_material') }}:</td>
         <td>{{ product.sole_material }}</td>
       </tr>
-      <tr style="color: transparent">
-        <td />
-        <td>.</td>
-      </tr>
       <tr>
         <td>{{ $t('product.season') }}:</td>
         <td>{{ product.season }}</td>
@@ -50,7 +46,7 @@ export default {
 .table {
   width: 100%;
   margin-bottom: 2.3em;
-  font-size: adaptive_fz(12px, 8px);
+  font-size: adaptive_fz(12px, 10px);
   font-weight: 400;
   line-height: 1.7em;
 

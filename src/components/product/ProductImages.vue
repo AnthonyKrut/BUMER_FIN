@@ -4,7 +4,7 @@
       <img
         v-for="pic in product.items[0].pics"
         :key="pic"
-        alt=""
+        alt="product image small"
         class="product-images__secondary-img"
         :src="pic"
       >
@@ -12,7 +12,7 @@
 
     <div class="product-images__main-img-wrapper">
       <img
-        alt=""
+        alt="product image big"
         class="product-images__main-img"
         :src="product.items[0].pics[0]"
       >
@@ -40,6 +40,12 @@ export default {
 
 .product-images {
   display: flex;
+  width: 67%;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .product-images__secondary-imgs-wrapper {
@@ -50,30 +56,30 @@ export default {
   align-items: center;
 
   @media screen and (max-width: 767px) {
+    order: 2;
     width: 100%;
     flex-direction: row;
   }
 }
 
 .product-images__secondary-img {
-  width: 80%;
+  width: 90%;
   object-fit: contain;
   cursor: pointer;
 
   @media screen and (max-width: 767px) {
     width: 33%;
-    height: calc(1.36 * 0.33 * (100vw - 5px));
+    //height: calc(1.36 * 0.33 * (100vw - 5px));
   }
 
   &:hover {
-    box-shadow: 0 0 0 2px $text_color;
+    box-shadow: inset 0 0 0 2px $text_color;
   }
 }
 
 .product-images__main-img-wrapper {
   width: 75%;
-  height: calc(0.57 * 90vw);
-  max-height: calc(0.57 * 1180px);
+  padding: 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,13 +87,12 @@ export default {
 
   @media screen and (max-width: 767px) {
     width: 100%;
-    height: calc(1.36 * (100vw - 5px));
+    padding: 0;
   }
 }
 
 .product-images__main-img {
   width: 100%;
-  height: 100%;
   object-fit: contain;
 }
 </style>

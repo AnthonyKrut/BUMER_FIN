@@ -11,6 +11,7 @@
         class="colors-list__color"
         :class="{'colors-list__color--active': color.is_active}"
         :style="{backgroundColor: color.color_code}"
+        @click="selectColor(color.color_code)"
       >
         <div v-if="color.is_active" class="colors-list__color-check">
           <SvgImage name="check1" />
@@ -46,6 +47,17 @@ export default {
       ],
     }
   },
+  methods: {
+    selectColor(color_code) {
+      this.colors.forEach(color => {
+        if (color.color_code === color_code) {
+          color.is_active = true
+        } else {
+          color.is_active = false
+        }
+      })
+    },
+  },
 }
 </script>
 
@@ -54,14 +66,14 @@ export default {
 @import "../../assets/scss/functions";
 
 .colors-list {
-  margin-bottom: 5.5em;
-  font-size: adaptive_fz(12px, 9px);
+  margin-bottom: 3em;
+  font-size: adaptive_fz(12px, 10px);
   font-weight: 400;
 
   @media screen and (max-width: 767px) {
     display: flex;
     align-items: center;
-    margin-bottom: 0;
+    margin-bottom: 3px;
   }
 }
 
@@ -70,8 +82,9 @@ export default {
   color: $text_color_dark;
 
   @media screen and (max-width: 767px) {
+    margin-bottom: 0;
     padding-left: 0.15em;
-    width: 50%;
+    //width: 50%;
   }
 }
 
@@ -87,14 +100,12 @@ export default {
 .colors-list__color {
   width: 20px;
   height: 20px;
-  margin-right: 12px;
   position: relative;
   color: #000;
   cursor: pointer;
 
-  @media screen and (max-width: 370px) {
-    width: 20px;
-    height: 20px;
+  &:not(:last-child) {
+    margin-right: 10px;
   }
 
   &:before {
@@ -108,19 +119,15 @@ export default {
     border: 1px solid #c4c4c4;
   }
 
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-
-  &.colors-list__color--active {
-    cursor: default;
-
+  &:hover {
     &:before {
       border: 1px solid #000000;
     }
   }
 
-  &:hover {
+  &.colors-list__color--active {
+    cursor: default;
+
     &:before {
       border: 1px solid #000000;
     }
@@ -139,6 +146,5 @@ export default {
   color: #FFFFFF;
   padding: 1px;
 }
-
 
 </style>

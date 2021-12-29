@@ -94,13 +94,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/scss/variables";
+@import "../../assets/scss/functions";
 
 ::v-deep .sweet-modal {
   max-width: 520px;
 }
 
 .sizes-modal__body {
-
+  margin: 0 auto;
+  
   @media screen and (max-width: 767px) {
     width: 75vw;
   }
@@ -130,7 +132,7 @@ export default {
   th,
   td {
     border-bottom: 1px solid #e0e0e0;
-    font-size: 14px;
+    font-size: adaptive_fz(14px, 12px);
     font-weight: 400;
     line-height: 1.5;
     padding-top: 3px;
@@ -144,11 +146,10 @@ export default {
 }
 
 .sizes-modal__text {
-  font-size: adaptive_fz(11px, 8px);
+  font-size: adaptive_fz(11px, 11px);
   line-height: 1.3em;
   color: $text_color_dark;
   text-align: center;
-  font-size: 11px;
 }
 
 </style>

@@ -142,11 +142,11 @@ export default {
 }
 
 .swiper__item {
-  height: calc(100vh - ((2.5 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw))));
+  height: calc(100vh - ((2 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw))));
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: calc(0.5 *(100vh - ((2.5 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw)))));
+  padding-bottom: calc(0.5 *(100vh - ((2 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw)))));
   font-family: 'PT Sans Caption', sans-serif;
   font-size: adaptive_fz(15px, 10px);
   font-weight: 700;

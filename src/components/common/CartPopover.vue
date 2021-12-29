@@ -481,22 +481,37 @@ export default {
 
 .cart-popover {
   width: 430px;
-  max-width: 430px;
+  //max-width: 430px;
   position: absolute;
   top: 35px;
   right: 0;
   background: #FFFFFF;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.46);
 
+  @media screen and (max-width: 767px) {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+  }
 }
 
 .cart-popover__content {
   overflow-y: auto;
   max-height: calc(100vh - 350px);
+
+  @media screen and (max-width: 767px) {
+    max-height: unset;
+  }
 }
 
 .cart-popover__footer {
   padding: 20px 65px 20px 65px;
+
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+  }
 }
 
 .cart-popover__footer-link {
