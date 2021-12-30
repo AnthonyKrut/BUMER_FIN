@@ -1,5 +1,11 @@
 <template>
-  <div v-if="isCartPopoverVisible" class="cart-popover">
+  <div
+    v-if="isCartPopoverVisible" 
+    v-focus
+    class="cart-popover"
+    tabindex="0"
+    @focusout="close($event)"
+  >
     <div v-if="cart.length" class="cart-popover__content">
       <CartPopoverProductItem
         v-for="product in cart"
@@ -46,6 +52,13 @@ import {mapMutations, mapState} from 'vuex'
 export default {
   name: 'CartPopover',
   components: {CartPopoverProductItem, Btn},
+  directives: {
+    focus: {
+      inserted: function (el) {
+        el.focus()
+      },
+    },
+  },
   data() {
     return {
       catalog: [
@@ -469,6 +482,14 @@ export default {
     ]),
   },
   methods: {
+    close(event) {
+      if (this.$el === event.relatedTarget 
+        || this.$el.contains(event.relatedTarget)) {
+        return
+      } else {
+        this.closeCartPopover()
+      }
+    },
     ...mapMutations('common', [
       'closeCartPopover',
     ]),
@@ -481,12 +502,12 @@ export default {
 
 .cart-popover {
   width: 430px;
-  //max-width: 430px;
   position: absolute;
   top: 35px;
   right: 0;
   background: #FFFFFF;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.46);
+  outline: none;
 
   @media screen and (max-width: 767px) {
     width: 100vw;
