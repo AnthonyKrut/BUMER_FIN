@@ -40,7 +40,7 @@ export default {
 
 .product-images {
   display: flex;
-  width: 67%;
+  width: 66%;
 
   @media screen and (max-width: 767px) {
     flex-direction: column;

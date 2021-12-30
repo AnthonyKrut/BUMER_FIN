@@ -8,21 +8,19 @@
         <ProductImages :product="product" />
 
         <div class="product-card__info-column">
-          <div class="product-card__adaptive-wrapper-1">
-            <div class="product-card__title">
-              <div class="product-card__sku">
-                {{ product.article_num }}
-              </div>
-              <div v-show="isOnSale" class="product-card__sale-label">
-                SALE
-              </div>
+          <div class="product-card__title">
+            <div class="product-card__sku">
+              {{ product.article_num }}
             </div>
-
-            <ProductDetails :product="product" />
-            <ColorsList :product="product" />
+            <div v-show="isOnSale" class="product-card__sale-label">
+              SALE
+            </div>
           </div>
 
-          <div class="product-card__adaptive-wrapper-2">
+          <ProductDetails :product="product" />
+          <ColorsList :product="product" />
+
+          <div class="product-card__adaptive-wrapper">
             <ProductPrice :product="product" />
 
             <Btn class="product-card__buy-btn" @click.native="addProductToCart">
@@ -35,9 +33,11 @@
 
       <SizesList :product="product" />
 
-      <div class="sizes-grid-button" @click="$refs.sizesGridModal.openModal()">
-        <SvgImage class="sizes-grid-button__icon" name="boot" />
-        <span>{{ $t('product.size_grid') }} ></span>
+      <div class="sizes-grid-button">
+        <div class="sizes-grid-button__inner" @click="$refs.sizesGridModal.openModal()">
+          <SvgImage class="sizes-grid-button__icon" name="boot" />
+          <span>{{ $t('product.size_grid') }} ></span>
+        </div>
       </div>
 
       <Catalog 
@@ -169,27 +169,17 @@ export default {
 }
 
 .product-card__info-column {
-  width: 33%;
+  width: 34%;
 
   @media screen and (max-width: 767px) {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
   }
 }
 
-.product-card__adaptive-wrapper-1 {
+.product-card__adaptive-wrapper {
   @media screen and (max-width: 767px) {
-    width: 66%;
-  }
-}
-
-.product-card__adaptive-wrapper-2 {
-  @media screen and (max-width: 767px) {
-    width: 33%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
   }
 }
 
@@ -199,6 +189,10 @@ export default {
   margin: 1em 0 2.5em;
   font-size: adaptive_fz(16px, 10px);
   font-weight: 700;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 1em;
+  }
 }
 
 .product-card__sku {
@@ -233,9 +227,12 @@ export default {
   font-weight: 300;
   line-height: 1.5em;
   text-transform: uppercase;
-  cursor: pointer;
   justify-content: center;
+}
 
+.sizes-grid-button__inner {
+  cursor: pointer;
+  
   &:hover {
     color: #aaaaaa;
   }
