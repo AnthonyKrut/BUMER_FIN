@@ -164,7 +164,7 @@ export default {
   position: relative;
 
   @media screen and (max-width: 767px) {
-    min-width: unset;
+    min-width: 75px;
     position: relative;
   }
 }
