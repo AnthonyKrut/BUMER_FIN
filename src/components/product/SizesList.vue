@@ -61,6 +61,8 @@ export default {
       this.sizes.forEach(size => {
         if (size.value === size_value && size.is_available) {
           size.is_active = true
+        } else if (size.value === size_value) {
+          this.$root.$emit('openOutOfStockModal')
         } else {
           size.is_active = false
         }

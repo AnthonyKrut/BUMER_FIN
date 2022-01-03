@@ -49,6 +49,7 @@
     </div>
 
     <SizesGridModal ref="sizesGridModal" />
+    <OutOfStockModal ref="outOfStockModal" />
   </section>
 </template>
 
@@ -57,6 +58,7 @@ import SvgImage from '@/components/common/SvgImage.vue'
 import Btn from '@/components/common/Btn'
 import {mapMutations} from 'vuex'
 import SizesGridModal from '@/components/product/SizesGridModal'
+import OutOfStockModal from '@/components/product/OutOfStockModal'
 import Catalog from '@/components/catalog/Catalog'
 import SizesList from '@/components/product/SizesList'
 import ColorsList from '@/components/product/ColorsList'
@@ -76,6 +78,7 @@ export default {
     SizesList,
     Catalog,
     SizesGridModal,
+    OutOfStockModal,
     Btn,
     SvgImage,
   },
