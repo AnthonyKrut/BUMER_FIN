@@ -1,5 +1,5 @@
 <template>
-  <section class="product-card">
+  <section class="product-card" @show-not-available="$refs.outOfStockModal.openModal()">
     <div class="container">
       <div class="product-card__top">
         <PrevNextProductArrow type="prev" />

@@ -62,7 +62,7 @@ export default {
         if (size.value === size_value && size.is_available) {
           size.is_active = true
         } else if (size.value === size_value) {
-          this.$root.$emit('openOutOfStockModal')
+          this.$el.dispatchEvent(new CustomEvent('show-not-available', { bubbles: true }))
         } else {
           size.is_active = false
         }

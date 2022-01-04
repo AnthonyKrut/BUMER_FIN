@@ -1,6 +1,6 @@
 <template>
   <sweet-modal
-    ref="outOfStockModal"
+    ref="modal"
     class="out-of-stock-modal"
     :title="$t('product.out_of_stock_notice')"
   >
@@ -16,10 +16,10 @@ import { SweetModal } from 'sweet-modal-vue'
 export default {
   name: 'OutOfStockModal',
   components: { SweetModal },
-  created() { // problem  is here! https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle-ru
-    this.$root.$on('openOutOfStockModal', () => {
-      this.$refs.outOfStockModal.open()
-    })
+  methods: {
+    openModal() {
+      this.$refs.modal.open()
+    },
   },
 }
 </script>
@@ -29,10 +29,6 @@ export default {
 @import "../../assets/scss/functions";
 
 ::v-deep {
-  .sweet-modal {
-    max-width: 520px;
-  }
-
   .sweet-title {
     h2 {
       margin-top: 3.2em !important;

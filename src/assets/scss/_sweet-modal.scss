@@ -3,6 +3,15 @@
   transition: none;
 }
 
+.sweet-modal {
+  max-width: 520px !important;
+
+  //to match responsive full screen width breakpoint in 'sweet-modal-vue'
+  @media screen and (max-width: 600px) {
+    max-width: unset !important;
+  }
+}
+
 .sweet-modal.theme-light {
   transition: none;
 
