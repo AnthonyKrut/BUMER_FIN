@@ -6,32 +6,57 @@
       </h1>
       <div class="redactor-content">
         <article>
+          <h4>
+            {{ $t('privacy.subtitle_1') }}
+          </h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor
-            sit. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing
-            tristique. Mi eget mauris pharetra et. Non tellus orci ac auctor augue. Elit at imperdiet dui accumsan sit.
-            Ornare arcu dui vivamus arcu felis. Egestas integer eget aliquet nibh praesent. In hac habitasse platea
-            dictumst quisque sagittis purus. Pulvinar elementum integer enim neque volutpat ac.
+            {{ $t('privacy.text_1_1') }}
+            <a :href="eu_url">{{ $t('privacy.text_1_link') }}</a>
+            {{ $t('privacy.text_1_2') }}
           </p>
+          <h4>
+            {{ $t('privacy.subtitle_2') }}
+          </h4>
           <p>
-            Senectus et netus et malesuada. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Neque convallis
-            a cras semper auctor. Libero id faucibus nisl tincidunt eget. Leo a diam sollicitudin tempor id. A lacus
-            vestibulum sed arcu non odio euismod lacinia. In tellus integer feugiat scelerisque. Feugiat in fermentum
-            posuere urna nec tincidunt praesent. Porttitor rhoncus dolor purus non enim praesent elementum facilisis.
-            Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Ipsum faucibus vitae aliquet nec ullamcorper
-            sit amet risus. Et malesuada fames ac turpis egestas sed. Sit amet nisl suscipit adipiscing bibendum est
-            ultricies. Arcu ac tortor dignissim convallis aenean et tortor at. Pretium viverra suspendisse potenti
-            nullam ac tortor vitae purus. Eros donec ac odio tempor orci dapibus ultrices. Elementum nibh tellus
-            molestie nunc. Et magnis dis parturient montes nascetur. Est placerat in egestas erat imperdiet. Consequat
-            interdum varius sit amet mattis vulputate enim.
+            {{ $t('privacy.text_2') }}
           </p>
+          <h4>
+            {{ $t('privacy.subtitle_3') }}
+          </h4>
           <p>
-            Sit amet nulla facilisi morbi tempus. Nulla facilisi cras fermentum odio eu. Etiam erat velit scelerisque
-            in dictum non consectetur a erat. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Ut sem
-            nulla pharetra diam. Fames ac turpis egestas maecenas. Bibendum neque egestas congue quisque egestas diam.
-            Laoreet id donec ultrices tincidunt arcu non sodales neque. Eget felis eget nunc lobortis mattis aliquam
-            faucibus purus. Faucibus interdum posuere lorem ipsum dolor sit.
+            {{ $t('privacy.text_3') }}
+          </p>
+          <h4>
+            {{ $t('privacy.subtitle_4') }}
+          </h4>
+          <p>
+            {{ $t('privacy.text_4') }}
+          </p>
+          <h4>
+            {{ $t('privacy.subtitle_5') }}
+          </h4>
+          <p>
+            {{ $t('privacy.text_5_1') }}
+            <a :href="wiki_url">{{ $t('privacy.text_5_link') }}</a>
+            {{ $t('privacy.text_5_2') }}
+          </p>
+          <h4>
+            {{ $t('privacy.subtitle_6') }}
+          </h4>
+          <p>
+            {{ $t('privacy.text_6') }}
+          </p>
+          <h4>
+            {{ $t('privacy.subtitle_7') }}
+          </h4>
+          <p>
+            {{ $t('privacy.text_7') }}
+          </p>
+          <h4>
+            {{ $t('privacy.subtitle_8') }}
+          </h4>
+          <p>
+            {{ $t('privacy.text_8') }}
           </p>
         </article>
       </div>
@@ -42,6 +67,24 @@
 <script>
 export default {
   name: 'PrivacyPolicyInfoPage',
+  data() {
+    return {
+      eu_url:'https://ec.europa.eu/info/law/law-topic/data-protection_en',
+      wiki_url_ru: 'https://ru.wikipedia.org/wiki/Cookie',
+      wiki_url_ua: 'https://uk.wikipedia.org/wiki/Куки', 
+    }
+  },
+  computed: {
+    wiki_url() {
+      let url = ''
+      if (this.$i18n.locale === 'ru') {
+          url = this.wiki_url_ru
+        } else if (this.$i18n.locale === 'ua') {
+         url = this.wiki_url_ua
+        }
+      return url
+    },
+  },
 }
 </script>
 
