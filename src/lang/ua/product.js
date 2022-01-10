@@ -19,4 +19,5 @@ export default {
   insole_material: 'Матеріал устілки',
   outsole_material: 'Матеріал підошви',
   season: 'Сезон',
+  out_of_stock_notice: 'Товару немає у наявності',
 }

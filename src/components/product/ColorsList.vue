@@ -73,26 +73,25 @@ export default {
   @media screen and (max-width: 767px) {
     display: flex;
     align-items: center;
-    margin-bottom: 3px;
+    margin-bottom: 1em;
   }
 }
 
 .colors-list__label {
   margin-bottom: 1em;
+  padding-left: 2px;
   color: $text_color_dark;
 
   @media screen and (max-width: 767px) {
     margin-bottom: 0;
-    padding-left: 0.15em;
-    //width: 50%;
   }
 }
 
 .colors-list__list {
   display: flex;
+  padding-left: 5px;
 
   @media screen and (max-width: 767px) {
-    width: 50%;
     padding-left: 1.15em;
   }
 }

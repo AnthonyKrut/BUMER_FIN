@@ -3,6 +3,15 @@
   transition: none;
 }
 
+.sweet-modal {
+  max-width: 520px !important;
+
+  //to match responsive full screen width breakpoint in 'sweet-modal-vue'
+  @media screen and (max-width: 600px) {
+    max-width: unset !important;
+  }
+}
+
 .sweet-modal.theme-light {
   transition: none;
 
@@ -20,7 +29,7 @@
 
     h2 {
       font-weight: bold;
-      margin: 45px 0 0 0;
+      margin: 1.8em 0 0 0; //45px 0 0 0;
       padding: 0;
       font-weight: bold;
       font-size: adaptive_fz(25px, 14px);
@@ -38,6 +47,10 @@
     font-size: adaptive_fz(14px, 9px);
     font-weight: 400;
     transition: none;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 14px;
+    }
   }
 
   .sweet-action-close {

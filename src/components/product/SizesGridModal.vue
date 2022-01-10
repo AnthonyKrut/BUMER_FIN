@@ -96,16 +96,8 @@ export default {
 @import "../../assets/scss/variables";
 @import "../../assets/scss/functions";
 
-::v-deep .sweet-modal {
-  max-width: 520px;
-}
-
 .sizes-modal__body {
   margin: 0 auto;
-  
-  @media screen and (max-width: 767px) {
-    width: 75vw;
-  }
 }
 
 .sizes-modal__table {

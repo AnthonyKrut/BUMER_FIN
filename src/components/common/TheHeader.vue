@@ -29,7 +29,11 @@
           <div class="header__bottom-right">
             <HeaderSearchForm />
 
-            <div class="header__cart-button" @click="toggleCartPopover">
+            <div 
+              class="header__cart-button"
+              :class="{'header__cart-button--click-disabled': isCartPopoverVisible}" 
+              @click="toggleCartPopover"
+            >
               <SvgImage name="cart" />
               <span v-if="cart.length">({{ cart.length }})</span>
             </div>
@@ -77,6 +81,9 @@ export default {
     window.addEventListener('scroll', null);
   },
   computed: {
+    ...mapState('common', [
+      'isCartPopoverVisible',
+    ]),
     ...mapState('cart', [
       'cart',
     ]),
@@ -164,7 +171,7 @@ export default {
   position: relative;
 
   @media screen and (max-width: 767px) {
-    min-width: unset;
+    min-width: 75px;
     position: relative;
   }
 }
@@ -212,6 +219,10 @@ export default {
     width: 22px;
     height: 22px;
     stroke: $main_color
+  }
+
+  &.header__cart-button--click-disabled {
+    pointer-events: none;
   }
 }
 

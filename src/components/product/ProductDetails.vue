@@ -49,6 +49,7 @@ export default {
   font-size: adaptive_fz(12px, 10px);
   font-weight: 400;
   line-height: 1.7em;
+  border-spacing: 2px;
 
   tr {
     td:first-child {
@@ -59,6 +60,10 @@ export default {
     td:last-child {
       font-weight: 700;
     }
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 1em;
   }
 }
 </style>

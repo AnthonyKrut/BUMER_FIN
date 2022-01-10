@@ -51,6 +51,10 @@ export default {
 .product-price__price-old {
   display: flex;
   align-items: baseline;
+
+  @media screen and (max-width: 767px) {
+    justify-content: flex-end;
+  }
 }
 
 .product-price__price-old-value {
@@ -77,6 +81,10 @@ export default {
 .product-price__price-active {
   display: flex;
   align-items: baseline;
+
+  @media screen and (max-width: 767px) {
+    justify-content: flex-end;
+  }
 }
 
 .product-price__price-active-value {
