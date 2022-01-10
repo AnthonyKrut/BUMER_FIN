@@ -8,19 +8,19 @@
         <TermsNav />
         <article>
           <h4>
-            Есть свой офлайн или онлайн магазин?
+            {{ $t('staticpages.cooperation_subtitle_1') }}
           </h4>
           <h4>
-            Мы всегда готовы сотрудничать с вами!
+            {{ $t('staticpages.cooperation_subtitle_2') }}
           </h4>
           <p>
-            Чтобы получить оптовый прайс на все наши коллекции - свяжитесь с менеджером позвонив по номеру указному в контактах.
+            {{ $t('staticpages.cooperation_text_1') }}
           </p>
           <p>
-            Мы являемся производителями, поэтому у нас самые низкие цены, качественный товар, и самые ходовые модели!
+            {{ $t('staticpages.cooperation_text_2') }}
           </p>
           <h4>
-            Контакты
+            {{ $t('staticpages.cooperation_subtitle_3') }}
           </h4>
           <address>
             <ul>

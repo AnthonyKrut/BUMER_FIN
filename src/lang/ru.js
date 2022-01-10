@@ -4,6 +4,7 @@ import homepage from './ru/homepage'
 import checkout from './ru/checkout'
 import cart from './ru/cart'
 import product from './ru/product'
+import staticpages from './ru/staticpages'
 
 export default {
   forms,
@@ -12,4 +13,5 @@ export default {
   checkout,
   cart,
   product,
+  staticpages,
 }
