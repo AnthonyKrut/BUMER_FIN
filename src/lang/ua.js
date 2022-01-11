@@ -6,6 +6,7 @@ import cart from './ua/cart'
 import product from './ua/product'
 import staticpages from './ua/staticpages'
 import privacy from './ua/privacy'
+import publicoffer from './ua/publicoffer'
 
 export default {
   forms,
@@ -16,4 +17,5 @@ export default {
   product,
   staticpages,
   privacy,
+  publicoffer,
 }

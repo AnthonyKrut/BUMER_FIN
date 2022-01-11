@@ -11,7 +11,7 @@
           </h4>
           <p>
             {{ $t('privacy.text_1_1') }}
-            <a :href="eu_url">{{ $t('privacy.text_1_link') }}</a>
+            <a class="privacy-policy__link" :href="eu_url">{{ $t('privacy.text_1_link') }}</a>
             {{ $t('privacy.text_1_2') }}
           </p>
           <h4>
@@ -37,7 +37,7 @@
           </h4>
           <p>
             {{ $t('privacy.text_5_1') }}
-            <a :href="wiki_url">{{ $t('privacy.text_5_link') }}</a>
+            <a class="privacy-policy__link" :href="wiki_url">{{ $t('privacy.text_5_link') }}</a>
             {{ $t('privacy.text_5_2') }}
           </p>
           <h4>
@@ -94,4 +94,13 @@ export default {
   justify-content: center;
 }
 
+.privacy-policy__link {
+  color: #2048bf;
+  text-decoration: none;
+
+  &:hover {
+    color: #2048bf;
+    text-decoration: underline;
+  }
+}
 </style>

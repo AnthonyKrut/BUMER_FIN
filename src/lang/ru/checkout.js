@@ -5,6 +5,8 @@ export default {
   confirm_checkout: 'Подтвердить заказ',
   privacy_policy_link: 'Подтверждая заказ вы соглашаетесь с',
   privacy_policy: 'Политикой конфиденциальности',
+  public_offer_link: 'и',
+  public_offer: 'Договором публичной оферты.',
   recipient_information: 'Информация о получателе',
   payment_method: 'Способ оплаты',
   shipping_method: 'Способ доставки',

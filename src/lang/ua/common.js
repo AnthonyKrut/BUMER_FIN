@@ -11,5 +11,6 @@ export default {
   guaranty: 'Гарантія',
   text_404: 'Что-то пошло не так...',
   privacy_policy: 'Політика конфіденційності',
+  public_offer: 'Договір публічної оферти',
   back_to_homepage: 'Повернутися на головну',
 }

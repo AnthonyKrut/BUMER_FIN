@@ -6,6 +6,7 @@ import cart from './ru/cart'
 import product from './ru/product'
 import staticpages from './ru/staticpages'
 import privacy from './ru/privacy'
+import publicoffer from './ru/publicoffer'
 
 export default {
   forms,
@@ -16,4 +17,5 @@ export default {
   product,
   staticpages,
   privacy,
+  publicoffer,
 }

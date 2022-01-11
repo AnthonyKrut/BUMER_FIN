@@ -11,5 +11,6 @@ export default {
   guaranty: 'Гарантия',
   text_404: 'Что-то пошло не так...',
   privacy_policy: 'Политика конфиденциальности',
+  public_offer: 'Договор публичной оферты',
   back_to_homepage: 'Вернуться на главную',
 }
