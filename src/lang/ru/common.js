@@ -1,5 +1,5 @@
 export default {
-  shipping_action: 'Бесплатная доставка от 3999 грн',
+  shipping_action: 'Бесплатная доставка от 2999 грн',
   ask_callback: 'Заказать звонок',
   call_popover_message: 'Либо оставьте свой телефон для обратного звонка',
   call_popover_button: 'Перезвонить мне',
@@ -11,5 +11,6 @@ export default {
   guaranty: 'Гарантия',
   text_404: 'Что-то пошло не так...',
   privacy_policy: 'Политика конфиденциальности',
+  public_offer: 'Договор публичной оферты',
   back_to_homepage: 'Вернуться на главную',
 }

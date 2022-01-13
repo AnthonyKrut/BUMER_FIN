@@ -51,6 +51,14 @@
     font-style: normal;
     line-height: 1.5em;
     color: $text_color_dark;
+
+    a {
+      margin-left: 1em;
+      color: $text_color_dark;
+      &:hover {
+        color: $attention_color;
+      }
+    }
   }
 
   ul {
@@ -70,11 +78,10 @@
   }
 
   a {
-    margin-left: 1em;
-    color: $text_color_dark;
+    color: #2048bf;
     text-decoration: none;
     &:hover {
-      color: $attention_color;
+      text-decoration: underline;
     }
   }
 }

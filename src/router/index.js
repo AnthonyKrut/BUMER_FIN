@@ -11,6 +11,7 @@ import PaymentInfoPage from '../pages/PaymentInfoPage'
 import GuaranteeInfoPage from '../pages/GuaranteeInfoPage'
 import Error404Page from '../pages/Error404Page'
 import PrivacyPolicyInfoPage from '../pages/PrivacyPolicyInfoPage'
+import PublicOfferInfoPage from '../pages/PublicOfferInfoPage'
 
 const routes = [
   {
@@ -57,6 +58,11 @@ const routes = [
     path: '/privacy-policy',
     name: 'PrivacyPolicyInfo',
     component: PrivacyPolicyInfoPage,
+  },
+  {
+    path: '/public-offer',
+    name: 'PublicOfferInfo',
+    component: PublicOfferInfoPage,
   },
   {
     path: '*',

@@ -4,7 +4,9 @@ import homepage from './ua/homepage'
 import checkout from './ua/checkout'
 import cart from './ua/cart'
 import product from './ua/product'
-
+import staticpages from './ua/staticpages'
+import privacy from './ua/privacy'
+import publicoffer from './ua/publicoffer'
 
 export default {
   forms,
@@ -13,4 +15,7 @@ export default {
   checkout,
   cart,
   product,
+  staticpages,
+  privacy,
+  publicoffer,
 }

@@ -1,11 +1,11 @@
 <template>
-  <section class="privacy-policy">
+  <section class="public-offer">
     <div class="container">
-      <h1 class="privacy-policy__title">
-        {{ $t('common.privacy_policy') }}
+      <h1 class="public-offer__title">
+        {{ $t('common.public_offer') }}
       </h1>
       <div class="redactor-content">
-        <article v-html="$t('privacy.text')" />
+        <article v-html="$t('publicoffer.text')" />
       </div>
     </div>
   </section>
@@ -13,13 +13,13 @@
 
 <script>
 export default {
-  name: 'PrivacyPolicyInfoPage',
+  name: 'PublicOfferInfoPage',
 }
 </script>
 
 <style lang="scss" scoped>
 
-.privacy-policy__title {
+.public-offer__title {
   margin-bottom: 1.5em;
 }
 

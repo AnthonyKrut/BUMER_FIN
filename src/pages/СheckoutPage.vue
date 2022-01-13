@@ -30,6 +30,10 @@
             <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PrivacyPolicyInfo'}">
               {{ $t('checkout.privacy_policy') }}
             </router-link>
+            {{ $t('checkout.public_offer_link') }}
+            <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PublicOfferInfo'}">
+              {{ $t('checkout.public_offer') }}
+            </router-link>
           </div>
         </div>
         <div class="checkout-page__right">
