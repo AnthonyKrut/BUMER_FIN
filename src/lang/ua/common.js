@@ -1,5 +1,5 @@
 export default {
-  shipping_action: 'Безкоштовна доставка від 3999 грн',
+  shipping_action: 'Безкоштовна доставка від 2999 грн',
   ask_callback: 'Замовити дзвінок',
   call_popover_message: 'Або залиште свій телефон для зворотного дзвінка',
   call_popover_button: 'Перетелефонувати мені',

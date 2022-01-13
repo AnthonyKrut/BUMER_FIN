@@ -6,26 +6,7 @@
       </h1>
       <div class="redactor-content">
         <TermsNav />
-        <article>
-          <h3>
-            {{ $t('staticpages.payment_title') }}
-          </h3>
-          <h4>
-            {{ $t('staticpages.payment_subtitle_1') }}
-          </h4>
-          <p>
-            {{ $t('staticpages.payment_text_1') }}
-          </p>
-          <p>
-            {{ $t('staticpages.payment_text_2') }}
-          </p>
-          <h4>
-            {{ $t('staticpages.payment_subtitle_2') }}
-          </h4>
-          <p>
-            {{ $t('staticpages.payment_text_3') }}
-          </p>
-        </article>
+        <article v-html="$t('staticpages.payment_text')" />
       </div>
     </div>
   </section>
@@ -41,6 +22,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

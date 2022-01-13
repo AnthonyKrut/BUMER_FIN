@@ -7,21 +7,7 @@
       <div class="redactor-content">
         <TermsNav />
         <article>
-          <h4>
-            {{ $t('staticpages.cooperation_subtitle_1') }}
-          </h4>
-          <h4>
-            {{ $t('staticpages.cooperation_subtitle_2') }}
-          </h4>
-          <p>
-            {{ $t('staticpages.cooperation_text_1') }}
-          </p>
-          <p>
-            {{ $t('staticpages.cooperation_text_2') }}
-          </p>
-          <h4>
-            {{ $t('staticpages.cooperation_subtitle_3') }}
-          </h4>
+          <div v-html="$t('staticpages.cooperation_text')" />
           <address>
             <ul>
               <li>
@@ -56,8 +42,3 @@ export default {
     },
 }
 </script>
-
-<style lang="scss" scoped>
-@import "../assets/scss/variables";
-
-</style>
