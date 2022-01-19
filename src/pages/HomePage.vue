@@ -24,6 +24,8 @@
     <div class="container">
       <HomePageQuote />
     </div>
+
+    <ThePreloader v-show="isLoading" />
   </section>
 </template>
 
@@ -38,6 +40,7 @@ import MapStores from '@/components/home-page/MapStores';
 import Catalog from '@/components/catalog/Catalog'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import ThePreloader from '@/components/common/ThePreloader'
 
 export default {
   name: 'HomePage',
@@ -50,6 +53,18 @@ export default {
     Banner2,
     Banner1,
     HeroSlider,
+    ThePreloader,
+  },
+  data() {
+    return {
+      isLoading: true,
+    }
+  },
+  async created() {
+    // await this.fetchAllProducts();
+    setTimeout(()=> { 
+      this.isLoading = false
+    }, 1500);
   },
   mounted() {
     AOS.init({
