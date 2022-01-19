@@ -17,6 +17,7 @@
         {{ $t('product.empty_product_list') }}
       </div>
     </div>
+    <ThePreloader v-show="isLoading" />
   </section>
 </template>
 
@@ -24,12 +25,14 @@
 import {mapActions} from 'vuex'
 import CatalogFilters from '@/components/catalog/CatalogFilters'
 import Catalog from '@/components/catalog/Catalog'
+import ThePreloader from '@/components/common/ThePreloader'
 
 export default {
   name: 'CategoryPage',
   components: {
     CatalogFilters,
     Catalog,
+    ThePreloader,
   },
   data() {
     return {
@@ -45,10 +48,12 @@ export default {
         {id: 9},
         {id: 10},
       ],
+      isLoading: true,
     }
   },
   async created() {
-    await this.fetchAllProducts()
+    await this.fetchAllProducts();
+    this.isLoading = false;
   },
   methods: {
     ...mapActions('products', [
