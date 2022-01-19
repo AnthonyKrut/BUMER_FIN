@@ -9,11 +9,13 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import VueCookies from 'vue-cookies'
 import Vuelidate from 'vuelidate'
 import i18n from './i18n.bootstrap'
+import loader from 'vue-ui-preloader'
 
 Vue.use(Vuelidate)
 Vue.use(vueDebounce)
 Vue.use(VueSweetalert2)
 Vue.use(VueCookies)
+Vue.use(loader);
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
