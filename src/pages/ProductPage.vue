@@ -3,8 +3,8 @@
     <div class="container">
       <div v-if="product" class="product-card-wrapper">
         <div class="product-card__top">
-  <!--        <PrevNextProductArrow type="prev" />-->
-  <!--        <PrevNextProductArrow type="next" />-->
+          <!--        <PrevNextProductArrow type="prev" />-->
+          <!--        <PrevNextProductArrow type="next" />-->
 
           <ProductImages :product="product" />
 
@@ -19,7 +19,7 @@
             </div>
 
             <ProductDetails :product="product" />
-<!--            <ColorsList :product="product" />-->
+            <!--            <ColorsList :product="product" />-->
             <SizesList :product="product" />
 
             <div class="sizes-grid-button">
@@ -75,7 +75,6 @@ import i18n from '@/mixins/i18n'
 
 export default {
   name: 'ProductPage',
-  mixins: [i18n],
   components: {
     ThePreloader,
     ProductPrice,
@@ -90,6 +89,7 @@ export default {
     Btn,
     SvgImage,
   },
+  mixins: [i18n],
   data() {
     return {
       loading: false,
@@ -98,7 +98,7 @@ export default {
   },
   computed: {
     ...mapGetters('products', [
-      'getProductsByCategoryId'
+      'getProductsByCategoryId',
     ]),
     productId() {
       return this.$route.params.id
@@ -108,7 +108,7 @@ export default {
     },
     recommendedProducts() {
       return this.getProductsByCategoryId(this.product?.categoryId)
-    }
+    },
   },
   created() {
     this.getProduct()
@@ -117,7 +117,7 @@ export default {
   methods: {
     ...mapActions('products', [
       'fetchProduct',
-      'fetchProducts'
+      'fetchProducts',
     ]),
     ...mapMutations('common', [
       'openCartPopover',

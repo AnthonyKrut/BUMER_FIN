@@ -14,8 +14,8 @@
       <CatalogProductItem
         v-for="product in products"
         :key="product.id"
-        :product="product"
         :is-specs-adaptive="isSpecsAdaptive"
+        :product="product"
       />
     </div>
   </div>

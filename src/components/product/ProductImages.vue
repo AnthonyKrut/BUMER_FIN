@@ -38,9 +38,6 @@ export default {
       mainImageId: null,
     }
   },
-  mounted() {
-    this.mainImageId = this.product?.images?.[0]?.id || null
-  },
   computed: {
     mainImage() {
       return this.product.images.find(i => i.id === this.mainImageId)
@@ -48,6 +45,9 @@ export default {
     secondaryImages() {
       return this.product?.images || []
     },
+  },
+  mounted() {
+    this.mainImageId = this.product?.images?.[0]?.id || null
   },
 }
 </script>

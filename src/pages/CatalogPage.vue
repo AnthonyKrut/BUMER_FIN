@@ -2,7 +2,7 @@
   <section class="catalog-page">
     <div class="container">
       <h1 class="catalog__title">
-        {{categoryName}}
+        {{ categoryName }}
       </h1>
 
       <CatalogFilters />
@@ -35,12 +35,12 @@ import i18n from '@/mixins/i18n'
 
 export default {
   name: 'CatalogPage',
-  mixins: [i18n],
   components: {
     CatalogFilters,
     Catalog,
     ThePreloader,
   },
+  mixins: [i18n],
   data() {
     return {
       loading: false,
@@ -48,10 +48,10 @@ export default {
   },
   computed: {
     ...mapGetters('products', [
-      'getProductsByCategoryId'
+      'getProductsByCategoryId',
     ]),
     ...mapGetters('categories', [
-      'getCategoryById'
+      'getCategoryById',
     ]),
     categoryId() {
       return this.$route.params.id
@@ -61,7 +61,7 @@ export default {
     },
     products() {
       return this.getProductsByCategoryId(this.categoryId)
-    }
+    },
   },
   async created() {
     this.loading = true

@@ -17,7 +17,7 @@
       </span>
 
       <span class="catalog-product-item__price">
-        {{product.salePrice || product.price}} <span class="catalog-product-item__currency">грн</span>
+        {{ product.salePrice || product.price }} <span class="catalog-product-item__currency">грн</span>
       </span>
     </span>
   </router-link>
@@ -29,7 +29,7 @@ export default {
   props: {
     product: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     isSpecsAdaptive: {
       type: Boolean,

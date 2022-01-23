@@ -21,7 +21,7 @@ const routes = [
     meta: {
       title_ru: 'Главная',
       title_ua: 'Головна',
-    }
+    },
   },
   {
     path: '/catalog/:id',
@@ -30,7 +30,7 @@ const routes = [
     meta: {
       title_ru: 'Каталог',
       title_ua: 'Каталог',
-    }
+    },
   },
   {
     path: '/product/:id',
@@ -39,7 +39,7 @@ const routes = [
     meta: {
       title_ru: 'Товар',
       title_ua: 'Товар',
-    }
+    },
   },
   {
     path: '/checkout',
@@ -48,7 +48,7 @@ const routes = [
     meta: {
       title_ru: 'Оформить заказ',
       title_ua: 'Оформити замовлення',
-    }
+    },
   },
   {
     path: '/shipment-info',
@@ -57,7 +57,7 @@ const routes = [
     meta: {
       title_ru: 'Доставка',
       title_ua: 'Доставка',
-    }
+    },
   },
   {
     path: '/cooperation-info',
@@ -66,7 +66,7 @@ const routes = [
     meta: {
       title_ru: 'Сотрудничество',
       title_ua: 'Співробітництво ',
-    }
+    },
   },
   {
     path: '/payment-info',
@@ -75,7 +75,7 @@ const routes = [
     meta: {
       title_ru: 'Оплата',
       title_ua: 'Оплата',
-    }
+    },
   },
   {
     path: '/guarantee-info',
@@ -84,7 +84,7 @@ const routes = [
     meta: {
       title_ru: 'Гарантия',
       title_ua: 'Гарантія',
-    }
+    },
   },
   {
     path: '/privacy-policy',
@@ -93,7 +93,7 @@ const routes = [
     meta: {
       title_ru: 'Политика конфиденциальности',
       title_ua: 'Політика конфіденційності',
-    }
+    },
   },
   {
     path: '/public-offer',
@@ -102,7 +102,7 @@ const routes = [
     meta: {
       title_ru: 'Договор публичной оферты',
       title_ua: 'Договор публічної оферти',
-    }
+    },
   },
   {
     path: '*',
@@ -110,7 +110,7 @@ const routes = [
     meta: {
       title_ru: '404',
       title_ua: '404',
-    }
+    },
   },
 ]
 

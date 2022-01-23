@@ -23,8 +23,8 @@
         class="call-popover__input"
         mask="+38 (0##) ### ## ##"
         masked
-        @focusout="close($event)"
         @blur.native="$v.form.phone.$touch"
+        @focusout="close($event)"
         @input="$v.form.phone.$reset"
       />
       <FormGroupError v-if="!$v.form.phone.required" type="required" />

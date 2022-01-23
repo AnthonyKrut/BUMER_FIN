@@ -3,8 +3,8 @@
     <router-link
       v-for="category in categories"
       :key="category.id"
-      :to="{name: 'Catalog', params: {id: category.id}}"
       class="main-nav__item"
+      :to="{name: 'Catalog', params: {id: category.id}}"
     >
       {{ category[$_i18n_getFieldWithLocale('name')] }}
     </router-link>

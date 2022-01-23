@@ -14,7 +14,7 @@ export default {
       return (id) => {
         return state.categories?.find(category => category.id === id)
       }
-    }
+    },
   },
   actions: {
     async fetchCategories({commit}) {

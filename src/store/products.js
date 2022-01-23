@@ -9,7 +9,7 @@ export default {
       return (id) => {
         return state.products.filter(product => product.categoryId === id)
       }
-    }
+    },
   },
   mutations: {
     setProducts(state, payload) {
@@ -34,7 +34,7 @@ export default {
         return item
       })
       return data
-    }
+    },
   },
   namespaced: true,
 }

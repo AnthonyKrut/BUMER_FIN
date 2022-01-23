@@ -1,26 +1,26 @@
 <template>
   <table class="table">
     <tbody>
-    <tr>
-      <td>Артикул:</td>
-      <td>{{ product.article }}</td>
-    </tr>
-    <tr>
-      <td>{{ $t('product.top_material') }}:</td>
-      <td>{{ product[$_i18n_getFieldWithLocale('materialProduct')] }}</td>
-    </tr>
-    <tr>
-      <td>{{ $t('product.insole_material') }}:</td>
-      <td>{{ product[$_i18n_getFieldWithLocale('materialInSole')] }}</td>
-    </tr>
-    <tr>
-      <td>{{ $t('product.outsole_material') }}:</td>
-      <td>{{ product[$_i18n_getFieldWithLocale('materialSole')] }}</td>
-    </tr>
-    <tr>
-      <td>{{ $t('product.footwear_type') }}:</td>
-      <td>{{ category[$_i18n_getFieldWithLocale('name')] }}</td>
-    </tr>
+      <tr>
+        <td>Артикул:</td>
+        <td>{{ product.article }}</td>
+      </tr>
+      <tr>
+        <td>{{ $t('product.top_material') }}:</td>
+        <td>{{ product[$_i18n_getFieldWithLocale('materialProduct')] }}</td>
+      </tr>
+      <tr>
+        <td>{{ $t('product.insole_material') }}:</td>
+        <td>{{ product[$_i18n_getFieldWithLocale('materialInSole')] }}</td>
+      </tr>
+      <tr>
+        <td>{{ $t('product.outsole_material') }}:</td>
+        <td>{{ product[$_i18n_getFieldWithLocale('materialSole')] }}</td>
+      </tr>
+      <tr>
+        <td>{{ $t('product.footwear_type') }}:</td>
+        <td>{{ category[$_i18n_getFieldWithLocale('name')] }}</td>
+      </tr>
     </tbody>
   </table>
 </template>
