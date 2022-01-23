@@ -2,11 +2,13 @@
   <div class="product-images">
     <div class="product-images__secondary-imgs-wrapper">
       <img
-        v-for="pic in product.items[0].pics"
-        :key="pic"
+        v-for="image in secondaryImages"
+        :key="image.imageUri"
         alt="product image small"
         class="product-images__secondary-img"
-        :src="pic"
+        :class="{'product-images__secondary-img--active': image.id === mainImageId}"
+        :src="image.imageUri"
+        @click="mainImageId = image.id"
       >
     </div>
 
@@ -14,7 +16,7 @@
       <img
         alt="product image big"
         class="product-images__main-img"
-        :src="product.items[0].pics[0]"
+        :src="mainImage && mainImage.imageUri"
       >
     </div>
   </div>
@@ -29,6 +31,22 @@ export default {
       default() {
         return {}
       },
+    },
+  },
+  data() {
+    return {
+      mainImageId: null,
+    }
+  },
+  mounted() {
+    this.mainImageId = this.product?.images?.[0]?.id || null
+  },
+  computed: {
+    mainImage() {
+      return this.product.images.find(i => i.id === this.mainImageId)
+    },
+    secondaryImages() {
+      return this.product?.images || []
     },
   },
 }
@@ -66,14 +84,18 @@ export default {
   width: 90%;
   object-fit: contain;
   cursor: pointer;
+  border: 3px solid transparent;
 
   @media screen and (max-width: 767px) {
     width: 33%;
-    //height: calc(1.36 * 0.33 * (100vw - 5px));
   }
 
   &:hover {
-    box-shadow: inset 0 0 0 2px $text_color;
+    opacity: 0.9;
+  }
+
+  &.product-images__secondary-img--active {
+    border-color: #dedede;
   }
 }
 

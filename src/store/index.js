@@ -8,6 +8,7 @@ import common from '@/store/common'
 import call from '@/store/call'
 import lang from '@/store/lang'
 import search from '@/store/search'
+import categories from '@/store/categories'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -20,5 +21,6 @@ export default new Vuex.Store({
     call,
     lang,
     search,
+    categories,
   },
 })

@@ -2,33 +2,40 @@
   <section class="catalog-page">
     <div class="container">
       <h1 class="catalog__title">
-        Заголовок категории
+        {{categoryName}}
       </h1>
 
       <CatalogFilters />
-      <Catalog 
-        v-if="products" 
-        :is-columns-adaptive="true"
-        :is-specs-adaptive="false" 
-        :products="products"
-      />
+      <div class="catalog-wrapper">
+        <Catalog
+          v-if="products.length && !loading"
+          :is-columns-adaptive="true"
+          :is-specs-adaptive="false"
+          :products="products"
+        />
 
-      <div v-else class="catalog__notice">
+        <ThePreloader v-if="loading" />
+      </div>
+
+      <div v-if="!products.length && !loading" class="catalog__notice">
         {{ $t('product.empty_product_list') }}
       </div>
+
+      <br><br><br><br>
     </div>
-    <ThePreloader v-show="isLoading" />
   </section>
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 import CatalogFilters from '@/components/catalog/CatalogFilters'
 import Catalog from '@/components/catalog/Catalog'
 import ThePreloader from '@/components/common/ThePreloader'
+import i18n from '@/mixins/i18n'
 
 export default {
-  name: 'CategoryPage',
+  name: 'CatalogPage',
+  mixins: [i18n],
   components: {
     CatalogFilters,
     Catalog,
@@ -36,28 +43,34 @@ export default {
   },
   data() {
     return {
-      products: [
-        {id: 1},
-        {id: 2},
-        {id: 3},
-        {id: 4},
-        {id: 5},
-        {id: 6},
-        {id: 7},
-        {id: 8},
-        {id: 9},
-        {id: 10},
-      ],
-      isLoading: true,
+      loading: false,
+    }
+  },
+  computed: {
+    ...mapGetters('products', [
+      'getProductsByCategoryId'
+    ]),
+    ...mapGetters('categories', [
+      'getCategoryById'
+    ]),
+    categoryId() {
+      return this.$route.params.id
+    },
+    categoryName() {
+      return this.getCategoryById(this.categoryId)?.[this.$_i18n_getFieldWithLocale('name')]
+    },
+    products() {
+      return this.getProductsByCategoryId(this.categoryId)
     }
   },
   async created() {
-    await this.fetchAllProducts();
-    this.isLoading = false;
+    this.loading = true
+    await this.fetchProducts()
+    this.loading = false
   },
   methods: {
     ...mapActions('products', [
-      'fetchAllProducts',
+      'fetchProducts',
     ]),
   },
 }
@@ -84,6 +97,10 @@ export default {
   color: #b6b6b6;
   font-weight: bold;
   margin-top: 40px;
+}
+
+.catalog-wrapper {
+  position: relative;
 }
 
 </style>

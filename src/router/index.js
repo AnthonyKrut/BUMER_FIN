@@ -18,55 +18,99 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HomePage,
+    meta: {
+      title_ru: 'Главная',
+      title_ua: 'Головна',
+    }
   },
   {
-    path: '/catalog',
+    path: '/catalog/:id',
     name: 'Catalog',
     component: CatalogPage,
+    meta: {
+      title_ru: 'Каталог',
+      title_ua: 'Каталог',
+    }
   },
   {
-    path: '/product',
+    path: '/product/:id',
     name: 'Product',
     component: ProductPage,
+    meta: {
+      title_ru: 'Товар',
+      title_ua: 'Товар',
+    }
   },
   {
     path: '/checkout',
     name: 'Checkout',
     component: CheckoutPage,
+    meta: {
+      title_ru: 'Оформить заказ',
+      title_ua: 'Оформити замовлення',
+    }
   },
   {
     path: '/shipment-info',
     name: 'ShipmentInfoPage',
     component: ShipmentInfoPage,
+    meta: {
+      title_ru: 'Доставка',
+      title_ua: 'Доставка',
+    }
   },
   {
     path: '/cooperation-info',
     name: 'CooperationInfoPage',
     component: CooperationInfoPage,
+    meta: {
+      title_ru: 'Сотрудничество',
+      title_ua: 'Співробітництво ',
+    }
   },
   {
     path: '/payment-info',
     name: 'PaymentInfoPage',
     component: PaymentInfoPage,
+    meta: {
+      title_ru: 'Оплата',
+      title_ua: 'Оплата',
+    }
   },
   {
     path: '/guarantee-info',
     name: 'GuaranteeInfoPage',
     component: GuaranteeInfoPage,
+    meta: {
+      title_ru: 'Гарантия',
+      title_ua: 'Гарантія',
+    }
   },
   {
     path: '/privacy-policy',
     name: 'PrivacyPolicyInfo',
     component: PrivacyPolicyInfoPage,
+    meta: {
+      title_ru: 'Политика конфиденциальности',
+      title_ua: 'Політика конфіденційності',
+    }
   },
   {
     path: '/public-offer',
     name: 'PublicOfferInfo',
     component: PublicOfferInfoPage,
+    meta: {
+      title_ru: 'Договор публичной оферты',
+      title_ua: 'Договор публічної оферти',
+    }
   },
   {
     path: '*',
     component: Error404Page,
+    meta: {
+      title_ru: '404',
+      title_ua: '404',
+    }
   },
 ]
 
@@ -82,26 +126,5 @@ router.beforeEach((to, from, next) => {
 
   next()
 })
-
-
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     if (store.getters['auth/isGuest']) {
-//       store.dispatch('auth/loadUser').then(() => {
-//         if(store.getters['auth/isGuest']) {
-//           next({
-//             path: '/login',
-//           })
-//         } else {
-//           next()
-//         }
-//       })
-//     } else {
-//       next()
-//     }
-//   } else {
-//     next()
-//   }
-// })
 
 export default router

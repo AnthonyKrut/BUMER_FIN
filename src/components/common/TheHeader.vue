@@ -29,9 +29,9 @@
           <div class="header__bottom-right">
             <HeaderSearchForm />
 
-            <div 
+            <div
               class="header__cart-button"
-              :class="{'header__cart-button--click-disabled': isCartPopoverVisible}" 
+              :class="{'header__cart-button--click-disabled': isCartPopoverVisible}"
               @click="toggleCartPopover"
             >
               <SvgImage name="cart" />
@@ -109,7 +109,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 4;
-  width: 100vw;
+  width: 100%;
 
   &.header--scrolled {
     box-shadow: 0 0 20px rgba(0,0,0,0.5);

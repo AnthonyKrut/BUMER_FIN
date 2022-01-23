@@ -11,7 +11,7 @@
       :style="`background-image: url(${slide.image})`"
     >
       <div class="swiper__item-content">
-        <SvgImage class="swiper__item-logo" name="logo" />
+        <SvgImage v-if="slide.isLogoVisible" class="swiper__item-logo" name="logo" />
         <div v-if="locale === 'ru'" class="swiper__item-text">
           {{ slide.text_ru }}
         </div>
@@ -61,14 +61,22 @@ export default {
       },
       slides: [
         {
-          image: '/img/hero-slider/img-slider01.jpg',
-          text_ru: 'Удобство. Легкость. Практичность.',
-          text_ua: 'Зручність. Легкість. Практичність',
+          image: '/img/hero-slider/hero-3.jpg',
+          text_ru: '',
+          text_ua: '',
+          isLogoVisible: false,
         },
         {
-          image: '/img/hero-slider/img-slider02.jpg',
-          text_ru: 'Удобство. Легкость. Практичность.',
-          text_ua: 'Зручність. Легкість. Практичність',
+          image: '/img/hero-slider/hero-1.jpg',
+          text_ru: '',
+          text_ua: '',
+          isLogoVisible: false,
+        },
+        {
+          image: '/img/hero-slider/hero-2.jpg',
+          text_ru: '',
+          text_ua: '',
+          isLogoVisible: false,
         },
       ],
     }

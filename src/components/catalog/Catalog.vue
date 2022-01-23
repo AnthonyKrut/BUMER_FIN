@@ -1,19 +1,20 @@
 <template>
   <div class="catalog">
-    <div 
-      v-if="heading" 
-      class="catalog__heading" 
+    <div
+      v-if="heading"
+      class="catalog__heading"
       :class="{'catalog__heading--left': headingPosition === 'left'}"
     >
       {{ heading }}
     </div>
-    <div 
+    <div
       class="catalog__body"
       :class="{'catalog__body--adaptive': isColumnsAdaptive}"
     >
       <CatalogProductItem
         v-for="product in products"
         :key="product.id"
+        :product="product"
         :is-specs-adaptive="isSpecsAdaptive"
       />
     </div>

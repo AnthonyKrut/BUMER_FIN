@@ -1,11 +1,11 @@
 <template>
   <div class="sizes-list">
     <div
-      v-for="size in sizes"
+      v-for="size in product.size"
       :key="size.value"
       class="sizes-list__item"
-      :class="{'sizes-list__item--not-available': !size.is_available, 'sizes-list__item--active': size.is_active}"
-      @click="selectSize(size.value)"
+      :class="{'sizes-list__item--not-available': size.quantity === 0, 'sizes-list__item--active': size.is_active}"
+      @click="selectSize(size)"
     >
       {{ size.value }}
     </div>
@@ -15,57 +15,21 @@
 <script>
 export default {
   name: 'SizesList',
-  data() {
-    return {
-      sizes: [
-        {
-          value: 40,
-          is_available: true,
-          is_active: false,
-        },
-        {
-          value: 41,
-          is_available: true,
-          is_active: false,
-        },
-        {
-          value: 42,
-          is_available: false,
-          is_active: false,
-        },
-        {
-          value: 43,
-          is_available: false,
-          is_active: false,
-        },
-        {
-          value: 44,
-          is_available: true,
-          is_active: true,
-        },
-        {
-          value: 45,
-          is_available: true,
-          is_active: false,
-        },
-        {
-          value: 46,
-          is_available: true,
-          is_active: false,
-        },
-      ],
-    }
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
   },
   methods: {
-    selectSize(size_value) {
-      this.sizes.forEach(size => {
-        if (size.value === size_value && size.is_available) {
-          size.is_active = true
-        } else if (size.value === size_value) {
-          this.$el.dispatchEvent(new CustomEvent('show-not-available', { bubbles: true }))
-        } else {
-          size.is_active = false
-        }
+    selectSize(size) {
+      if (size.quantity === 0) return
+
+      this.product.size.map(item => {
+        item.is_active = !!(item.id === size.id)
+        return item
       })
     },
   },
@@ -78,31 +42,43 @@ export default {
 
 .sizes-list {
   display: flex;
-  justify-content: center;
-  margin: 2.5em 0 1em;
+  margin: 2.5em 0 0.5em;
   font-size: adaptive_fz(20px, 13px);
   font-weight: 300;
 }
 
 .sizes-list__item {
-  width: 2em;
-  height: 2em;
-  line-height: 1.2;
+  line-height: 1em;
   cursor: pointer;
+  padding: 5px 10px;
   border: 1px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 6px;
   margin-left: 6px;
+  border: 1px solid #000000;
+
+  &:hover {
+    background: #eeeeee;
+  }
 
   &.sizes-list__item--active {
-    border: 1px solid $text_color_light;
+    background: #000;
+    color: #FFFFFF;
   }
 
   &.sizes-list__item--not-available {
-    text-decoration: line-through;
     color: $text_color_light;
+    cursor: not-allowed;
+    border: 1px solid $text_color_light;
+    background:
+      linear-gradient(to top right,
+        rgba(200,200,200,0) 0%,
+        rgba(200,200,200,0) calc(50% - 0.8px),
+        rgba(200,200,200,1) 50%,
+        rgba(200,200,200,0) calc(50% + 0.8px),
+        rgba(200,200,200,0) 100%);
   }
 }
 </style>

@@ -1,20 +1,23 @@
 <template>
-  <router-link class="catalog-product-item" :to="{name: 'Product'}">
-    <span class="catalog-product-item__label">
+  <router-link class="catalog-product-item" :to="{name: 'Product', params: {id: product.id}}">
+    <span v-if="product.isTop" class="catalog-product-item__label">
       TOP
     </span>
+
     <span class="catalog-product-item__image-wrapper">
-      <img alt="" class="catalog-product-item__image" src="/img/stock-items/item02-01.png">
+      <img alt="" class="catalog-product-item__image" :src="image">
     </span>
-    <span 
-      class="catalog-product-item__specs" 
+
+    <span
+      class="catalog-product-item__specs"
       :class="{'catalog-product-item__specs--adaptive': isSpecsAdaptive}"
     >
       <span class="catalog-product-item__sku">
-        QN380
+        {{ product.article }}
       </span>
+
       <span class="catalog-product-item__price">
-        2250 <span class="catalog-product-item__currency">грн</span>
+        {{product.salePrice || product.price}} <span class="catalog-product-item__currency">грн</span>
       </span>
     </span>
   </router-link>
@@ -24,12 +27,19 @@
 export default {
   name: 'CatalogProductItem',
   props: {
+    product: {
+      type: Object,
+      default: () => {}
+    },
     isSpecsAdaptive: {
       type: Boolean,
       default: true,
     },
   },
   computed: {
+    image() {
+      return this.product?.images?.[0]?.imageUri || '/img/no-image.svg'
+    },
     isOnSale(item) {
       return item.price_sale
     },

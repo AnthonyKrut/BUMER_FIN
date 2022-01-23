@@ -1,33 +1,37 @@
 <template>
   <table class="table">
     <tbody>
-      <tr>
-        <td>{{ $t('product.top_material') }}:</td>
-        <td>{{ product.top_material }}</td>
-      </tr>
-      <tr>
-        <td>{{ $t('product.insole_material') }}:</td>
-        <td>{{ product.insole_material }}</td>
-      </tr>
-      <tr>
-        <td>{{ $t('product.outsole_material') }}:</td>
-        <td>{{ product.sole_material }}</td>
-      </tr>
-      <tr>
-        <td>{{ $t('product.season') }}:</td>
-        <td>{{ product.season }}</td>
-      </tr>
-      <tr>
-        <td>{{ $t('product.footwear_type') }}:</td>
-        <td>{{ product.category }}</td>
-      </tr>
+    <tr>
+      <td>Артикул:</td>
+      <td>{{ product.article }}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('product.top_material') }}:</td>
+      <td>{{ product[$_i18n_getFieldWithLocale('materialProduct')] }}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('product.insole_material') }}:</td>
+      <td>{{ product[$_i18n_getFieldWithLocale('materialInSole')] }}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('product.outsole_material') }}:</td>
+      <td>{{ product[$_i18n_getFieldWithLocale('materialSole')] }}</td>
+    </tr>
+    <tr>
+      <td>{{ $t('product.footwear_type') }}:</td>
+      <td>{{ category[$_i18n_getFieldWithLocale('name')] }}</td>
+    </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import i18n from '@/mixins/i18n'
+import {mapActions} from 'vuex'
+
 export default {
   name: 'ProductDetails',
+  mixins: [i18n],
   props: {
     product: {
       type: Object,
@@ -35,6 +39,20 @@ export default {
         return {}
       },
     },
+  },
+  data() {
+    return {
+      category: null,
+    }
+  },
+  async mounted() {
+    if (!this.product) return
+    this.category =  await this.fetchCategory(this.product.categoryId)
+  },
+  methods: {
+    ...mapActions('categories', [
+      'fetchCategory',
+    ]),
   },
 }
 </script>

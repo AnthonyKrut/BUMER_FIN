@@ -1,50 +1,54 @@
 <template>
   <section class="product-card" @show-not-available="$refs.outOfStockModal.openModal()">
     <div class="container">
-      <div class="product-card__top">
-        <PrevNextProductArrow type="prev" />
-        <PrevNextProductArrow type="next" />
+      <div v-if="product" class="product-card-wrapper">
+        <div class="product-card__top">
+  <!--        <PrevNextProductArrow type="prev" />-->
+  <!--        <PrevNextProductArrow type="next" />-->
 
-        <ProductImages :product="product" />
+          <ProductImages :product="product" />
 
-        <div class="product-card__info-column">
-          <div class="product-card__title">
-            <div class="product-card__sku">
-              {{ product.article_num }}
+          <div class="product-card__info-column">
+            <div class="product-card__title">
+              <div class="product-card__heading">
+                {{ product[$_i18n_getFieldWithLocale('name')] }}
+              </div>
+              <div v-show="isOnSale" class="product-card__sale-label">
+                SALE
+              </div>
             </div>
-            <div v-show="isOnSale" class="product-card__sale-label">
-              SALE
+
+            <ProductDetails :product="product" />
+<!--            <ColorsList :product="product" />-->
+            <SizesList :product="product" />
+
+            <div class="sizes-grid-button">
+              <div class="sizes-grid-button__inner" @click="$refs.sizesGridModal.openModal()">
+                <SvgImage class="sizes-grid-button__icon" name="boot" />
+                <span>{{ $t('product.size_grid') }} ></span>
+              </div>
             </div>
-          </div>
 
-          <ProductDetails :product="product" />
-          <ColorsList :product="product" />
+            <div class="product-card__adaptive-wrapper">
+              <ProductPrice :product="product" />
 
-          <div class="product-card__adaptive-wrapper">
-            <ProductPrice :product="product" />
-
-            <Btn class="product-card__buy-btn" @click.native="addProductToCart">
-              <SvgImage class="product-card__cart-icon" name="cart" />
-              {{ $t('product.buy') }}
-            </Btn>
+              <Btn class="product-card__buy-btn" @click.native="addProductToCart">
+                <SvgImage class="product-card__cart-icon" name="cart" />
+                {{ $t('product.buy') }}
+              </Btn>
+            </div>
           </div>
         </div>
       </div>
 
-      <SizesList :product="product" />
+      <ThePreloader v-if="loading" />
 
-      <div class="sizes-grid-button">
-        <div class="sizes-grid-button__inner" @click="$refs.sizesGridModal.openModal()">
-          <SvgImage class="sizes-grid-button__icon" name="boot" />
-          <span>{{ $t('product.size_grid') }} ></span>
-        </div>
-      </div>
-
-      <Catalog 
-        class="product-card__catalog-recommend" 
-        :heading="$t('product.recommended')" 
+      <Catalog
+        v-if="recommendedProducts"
+        class="product-card__catalog-recommend"
+        :heading="$t('product.recommended')"
         heading-position="left"
-        :products="[1,2,3,4]"
+        :products="recommendedProducts"
       />
     </div>
 
@@ -56,25 +60,29 @@
 <script>
 import SvgImage from '@/components/common/SvgImage.vue'
 import Btn from '@/components/common/Btn'
-import {mapMutations} from 'vuex'
+import {mapActions, mapGetters, mapMutations} from 'vuex'
 import SizesGridModal from '@/components/product/SizesGridModal'
 import OutOfStockModal from '@/components/product/OutOfStockModal'
 import Catalog from '@/components/catalog/Catalog'
 import SizesList from '@/components/product/SizesList'
-import ColorsList from '@/components/product/ColorsList'
+// import ColorsList from '@/components/product/ColorsList'
 import ProductDetails from '@/components/product/ProductDetails'
-import PrevNextProductArrow from '@/components/product/PrevNextProductArrow'
+// import PrevNextProductArrow from '@/components/product/PrevNextProductArrow'
 import ProductImages from '@/components/product/ProductImages'
 import ProductPrice from '@/components/product/ProductPrice'
+import ThePreloader from '@/components/common/ThePreloader'
+import i18n from '@/mixins/i18n'
 
 export default {
   name: 'ProductPage',
+  mixins: [i18n],
   components: {
+    ThePreloader,
     ProductPrice,
     ProductImages,
-    PrevNextProductArrow,
+    // PrevNextProductArrow,
     ProductDetails,
-    ColorsList,
+    // ColorsList,
     SizesList,
     Catalog,
     SizesGridModal,
@@ -84,69 +92,47 @@ export default {
   },
   data() {
     return {
-      product: {
-        article_num: 'QN 380',
-        top_material: 'Натуральная кожа',
-        insole_material: 'Овчина',
-        sole_material: 'Полиуретан',
-        season: 'Зима',
-        category: 'Ботинки',
-        items: [
-          {
-            color_name: 'Зеленый',
-            color_code: '#5c6b5c',
-            price_stndrt: 2599,
-            price_sale: 1999,
-            sizes: [40, 41, 42, 43, 44, 45],
-            pics: [
-              '/img/stock-items/item01-01.png',
-              '/img/stock-items/item01-02.png',
-              '/img/stock-items/item01-03.png',
-              // './img/stock-items/item01-04.png'
-            ],
-          },
-          {
-            color_name: 'Синий',
-            color_code: '#3e5474',
-            price_stndrt: 2599,
-            price_sale: 1999,
-            sizes: [40, 41, 42, 44, 45, 46],
-            pics: [
-              '/img/stock-items/item02-01.png',
-              '/img/stock-items/item02-02.png',
-              '/img/stock-items/item02-03.png',
-              // './img/stock-items/item02-04.png'
-            ],
-          },
-          {
-            color_name: 'Черный',
-            color_code: '#000000',
-            price_stndrt: 2599,
-            price_sale: 0,
-            sizes: [41, 42, 43, 44, 45, 46],
-            pics: [
-              '/img/stock-items/item03-01.png',
-              '/img/stock-items/item03-02.png',
-              '/img/stock-items/item03-03.png',
-              // './img/stock-items/item03-04.png'
-            ],
-          },
-        ],
-      },
+      loading: false,
+      product: null,
     }
   },
   computed: {
+    ...mapGetters('products', [
+      'getProductsByCategoryId'
+    ]),
+    productId() {
+      return this.$route.params.id
+    },
     isOnSale() {
       return this.product?.items?.[0].price_sale
     },
+    recommendedProducts() {
+      return this.getProductsByCategoryId(this.product?.categoryId)
+    }
+  },
+  created() {
+    this.getProduct()
+    this.getRecommendedProducts()
   },
   methods: {
+    ...mapActions('products', [
+      'fetchProduct',
+      'fetchProducts'
+    ]),
     ...mapMutations('common', [
       'openCartPopover',
     ]),
     ...mapMutations('cart', [
       'addToCart',
     ]),
+    async getProduct() {
+      this.loading = true
+      this.product = await this.fetchProduct(this.productId)
+      this.loading = false
+    },
+    async getRecommendedProducts() {
+      await this.fetchProducts()
+    },
     addProductToCart() {
       this.addToCart(this.product)
       this.openCartPopover()
@@ -160,7 +146,9 @@ export default {
 @import "../assets/scss/functions";
 @import "../assets/scss/mixins";
 
-//.product-card {}
+.product-card {
+  position: relative;
+}
 
 .product-card__top {
   position: relative;
@@ -198,7 +186,7 @@ export default {
   }
 }
 
-.product-card__sku {
+.product-card__heading {
   margin-right: 2em;
   text-transform: uppercase;
 }
@@ -225,17 +213,19 @@ export default {
 }
 
 .sizes-grid-button {
-  display: flex;
-  font-size: adaptive_fz(12px, 9px);
+  font-size: adaptive_fz(10px, 9px);
   font-weight: 300;
   line-height: 1.5em;
   text-transform: uppercase;
-  justify-content: center;
+  color: #888888;
+  margin-bottom: 50px;
 }
 
 .sizes-grid-button__inner {
   cursor: pointer;
-  
+  display: flex;
+  align-items: center;
+
   &:hover {
     color: #aaaaaa;
   }
@@ -245,6 +235,8 @@ export default {
   width: 1.67em;
   height: 1.25em;
   margin-right: 0.5em;
+  position: relative;
+  top: -1px;
 }
 
 .product-card__catalog-recommend {

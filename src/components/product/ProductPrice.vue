@@ -32,13 +32,13 @@ export default {
   },
   computed: {
     isOnSale() {
-      return this.product?.items?.[0].price_sale
+      return this.product?.salePrice
     },
     activePrice() {
-      return this.product.items[0].price_sale ? this.product.items[0].price_sale : this.product.items[0].price_stndrt
+      return this.product.salePrice || this.product.price
     },
     priceOld() {
-      return this.product.items[0].price_stndrt
+      return this.product.price
     },
   },
 }
@@ -60,7 +60,7 @@ export default {
 .product-price__price-old-value {
   margin-right: 0.1em;
   font-size: adaptive_fz(25px, 14px);
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: line-through;
   color: $text_color_light;
 
@@ -81,6 +81,7 @@ export default {
 .product-price__price-active {
   display: flex;
   align-items: baseline;
+  margin-bottom: 20px;
 
   @media screen and (max-width: 767px) {
     justify-content: flex-end;
@@ -91,7 +92,7 @@ export default {
   margin-right: 0.05em;
   font-size: adaptive_fz(80px, 20px);
   font-weight: 700;
-  line-height: 1.5em;
+  line-height: 1.1em;
 
   @media screen and (min-width: 1440px) {
     font-size: 80px;

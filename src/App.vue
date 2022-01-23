@@ -18,5 +18,10 @@ export default {
     TheFooter,
     TheHeader,
   },
+  metaInfo() {
+    return {
+      title: `${this.$route.meta[`title_${this.$i18n.locale}`]} | Bumer`,
+    }
+  },
 }
 </script>
