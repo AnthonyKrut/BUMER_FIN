@@ -1,4 +1,5 @@
 export default {
+  main_page: 'Главная',
   shipping_action: 'Бесплатная доставка от 2999 грн',
   ask_callback: 'Заказать звонок',
   call_popover_message: 'Либо оставьте свой телефон для обратного звонка',

@@ -20,4 +20,5 @@ export default {
   outsole_material: 'Матеріал підошви',
   season: 'Сезон',
   out_of_stock_notice: 'Товару немає у наявності',
+  size_not_selected: 'Розмір взуття не обраний'
 }

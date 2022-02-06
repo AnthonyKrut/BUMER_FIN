@@ -16,9 +16,9 @@
       {{ $t('cart.empty_cart') }}
     </div>
 
-    <div class="checkout-page__discount">
+    <div v-if="safe" class="checkout-page__discount">
       <div>{{ $t('cart.saving') }}</div>
-      <div>400 грн</div>
+      <div>{{safe}} грн</div>
     </div>
 
     <div class="checkout-page__total">
@@ -26,14 +26,14 @@
         {{ $t('cart.to_pay') }}
       </div>
       <div class="checkout-page__total-value">
-        4 998 грн
+        {{total}} грн
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 import CheckoutCartItem from '@/components/product/CheckoutCartItem'
 
 export default {
@@ -43,6 +43,10 @@ export default {
     ...mapState('cart', [
       'cart',
     ]),
+    ...mapGetters('cart', [
+      'total',
+      'safe'
+    ])
   },
 }
 </script>

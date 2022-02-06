@@ -4,20 +4,20 @@
     <div class="mobile-menu__logo-wrapper">
       <SvgImage name="logo" />
     </div>
-    <MobileMainNav 
-      :items="navMain" 
-      @click.native="closeMobileMenu"
-    />
+<!--    <MobileMainNav -->
+<!--      :items="navMain" -->
+<!--      @click.native="closeMobileMenu"-->
+<!--    />-->
     <MobileSecondaryNav
-      :items="navSecondary" 
-      @click.native="closeMobileMenu" 
+      :items="navSecondary"
+      @click.native="closeMobileMenu"
     />
     <MobileSocMenu />
   </div>
 </template>
 
 <script>
-import MobileMainNav from '@/components/common/MobileMainNav'
+// import MobileMainNav from '@/components/common/MobileMainNav'
 import MobileSecondaryNav from '@/components/common/MobileSecondaryNav'
 import SvgImage from '@/components/common/SvgImage'
 import MobileSocMenu from '@/components/common/MobileSocMenu'
@@ -28,7 +28,7 @@ export default {
   components: {
     MobileSocMenu,
     MobileSecondaryNav,
-    MobileMainNav,
+    // MobileMainNav,
     SvgImage,
   },
   computed: {

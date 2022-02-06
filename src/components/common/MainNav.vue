@@ -6,29 +6,22 @@
       class="main-nav__item"
       :to="{name: 'Catalog', params: {id: category.id}}"
     >
-      {{ category[$_i18n_getFieldWithLocale('name')] }}
+      {{ category[`name_${$i18n.locale}`] }}
     </router-link>
   </div>
 </template>
 
 <script>
-import {mapActions, mapState} from 'vuex'
-import i18n from '@/mixins/i18n'
+import {mapGetters, mapState} from 'vuex'
 
 export default {
   name: 'MainNav',
-  mixins: [i18n],
   computed: {
+    ...mapGetters('locales', [
+      'getFieldByLocale'
+    ]),
     ...mapState('categories', [
       'categories',
-    ]),
-  },
-  created() {
-    this.fetchCategories()
-  },
-  methods: {
-    ...mapActions('categories', [
-      'fetchCategories',
     ]),
   },
 }

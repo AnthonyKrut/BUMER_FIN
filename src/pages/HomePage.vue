@@ -4,7 +4,7 @@
 
     <div class="container">
       <Banner1 />
-      <Catalog :heading="$t('homepage.popular_goods')" :products="[1,2,3,4]" />
+<!--      <Catalog :heading="$t('homepage.popular_goods')" :products="[1,2,3,4]" />-->
     </div>
 
     <div class="container container--mobile">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="container">
-      <Catalog :products="[1,2,3,4]" />
+<!--      <Catalog :products="[1,2,3,4]" />-->
       <Story1 />
       <Story2 />
     </div>
@@ -37,7 +37,7 @@ import Story2 from '@/components/home-page/Story2';
 import Story1 from '@/components/home-page/Story1';
 import HomePageQuote from '@/components/home-page/HomePageQuote';
 import MapStores from '@/components/home-page/MapStores';
-import Catalog from '@/components/catalog/Catalog'
+// import Catalog from '@/components/catalog/Catalog'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import ThePreloader from '@/components/common/ThePreloader'
@@ -45,7 +45,7 @@ import ThePreloader from '@/components/common/ThePreloader'
 export default {
   name: 'HomePage',
   components: {
-    Catalog,
+    // Catalog,
     HomePageQuote,
     MapStores,
     Story2,
@@ -57,14 +57,14 @@ export default {
   },
   data() {
     return {
-      isLoading: true,
+      isLoading: false,
     }
   },
   async created() {
     // await this.fetchAllProducts();
-    setTimeout(()=> { 
-      this.isLoading = false
-    }, 1500);
+    // setTimeout(()=> {
+    //   this.isLoading = false
+    // }, 1500);
   },
   mounted() {
     AOS.init({

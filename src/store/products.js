@@ -5,9 +5,41 @@ export default {
     products: [],
   }),
   getters: {
-    getProductsByCategoryId(state) {
-      return (id) => {
-        return state.products.filter(product => product.categoryId === id)
+    transformProductItemForView(state, getters, rootState, rootGetters) {
+      const getLanguageCodeById = rootGetters['locales/getLanguageCodeById']
+
+      return (item) => {
+        item.productDescription.forEach(i => {
+          item[`name_${getLanguageCodeById(i.languageId)}`] = i.name
+          item[`description_${getLanguageCodeById(i.languageId)}`] = i.description
+        })
+
+        item.category.description.forEach(i => {
+          item.category[`name_${getLanguageCodeById(i.languageId)}`] = i.name
+        })
+
+        item.color.description.forEach(i => {
+          item.color[`name_${getLanguageCodeById(i.languageId)}`] = i.name
+        })
+
+        item.materialInSole.description.forEach(i => {
+          item.materialInSole[`name_${getLanguageCodeById(i.languageId)}`] = i.name
+        })
+
+        item.materialProduct.description.forEach(i => {
+          item.materialProduct[`name_${getLanguageCodeById(i.languageId)}`] = i.name
+        })
+
+        item.materialSole.description.forEach(i => {
+          item.materialSole[`name_${getLanguageCodeById(i.languageId)}`] = i.name
+        })
+
+        item.productInfo.map(i => {
+          i.isActive = false
+          return i
+        })
+
+        return item
       }
     },
   },
@@ -17,23 +49,16 @@ export default {
     },
   },
   actions: {
-    async fetchProducts({commit}) {
-      const {data} = await axios.get('product')
-      let products = []
-      for (let id in data) {
-        products.push({id, ...data[id]})
-      }
-      commit('setProducts', products)
+    async fetchProducts({commit, getters}, params) {
+      const {data} = await axios.post('/Product/GetFiltered', params)
+
+      const transformedData = data.map(item => getters.transformProductItemForView(item))
+      commit('setProducts', transformedData)
     },
-    async fetchProduct(_, id) {
-      const {data} = await axios.get(`product/${id}`)
-      data.size = data.size.map(item => {
-        if (!('is_active' in item)) {
-          item.is_active = false
-        }
-        return item
-      })
-      return data
+
+    async fetchProduct({getters}, id) {
+      const {data} = await axios.get('/Product/GetById', {params: {id}})
+      return getters.transformProductItemForView(data)
     },
   },
   namespaced: true,

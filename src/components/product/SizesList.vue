@@ -1,13 +1,13 @@
 <template>
   <div class="sizes-list">
     <div
-      v-for="size in product.size"
-      :key="size.value"
+      v-for="size in product.productInfo"
+      :key="size.size"
       class="sizes-list__item"
-      :class="{'sizes-list__item--not-available': size.quantity === 0, 'sizes-list__item--active': size.is_active}"
+      :class="{'sizes-list__item--not-available': size.quantity === 0, 'sizes-list__item--active': size.isActive}"
       @click="selectSize(size)"
     >
-      {{ size.value }}
+      {{ size.size }}
     </div>
   </div>
 </template>
@@ -27,8 +27,8 @@ export default {
     selectSize(size) {
       if (size.quantity === 0) return
 
-      this.product.size.map(item => {
-        item.is_active = !!(item.id === size.id)
+      this.product.productInfo.map(item => {
+        item.isActive = !!(item.size === size.size)
         return item
       })
     },
@@ -69,14 +69,21 @@ export default {
   }
 
   &.sizes-list__item--not-available {
-    color: $text_color_light;
+    color: rgb(220,220,220);
     cursor: not-allowed;
-    border: 1px solid $text_color_light;
+    border: 1px solid rgb(220,220,220);
     background:
       linear-gradient(to top right,
         rgba(200,200,200,0) 0%,
         rgba(200,200,200,0) calc(50% - 0.8px),
-        rgba(200,200,200,1) 50%,
+        rgba(220,220,220,1) 50%,
+        rgba(200,200,200,0) calc(50% + 0.8px),
+        rgba(200,200,200,0) 100%),
+
+      linear-gradient(to top left,
+        rgba(200,200,200,0) 0%,
+        rgba(200,200,200,0) calc(50% - 0.8px),
+        rgba(220,220,220,1) 50%,
         rgba(200,200,200,0) calc(50% + 0.8px),
         rgba(200,200,200,0) 100%);
   }

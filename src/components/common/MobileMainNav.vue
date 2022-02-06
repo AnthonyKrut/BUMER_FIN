@@ -1,27 +1,35 @@
 <template>
   <div class="mobile-main-nav">
     <router-link
-      v-for="item in items"
-      :key="item.label"
+      :to="{name: 'Home'}"
       active-class="mobile-main-nav__category--active"
       class="mobile-main-nav__category"
-      :to="{name: item.to}"
     >
-      {{ item.label }}
+      {{ $t('common.main_page')}}
+    </router-link>
+    <router-link
+      v-for="category in categories"
+      :key="category.id"
+      :to="{name: 'Catalog', params: {id: category.id}}"
+      active-class="mobile-main-nav__category--active"
+      class="mobile-main-nav__category"
+    >
+      {{ category[$_i18n_getFieldWithLocale('name')] }}
     </router-link>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import i18n from '@/mixins/i18n'
+
 export default {
   name: 'MobileMainNav',
-    props: {
-    items: {
-      type: Array,
-      default() {
-        return []
-      },
-    },
+  mixins: [i18n],
+  computed: {
+    ...mapState('categories', [
+      'categories',
+    ]),
   },
 }
 </script>
@@ -42,6 +50,7 @@ export default {
   line-height: 3.8em;
   color: $contrast_color;
   text-decoration: none;
+  text-transform: uppercase;
 
   &:last-child {
     color: $attention_color;
@@ -59,6 +68,7 @@ export default {
     position: absolute;
     top: calc(50% - 0.5 * 0.75em);
     right: 2em;
+    transform: rotate(270deg);
   }
 
   &.mobile-main-nav__category--active {

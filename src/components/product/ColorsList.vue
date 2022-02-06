@@ -6,17 +6,19 @@
 
     <div class="colors-list__list">
       <div
-        v-for="color in colors"
-        :key="color.color_code"
-        class="colors-list__color"
-        :class="{'colors-list__color--active': color.is_active}"
-        :style="{backgroundColor: color.color_code}"
-        @click="selectColor(color.color_code)"
+        class="colors-list__color colors-list__color--active"
+        :style="{backgroundColor: product.color.hex}"
       >
-        <div v-if="color.is_active" class="colors-list__color-check">
+        <div class="colors-list__color-check">
           <SvgImage name="check1" />
         </div>
       </div>
+      <div
+        v-for="color in colors"
+        :key="color.color_code"
+        class="colors-list__color"
+        :style="{backgroundColor: color.hex}"
+      />
     </div>
   </div>
 </template>
@@ -29,34 +31,27 @@ export default {
   components: {
     SvgImage,
   },
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {}
+      },
+    },
+  },
   data() {
     return {
       colors: [
         {
-          color_code: '#ff0000',
+          hex: '#dcdcdc',
           is_active: true,
         },
         {
-          color_code: '#477d22',
-          is_active: false,
-        },
-        {
-          color_code: '#ad9c2b',
+          hex: '#cdcdcd',
           is_active: false,
         },
       ],
     }
-  },
-  methods: {
-    selectColor(color_code) {
-      this.colors.forEach(color => {
-        if (color.color_code === color_code) {
-          color.is_active = true
-        } else {
-          color.is_active = false
-        }
-      })
-    },
   },
 }
 </script>

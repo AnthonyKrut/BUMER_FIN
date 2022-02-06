@@ -3,6 +3,9 @@
     <span v-if="product.isTop" class="catalog-product-item__label">
       TOP
     </span>
+    <div v-show="isOnSale" class="catalog-product-item__label catalog-product-item__label--sale">
+      SALE
+    </div>
 
     <span class="catalog-product-item__image-wrapper">
       <img alt="" class="catalog-product-item__image" :src="image">
@@ -40,8 +43,8 @@ export default {
     image() {
       return this.product?.images?.[0]?.imageUri || '/img/no-image.svg'
     },
-    isOnSale(item) {
-      return item.price_sale
+    isOnSale() {
+      return this.product?.salePrice
     },
     activePrice(product) {
       if (product.price_sale) {
@@ -82,6 +85,11 @@ export default {
   font-size: adaptive_fz(12px, 8px);
   line-height: 2em;
   background-color: #f5973f;
+
+  &.catalog-product-item__label--sale {
+    color: $contrast_color;
+    background-color: #c61d24;
+  }
 }
 
 .catalog-product-item__image-wrapper {

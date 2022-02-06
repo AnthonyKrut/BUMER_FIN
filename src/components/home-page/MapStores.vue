@@ -8,12 +8,12 @@
       <img
         alt="map of bumer stores"
         class="map-stores__pic-img"
-        src="../../assets/img/map.svg"
+        src="../../assets/img/1234-2.jpg"
       >
       <img
         alt="map of bumer stores"
         class="map-stores__pic-img"
-        src="../../assets/img/map-mobile.svg"
+        src="../../assets/img/1234-2.jpg"
       >
     </div>
   </div>
@@ -77,11 +77,11 @@ export default {
   width: 100%;
 
   &:first-child {
-  @media screen and (max-width: 767px) { 
+  @media screen and (max-width: 767px) {
       display: none;
     }
   }
-  
+
   &:last-child {
     @media screen and (min-width: 768px) {
       display: none;

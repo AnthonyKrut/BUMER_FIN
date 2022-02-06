@@ -1,11 +1,12 @@
 <template>
   <div
-    v-if="isCartPopoverVisible" 
+    v-if="isCartPopoverVisible"
     v-focus
     class="cart-popover"
     tabindex="0"
     @focusout="close($event)"
   >
+    {{cart}}
     <div v-if="cart.length" class="cart-popover__content">
       <CartPopoverProductItem
         v-for="product in cart"
@@ -24,7 +25,7 @@
           {{ $t('cart.total') }}:
         </div>
         <div class="cart-popover__total-price">
-          3 599 грн
+          {{total}} грн
         </div>
       </div>
       <Btn
@@ -47,7 +48,7 @@
 <script>
 import Btn from '@/components/common/Btn'
 import CartPopoverProductItem from '@/components/product/CartPopoverProductItem'
-import {mapMutations, mapState} from 'vuex'
+import {mapGetters, mapMutations, mapState} from 'vuex'
 
 export default {
   name: 'CartPopover',
@@ -61,416 +62,7 @@ export default {
   },
   data() {
     return {
-      catalog: [
-        {
-          article_num: 'QN 380',
-          top_material: 'Натуральная кожа',
-          insole_material: 'Овчина',
-          sole_material: 'Полиуретан',
-          season: 'Зима',
-          category: 'Кроссовки',
-          items: [
-            {
-              color_name: 'Зеленый',
-              color_code: '#5c6b5c',
-              price_stndrt: 2599,
-              price_sale: 1999,
-              isNew: true,
-              rating: 4,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 1,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 4,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 8,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 10,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 0,
-                },
-              ],
-              pics: [
-                './img/stock-items/item01-01.png',
-                './img/stock-items/item01-02.png',
-                './img/stock-items/item01-03.png',
-              ],
-            },
-            {
-              color_name: 'Синий',
-              color_code: '#3e5474',
-              price_stndrt: 2599,
-              price_sale: 1999,
-              isNew: true,
-              rating: 2,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 1,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 4,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 0,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 9,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 10,
-                },
-              ],
-              pics: [
-                './img/stock-items/item02-01.png',
-                './img/stock-items/item02-02.png',
-                './img/stock-items/item02-03.png',
-              ],
-            },
-            {
-              color_name: 'Черный',
-              color_code: '#000000',
-              price_stndrt: 2599,
-              price_sale: 0,
-              isNew: false,
-              rating: 10,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 0,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 4,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 1,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 9,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 10,
-                },
-              ],
-              pics: [
-                './img/stock-items/item03-01.png',
-                './img/stock-items/item03-02.png',
-                './img/stock-items/item03-03.png',
-              ],
-            },
-          ],
-        },
-        {
-          article_num: 'QN 450',
-          top_material: 'Натуральная кожа',
-          insole_material: 'Овчина',
-          sole_material: 'Полиуретан',
-          season: 'Зима',
-          category: 'Ботинки',
-          items: [
-            {
-              color_name: 'Зеленый',
-              color_code: '#5c6b5c',
-              price_stndrt: 2599,
-              price_sale: 1999,
-              isNew: true,
-              rating: 1,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 1,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 0,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 4,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 9,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 0,
-                },
-              ],
-              pics: [
-                './img/stock-items/item01-01.png',
-                './img/stock-items/item01-02.png',
-                './img/stock-items/item01-03.png',
-              ],
-            },
-            {
-              color_name: 'Синий',
-              color_code: '#3e5474',
-              price_stndrt: 2599,
-              price_sale: 1999,
-              isNew: true,
-              rating: 2,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 0,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 4,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 0,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 9,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 10,
-                },
-              ],
-              pics: [
-                './img/stock-items/item02-01.png',
-                './img/stock-items/item02-02.png',
-                './img/stock-items/item02-03.png',
-              ],
-            },
-            {
-              color_name: 'Черный',
-              color_code: '#000000',
-              price_stndrt: 2599,
-              price_sale: 0,
-              isNew: false,
-              rating: 6,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 0,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 4,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 1,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 9,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 10,
-                },
-              ],
-              pics: [
-                './img/stock-items/item03-01.png',
-                './img/stock-items/item03-02.png',
-                './img/stock-items/item03-03.png',
-              ],
-            },
-          ],
-        },
-        {
-          article_num: 'QN 900',
-          top_material: 'Натуральная кожа',
-          insole_material: 'Овчина',
-          sole_material: 'Полиуретан',
-          season: 'Зима',
-          category: 'Ботинки',
-          items: [
-            {
-              color_name: 'Зеленый',
-              color_code: '#5c6b5c',
-              price_stndrt: 2599,
-              price_sale: 1999,
-              isNew: false,
-              rating: 0,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 1,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 4,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 1,
-                }, {
-                  size_num: 44,
-                  size_qty: 0,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 9,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 0,
-                },
-              ],
-              pics: [
-                './img/stock-items/item01-01.png',
-                './img/stock-items/item01-02.png',
-                './img/stock-items/item01-03.png',
-              ],
-            },
-            {
-              color_name: 'Синий',
-              color_code: '#3e5474',
-              price_stndrt: 2599,
-              price_sale: 1999,
-              isNew: true,
-              rating: 1,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 1,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 0,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 0,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 7,
-                },
-              ],
-              pics: [
-                './img/stock-items/item02-01.png',
-                './img/stock-items/item02-02.png',
-                './img/stock-items/item02-03.png',
-              ],
-            },
-            {
-              color_name: 'Черный',
-              color_code: '#000000',
-              price_stndrt: 2599,
-              price_sale: 0,
-              isNew: true,
-              rating: 4,
-              sizes: [
-                {
-                  size_num: 40,
-                  size_qty: 0,
-                },
-                {
-                  size_num: 41,
-                  size_qty: 2,
-                },
-                {
-                  size_num: 42,
-                  size_qty: 4,
-                },
-                {
-                  size_num: 43,
-                  size_qty: 7,
-                }, {
-                  size_num: 44,
-                  size_qty: 6,
-                },
-                {
-                  size_num: 45,
-                  size_qty: 9,
-                },
-                {
-                  size_num: 46,
-                  size_qty: 10,
-                },
-              ],
-              pics: [
-                './img/stock-items/item03-01.png',
-                './img/stock-items/item03-02.png',
-                './img/stock-items/item03-03.png',
-              ],
-            },
-          ],
-        },
-      ],
+      catalog: []
     }
   },
   computed: {
@@ -480,10 +72,13 @@ export default {
     ...mapState('cart', [
       'cart',
     ]),
+    ...mapGetters('cart', [
+      'total'
+    ])
   },
   methods: {
     close(event) {
-      if (this.$el === event.relatedTarget 
+      if (this.$el === event.relatedTarget
         || this.$el.contains(event.relatedTarget)) {
         return
       } else {

@@ -7,19 +7,19 @@
       </tr>
       <tr>
         <td>{{ $t('product.top_material') }}:</td>
-        <td>{{ product[$_i18n_getFieldWithLocale('materialProduct')] }}</td>
+        <td>{{ product.materialProduct[`name_${$i18n.locale}`] }}</td>
       </tr>
       <tr>
         <td>{{ $t('product.insole_material') }}:</td>
-        <td>{{ product[$_i18n_getFieldWithLocale('materialInSole')] }}</td>
+        <td>{{ product.materialInSole[`name_${$i18n.locale}`] }}</td>
       </tr>
       <tr>
         <td>{{ $t('product.outsole_material') }}:</td>
-        <td>{{ product[$_i18n_getFieldWithLocale('materialSole')] }}</td>
+        <td>{{ product.materialSole[`name_${$i18n.locale}`] }}</td>
       </tr>
       <tr>
         <td>{{ $t('product.footwear_type') }}:</td>
-        <td>{{ category[$_i18n_getFieldWithLocale('name')] }}</td>
+        <td>{{ product.category[`name_${$i18n.locale}`] }}</td>
       </tr>
     </tbody>
   </table>
@@ -27,7 +27,6 @@
 
 <script>
 import i18n from '@/mixins/i18n'
-import {mapActions} from 'vuex'
 
 export default {
   name: 'ProductDetails',
@@ -44,15 +43,6 @@ export default {
     return {
       category: null,
     }
-  },
-  async mounted() {
-    if (!this.product) return
-    this.category =  await this.fetchCategory(this.product.categoryId)
-  },
-  methods: {
-    ...mapActions('categories', [
-      'fetchCategory',
-    ]),
   },
 }
 </script>

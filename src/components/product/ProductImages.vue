@@ -2,12 +2,12 @@
   <div class="product-images">
     <div class="product-images__secondary-imgs-wrapper">
       <img
-        v-for="image in secondaryImages"
-        :key="image.imageUri"
+        v-for="image in allImages"
+        :key="image.src"
         alt="product image small"
         class="product-images__secondary-img"
         :class="{'product-images__secondary-img--active': image.id === mainImageId}"
-        :src="image.imageUri"
+        :src="image.src"
         @click="mainImageId = image.id"
       >
     </div>
@@ -16,15 +16,31 @@
       <img
         alt="product image big"
         class="product-images__main-img"
-        :src="mainImage && mainImage.imageUri"
+        :src="mainImage && mainImage.src"
+        @click="showMultiple"
       >
     </div>
+
+    <vue-easy-lightbox
+      scrollDisabled
+      escDisabled
+      moveDisabled
+      :visible="isLightboxVisible"
+      :imgs="allImages"
+      :index="lightboxIndex"
+      @hide="hideLightbox"
+    />
   </div>
 </template>
 
 <script>
+import VueEasyLightbox from 'vue-easy-lightbox'
+
 export default {
   name: 'ProductImages',
+  components: {
+    VueEasyLightbox
+  },
   props: {
     product: {
       type: Object,
@@ -36,18 +52,35 @@ export default {
   data() {
     return {
       mainImageId: null,
+      isLightboxVisible: false,
+      lightboxIndex: 0
     }
   },
   computed: {
     mainImage() {
-      return this.product.images.find(i => i.id === this.mainImageId)
+      return this.allImages.find(i => i.id === this.mainImageId)
     },
-    secondaryImages() {
-      return this.product?.images || []
+    allImages() {
+      return this.product?.images?.map(i=> {
+        i.src = i.imageUri
+        return i
+      }) || []
     },
   },
   mounted() {
     this.mainImageId = this.product?.images?.[0]?.id || null
+  },
+  methods: {
+    showMultiple() {
+      this.lightboxIndex = this.allImages.findIndex(i => i.id === this.mainImage.id)
+      this.showLightbox()
+    },
+    showLightbox() {
+      this.isLightboxVisible = true
+    },
+    hideLightbox() {
+      this.isLightboxVisible = false
+    }
   },
 }
 </script>
@@ -106,6 +139,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: zoom-in;
 
   @media screen and (max-width: 767px) {
     width: 100%;

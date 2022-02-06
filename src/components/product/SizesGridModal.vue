@@ -20,49 +20,34 @@
             <td>.</td>
           </tr>
           <tr>
-            <td>39</td>
-            <td>5</td>
-            <td>25,3</td>
-          </tr>
-          <tr>
             <td>40</td>
             <td>6</td>
-            <td>25,8</td>
+            <td>26,6</td>
           </tr>
           <tr>
             <td>41</td>
             <td>7</td>
-            <td>26,4</td>
+            <td>27,3</td>
           </tr>
           <tr>
             <td>42</td>
             <td>8</td>
-            <td>27</td>
+            <td>28</td>
           </tr>
           <tr>
             <td>43</td>
             <td>9</td>
-            <td>27,6</td>
+            <td>28,7</td>
           </tr>
           <tr>
             <td>44</td>
             <td>10</td>
-            <td>28,3</td>
+            <td>29,4</td>
           </tr>
           <tr>
             <td>45</td>
             <td>11</td>
-            <td>28,9</td>
-          </tr>
-          <tr>
-            <td>46</td>
-            <td>12</td>
-            <td>29,6</td>
-          </tr>
-          <tr>
-            <td>47</td>
-            <td>13</td>
-            <td>30,3</td>
+            <td>30</td>
           </tr>
         </tbody>
       </table>

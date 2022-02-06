@@ -5,12 +5,12 @@
         <img
           alt="bicycle riders"
           class="col-big__pic-img"
-          src="../../assets/img/img-main02.jpg"
+          src="../../assets/img/story2-2.jpeg"
         >
         <img
           alt="leg in sneaker"
           class="col-big__pic-img"
-          src="../../assets/img/img-main03.jpg"
+          src="../../assets/img/story2.jpeg"
         >
       </div>
       <div class="col-big__numbers">
@@ -51,12 +51,12 @@
         <img
           alt="leg in sneaker"
           class="col-small__pic-img"
-          src="../../assets/img/img-main03.jpg"
+          src="../../assets/img/story2.jpeg"
         >
         <img
           alt="bicycle riders"
           class="col-small__pic-img"
-          src="../../assets/img/img-main02.jpg"
+          src="../../assets/img/story2-2.jpeg"
         >
       </div>
     </div>

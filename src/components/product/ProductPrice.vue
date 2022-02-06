@@ -49,8 +49,26 @@ export default {
 @import "../../assets/scss/functions";
 
 .product-price__price-old {
-  display: flex;
+  display: inline-flex;
   align-items: baseline;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background:
+      linear-gradient(to top right,
+        rgba(200,200,200,0) 0%,
+        rgba(200,200,200,0) calc(50% - 0.8px),
+        rgba(100,100,100,1) 50%,
+        rgba(200,200,200,0) calc(50% + 0.8px),
+        rgba(200,200,200,0) 100%);
+  }
 
   @media screen and (max-width: 767px) {
     justify-content: flex-end;
@@ -59,19 +77,20 @@ export default {
 
 .product-price__price-old-value {
   margin-right: 0.1em;
-  font-size: adaptive_fz(25px, 14px);
-  font-weight: 500;
-  text-decoration: line-through;
-  color: $text_color_light;
+  font-size: adaptive_fz(30px, 14px);
+  font-weight: 600;
+  color: #d4d4d4;
+  line-height: 0.9;
+  position: relative;
 
   @media screen and (min-width: 1440px) {
-    font-size: 25px;
+    font-size: 35px;
   }
 }
 
 .product-price__price-old-currency {
   font-size: adaptive_fz(14px, 9px);
-  color: $text_color_light;
+  color: #d4d4d4;
 
   @media screen and (min-width: 1440px) {
     font-size: 14px;

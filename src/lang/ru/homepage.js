@@ -1,6 +1,6 @@
 export default {
   carousel_slide_1: 'Удобство. Легкость. Практичность.',
-  banner_1_text: 'Зимняя коллекция 2021',
+  banner_1_text: 'Коллекция',
   popular_goods: 'Популярные товары',
   banner_2_text: 'Межсезонная коллекция',
 

@@ -10,7 +10,7 @@
       <img
         alt="boot image"
         class="story-one__pic-img"
-        src="../../assets/img/img-main01.png"
+        src="../../assets/img/IMG_6313.png"
       >
     </div>
     <div class="story-one__text">
@@ -42,7 +42,7 @@ export default {
 
 .story-one {
   display: flex;
-  margin: 3em 0 4.6em;
+  margin: 3em 0 3em;
   font-family: "Roboto", sans-serif;
   font-size: adaptive_fz(46px, 15px);
   font-weight: 700;
@@ -71,15 +71,14 @@ export default {
 
 .story-one__pic-img {
   position: relative;
-  left: 5%;
-  top: 10%;
-  z-index: 2;
-  width: 100%;
+  right: 135%;
+  top: 0%;
+  z-index: 0;
+  width: 300%;
   display: block;
 
   @media screen and (max-width: 767px) {
-    left: 0%;
-    top: -60px;
+    right: 145%;
   }
 }
 
@@ -122,6 +121,7 @@ export default {
 
     &:nth-child(1) {
       transition-delay: 0ms;
+      left: -40px;
     }
 
     &:nth-child(2) {
@@ -144,6 +144,10 @@ export default {
     @media screen and (min-width: 768px) {
       transform: translateY(250px);
     }
+
+    @media screen and (max-width: 767px) {
+      transform: translateX(250px);
+    }
   }
 
   &.aos-animate {
@@ -153,7 +157,7 @@ export default {
     }
 
     .story-one__pic-img {
-      transform: translateY(60px);
+      transform: translateY(0);
       opacity: 1;
     }
   }

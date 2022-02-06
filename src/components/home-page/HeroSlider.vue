@@ -61,19 +61,19 @@ export default {
       },
       slides: [
         {
-          image: '/img/hero-slider/hero-3.jpg',
+          image: '/img/hero-slider/hero-3.png',
           text_ru: '',
           text_ua: '',
           isLogoVisible: false,
         },
         {
-          image: '/img/hero-slider/hero-1.jpg',
+          image: '/img/hero-slider/hero-1.png',
           text_ru: '',
           text_ua: '',
           isLogoVisible: false,
         },
         {
-          image: '/img/hero-slider/hero-2.jpg',
+          image: '/img/hero-slider/hero-2.png',
           text_ru: '',
           text_ua: '',
           isLogoVisible: false,
@@ -92,9 +92,6 @@ export default {
       // this.$refs.swiper.initSwiper()
       console.log('locale change', this.$refs.swiper)
     },
-  },
-  mounted() {
-    console.log(this.$i18n)
   },
 }
 </script>
@@ -117,7 +114,7 @@ export default {
   width: 40px;
   height: 30px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(200, 200, 200, 0.3);
   font-size: 0;
   cursor: pointer;
 
@@ -150,11 +147,10 @@ export default {
 }
 
 .swiper__item {
-  height: calc(100vh - ((2 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw))));
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: calc(0.5 *(100vh - ((2 * adaptive_fz(11px, 8px)) + (4 * adaptive_fz(14px, 9px) + 0.225 * Max(120px, 8.5vw)))));
+  padding-top: 45%;
   font-family: 'PT Sans Caption', sans-serif;
   font-size: adaptive_fz(15px, 10px);
   font-weight: 700;

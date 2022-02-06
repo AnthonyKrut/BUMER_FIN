@@ -5,28 +5,29 @@
     data-aos-offset="200"
   >
     <div class="banner-1__pic">
-      <img alt="boy in sneakers" class="banner-1__img" src="../../assets/img/img-baner01-1.jpg">
+      <img alt="banner-1" class="banner-1__img" src="../../assets/img/IMG_6258.jpeg">
     </div>
     <div class="banner-1__about">
       <h3 class="banner-1__about-title">
         {{ $t('homepage.banner_1_text') }}
       </h3>
       <div class="banner-1__about-sku">
-        qn 380
+        2022
       </div>
-      <div class="banner-1__about-price">
-        2999.99 <span class="banner-1__about-price-currency">ГРН</span>
-      </div>
+
+<!--      <div class="banner-1__about-price">-->
+<!--        2999.99 <span class="banner-1__about-price-currency">ГРН</span>-->
+<!--      </div>-->
 
       <img
         alt="sneaker"
         class="banner-1__about-img"
-        src="../../assets/img/img-baner01-2.png"
+        src="../../assets/img/IMG_6309.png"
       >
 
-      <router-link class="banner-1__about-link" to="/">
-        <img alt="arrow pointer" class="banner-1__about-link-img" src="../../assets/img/svg/arr-right-black.svg">
-      </router-link>
+<!--      <router-link class="banner-1__about-link" to="/">-->
+<!--        <img alt="arrow pointer" class="banner-1__about-link-img" src="../../assets/img/svg/arr-right-black.svg">-->
+<!--      </router-link>-->
     </div>
   </div>
 </template>
@@ -55,6 +56,10 @@ export default {
 
 .banner-1__pic {
   width: 35%;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 }
 
 .banner-1__img {
@@ -69,8 +74,12 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   width: 65%;
-  padding: 3.5vw 5vw;
+  padding: 4.5vw 5vw 0 5vw;
   background-color: #f5f5f5;;
+
+  @media screen and (max-width: 500px) {
+    width: auto;
+  }
 }
 
 .banner-1__about-link {
@@ -92,24 +101,35 @@ export default {
 }
 
 .banner-1__about-img {
-  position: absolute;
-  top: 31%;
-  left: calc(50% - 0.45 * 45%);
-  width: 45%;
+  position: relative;
+  top: -6.5vw;
+  left: calc(50% - 0.45 * 75%);
+  width: 75%;
+
+  @media screen and (max-width: 500px) {
+    top: -40px;
+  }
 }
 
 .banner-1__about-title {
   text-transform: uppercase;
-  font-size: adaptive_fz(20px, 12px);
+  font-size: adaptive_fz(30px, 12px);
+  text-align: center;
+  margin-top: 40px;
 }
 
 .banner-1__about-sku {
-  margin-bottom: 2em;
-  font-size: adaptive_fz(122px, 25px);
+  font-size: adaptive_fz(202px, 25px);
   text-transform: uppercase;
   text-align: center;
+  line-height: 0.9;
+  font-weight: bold;
   @media screen and (min-width: 1440px) {
-    font-size: 122px;
+    font-size: 202px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 80px;
   }
 }
 

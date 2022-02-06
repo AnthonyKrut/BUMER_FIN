@@ -1,22 +1,26 @@
 <template>
-  <loader
-    bg="#ffffff"
-    class="loader"
-    color1="#cccccc"
-    color2="#000000"
-    :disable-scrolling="false"
-    name="circular"
-    object="#ee1c25"
-    objectbg="#999793"
-    opacity="80"
-    :size="2"
-    :speed="1.3"
-  />
+  <TransitionWrapper>
+    <loader
+      :disable-scrolling="false"
+      :size="2"
+      :speed="1.3"
+      bg="#ffffff"
+      class="loader"
+      color1="#cccccc"
+      color2="#000000"
+      name="circular"
+      object="#ee1c25"
+      objectbg="#999793"
+      opacity="80"
+    />
+  </TransitionWrapper>
 </template>
 
 <script>
+import TransitionWrapper from '@/components/common/TransitionWrapper'
 export default {
   name: 'ThePreloader',
+  components: {TransitionWrapper},
 }
 </script>
 
@@ -39,6 +43,7 @@ export default {
     right: 0;
     left: 0;
   }
+
   .loader-circular {
     width: 100px;
     height: 100px;

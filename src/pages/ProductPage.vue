@@ -1,55 +1,69 @@
 <template>
-  <section class="product-card" @show-not-available="$refs.outOfStockModal.openModal()">
+  <section :key="product && product.id" class="product-card" @show-not-available="$refs.outOfStockModal.openModal()">
     <div class="container">
-      <div v-if="product" class="product-card-wrapper">
-        <div class="product-card__top">
-          <!--        <PrevNextProductArrow type="prev" />-->
-          <!--        <PrevNextProductArrow type="next" />-->
 
-          <ProductImages :product="product" />
+      <TransitionWrapper>
+        <div v-if="product" class="product-card-wrapper">
+          <div class="product-card__top">
+            <!--        <PrevNextProductArrow type="prev" />-->
+            <!--        <PrevNextProductArrow type="next" />-->
 
-          <div class="product-card__info-column">
-            <div class="product-card__title">
-              <div class="product-card__heading">
-                {{ product[$_i18n_getFieldWithLocale('name')] }}
+            <ProductImages :product="product" />
+
+            <div class="product-card__info-column">
+              <div class="product-card__title">
+                <div class="product-card__heading">
+                  {{ product[`name_${$i18n.locale}`] }}
+                </div>
+                <div v-show="isOnSale" class="product-card__sale-label">
+                  SALE
+                </div>
               </div>
-              <div v-show="isOnSale" class="product-card__sale-label">
-                SALE
+
+              <ProductDetails :product="product" />
+              <ColorsList :product="product" />
+              <SizesList :product="product" />
+
+
+              <div class="sizes-grid-button">
+                <div class="sizes-grid-button__inner" @click="$refs.sizesGridModal.openModal()">
+                  <SvgImage class="sizes-grid-button__icon" name="boot" />
+                  <span>{{ $t('product.size_grid') }} ></span>
+                </div>
               </div>
-            </div>
 
-            <ProductDetails :product="product" />
-            <!--            <ColorsList :product="product" />-->
-            <SizesList :product="product" />
+              <div class="product-card__adaptive-wrapper">
+                <ProductPrice :product="product" />
 
-            <div class="sizes-grid-button">
-              <div class="sizes-grid-button__inner" @click="$refs.sizesGridModal.openModal()">
-                <SvgImage class="sizes-grid-button__icon" name="boot" />
-                <span>{{ $t('product.size_grid') }} ></span>
+                <ErrorBlock v-if="!isSizeSelected && error">
+                  {{ error }}
+                </ErrorBlock>
+
+                <Btn class="product-card__buy-btn" @click.native="addProductToCart">
+                  <SvgImage class="product-card__cart-icon" name="cart" />
+                  {{ $t('product.buy') }}
+                </Btn>
               </div>
-            </div>
-
-            <div class="product-card__adaptive-wrapper">
-              <ProductPrice :product="product" />
-
-              <Btn class="product-card__buy-btn" @click.native="addProductToCart">
-                <SvgImage class="product-card__cart-icon" name="cart" />
-                {{ $t('product.buy') }}
-              </Btn>
             </div>
           </div>
         </div>
-      </div>
+      </TransitionWrapper>
+
+      <TransitionWrapper>
+        <div v-if="product" class="product-card__description" v-html="product[`description_${$i18n.locale}`]" />
+      </TransitionWrapper>
 
       <ThePreloader v-if="loading" />
 
-      <Catalog
-        v-if="recommendedProducts"
-        class="product-card__catalog-recommend"
-        :heading="$t('product.recommended')"
-        heading-position="left"
-        :products="recommendedProducts"
-      />
+      <TransitionWrapper>
+        <Catalog
+          v-if="product && recommendedProducts.length"
+          :heading="$t('product.recommended')"
+          :products="recommendedProducts"
+          class="product-card__catalog-recommend"
+          heading-position="left"
+        />
+      </TransitionWrapper>
     </div>
 
     <SizesGridModal ref="sizesGridModal" />
@@ -60,28 +74,31 @@
 <script>
 import SvgImage from '@/components/common/SvgImage.vue'
 import Btn from '@/components/common/Btn'
-import {mapActions, mapGetters, mapMutations} from 'vuex'
+import {mapActions, mapMutations, mapState} from 'vuex'
 import SizesGridModal from '@/components/product/SizesGridModal'
 import OutOfStockModal from '@/components/product/OutOfStockModal'
 import Catalog from '@/components/catalog/Catalog'
 import SizesList from '@/components/product/SizesList'
-// import ColorsList from '@/components/product/ColorsList'
+import ColorsList from '@/components/product/ColorsList'
 import ProductDetails from '@/components/product/ProductDetails'
 // import PrevNextProductArrow from '@/components/product/PrevNextProductArrow'
 import ProductImages from '@/components/product/ProductImages'
 import ProductPrice from '@/components/product/ProductPrice'
 import ThePreloader from '@/components/common/ThePreloader'
-import i18n from '@/mixins/i18n'
+import ErrorBlock from '@/components/common/ErrorBlock'
+import TransitionWrapper from '@/components/common/TransitionWrapper'
 
 export default {
   name: 'ProductPage',
   components: {
+    TransitionWrapper,
+    ErrorBlock,
     ThePreloader,
     ProductPrice,
     ProductImages,
     // PrevNextProductArrow,
     ProductDetails,
-    // ColorsList,
+    ColorsList,
     SizesList,
     Catalog,
     SizesGridModal,
@@ -89,30 +106,34 @@ export default {
     Btn,
     SvgImage,
   },
-  mixins: [i18n],
   data() {
     return {
       loading: false,
+      recommendedProductsLoading: true,
       product: null,
+      error: null,
     }
   },
   computed: {
-    ...mapGetters('products', [
-      'getProductsByCategoryId',
-    ]),
+    ...mapState('products', {
+      recommendedProducts: 'products',
+    }),
     productId() {
       return this.$route.params.id
     },
     isOnSale() {
-      return this.product?.items?.[0].price_sale
+      return this.product?.salePrice
     },
-    recommendedProducts() {
-      return this.getProductsByCategoryId(this.product?.categoryId)
+    isSizeSelected() {
+      if (this.product?.productInfo?.length) {
+        return this.product?.productInfo?.some(i => i.isActive)
+      }
+      return false
     },
   },
-  created() {
-    this.getProduct()
-    this.getRecommendedProducts()
+  async created() {
+    await this.getProduct()
+    await this.getRecommendedProducts()
   },
   methods: {
     ...mapActions('products', [
@@ -131,9 +152,24 @@ export default {
       this.loading = false
     },
     async getRecommendedProducts() {
-      await this.fetchProducts()
+      this.recommendedProductsLoading = true
+      await this.fetchProducts([
+        // {
+        //   field: 'IsActive',
+        //   value: true
+        // },
+        {
+          field: 'CategoryId',
+          value: this.product.category?.id,
+        },
+      ])
+      this.recommendedProductsLoading = false
     },
     addProductToCart() {
+      if (!this.isSizeSelected) {
+        this.error = this.$t('product.size_not_selected')
+        return
+      }
       this.addToCart(this.product)
       this.openCartPopover()
     },
@@ -246,6 +282,11 @@ export default {
   @media screen and (max-width: 767px) {
     margin-bottom: calc(1.5 * adaptive_fz(20px, 12px));
   }
+}
+
+.product-card__description {
+  margin-top: 40px;
+  margin-bottom: 130px;
 }
 
 </style>
