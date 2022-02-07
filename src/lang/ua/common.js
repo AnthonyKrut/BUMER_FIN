@@ -14,4 +14,5 @@ export default {
   privacy_policy: 'Політика конфіденційності',
   public_offer: 'Договір публічної оферти',
   back_to_homepage: 'Повернутися на головну',
+  error: 'Помилка',
 }

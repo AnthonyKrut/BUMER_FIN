@@ -36,7 +36,7 @@
               @click="toggleCartPopover"
             >
               <SvgImage name="cart" />
-              <span v-if="cart.length">({{ cart.length }})</span>
+              <span v-if="cartCount">({{ cartCount }})</span>
             </div>
 
             <CartPopover />
@@ -50,7 +50,7 @@
 <script>
 import SvgImage from './SvgImage.vue'
 import CartPopover from '@/components/common/CartPopover'
-import {mapMutations, mapState} from 'vuex'
+import {mapMutations, mapState, mapGetters} from 'vuex'
 import MainNav from '@/components/common/MainNav'
 import HeaderSearchForm from '@/components/common/HeaderSearchForm'
 import LangSwitcher from '@/components/common/LangSwitcher'
@@ -75,19 +75,19 @@ export default {
       isScrolled: false,
     }
   },
+  computed: {
+    ...mapState('common', [
+      'isCartPopoverVisible',
+    ]),
+    ...mapGetters('cart', [
+      'cartCount',
+    ]),
+  },
   mounted() {
     window.addEventListener('scroll', this.onPageScroll);
   },
   beforeDestroy() {
     window.addEventListener('scroll', null);
-  },
-  computed: {
-    ...mapState('common', [
-      'isCartPopoverVisible',
-    ]),
-    ...mapState('cart', [
-      'cart',
-    ]),
   },
   methods: {
     ...mapMutations('common', [

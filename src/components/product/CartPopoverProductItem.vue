@@ -4,7 +4,7 @@
     <div class="cart-popover-product-item__right">
       <div>
         <div class="cart-popover-product-item__name">
-          {{product[`name_${$i18n.locale}`]}}
+          {{ product[`name_${$i18n.locale}`] }}
         </div>
 
         <div
@@ -13,24 +13,24 @@
           class="cart-popover-product-item__info"
         >
           <div class="cart-popover-product-item__size">
-            {{ $t('product.size') }}: {{size.size}}
+            {{ $t('product.size') }}: {{ size.size }}
           </div>
 
           <div class="cart-popover-product-item__count">
-            {{ $t('product.quantity_short') }}: {{size.quantityInOrder}}шт
+            {{ $t('product.quantity_short') }}: {{ size.quantityInOrder }}шт
           </div>
         </div>
       </div>
 
       <div>
-        <div class="cart-popover-product-item__price-old">
-          2 499
+        <div v-if="isOnSale" class="cart-popover-product-item__price-old">
+          {{priceOld}}
           <div class="cart-popover-product-item__currency-old">
             грн
           </div>
         </div>
         <div class="cart-popover-product-item__price">
-          2 499
+          {{activePrice}}
           <div class="cart-popover-product-item__currency">
             грн
           </div>
@@ -55,7 +55,16 @@ export default {
     },
     sizes() {
       return this.product.productInfo.filter(i => i.quantityInOrder > 0)
-    }
+    },
+    isOnSale() {
+      return this.product?.salePrice
+    },
+    activePrice() {
+      return this.product.salePrice || this.product.price
+    },
+    priceOld() {
+      return this.product.price
+    },
   },
 }
 </script>

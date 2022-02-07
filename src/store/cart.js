@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import i18n from './../i18n.bootstrap'
 
 const _getCartItems = () => {
   const localStorageVal = localStorage.getItem('cart')
@@ -11,17 +12,18 @@ const _getActiveSize = (product) => {
 }
 
 const _addQuantity = (sizes, activeSize, quantity) => {
-  return sizes.map(size => {
+  return sizes.map(origin => {
+    const size = {...origin}
     if (size.size === activeSize) {
       size.quantityInOrder = size.quantityInOrder + quantity
     }
-    return size
+    return {...size}
   })
 
 }
 
-const _isQuantityUnavailable = (product) => {
-  return product.productInfo.some(size => {
+const _isQuantityUnavailable = (sizes) => {
+  return sizes.some(size => {
     return size.quantityInOrder > size.quantity
   })
 }
@@ -33,14 +35,46 @@ const _isProductExistsInCart = (product, cart) => {
 
 export default {
   state: () => ({
-    cart: _getCartItems()
+    cart: _getCartItems(),
   }),
   getters: {
-    total() {
-      return 5432
+    cartCount(state, getters) {
+      return state.cart.reduce((acc, item) => {
+        return acc += getters.cartItemCount(item)
+      }, 0)
     },
-    safe() {
-      return 200
+
+    cartItemCount() {
+      return (cartItem) => {
+        return cartItem.productInfo.reduce((sizeAcc, sizeItem) => {
+          return sizeAcc += sizeItem.quantityInOrder
+        }, 0)
+      }
+    },
+
+    total(state, getters) {
+      return state.cart.reduce((acc, cartItem) => {
+        return acc += getters.cartItemCount(cartItem) * getters.cartItemFinalPrice(cartItem)
+      }, 0)
+    },
+
+    cartItemFinalPrice() {
+      return (product) => {
+        return product.salePrice || product.price
+      }
+    },
+
+    cartItemPriceDelta() {
+      return (product) => {
+        if(!product.salePrice) return 0
+        return product.price - product.salePrice
+      }
+    },
+
+    safe(state, getters) {
+      return state.cart.reduce((acc, cartItem) => {
+        return acc += getters.cartItemCount(cartItem) * getters.cartItemPriceDelta(cartItem)
+      }, 0)
     },
   },
   mutations: {
@@ -48,29 +82,27 @@ export default {
       let product = {...payload}
 
       const activeSize = _getActiveSize(product)
-      if (!activeSize) return
 
-      let sizes = []
       if(_isProductExistsInCart(product, state.cart)) {
-        sizes = _addQuantity(state.cart.find(i => i.id === product.id).productInfo, activeSize, 1)
-      } else {
-        sizes = _addQuantity(product.productInfo, activeSize, 1)
+        product = {...state.cart.find(i => i.id === product.id)}
       }
 
-      if (_isQuantityUnavailable(product)) {
-        Vue.swal('Ошибка', 'Такого количества данного товара нет на складе', 'error')
+      product.productInfo = _addQuantity(product.productInfo, activeSize, 1)
+
+      if (_isQuantityUnavailable(product.productInfo)) {
+        Vue.swal(i18n.t('common.error'), i18n.t('cart.to_many_products'), 'error')
         return
       }
 
       if(_isProductExistsInCart(product, state.cart)) {
-        state.cart.find(i => i.id === product.id).productInfo = sizes
+        state.cart = state.cart.map(cartItem => cartItem.id === product.id ? product : cartItem)
       } else {
-        product.productInfo = sizes
         state.cart.push(product)
       }
 
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
+
     clearCart(state) {
       state.cart = []
       localStorage.removeItem('cart')

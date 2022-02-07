@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     ...mapMutations('cart', [
-      'clearCart'
+      'clearCart',
     ]),
     ...mapMutations('common', [
       'closeCartPopover',

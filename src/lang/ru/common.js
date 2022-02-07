@@ -14,4 +14,5 @@ export default {
   privacy_policy: 'Политика конфиденциальности',
   public_offer: 'Договор публичной оферты',
   back_to_homepage: 'Вернуться на главную',
+  error: 'Ошибка',
 }
