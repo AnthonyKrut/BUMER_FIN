@@ -4,7 +4,7 @@
 
     <div class="container">
       <Banner1 />
-<!--      <Catalog :heading="$t('homepage.popular_goods')" :products="[1,2,3,4]" />-->
+      <!--      <Catalog :heading="$t('homepage.popular_goods')" :products="[1,2,3,4]" />-->
     </div>
 
     <div class="container container--mobile">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="container">
-<!--      <Catalog :products="[1,2,3,4]" />-->
+      <!--      <Catalog :products="[1,2,3,4]" />-->
       <Story1 />
       <Story2 />
     </div>

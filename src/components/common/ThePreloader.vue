@@ -1,17 +1,17 @@
 <template>
   <TransitionWrapper>
     <loader
-      :disable-scrolling="false"
-      :size="2"
-      :speed="1.3"
       bg="#ffffff"
       class="loader"
       color1="#cccccc"
       color2="#000000"
+      :disable-scrolling="false"
       name="circular"
       object="#ee1c25"
       objectbg="#999793"
       opacity="80"
+      :size="2"
+      :speed="1.3"
     />
   </TransitionWrapper>
 </template>

@@ -1,18 +1,18 @@
 <template>
   <div class="mobile-main-nav">
     <router-link
-      :to="{name: 'Home'}"
       active-class="mobile-main-nav__category--active"
       class="mobile-main-nav__category"
+      :to="{name: 'Home'}"
     >
-      {{ $t('common.main_page')}}
+      {{ $t('common.main_page') }}
     </router-link>
     <router-link
       v-for="category in categories"
       :key="category.id"
-      :to="{name: 'Catalog', params: {id: category.id}}"
       active-class="mobile-main-nav__category--active"
       class="mobile-main-nav__category"
+      :to="{name: 'Catalog', params: {id: category.id}}"
     >
       {{ category[$_i18n_getFieldWithLocale('name')] }}
     </router-link>

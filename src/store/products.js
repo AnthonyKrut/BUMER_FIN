@@ -36,6 +36,7 @@ export default {
 
         item.productInfo.map(i => {
           i.isActive = false
+          i.quantityInOrder = 0
           return i
         })
 

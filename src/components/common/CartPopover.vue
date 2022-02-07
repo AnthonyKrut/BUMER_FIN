@@ -6,11 +6,10 @@
     tabindex="0"
     @focusout="close($event)"
   >
-    {{cart}}
     <div v-if="cart.length" class="cart-popover__content">
       <CartPopoverProductItem
         v-for="product in cart"
-        :key="product.article_num"
+        :key="product.article"
         :product="product"
       />
     </div>
@@ -25,7 +24,7 @@
           {{ $t('cart.total') }}:
         </div>
         <div class="cart-popover__total-price">
-          {{total}} грн
+          {{ total }} грн
         </div>
       </div>
       <Btn
@@ -37,6 +36,10 @@
       >
         {{ $t('cart.go_to_cart') }}
       </Btn>
+
+      <div class="cart-popover__footer-link" @click="clearCart">
+        Clear cart
+      </div>
 
       <div class="cart-popover__footer-link" @click="closeCartPopover">
         {{ $t('cart.continue_purchaising') }}
@@ -62,7 +65,7 @@ export default {
   },
   data() {
     return {
-      catalog: []
+      catalog: [],
     }
   },
   computed: {
@@ -73,21 +76,23 @@ export default {
       'cart',
     ]),
     ...mapGetters('cart', [
-      'total'
-    ])
+      'total',
+    ]),
   },
   methods: {
+    ...mapMutations('cart', [
+      'clearCart'
+    ]),
+    ...mapMutations('common', [
+      'closeCartPopover',
+    ]),
     close(event) {
-      if (this.$el === event.relatedTarget
-        || this.$el.contains(event.relatedTarget)) {
+      if (this.$el === event.relatedTarget || this.$el.contains(event.relatedTarget)) {
         return
       } else {
         this.closeCartPopover()
       }
     },
-    ...mapMutations('common', [
-      'closeCartPopover',
-    ]),
   },
 }
 </script>

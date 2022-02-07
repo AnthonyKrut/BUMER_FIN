@@ -23,6 +23,6 @@ export default new Vuex.Store({
     lang,
     search,
     categories,
-    locales
+    locales,
   },
 })

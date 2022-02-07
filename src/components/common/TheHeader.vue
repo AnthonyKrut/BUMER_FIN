@@ -24,7 +24,7 @@
             </router-link>
           </div>
 
-          <div></div>
+          <div />
           <MainNav />
 
           <div class="header__bottom-right">

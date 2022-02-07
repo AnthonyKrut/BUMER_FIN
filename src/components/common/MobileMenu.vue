@@ -4,10 +4,10 @@
     <div class="mobile-menu__logo-wrapper">
       <SvgImage name="logo" />
     </div>
-<!--    <MobileMainNav -->
-<!--      :items="navMain" -->
-<!--      @click.native="closeMobileMenu"-->
-<!--    />-->
+    <!--    <MobileMainNav -->
+    <!--      :items="navMain" -->
+    <!--      @click.native="closeMobileMenu"-->
+    <!--    />-->
     <MobileSecondaryNav
       :items="navSecondary"
       @click.native="closeMobileMenu"

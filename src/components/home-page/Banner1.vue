@@ -15,9 +15,9 @@
         2022
       </div>
 
-<!--      <div class="banner-1__about-price">-->
-<!--        2999.99 <span class="banner-1__about-price-currency">ГРН</span>-->
-<!--      </div>-->
+      <!--      <div class="banner-1__about-price">-->
+      <!--        2999.99 <span class="banner-1__about-price-currency">ГРН</span>-->
+      <!--      </div>-->
 
       <img
         alt="sneaker"
@@ -25,9 +25,9 @@
         src="../../assets/img/IMG_6309.png"
       >
 
-<!--      <router-link class="banner-1__about-link" to="/">-->
-<!--        <img alt="arrow pointer" class="banner-1__about-link-img" src="../../assets/img/svg/arr-right-black.svg">-->
-<!--      </router-link>-->
+      <!--      <router-link class="banner-1__about-link" to="/">-->
+      <!--        <img alt="arrow pointer" class="banner-1__about-link-img" src="../../assets/img/svg/arr-right-black.svg">-->
+      <!--      </router-link>-->
     </div>
   </div>
 </template>

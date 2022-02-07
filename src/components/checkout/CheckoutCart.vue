@@ -18,7 +18,7 @@
 
     <div v-if="safe" class="checkout-page__discount">
       <div>{{ $t('cart.saving') }}</div>
-      <div>{{safe}} грн</div>
+      <div>{{ safe }} грн</div>
     </div>
 
     <div class="checkout-page__total">
@@ -26,7 +26,7 @@
         {{ $t('cart.to_pay') }}
       </div>
       <div class="checkout-page__total-value">
-        {{total}} грн
+        {{ total }} грн
       </div>
     </div>
   </div>
@@ -45,8 +45,8 @@ export default {
     ]),
     ...mapGetters('cart', [
       'total',
-      'safe'
-    ])
+      'safe',
+    ]),
   },
 }
 </script>

@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     ...mapActions('locales', [
-      'getLanguageList'
+      'getLanguageList',
     ]),
     ...mapActions('categories', [
       'fetchCategories',

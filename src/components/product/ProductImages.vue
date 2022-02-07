@@ -22,12 +22,12 @@
     </div>
 
     <vue-easy-lightbox
-      scrollDisabled
-      escDisabled
-      moveDisabled
-      :visible="isLightboxVisible"
+      esc-disabled
       :imgs="allImages"
       :index="lightboxIndex"
+      move-disabled
+      scroll-disabled
+      :visible="isLightboxVisible"
       @hide="hideLightbox"
     />
   </div>
@@ -39,7 +39,7 @@ import VueEasyLightbox from 'vue-easy-lightbox'
 export default {
   name: 'ProductImages',
   components: {
-    VueEasyLightbox
+    VueEasyLightbox,
   },
   props: {
     product: {
@@ -53,7 +53,7 @@ export default {
     return {
       mainImageId: null,
       isLightboxVisible: false,
-      lightboxIndex: 0
+      lightboxIndex: 0,
     }
   },
   computed: {
@@ -80,7 +80,7 @@ export default {
     },
     hideLightbox() {
       this.isLightboxVisible = false
-    }
+    },
   },
 }
 </script>

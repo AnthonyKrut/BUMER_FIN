@@ -18,7 +18,7 @@ export default {
   name: 'MainNav',
   computed: {
     ...mapGetters('locales', [
-      'getFieldByLocale'
+      'getFieldByLocale',
     ]),
     ...mapState('categories', [
       'categories',

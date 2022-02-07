@@ -1,18 +1,24 @@
 <template>
   <router-link class="cart-popover-product-item" :to="{name: 'Product'}">
-    <div class="cart-popover-product-item__left" :style="`background-image:url(${product.items[0].pics[0]});`" />
+    <div class="cart-popover-product-item__left" :style="`background-image:url(${mainImage});`" />
     <div class="cart-popover-product-item__right">
       <div>
         <div class="cart-popover-product-item__name">
-          Кроссовки
+          {{product[`name_${$i18n.locale}`]}}
         </div>
 
-        <div class="cart-popover-product-item__count">
-          {{ $t('product.quantity_short') }}: 1шт
-        </div>
+        <div
+          v-for="size in sizes"
+          :key="size.size"
+          class="cart-popover-product-item__info"
+        >
+          <div class="cart-popover-product-item__size">
+            {{ $t('product.size') }}: {{size.size}}
+          </div>
 
-        <div class="cart-popover-product-item__size">
-          {{ $t('product.size') }}: 43
+          <div class="cart-popover-product-item__count">
+            {{ $t('product.quantity_short') }}: {{size.quantityInOrder}}шт
+          </div>
         </div>
       </div>
 
@@ -43,6 +49,14 @@ export default {
       required: true,
     },
   },
+  computed: {
+    mainImage() {
+      return this.product?.images.find(i => i.imagePosition === 'Main')?.src
+    },
+    sizes() {
+      return this.product.productInfo.filter(i => i.quantityInOrder > 0)
+    }
+  },
 }
 </script>
 
@@ -51,7 +65,6 @@ export default {
 
 .cart-popover-product-item {
   display: flex;
-  background: $product_bg;
   border-bottom: 1px solid $divider_color;
   text-decoration: none;
   color: #000;
@@ -135,6 +148,10 @@ export default {
   position: relative;
   top: 1px;
   text-transform: uppercase;
+}
+
+.cart-popover-product-item__info {
+  margin-bottom: 15px;
 }
 
 </style>

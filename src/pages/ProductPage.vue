@@ -1,7 +1,6 @@
 <template>
   <section :key="product && product.id" class="product-card" @show-not-available="$refs.outOfStockModal.openModal()">
     <div class="container">
-
       <TransitionWrapper>
         <div v-if="product" class="product-card-wrapper">
           <div class="product-card__top">
@@ -58,10 +57,10 @@
       <TransitionWrapper>
         <Catalog
           v-if="product && recommendedProducts.length"
-          :heading="$t('product.recommended')"
-          :products="recommendedProducts"
           class="product-card__catalog-recommend"
+          :heading="$t('product.recommended')"
           heading-position="left"
+          :products="recommendedProducts"
         />
       </TransitionWrapper>
     </div>

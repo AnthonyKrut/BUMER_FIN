@@ -65,13 +65,13 @@ export default {
       return this.getCategoryById(this.categoryId)
     },
   },
-  created() {
-    this.getProducts()
-  },
   watch: {
     categoryId() {
       this.getProducts()
     },
+  },
+  created() {
+    this.getProducts()
   },
   methods: {
     ...mapActions('products', [

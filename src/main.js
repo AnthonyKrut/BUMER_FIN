@@ -11,6 +11,7 @@ import Vuelidate from 'vuelidate'
 import i18n from './i18n.bootstrap'
 import loader from 'vue-ui-preloader'
 import VueMeta from 'vue-meta'
+import 'sweetalert2/dist/sweetalert2.min.css'
 
 Vue.use(Vuelidate)
 Vue.use(vueDebounce)

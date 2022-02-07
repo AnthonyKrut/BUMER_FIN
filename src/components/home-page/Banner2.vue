@@ -2,13 +2,13 @@
   <div class="banner-2">
     <div class="banner-2__inner">
       <div class="banner-2__title">
-      <span
-        class="banner-2__title-text"
-        data-aos="fade-left"
-        data-aos-duration="1000"
-      >
-        {{ $t('homepage.banner_2_text') }}
-      </span>
+        <span
+          class="banner-2__title-text"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
+          {{ $t('homepage.banner_2_text') }}
+        </span>
         <span
           class="banner-2__title-discount"
           data-aos="fade-left"

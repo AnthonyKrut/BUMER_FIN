@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
     state: () => ({
-        languageList: JSON.parse(localStorage.getItem('languageList'))
+        languageList: JSON.parse(localStorage.getItem('languageList')),
     }),
     mutations: {
         setLanguageList(state, list) {
