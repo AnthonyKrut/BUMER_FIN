@@ -5,11 +5,11 @@
         <Multiselect
           v-model="selectedFilters.sortBy"
           class="catalog-filters__filter"
-          :options="sortByList"
           label="label"
-          track-by="label"
+          :options="sortByList"
           :placeholder="$t('product.sort_by')"
           :show-labels="false"
+          track-by="label"
           @input="onFiltersChanged"
         >
           <template slot="singleLabel">
@@ -87,13 +87,13 @@
         <Multiselect
           v-model="selectedFilters.seasons"
           class="catalog-filters__filter"
+          :label="`name_${$i18n.locale}`"
+          multiple
           :options="seasonsList"
           :placeholder="$t('product.seasons')"
           :searchable="false"
           :show-labels="false"
-          multiple
           track-by="id"
-          :label="`name_${$i18n.locale}`"
           @input="onFiltersChanged"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
@@ -147,9 +147,9 @@
       <div v-if="selectedFilters.seasons.length" class="catalog-filters__selected-group">
         {{ $t('product.seasons') }}:
         <div
-            v-for="season in selectedFilters.seasons"
-            :key="season.id"
-            class="catalog-filters__selected-item"
+          v-for="season in selectedFilters.seasons"
+          :key="season.id"
+          class="catalog-filters__selected-item"
         >
           {{ season[`name_${$i18n.locale}`] }}
           <div class="catalog-filters__selected-item-close" @click="removeSelectedFilter(season, 'seasons')">
@@ -249,7 +249,7 @@ export default {
         colors: this.selectedFilters.colors.length ? this.selectedFilters.colors.map(i => i.id) : null,
         seasons: this.selectedFilters.seasons.length ? this.selectedFilters.seasons.map(i => i.id) : null,
       })
-    }
+    },
   },
 }
 </script>

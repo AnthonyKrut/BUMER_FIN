@@ -65,7 +65,7 @@ export default {
     async fetchRelatives(_, article) {
       const {data} = await axios.post(`/Product/GetRelatives?article=${article}`)
       return data
-    }
+    },
   },
   namespaced: true,
 }

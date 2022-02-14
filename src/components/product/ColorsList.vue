@@ -6,19 +6,19 @@
 
     <div class="colors-list__list">
       <div
-          :style="{backgroundColor: product.color.hex}"
-          class="colors-list__color colors-list__color--active"
+        class="colors-list__color colors-list__color--active"
+        :style="{backgroundColor: product.color.hex}"
       >
         <div class="colors-list__color-check">
           <SvgImage name="check1" />
         </div>
       </div>
       <router-link
-          v-for="item in relatives"
-          :key="item.id"
-          :style="{backgroundColor: item.color.hex}"
-          :to="{name: 'Product', params: {id: item.id}}"
-          class="colors-list__color"
+        v-for="item in relatives"
+        :key="item.id"
+        class="colors-list__color"
+        :style="{backgroundColor: item.color.hex}"
+        :to="{name: 'Product', params: {id: item.id}}"
       />
     </div>
   </div>
@@ -45,7 +45,7 @@ export default {
         return []
       },
     },
-  }
+  },
 }
 </script>
 

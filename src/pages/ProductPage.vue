@@ -114,7 +114,7 @@ export default {
       recommendedProductsLoading: true,
       product: null,
       error: null,
-      relatives: []
+      relatives: [],
     }
   },
   computed: {
@@ -134,19 +134,19 @@ export default {
       return false
     },
   },
-  created() {
-    this.getData()
-  },
   watch: {
     productId() {
       this.getData()
     },
   },
+  created() {
+    this.getData()
+  },
   methods: {
     ...mapActions('products', [
       'fetchProduct',
       'fetchProducts',
-      'fetchRelatives'
+      'fetchRelatives',
     ]),
     ...mapMutations('common', [
       'openCartPopover',

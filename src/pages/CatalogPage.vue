@@ -52,8 +52,8 @@ export default {
       filters: {
         sizes: [],
         colors: [],
-        seasons: []
-      }
+        seasons: [],
+      },
     }
   },
   computed: {

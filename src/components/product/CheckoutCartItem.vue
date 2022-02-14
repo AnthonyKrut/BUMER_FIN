@@ -1,9 +1,9 @@
 <template>
   <div class="checkout-cart-item">
     <router-link
+      class="checkout-cart-item__left"
       :style="`background-image:url(${mainImage});`"
       :to="{name: 'Product', params: {id: product.id}}"
-      class="checkout-cart-item__left"
     />
     <div class="checkout-cart-item__right">
       <div>
@@ -11,7 +11,7 @@
           <SvgImage name="trash" />
         </div>
 
-        <router-link :to="{name: 'Product', params: {id: product.id}}" class="checkout-cart-item__name">
+        <router-link class="checkout-cart-item__name" :to="{name: 'Product', params: {id: product.id}}">
           {{ product[`name_${$i18n.locale}`] }}
         </router-link>
 
@@ -30,11 +30,11 @@
             </div>
 
             <Multiselect
+              class="form__select checkout-cart-item__count-select"
               :options="quantityAvailable"
+              placeholder=""
               :show-labels="false"
               :value="size.quantityInOrder"
-              class="form__select checkout-cart-item__count-select"
-              placeholder=""
               @input="onChangeQuantity($event, product, size.size)"
             />
           </div>
@@ -103,7 +103,7 @@ export default {
   methods: {
     ...mapMutations('cart', [
       'changeQuantity',
-      'deleteFromCart'
+      'deleteFromCart',
     ]),
     onChangeQuantity(quantity, product, size) {
       this.changeQuantity({quantity, product, size})

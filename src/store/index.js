@@ -27,6 +27,6 @@ export default new Vuex.Store({
     categories,
     locales,
     colors,
-    seasons
+    seasons,
   },
 })

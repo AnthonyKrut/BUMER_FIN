@@ -2,8 +2,8 @@
   <div class="mobile-main-nav">
     <router-link
       active-class="mobile-main-nav__category--active"
-      exact
       class="mobile-main-nav__category"
+      exact
       :to="{name: 'Home'}"
     >
       {{ $t('common.main_page') }}
