@@ -19,7 +19,16 @@ const _addQuantity = (sizes, activeSize, quantity) => {
     }
     return {...size}
   })
+}
 
+const _setQuantity = (sizes, activeSize, quantity) => {
+  return sizes.map(origin => {
+    const size = {...origin}
+    if (size.size === activeSize) {
+      size.quantityInOrder = quantity
+    }
+    return {...size}
+  })
 }
 
 const _isQuantityUnavailable = (sizes) => {
@@ -99,6 +108,26 @@ export default {
       } else {
         state.cart.push(product)
       }
+
+      localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
+
+    changeQuantity(state, {product, size, quantity}) {
+      const quantityAvailable = product.productInfo.find(i => i.size === size)?.quantity
+
+      if (quantity > quantityAvailable) {
+        Vue.swal(i18n.t('common.error'), i18n.t('cart.to_many_products'), 'error')
+        return
+      }
+
+      product.productInfo = _setQuantity(product.productInfo, size, quantity)
+
+      localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
+
+    deleteFromCart(state, productId) {
+      console.log(productId)
+      state.cart = state.cart.filter(item => item.id !== productId)
 
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },

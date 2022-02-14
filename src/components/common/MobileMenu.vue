@@ -4,10 +4,10 @@
     <div class="mobile-menu__logo-wrapper">
       <SvgImage name="logo" />
     </div>
-    <!--    <MobileMainNav -->
-    <!--      :items="navMain" -->
-    <!--      @click.native="closeMobileMenu"-->
-    <!--    />-->
+    <MobileMainNav
+      :items="navMain"
+      @click.native="closeMobileMenu"
+    />
     <MobileSecondaryNav
       :items="navSecondary"
       @click.native="closeMobileMenu"
@@ -17,18 +17,18 @@
 </template>
 
 <script>
-// import MobileMainNav from '@/components/common/MobileMainNav'
+import MobileMainNav from '@/components/common/MobileMainNav'
 import MobileSecondaryNav from '@/components/common/MobileSecondaryNav'
 import SvgImage from '@/components/common/SvgImage'
 import MobileSocMenu from '@/components/common/MobileSocMenu'
-import {mapState, mapMutations} from 'vuex'
+import {mapMutations, mapState} from 'vuex'
 
 export default {
   name: 'MobileMenu',
   components: {
     MobileSocMenu,
     MobileSecondaryNav,
-    // MobileMainNav,
+    MobileMainNav,
     SvgImage,
   },
   computed: {

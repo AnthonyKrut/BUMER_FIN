@@ -6,5 +6,5 @@ export default {
   total: 'Oбщая сумма',
   go_to_cart: 'Перейти в корзину',
   continue_purchaising: 'Продолжить покупки',
-  to_many_products: 'Такого количества данного товара нет на складе'
+  to_many_products: 'Такого количества данного товара нет на складе',
 }

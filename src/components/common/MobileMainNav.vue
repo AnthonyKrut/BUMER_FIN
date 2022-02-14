@@ -2,6 +2,7 @@
   <div class="mobile-main-nav">
     <router-link
       active-class="mobile-main-nav__category--active"
+      exact
       class="mobile-main-nav__category"
       :to="{name: 'Home'}"
     >
@@ -14,18 +15,16 @@
       class="mobile-main-nav__category"
       :to="{name: 'Catalog', params: {id: category.id}}"
     >
-      {{ category[$_i18n_getFieldWithLocale('name')] }}
+      {{ category[`name_${$i18n.locale}`] }}
     </router-link>
   </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
-import i18n from '@/mixins/i18n'
 
 export default {
   name: 'MobileMainNav',
-  mixins: [i18n],
   computed: {
     ...mapState('categories', [
       'categories',

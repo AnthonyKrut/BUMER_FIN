@@ -3,11 +3,11 @@
     <div class="product-images__secondary-imgs-wrapper">
       <img
         v-for="image in allImages"
-        :key="image.src"
+        :key="image.largeCropImageUri"
         alt="product image small"
         class="product-images__secondary-img"
         :class="{'product-images__secondary-img--active': image.id === mainImageId}"
-        :src="image.src"
+        :src="image.smallCropImageUri"
         @click="mainImageId = image.id"
       >
     </div>
@@ -16,16 +16,14 @@
       <img
         alt="product image big"
         class="product-images__main-img"
-        :src="mainImage && mainImage.src"
+        :src="mainImage && mainImage.largeCropImageUri"
         @click="showMultiple"
       >
     </div>
 
     <vue-easy-lightbox
-      esc-disabled
       :imgs="allImages"
       :index="lightboxIndex"
-      move-disabled
       scroll-disabled
       :visible="isLightboxVisible"
       @hide="hideLightbox"
@@ -58,11 +56,11 @@ export default {
   },
   computed: {
     mainImage() {
-      return this.allImages.find(i => i.id === this.mainImageId)
+      return this.allImages.find(i => i.id === this.mainImageId) || '/img/no-image.svg'
     },
     allImages() {
       return this.product?.images?.map(i=> {
-        i.src = i.imageUri
+        i.src = i.largeCropImageUri
         return i
       }) || []
     },
@@ -100,11 +98,13 @@ export default {
 }
 
 .product-images__secondary-imgs-wrapper {
-  width: 25%;
+  width: 20%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  position: relative;
+  z-index: 2;
 
   @media screen and (max-width: 767px) {
     order: 2;
@@ -120,7 +120,8 @@ export default {
   border: 3px solid transparent;
 
   @media screen and (max-width: 767px) {
-    width: 33%;
+    width: 20%;
+    margin-top: -10%;
   }
 
   &:hover {
@@ -133,8 +134,8 @@ export default {
 }
 
 .product-images__main-img-wrapper {
-  width: 75%;
-  padding: 0 5%;
+  width: 80%;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -148,7 +149,20 @@ export default {
 }
 
 .product-images__main-img {
-  width: 100%;
+  width: calc(100% + 55px);
   object-fit: contain;
+  margin-right: -15px;
+  margin-left: -40px;
+
+  @media screen and (max-width: 767px) {
+    width: calc(100% + 40px);
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+
+::v-deep .vel-img {
+  max-width: 90vw !important;
+  max-height: 90vh !important;
 }
 </style>

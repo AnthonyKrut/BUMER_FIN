@@ -42,7 +42,7 @@ export default {
 
 .sizes-list {
   display: flex;
-  margin: 2.5em 0 0.5em;
+  margin: 2.5em -5px 0.5em -5px;
   font-size: adaptive_fz(20px, 13px);
   font-weight: 300;
 }

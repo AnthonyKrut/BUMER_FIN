@@ -5,7 +5,7 @@
         {{ category[`name_${$i18n.locale}`] }}
       </h1>
 
-      <CatalogFilters />
+      <CatalogFilters @filters-changed="getProducts" />
 
       <div class="catalog-wrapper">
         <TransitionWrapper>
@@ -49,6 +49,11 @@ export default {
   data() {
     return {
       loading: false,
+      filters: {
+        sizes: [],
+        colors: [],
+        seasons: []
+      }
     }
   },
   computed: {
@@ -77,18 +82,12 @@ export default {
     ...mapActions('products', [
       'fetchProducts',
     ]),
-    async getProducts() {
+    async getProducts(filters = {}) {
       this.loading = true
-      await this.fetchProducts([
-        // {
-        //   field: 'IsActive',
-        //   value: true
-        // },
-        {
-          field: 'CategoryId',
-          value: this.categoryId,
-        },
-      ])
+      await this.fetchProducts({
+        ...filters,
+        categories: [this.categoryId],
+      })
       this.loading = false
     },
   },

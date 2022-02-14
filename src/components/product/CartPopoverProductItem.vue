@@ -1,5 +1,5 @@
 <template>
-  <router-link class="cart-popover-product-item" :to="{name: 'Product'}">
+  <router-link class="cart-popover-product-item" :to="{name: 'Product', params: {id: product.id}}">
     <div class="cart-popover-product-item__left" :style="`background-image:url(${mainImage});`" />
     <div class="cart-popover-product-item__right">
       <div>
@@ -24,13 +24,13 @@
 
       <div>
         <div v-if="isOnSale" class="cart-popover-product-item__price-old">
-          {{priceOld}}
+          {{ priceOld }}
           <div class="cart-popover-product-item__currency-old">
             грн
           </div>
         </div>
         <div class="cart-popover-product-item__price">
-          {{activePrice}}
+          {{ activePrice }}
           <div class="cart-popover-product-item__currency">
             грн
           </div>
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     mainImage() {
-      return this.product?.images.find(i => i.imagePosition === 'Main')?.src
+      return this.product?.images.find(i => i.imagePosition === 'Main')?.smallCropImageUri
     },
     sizes() {
       return this.product.productInfo.filter(i => i.quantityInOrder > 0)
@@ -76,6 +76,7 @@ export default {
   display: flex;
   border-bottom: 1px solid $divider_color;
   text-decoration: none;
+  align-items: center;
   color: #000;
 
   &:hover {
@@ -87,8 +88,8 @@ export default {
 
 .cart-popover-product-item__left {
   width: 160px;
-  height: 170px;
-  background-position: center;
+  height: 160px;
+  background-position: center top 5px;
   background-size: contain;
   background-repeat: no-repeat;
   border: 2px solid $foreground;

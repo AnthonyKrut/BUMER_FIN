@@ -16,7 +16,7 @@
       :class="{'catalog-product-item__specs--adaptive': isSpecsAdaptive}"
     >
       <span class="catalog-product-item__sku">
-        {{ product.article }}
+        Арт: {{ product.article }}
       </span>
 
       <span class="catalog-product-item__price">
@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     image() {
-      return this.product?.images?.[0]?.imageUri || '/img/no-image.svg'
+      return this.product?.images.find(i => i.imagePosition === 'Main')?.smallCropImageUri || '/img/no-image.svg'
     },
     isOnSale() {
       return this.product?.salePrice
@@ -72,7 +72,11 @@ export default {
 
   &:hover {
     .catalog-product-item__image-wrapper {
-      background: #e2e1e1;
+      background: #000000;
+    }
+
+    .catalog-product-item__image {
+      opacity: 0.97;
     }
   }
 }
@@ -85,6 +89,7 @@ export default {
   font-size: adaptive_fz(12px, 8px);
   line-height: 2em;
   background-color: #f5973f;
+  z-index: 2;
 
   &.catalog-product-item__label--sale {
     color: $contrast_color;
@@ -102,13 +107,17 @@ export default {
   display: block;
   width: 100%;
   object-fit: cover;
+  transition: opacity 0.2s;
 }
 
 .catalog-product-item__specs {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.33em;
+  padding: 0 20px 10px 20px;
+  margin-top: -45px;
+  position: relative;
+  z-index: 2;
 
   &.catalog-product-item__specs--adaptive {
     @media screen and (max-width: 767px) {

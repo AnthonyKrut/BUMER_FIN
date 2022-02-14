@@ -60,7 +60,6 @@ export default {
 
 .catalog__body {
   display: grid;
-  grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media screen and (max-width: 767px) {

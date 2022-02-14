@@ -10,6 +10,8 @@ import lang from '@/store/lang'
 import search from '@/store/search'
 import categories from '@/store/categories'
 import locales from '@/store/locales'
+import colors from '@/store/colors'
+import seasons from '@/store/seasons'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -24,5 +26,7 @@ export default new Vuex.Store({
     search,
     categories,
     locales,
+    colors,
+    seasons
   },
 })

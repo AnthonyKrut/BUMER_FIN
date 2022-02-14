@@ -51,7 +51,7 @@ export default {
   },
   actions: {
     async fetchProducts({commit, getters}, params) {
-      const {data} = await axios.post('/Product/GetFiltered', params)
+      const {data} = await axios.post('/Product/NestedRequest', params)
 
       const transformedData = data.map(item => getters.transformProductItemForView(item))
       commit('setProducts', transformedData)
@@ -61,6 +61,11 @@ export default {
       const {data} = await axios.get('/Product/GetById', {params: {id}})
       return getters.transformProductItemForView(data)
     },
+
+    async fetchRelatives(_, article) {
+      const {data} = await axios.post(`/Product/GetRelatives?article=${article}`)
+      return data
+    }
   },
   namespaced: true,
 }

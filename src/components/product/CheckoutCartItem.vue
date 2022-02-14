@@ -1,44 +1,50 @@
 <template>
   <div class="checkout-cart-item">
-    <div class="checkout-cart-item__left" :style="`background-image:url(${product.items[0].pics[0]});`" />
+    <router-link
+      :style="`background-image:url(${mainImage});`"
+      :to="{name: 'Product', params: {id: product.id}}"
+      class="checkout-cart-item__left"
+    />
     <div class="checkout-cart-item__right">
       <div>
-        <div class="checkout-cart-item__remove-icon">
+        <div class="checkout-cart-item__remove-icon" @click="deleteFromCart(product.id)">
           <SvgImage name="trash" />
         </div>
 
-        <router-link class="checkout-cart-item__name" :to="{name: 'Product'}">
-          Кроссовки
+        <router-link :to="{name: 'Product', params: {id: product.id}}" class="checkout-cart-item__name">
+          {{ product[`name_${$i18n.locale}`] }}
         </router-link>
 
-        <div class="checkout-cart-item__size">
-          Размер: 43
-        </div>
-
-        <div class="checkout-cart-item__color">
-          Цвет: Зеленый
-        </div>
-
-        <div class="checkout-cart-item__count">
-          <div class="checkout-cart-item__count-label">
-            Количество
+        <div
+          v-for="size in sizes"
+          :key="size.size"
+          class="cart-popover-product-item__info"
+        >
+          <div class="checkout-cart-item__size">
+            {{ $t('product.size') }}: {{ size.size }}
           </div>
 
-          <Multiselect
-            class="form__select checkout-cart-item__count-select"
-            :options="quantityAvailable"
-            placeholder=""
-            :show-labels="false"
-            :value="product.quantity || 1"
-            @change="changeQuantity"
-          />
+          <div class="checkout-cart-item__count">
+            <div class="checkout-cart-item__count-label">
+              {{ $t('product.quantity_short') }}:
+            </div>
+
+            <Multiselect
+              :options="quantityAvailable"
+              :show-labels="false"
+              :value="size.quantityInOrder"
+              class="form__select checkout-cart-item__count-select"
+              placeholder=""
+              @input="onChangeQuantity($event, product, size.size)"
+            />
+          </div>
         </div>
       </div>
 
       <div>
-        <div class="checkout-cart-item__price-old">
+        <div v-if="isOnSale" class="checkout-cart-item__price-old">
           <div class="checkout-cart-item__value-old">
-            2 499
+            {{ priceOld }}
           </div>
           <div class="checkout-cart-item__currency-old">
             грн
@@ -46,7 +52,7 @@
         </div>
         <div class="checkout-cart-item__price">
           <div class="checkout-cart-item__value">
-            2 499
+            {{ activePrice }}
           </div>
           <div class="checkout-cart-item__currency">
             грн
@@ -60,6 +66,7 @@
 <script>
 import Multiselect from 'vue-multiselect'
 import SvgImage from '@/components/common/SvgImage'
+import {mapMutations} from 'vuex'
 
 export default {
   name: 'CheckoutCartItem',
@@ -74,13 +81,32 @@ export default {
     },
   },
   computed: {
-    quantityAvailable () {
+    mainImage() {
+      return this.product?.images.find(i => i.imagePosition === 'Main')?.smallCropImageUri
+    },
+    sizes() {
+      return this.product.productInfo.filter(i => i.quantityInOrder > 0)
+    },
+    isOnSale() {
+      return this.product?.salePrice
+    },
+    activePrice() {
+      return this.product.salePrice || this.product.price
+    },
+    priceOld() {
+      return this.product.price
+    },
+    quantityAvailable() {
       return [1, 2, 3, 4, 5]
     },
   },
   methods: {
-    changeQuantity(e) {
-      console.log('changeQuantity', e)
+    ...mapMutations('cart', [
+      'changeQuantity',
+      'deleteFromCart'
+    ]),
+    onChangeQuantity(quantity, product, size) {
+      this.changeQuantity({quantity, product, size})
     },
   },
 }
@@ -92,7 +118,6 @@ export default {
 
 .checkout-cart-item {
   display: flex;
-  background: $product_bg;
   border-bottom: 1px solid $divider_color;
   text-decoration: none;
   color: #000;
@@ -115,7 +140,7 @@ export default {
 .checkout-cart-item__right {
   position: relative;
   flex-grow: 1;
-  padding: 1.5em 3em 2em 4em; //15px 30px 20px 40px;
+  padding: 1.5em 3em 2em 4em;
   border-top: 1.25em solid $foreground;
   border-bottom: 1.25em solid $foreground;
   background: $foreground;
@@ -137,7 +162,7 @@ export default {
   text-transform: uppercase;
   font-size: adaptive_fz(12px, 10px);
   font-weight: 700;
-  margin-bottom: 0.75em;
+  margin-bottom: 20px;
   display: block;
   color: #000;
   text-decoration: none;
@@ -151,7 +176,7 @@ export default {
   color: #8e8e8e;
   font-size: adaptive_fz(11px, 9px);
   font-weight: 400;
-  margin-bottom: 0.9em;
+  margin-bottom: 5px;
 }
 
 .checkout-cart-item__color {
@@ -165,17 +190,17 @@ export default {
   align-items: center;
   font-size: adaptive_fz(11px, 9px);
   font-weight: 400;
-  margin: 0.7em 0;
+  margin-bottom: 15px;
 }
 
 .checkout-cart-item__count-label {
   color: #8e8e8e;
-  margin-right: 3.3em;
+  margin-right: 10px;
 }
 
 .checkout-cart-item__count-select {
   width: 48px;
-  height: 30px;
+  height: 25px;
   position: relative;
   min-height: unset;
 
@@ -183,23 +208,23 @@ export default {
 
     ::v-deep {
       .multiselect__select {
-        top: 10px;
+        top: 8px;
       }
     }
   }
 
   ::v-deep {
     .multiselect__tags {
-      height: 30px;
+      height: 25px;
       min-height: auto;
-      padding: 6px 30px 0 6px;
+      padding: 3px 30px 0 6px;
     }
 
     .multiselect__select {
-      width: 30px;
+      width: 25px;
       height: 12px;
       right: 1px;
-      top: 9px;
+      top: 7px;
       padding: 0px 8px;
 
       &:before {

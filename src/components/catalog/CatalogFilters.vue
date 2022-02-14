@@ -5,9 +5,12 @@
         <Multiselect
           v-model="selectedFilters.sortBy"
           class="catalog-filters__filter"
-          :options="filters.sortBy"
+          :options="sortByList"
+          label="label"
+          track-by="label"
           :placeholder="$t('product.sort_by')"
           :show-labels="false"
+          @input="onFiltersChanged"
         >
           <template slot="singleLabel">
             {{ $t('product.sort_by') }}
@@ -20,10 +23,11 @@
           v-model="selectedFilters.sizes"
           class="catalog-filters__filter"
           multiple
-          :options="filters.sizes"
+          :options="sizesList"
           :placeholder="$t('product.sizes')"
           :searchable="false"
           :show-labels="false"
+          @input="onFiltersChanged"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
             <span v-if="values.length || isOpen" class="multiselect__single">
@@ -47,13 +51,14 @@
         <Multiselect
           v-model="selectedFilters.colors"
           class="catalog-filters__filter"
-          label="color_name"
+          label="name_ru"
           multiple
-          :options="filters.colors"
+          :options="colorsList"
           :placeholder="$t('product.colors')"
           :searchable="false"
           :show-labels="false"
-          track-by="color_code"
+          track-by="id"
+          @input="onFiltersChanged"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
             <span v-if="values.length || isOpen" class="multiselect__single">
@@ -65,13 +70,13 @@
               class="catalog-filters__custom-option"
               :class="{'catalog-filters__custom-option--active': isActiveColor(option)}"
             >
-              <div class="catalog-filters__custom-option-color" :style="`background:${option.color_code};`">
+              <div class="catalog-filters__custom-option-color" :style="`background:${option.hex};`">
                 <div v-if="isActiveColor(option)" class="catalog-filters__custom-option-check">
                   <SvgImage name="check1" />
                 </div>
               </div>
               <div class="catalog-filters__custom-option-label">
-                {{ option.color_name }}
+                {{ option[`name_${$i18n.locale}`] }}
               </div>
             </div>
           </template>
@@ -80,14 +85,21 @@
 
       <div class="catalog-filters__filter-wrapper">
         <Multiselect
-          v-model="selectedFilters.category"
+          v-model="selectedFilters.seasons"
           class="catalog-filters__filter"
-          :options="filters.category"
-          :placeholder="$t('product.footwear_type')"
+          :options="seasonsList"
+          :placeholder="$t('product.seasons')"
+          :searchable="false"
           :show-labels="false"
+          multiple
+          track-by="id"
+          :label="`name_${$i18n.locale}`"
+          @input="onFiltersChanged"
         >
-          <template slot="singleLabel">
-            {{ $t('product.footwear_type') }}
+          <template slot="selection" slot-scope="{ values, isOpen }">
+            <span v-if="values.length || isOpen" class="multiselect__single">
+              {{ $t('product.seasons') }}
+            </span>
           </template>
         </Multiselect>
       </div>
@@ -97,8 +109,8 @@
       <div v-if="selectedFilters.sortBy" class="catalog-filters__selected-group">
         {{ $t('product.sort_by') }}:
         <div class="catalog-filters__selected-item">
-          {{ selectedFilters.sortBy }}
-          <div class="catalog-filters__selected-item-close" @click="selectedFilters.sortBy = null">
+          {{ selectedFilters.sortBy && selectedFilters.sortBy.label }}
+          <div class="catalog-filters__selected-item-close" @click="removeSorting()">
             &times;
           </div>
         </div>
@@ -122,21 +134,25 @@
         {{ $t('product.colors') }}:
         <div
           v-for="color in selectedFilters.colors"
-          :key="color.color_code"
+          :key="color.id"
           class="catalog-filters__selected-item"
         >
-          {{ color.color_name }}
+          {{ color[`name_${$i18n.locale}`] }}
           <div class="catalog-filters__selected-item-close" @click="removeSelectedFilter(color, 'colors')">
             &times;
           </div>
         </div>
       </div>
 
-      <div v-if="selectedFilters.category" class="catalog-filters__selected-group">
-        {{ $t('product.footwear_type') }}:
-        <div class="catalog-filters__selected-item">
-          {{ selectedFilters.category }}
-          <div class="catalog-filters__selected-item-close" @click="selectedFilters.category = null">
+      <div v-if="selectedFilters.seasons.length" class="catalog-filters__selected-group">
+        {{ $t('product.seasons') }}:
+        <div
+            v-for="season in selectedFilters.seasons"
+            :key="season.id"
+            class="catalog-filters__selected-item"
+        >
+          {{ season[`name_${$i18n.locale}`] }}
+          <div class="catalog-filters__selected-item-close" @click="removeSelectedFilter(season, 'seasons')">
             &times;
           </div>
         </div>
@@ -149,6 +165,7 @@
 import Multiselect from 'vue-multiselect'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
 import SvgImage from '@/components/common/SvgImage'
+import {mapActions, mapState} from 'vuex'
 
 export default {
   name: 'CatalogFilters',
@@ -158,78 +175,65 @@ export default {
   },
   data() {
     return {
-      filters: {
-        sortBy: [
-          this.$t('product.price_asc'),
-          this.$t('product.price_desc'),
-          this.$t('product.novelty'),
-        ],
-        sizes: [
-          34,
-          35,
-          36,
-          37,
-          38,
-          39,
-          40,
-          41,
-          42,
-          43,
-          44,
-          45,
-          46,
-        ],
-        colors: [
-          {
-            color_name: 'Зеленый',
-            color_code: '#5c6b5c',
-          },
-          {
-            color_name: 'Синий',
-            color_code: '#3e5474',
-          },
-          {
-            color_name: 'Терракотовый',
-            color_code: '#f5973f',
-          },
-          {
-            color_name: 'Коричневый',
-            color_code: '#573a20',
-          },
-          {
-            color_name: 'Серый',
-            color_code: '#6d7073',
-          },
-          {
-            color_name: 'Черный',
-            color_code: '#000000',
-          },
-        ],
-        category: [
-          'Кроссовки',
-          'Ботинки',
-          'Туфли',
-        ],
-      },
+      sortByList: [
+        {
+          key: 'Created',
+          label: this.$t('product.novelty'),
+          desc: false,
+        },
+        {
+          key: 'Price',
+          label: this.$t('product.price_asc'),
+          desc: false,
+        },
+        {
+          key: 'Price',
+          label: this.$t('product.price_desc'),
+          desc: true,
+        },
+      ],
+      sizesList: [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+      ],
       selectedFilters: {
         sortBy: null,
+        desc: true,
         sizes: [],
         colors: [],
-        category: null,
+        seasons: [],
       },
     }
   },
   computed: {
+    ...mapState('colors', {colorsList: 'colors'}),
+    ...mapState('seasons', {seasonsList: 'seasons'}),
     isAnyFilterSelected() {
       return !!(this.selectedFilters.sortBy
         || this.selectedFilters.sizes.length
         || this.selectedFilters.colors.length
-        || this.selectedFilters.category)
+        || this.selectedFilters.seasons.length)
     },
   },
+  created() {
+    this.fetchColors()
+    this.fetchSeasons()
+  },
   methods: {
+    ...mapActions('colors', ['fetchColors']),
+    ...mapActions('seasons', ['fetchSeasons']),
+    removeSorting() {
+      this.selectedFilters.sortBy = null
+      this.selectedFilters.desc = true
+      this.onFiltersChanged()
+    },
     removeSelectedFilter(val, type) {
       this.selectedFilters[type] = this.selectedFilters[type].filter(item => item !== val)
+      this.onFiltersChanged()
     },
     isActiveColor(val) {
       return this.selectedFilters.colors.some(item => item === val)
@@ -237,6 +241,15 @@ export default {
     isActiveSize(val) {
       return this.selectedFilters.sizes.some(item => item === val)
     },
+    onFiltersChanged() {
+      this.$emit('filters-changed', {
+        sortBy: this.selectedFilters.sortBy ? this.selectedFilters.sortBy.key : 'Created',
+        desc: this.selectedFilters.sortBy ? this.selectedFilters.sortBy.desc : true,
+        sizes: this.selectedFilters.sizes.length ? this.selectedFilters.sizes : null,
+        colors: this.selectedFilters.colors.length ? this.selectedFilters.colors.map(i => i.id) : null,
+        seasons: this.selectedFilters.seasons.length ? this.selectedFilters.seasons.map(i => i.id) : null,
+      })
+    }
   },
 }
 </script>
@@ -393,7 +406,7 @@ export default {
     .catalog-filters__filter-wrapper {
       &:nth-child(1) {
         .multiselect__input {
-          max-width: 128px !important;         
+          max-width: 128px !important;
         }
       }
       &:nth-child(4) {
@@ -403,7 +416,7 @@ export default {
       }
     }
   }
-  
+
   .multiselect__tags {
     padding-left: 0;
     border: none;

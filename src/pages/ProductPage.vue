@@ -4,8 +4,8 @@
       <TransitionWrapper>
         <div v-if="product" class="product-card-wrapper">
           <div class="product-card__top">
-            <!--        <PrevNextProductArrow type="prev" />-->
-            <!--        <PrevNextProductArrow type="next" />-->
+            <!--<PrevNextProductArrow type="prev" />-->
+            <!--<PrevNextProductArrow type="next" />-->
 
             <ProductImages :product="product" />
 
@@ -20,7 +20,7 @@
               </div>
 
               <ProductDetails :product="product" />
-              <ColorsList :product="product" />
+              <ColorsList :product="product" :relatives="relatives" />
               <SizesList :product="product" />
 
 
@@ -49,7 +49,10 @@
       </TransitionWrapper>
 
       <TransitionWrapper>
-        <div v-if="product" class="product-card__description" v-html="product[`description_${$i18n.locale}`]" />
+        <div v-if="product">
+          <div class="product-card__description" v-html="product[`description_${$i18n.locale}`]" />
+          <div class="product-card__description2" v-html="$t('product.product_page_description')" />
+        </div>
       </TransitionWrapper>
 
       <ThePreloader v-if="loading" />
@@ -111,6 +114,7 @@ export default {
       recommendedProductsLoading: true,
       product: null,
       error: null,
+      relatives: []
     }
   },
   computed: {
@@ -130,14 +134,19 @@ export default {
       return false
     },
   },
-  async created() {
-    await this.getProduct()
-    await this.getRecommendedProducts()
+  created() {
+    this.getData()
+  },
+  watch: {
+    productId() {
+      this.getData()
+    },
   },
   methods: {
     ...mapActions('products', [
       'fetchProduct',
       'fetchProducts',
+      'fetchRelatives'
     ]),
     ...mapMutations('common', [
       'openCartPopover',
@@ -145,6 +154,11 @@ export default {
     ...mapMutations('cart', [
       'addToCart',
     ]),
+    async getData() {
+      await this.getProduct()
+      this.getRecommendedProducts()
+      this.relatives = await this.fetchRelatives(this.product.article)
+    },
     async getProduct() {
       this.loading = true
       this.product = await this.fetchProduct(this.productId)
@@ -152,16 +166,10 @@ export default {
     },
     async getRecommendedProducts() {
       this.recommendedProductsLoading = true
-      await this.fetchProducts([
-        // {
-        //   field: 'IsActive',
-        //   value: true
-        // },
-        {
-          field: 'CategoryId',
-          value: this.product.category?.id,
-        },
-      ])
+      await this.fetchProducts({
+        colors: [this.product.color.id],
+        categories: [this.product.category.id],
+      })
       this.recommendedProductsLoading = false
     },
     addProductToCart() {
@@ -238,6 +246,10 @@ export default {
   margin-top: 0.5em;
   padding: 0.83em 1.66em;
   font-size: adaptive_fz(12px, 9px);
+
+  @media screen and (max-width: 767px) {
+    font-size: 13px;
+  }
 }
 
 .product-card__cart-icon {
@@ -285,7 +297,23 @@ export default {
 
 .product-card__description {
   margin-top: 40px;
+  margin-bottom: 80px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 20px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+}
+
+.product-card__description2 {
+  margin-top: 40px;
   margin-bottom: 130px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    margin-top: 40px;
+  }
 }
 
 </style>

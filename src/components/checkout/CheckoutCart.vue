@@ -16,12 +16,12 @@
       {{ $t('cart.empty_cart') }}
     </div>
 
-    <div v-if="safe" class="checkout-page__discount">
+    <div v-if="safe && cart.length" class="checkout-page__discount">
       <div>{{ $t('cart.saving') }}</div>
       <div>{{ safe }} грн</div>
     </div>
 
-    <div class="checkout-page__total">
+    <div v-if="cart.length" class="checkout-page__total">
       <div class="checkout-page__total-label">
         {{ $t('cart.to_pay') }}
       </div>
@@ -81,7 +81,9 @@ export default {
   }
 }
 
-//.checkout-cart__content {}
+.checkout-cart__content {
+  margin-bottom: 15px;
+}
 
 .checkout-page__discount {
   color: $cuccess_color;
@@ -124,6 +126,7 @@ export default {
   padding: 2.25em;
   text-transform: uppercase;
   border-bottom: 1px solid $divider_color;
+  margin-bottom: 20px;
 
   @media screen and (min-width: 1440px) {
     font-size: 20px;

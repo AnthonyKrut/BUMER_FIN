@@ -109,7 +109,7 @@ export default {
 
 .product-price__price-active-value {
   margin-right: 0.05em;
-  font-size: adaptive_fz(80px, 20px);
+  font-size: 40px;
   font-weight: 700;
   line-height: 1.1em;
 
