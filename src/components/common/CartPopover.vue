@@ -37,10 +37,6 @@
         {{ $t('cart.go_to_cart') }}
       </Btn>
 
-      <div class="cart-popover__footer-link" @click="clearCart">
-        Clear cart
-      </div>
-
       <div class="cart-popover__footer-link" @click="closeCartPopover">
         {{ $t('cart.continue_purchaising') }}
       </div>

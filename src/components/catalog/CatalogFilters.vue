@@ -93,7 +93,7 @@
           :placeholder="$t('product.seasons')"
           :searchable="false"
           :show-labels="false"
-          track-by="id"
+          track-by="key"
           @input="onFiltersChanged"
         >
           <template slot="selection" slot-scope="{ values, isOpen }">
@@ -221,7 +221,6 @@ export default {
   },
   created() {
     this.fetchColors()
-    this.fetchSeasons()
   },
   methods: {
     ...mapActions('colors', ['fetchColors']),
@@ -243,11 +242,11 @@ export default {
     },
     onFiltersChanged() {
       this.$emit('filters-changed', {
-        sortBy: this.selectedFilters.sortBy ? this.selectedFilters.sortBy.key : 'Created',
+        sortBy: this.selectedFilters.sortBy ? this.selectedFilters.sortBy.key : null,
         desc: this.selectedFilters.sortBy ? this.selectedFilters.sortBy.desc : true,
         sizes: this.selectedFilters.sizes.length ? this.selectedFilters.sizes : null,
         colors: this.selectedFilters.colors.length ? this.selectedFilters.colors.map(i => i.id) : null,
-        seasons: this.selectedFilters.seasons.length ? this.selectedFilters.seasons.map(i => i.id) : null,
+        seasons: this.selectedFilters.seasons.length ? this.selectedFilters.seasons.map(i => i.key) : null,
       })
     },
   },

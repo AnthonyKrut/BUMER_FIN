@@ -2,7 +2,28 @@ import axios from 'axios'
 
 export default {
     state: () => ({
-        seasons: [],
+        seasons: [
+            {
+                key: 'winter',
+                name_ru: 'Зима',
+                name_ua: 'Зима',
+            },
+            {
+                key: 'spring',
+                name_ru: 'Весна',
+                name_ua: 'Весна',
+            },
+            {
+                key: 'summer',
+                name_ru: 'Лето',
+                name_ua: 'Літо',
+            },
+            {
+                key: 'autumn',
+                name_ru: 'Осень',
+                name_ua: 'Осінь',
+            },
+        ],
     }),
 
     getters: {

@@ -92,5 +92,12 @@
       margin: 0;
     }
   }
+
+  &.multiselect--disabled {
+    .multiselect__select {
+      background: transparent;
+      opacity: 0.3;
+    }
+  }
 }
 

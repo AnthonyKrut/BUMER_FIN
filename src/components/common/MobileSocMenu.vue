@@ -3,7 +3,7 @@
     <a class="mobile-soc-menu__item" href="#!">
       <SvgImage name="telegram" />
     </a>
-    <a class="mobile-soc-menu__item" href="#!">
+    <a class="mobile-soc-menu__item" href="https://www.instagram.com/bumer_style/">
       <SvgImage name="instagram" />
     </a>
     <a class="mobile-soc-menu__item" href="#!">

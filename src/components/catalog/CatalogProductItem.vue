@@ -1,14 +1,16 @@
 <template>
   <router-link class="catalog-product-item" :to="{name: 'Product', params: {id: product.id}}">
-    <span v-if="product.isTop" class="catalog-product-item__label">
-      TOP
-    </span>
-    <div v-show="isOnSale" class="catalog-product-item__label catalog-product-item__label--sale">
-      SALE
+    <div class="catalog-product-item__label-wrapper">
+      <div v-show="isOnSale" class="catalog-product-item__label catalog-product-item__label--sale">
+        SALE
+      </div>
+      <div v-if="product.isNew" class="catalog-product-item__label">
+        NEW
+      </div>
     </div>
 
     <span class="catalog-product-item__image-wrapper">
-      <img alt="" class="catalog-product-item__image" :src="image">
+      <img alt="" class="catalog-product-item__image" :src="product.image">
     </span>
 
     <span
@@ -40,9 +42,6 @@ export default {
     },
   },
   computed: {
-    image() {
-      return this.product?.images.find(i => i.imagePosition === 'Main')?.smallCropImageUri || '/img/no-image.svg'
-    },
     isOnSale() {
       return this.product?.salePrice
     },
@@ -88,11 +87,11 @@ export default {
   padding: 0 1em;
   font-size: adaptive_fz(12px, 8px);
   line-height: 2em;
-  background-color: #f5973f;
+  background: #6ca746;
+  color: #ffffff;
   z-index: 2;
 
   &.catalog-product-item__label--sale {
-    color: $contrast_color;
     background-color: #c61d24;
   }
 }
@@ -140,6 +139,14 @@ export default {
 
 .catalog-product-item__currency {
   font-size: 0.75em;
+}
+
+.catalog-product-item__label-wrapper {
+  display: flex;
+
+  > * {
+    margin-left: 7px;
+  }
 }
 
 </style>

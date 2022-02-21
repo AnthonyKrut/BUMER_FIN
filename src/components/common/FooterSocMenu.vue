@@ -31,7 +31,7 @@ export default {
           label: 'Telegram',
         },
         {
-          link: '',
+          link: 'https://www.instagram.com/bumer_style/',
           icon: 'instagram',
           label: 'Instagram',
         },

@@ -85,6 +85,22 @@ export default {
         return acc += getters.cartItemCount(cartItem) * getters.cartItemPriceDelta(cartItem)
       }, 0)
     },
+
+    orderProducts(state) {
+      const result = []
+      state.cart.forEach(product => {
+        const sizes = product.productInfo.filter(size => size.quantityInOrder > 0)
+        sizes.forEach(size => {
+          result.push({
+            productId:	product.id,
+            size:	size.size,
+            colorId:	product.color.id,
+            quantity:	size.quantityInOrder,
+          })
+        })
+      })
+      return result
+    },
   },
   mutations: {
     addToCart(state, payload) {

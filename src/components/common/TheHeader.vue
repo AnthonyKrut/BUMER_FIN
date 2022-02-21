@@ -28,7 +28,7 @@
           <MainNav />
 
           <div class="header__bottom-right">
-            <HeaderSearchForm />
+            <!--            <HeaderSearchForm />-->
 
             <div
               class="header__cart-button"
@@ -52,7 +52,7 @@ import SvgImage from './SvgImage.vue'
 import CartPopover from '@/components/common/CartPopover'
 import {mapMutations, mapState, mapGetters} from 'vuex'
 import MainNav from '@/components/common/MainNav'
-import HeaderSearchForm from '@/components/common/HeaderSearchForm'
+// import HeaderSearchForm from '@/components/common/HeaderSearchForm'
 import LangSwitcher from '@/components/common/LangSwitcher'
 import HeaderCall from '@/components/common/HeaderCall'
 import TopHeaderNav from '@/components/common/TopHeaderNav'
@@ -65,7 +65,7 @@ export default {
     TopHeaderNav,
     HeaderCall,
     LangSwitcher,
-    HeaderSearchForm,
+    // HeaderSearchForm,
     MainNav,
     CartPopover,
     SvgImage,
@@ -166,7 +166,7 @@ export default {
 
 .header__bottom-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 20%;
   min-width: 215px;
   position: relative;

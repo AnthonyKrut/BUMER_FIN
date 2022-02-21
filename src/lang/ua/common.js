@@ -1,6 +1,6 @@
 export default {
   main_page: 'Головна',
-  shipping_action: 'Безкоштовна доставка від 2999 грн',
+  shipping_action: 'Безкоштовна доставка від 3999 грн',
   ask_callback: 'Замовити дзвінок',
   call_popover_message: 'Або залиште свій телефон для зворотного дзвінка',
   call_popover_button: 'Перетелефонувати мені',
@@ -15,4 +15,9 @@ export default {
   public_offer: 'Договір публічної оферти',
   back_to_homepage: 'Повернутися на головну',
   error: 'Помилка',
+  order_successfull_heading: 'Замовлення успішно сформовано',
+  order_successfull_text: 'Дякуємо! Наш менеджер незабаром зв\'яжеться з вами для підтвердження замовлення.',
+  to_home: 'На головну сторінку',
+  callback_successfull_heading: 'Дякуємо!',
+  callback_successfull_text: 'Наш менеджер незабаром вам перетелефонує.',
 }

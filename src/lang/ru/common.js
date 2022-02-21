@@ -1,6 +1,6 @@
 export default {
   main_page: 'Главная',
-  shipping_action: 'Бесплатная доставка от 2999 грн',
+  shipping_action: 'Бесплатная доставка от 3999 грн',
   ask_callback: 'Заказать звонок',
   call_popover_message: 'Либо оставьте свой телефон для обратного звонка',
   call_popover_button: 'Перезвонить мне',
@@ -15,4 +15,9 @@ export default {
   public_offer: 'Договор публичной оферты',
   back_to_homepage: 'Вернуться на главную',
   error: 'Ошибка',
+  order_successfull_heading: 'Заказ успешно сформирован',
+  order_successfull_text: 'Спасибо! Наш менеджер скоро свяжется с вами<br> для подтверждения заказа.',
+  to_home: 'На главную страницу',
+  callback_successfull_heading: 'Спасибо!',
+  callback_successfull_text: 'Наш менеджер скоро вам перезвонит.',
 }

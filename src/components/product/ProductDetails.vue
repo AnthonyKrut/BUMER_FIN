@@ -21,12 +21,17 @@
         <td>{{ $t('product.footwear_type') }}:</td>
         <td>{{ product.category[`name_${$i18n.locale}`] }}</td>
       </tr>
+      <tr>
+        <td>{{ $t('product.seasons') }}:</td>
+        <td>{{ seasonList }}</td>
+      </tr>
     </tbody>
   </table>
 </template>
 
 <script>
 import i18n from '@/mixins/i18n'
+import {mapState} from 'vuex'
 
 export default {
   name: 'ProductDetails',
@@ -43,6 +48,22 @@ export default {
     return {
       category: null,
     }
+  },
+  computed: {
+    ...mapState('seasons', [
+      'seasons',
+    ]),
+    seasonList() {
+      const result = []
+      this.seasons.forEach(season => {
+        console.log(season)
+        if (this.product[season.key]) {
+          result.push(season[`name_${this.$i18n.locale}`])
+        }
+      })
+
+      return result.join(', ')
+    },
   },
 }
 </script>

@@ -12,6 +12,7 @@ import categories from '@/store/categories'
 import locales from '@/store/locales'
 import colors from '@/store/colors'
 import seasons from '@/store/seasons'
+import checkout from '@/store/checkout'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -28,5 +29,6 @@ export default new Vuex.Store({
     locales,
     colors,
     seasons,
+    checkout,
   },
 })

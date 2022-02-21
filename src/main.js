@@ -14,7 +14,9 @@ import VueMeta from 'vue-meta'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
 Vue.use(Vuelidate)
-Vue.use(vueDebounce)
+Vue.use(vueDebounce, {
+  listenTo: ['input', 'search-change'],
+})
 Vue.use(VueSweetalert2)
 Vue.use(VueCookies)
 Vue.use(VueMeta)

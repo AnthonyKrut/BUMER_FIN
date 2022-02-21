@@ -50,11 +50,11 @@ export default {
     },
   },
   actions: {
-    async fetchProducts({commit, getters}, params) {
+    async fetchProducts({commit}, params) {
       const {data} = await axios.post('/Product/NestedRequest', params)
-
-      const transformedData = data.map(item => getters.transformProductItemForView(item))
-      commit('setProducts', transformedData)
+      //
+      // const transformedData = data.map(item => getters.transformProductItemForView(item))
+      commit('setProducts', data)
     },
 
     async fetchProduct({getters}, id) {

@@ -5,7 +5,7 @@
 
       <div class="checkout-page__inner">
         <div class="checkout-page__left">
-          <CheckoutForm ref="checkoutForm" />
+          <CheckoutForm ref="checkoutForm" @set-loader="(val) => loading = val" />
 
           <div v-if="safe" class="checkout-page__discount">
             <div>{{ $t('checkout.saving') }}</div>
@@ -21,19 +21,23 @@
             </div>
           </div>
 
-          <Btn full-width @click.native="$refs.checkoutForm.submit">
-            {{ $t('checkout.confirm_checkout') }}
-          </Btn>
+          <div class="checkout-page__submit-button-wrapper">
+            <Btn v-if="!loading" full-width @click.native="$refs.checkoutForm.submit">
+              {{ $t('checkout.confirm_checkout') }}
+            </Btn>
 
-          <div class="checkout-page__privacy-policy">
-            {{ $t('checkout.privacy_policy_link') }}
-            <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PrivacyPolicyInfo'}">
-              {{ $t('checkout.privacy_policy') }}
-            </router-link>
-            {{ $t('checkout.public_offer_link') }}
-            <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PublicOfferInfo'}">
-              {{ $t('checkout.public_offer') }}
-            </router-link>
+            <div v-if="!loading" class="checkout-page__privacy-policy">
+              {{ $t('checkout.privacy_policy_link') }}
+              <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PrivacyPolicyInfo'}">
+                {{ $t('checkout.privacy_policy') }}
+              </router-link>
+              {{ $t('checkout.public_offer_link') }}
+              <router-link class="checkout-page__privacy-policy-link" :to="{name: 'PublicOfferInfo'}">
+                {{ $t('checkout.public_offer') }}
+              </router-link>
+            </div>
+
+            <ThePreloader v-if="loading" />
           </div>
         </div>
         <div class="checkout-page__right">
@@ -49,13 +53,20 @@ import CheckoutForm from '@/components/checkout/CheckoutForm'
 import Btn from '@/components/common/Btn'
 import CheckoutCart from '@/components/checkout/CheckoutCart'
 import {mapGetters} from 'vuex'
+import ThePreloader from '@/components/common/ThePreloader'
 
 export default {
   name: 'CheckoutPage',
   components: {
+    ThePreloader,
     CheckoutCart,
     Btn,
     CheckoutForm,
+  },
+  data() {
+    return {
+      loading: false,
+    }
   },
   computed: {
     ...mapGetters('cart', [
@@ -162,6 +173,10 @@ export default {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.checkout-page__submit-button-wrapper {
+  position: relative;
 }
 
 </style>

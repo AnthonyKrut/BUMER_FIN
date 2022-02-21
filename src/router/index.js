@@ -12,6 +12,7 @@ import GuaranteeInfoPage from '../pages/GuaranteeInfoPage'
 import Error404Page from '../pages/Error404Page'
 import PrivacyPolicyInfoPage from '../pages/PrivacyPolicyInfoPage'
 import PublicOfferInfoPage from '../pages/PublicOfferInfoPage'
+import SuccessfullOrderPage from '../pages/SuccessfullOrderPage'
 
 const routes = [
   {
@@ -110,6 +111,15 @@ const routes = [
     meta: {
       title_ru: '404',
       title_ua: '404',
+    },
+  },
+  {
+    path: '/successfull-order-page',
+    name: 'SuccessfullOrder',
+    component: SuccessfullOrderPage,
+    meta: {
+      title_ru: 'Заказ успешно создан',
+      title_ua: 'Замовлення успішно створено',
     },
   },
 ]

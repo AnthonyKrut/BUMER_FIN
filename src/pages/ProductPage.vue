@@ -14,8 +14,13 @@
                 <div class="product-card__heading">
                   {{ product[`name_${$i18n.locale}`] }}
                 </div>
-                <div v-show="isOnSale" class="product-card__sale-label">
-                  SALE
+                <div class="product-card__sale-label-wrapper">
+                  <div v-show="isOnSale" class="product-card__label">
+                    SALE
+                  </div>
+                  <div v-show="product.isNew" class="product-card__label product-card__label--new">
+                    NEW
+                  </div>
                 </div>
               </div>
 
@@ -234,12 +239,16 @@ export default {
   text-transform: uppercase;
 }
 
-.product-card__sale-label {
+.product-card__label {
   padding: 0 1em;
   font-size: adaptive_fz(12px, 8px);
   line-height: 2.3em;
   color: $contrast_color;
   background-color: #c61d24;
+
+  &.product-card__label--new {
+    background: #6ca746;
+  }
 }
 
 .product-card__buy-btn {
@@ -313,6 +322,14 @@ export default {
   @media screen and (max-width: 767px) {
     font-size: 14px;
     margin-top: 40px;
+  }
+}
+
+.product-card__sale-label-wrapper {
+  display: flex;
+
+  > * {
+    margin-left: 7px;
   }
 }
 
